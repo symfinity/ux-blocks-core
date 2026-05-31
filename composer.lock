@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1b541696cdbd669b32160f8b4f326c73",
+    "content-hash": "a88850ad661257394425865e0e2d8faa",
     "packages": [
         {
             "name": "psr/cache",
@@ -214,7 +214,7 @@
             "dist": {
                 "type": "path",
                 "url": "../ux-blocks",
-                "reference": "ba63860d38a20bff0ed9515dc1c0d628732f77c3"
+                "reference": "1d32bb486b694890e9cc8d3db89e18c311f12a29"
             },
             "require": {
                 "php": ">=8.2",
@@ -223,6 +223,11 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^10.5 || ^11.0"
+            },
+            "suggest": {
+                "symfinity/ui-action": "Native HTTP action semantics for interactive blocks (layer 3)",
+                "symfinity/ui-kernel": "Token-driven role CSS and flavours when building styled blocks",
+                "symfony/ux-icons": "Icon set for roles that use ux:icon (optional per app)"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -248,7 +253,7 @@
             "license": [
                 "MIT"
             ],
-            "description": "UX Blocks base SDK — registry schema and Chameleon markup helpers for Symfony UX Twig components",
+            "description": "UX Blocks base SDK — registry schema and Symfinity UI markup helpers for Symfony UX Twig components",
             "transport-options": {
                 "symlink": true,
                 "relative": true
@@ -3043,16 +3048,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v3.27.0",
+            "version": "v3.27.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "04ae1bfe9463c816cf72ca0abe7eae2c77a9a9ed"
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/04ae1bfe9463c816cf72ca0abe7eae2c77a9a9ed",
-                "reference": "04ae1bfe9463c816cf72ca0abe7eae2c77a9a9ed",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/ae2071bffb38f04847fc0864d730c94b9cb8ab74",
+                "reference": "ae2071bffb38f04847fc0864d730c94b9cb8ab74",
                 "shasum": ""
             },
             "require": {
@@ -3107,7 +3112,7 @@
             ],
             "support": {
                 "issues": "https://github.com/twigphp/Twig/issues",
-                "source": "https://github.com/twigphp/Twig/tree/v3.27.0"
+                "source": "https://github.com/twigphp/Twig/tree/v3.27.1"
             },
             "funding": [
                 {
@@ -3119,7 +3124,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-05-27T13:05:51+00:00"
+            "time": "2026-05-30T17:09:26+00:00"
         }
     ],
     "packages-dev": [
@@ -4922,6 +4927,50 @@
             "time": "2024-10-20T05:08:20+00:00"
         },
         {
+            "name": "symfinity/ui-action",
+            "version": "0.1.0-dev",
+            "dist": {
+                "type": "path",
+                "url": "../ui-action",
+                "reference": "f4a38fbb3c922cde4a70903f2cd390a30c6b3e76"
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^10.5 || ^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfinity\\UiAction\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Symfinity\\UiAction\\Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Symfinity UI Action — native HTTP action semantics validation (navigate, submit, delete, download)",
+            "transport-options": {
+                "symlink": true,
+                "relative": true
+            }
+        },
+        {
             "name": "symfony/browser-kit",
             "version": "v7.4.8",
             "source": {
@@ -5189,6 +5238,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "symfinity/ui-action": 20,
         "symfinity/ux-blocks": 20
     },
     "prefer-stable": true,

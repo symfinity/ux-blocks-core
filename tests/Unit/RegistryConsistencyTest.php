@@ -7,7 +7,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit;
 use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Symfinity\UxBlocks\Registry\V0RoleCatalog;
+use Symfinity\UxBlocks\Registry\CoreRoleCatalog;
 use Symfony\Component\Yaml\Yaml;
 
 final class RegistryConsistencyTest extends TestCase
@@ -16,7 +16,7 @@ final class RegistryConsistencyTest extends TestCase
     public static function v0RoleProvider(): array
     {
         $provider = [];
-        foreach (V0RoleCatalog::roles() as $role) {
+        foreach (CoreRoleCatalog::roles() as $role) {
             $provider[$role] = [$role];
         }
 
@@ -42,7 +42,7 @@ final class RegistryConsistencyTest extends TestCase
         ));
 
         self::assertCount(14, $v0Roles);
-        self::assertSame(V0RoleCatalog::roles(), array_column($v0Roles, 'role'));
+        self::assertSame(CoreRoleCatalog::roles(), array_column($v0Roles, 'role'));
     }
 
     #[Test]

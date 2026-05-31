@@ -6,7 +6,7 @@ namespace Symfinity\UxBlocksCore\Tests\Integration;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Symfinity\UxBlocks\Registry\V0RoleCatalog;
+use Symfinity\UxBlocks\Registry\CoreRoleCatalog;
 use Symfony\Component\Yaml\Yaml;
 
 final class RegistryFragmentIdTest extends TestCase
@@ -24,7 +24,7 @@ final class RegistryFragmentIdTest extends TestCase
                 continue;
             }
 
-            self::assertContains($row['role'], V0RoleCatalog::roles());
+            self::assertContains($row['role'], CoreRoleCatalog::roles());
             self::assertSame('blocks.' . $row['role'], $row['fragment_id']);
         }
     }

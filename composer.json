@@ -1,0 +1,41 @@
+{
+    "name": "symfinity/ux-blocks-core",
+    "description": "Symfinity UX Blocks Core — fourteen v0 Symfony UX Twig components with registry-aligned markup",
+    "license": "MIT",
+    "type": "symfony-bundle",
+    "require": {
+        "php": ">=8.2",
+        "symfinity/ux-blocks": "@dev",
+        "symfony/framework-bundle": "^7.4",
+        "symfony/twig-bundle": "^7.4",
+        "symfony/stimulus-bundle": "^2.0|^3.0",
+        "symfony/ux-twig-component": "^2.0|^3.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5 || ^11.0",
+        "symfony/browser-kit": "^7.4",
+        "symfony/css-selector": "^7.4",
+        "symfony/yaml": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Symfinity\\UxBlocksCore\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Symfinity\\UxBlocksCore\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "version": "1.0.0-dev",
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}

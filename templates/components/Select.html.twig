@@ -1,0 +1,9 @@
+<select
+    data-ui-role="select"
+    data-ui-fragment="blocks.select"
+    {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
+    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</select>

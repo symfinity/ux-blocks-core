@@ -1,0 +1,7 @@
+<textarea
+    data-ui-role="textarea"
+    data-ui-fragment="blocks.textarea"
+    {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
+    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    {{ attributes }}
+>{% block content %}{% endblock %}</textarea>

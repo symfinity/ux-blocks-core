@@ -1,0 +1,133 @@
+{# Shared v0 role gallery — optional `copy` and `table_rows` for themed showcases #}
+{% set copy = copy|default({}) %}
+{% set table_rows = table_rows|default([
+    {name: 'Alpha', value: '1'},
+    {name: 'Beta', value: '2'},
+]) %}
+
+<section class="ux-blocks-catalog-section" id="role-button" data-catalog-role="button">
+    <h2>Button</h2>
+    <twig:Button variant="default">{{ copy.button_default|default('Default') }}</twig:Button>
+    <twig:Button variant="secondary">{{ copy.button_secondary|default('Secondary') }}</twig:Button>
+    <twig:Button variant="destructive">{{ copy.button_destructive|default('Destructive') }}</twig:Button>
+    <twig:Button variant="outline">{{ copy.button_outline|default('Outline') }}</twig:Button>
+    <twig:Button variant="ghost">{{ copy.button_ghost|default('Ghost') }}</twig:Button>
+    <twig:Button variant="link">{{ copy.button_link|default('Link') }}</twig:Button>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-separator" data-catalog-role="separator">
+    <h2>Separator</h2>
+    <twig:Separator />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-typography" data-catalog-role="typography">
+    <h2>Typography</h2>
+    <twig:Typography>
+        <twig:Typography:H1>{{ copy.typography_h1|default('Heading One') }}</twig:Typography:H1>
+        <twig:Typography:P>{{ copy.typography_p|default('Paragraph text.') }}</twig:Typography:P>
+    </twig:Typography>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-card" data-catalog-role="card">
+    <h2>Card</h2>
+    <twig:Card>
+        <twig:Card:Header>
+            <twig:Card:Title>{{ copy.card_title|default('Card title') }}</twig:Card:Title>
+            <twig:Card:Description>{{ copy.card_description|default('Card description') }}</twig:Card:Description>
+        </twig:Card:Header>
+        <twig:Card:Content>{{ copy.card_content|default('Card content') }}</twig:Card:Content>
+        <twig:Card:Footer>{{ copy.card_footer|default('Card footer') }}</twig:Card:Footer>
+    </twig:Card>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-empty" data-catalog-role="empty">
+    <h2>Empty</h2>
+    <twig:Empty>
+        <twig:Empty:Media>{{ copy.empty_media|default('Media') }}</twig:Empty:Media>
+        <twig:Empty:Header>
+            <twig:Empty:Title>{{ copy.empty_title|default('No results') }}</twig:Empty:Title>
+            <twig:Empty:Description>{{ copy.empty_description|default('Try adjusting your filters.') }}</twig:Empty:Description>
+        </twig:Empty:Header>
+    </twig:Empty>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-table" data-catalog-role="table">
+    <h2>Table</h2>
+    <twig:Table>
+        <twig:Table:Header>
+            <twig:Table:Row>
+                <twig:Table:Cell>{{ copy.table_header_name|default('Name') }}</twig:Table:Cell>
+                <twig:Table:Cell>{{ copy.table_header_value|default('Value') }}</twig:Table:Cell>
+            </twig:Table:Row>
+        </twig:Table:Header>
+        <twig:Table:Body>
+            {% for row in table_rows %}
+                <twig:Table:Row>
+                    <twig:Table:Cell>{{ row.name }}</twig:Table:Cell>
+                    <twig:Table:Cell>{{ row.value }}</twig:Table:Cell>
+                </twig:Table:Row>
+            {% endfor %}
+        </twig:Table:Body>
+    </twig:Table>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-alert" data-catalog-role="alert">
+    <h2>Alert</h2>
+    <twig:Alert variant="info">
+        <twig:Alert:Title>{{ copy.alert_title|default('Information') }}</twig:Alert:Title>
+        <twig:Alert:Description>{{ copy.alert_description|default('Something happened.') }}</twig:Alert:Description>
+        <twig:Alert:Action>
+            <twig:Button variant="outline">{{ copy.alert_action|default('Action') }}</twig:Button>
+        </twig:Alert:Action>
+    </twig:Alert>
+    {% if copy.alert_destructive is defined %}
+        <twig:Alert variant="destructive">
+            <twig:Alert:Description>{{ copy.alert_destructive }}</twig:Alert:Description>
+        </twig:Alert>
+    {% endif %}
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-label" data-catalog-role="label">
+    <h2>Label</h2>
+    <twig:Label for="demo-input">{{ copy.label|default('Email') }}</twig:Label>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-input" data-catalog-role="input">
+    <h2>Input</h2>
+    <twig:Input id="demo-input" name="email" placeholder="{{ copy.input_placeholder|default('you@example.com') }}" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-textarea" data-catalog-role="textarea">
+    <h2>Textarea</h2>
+    <twig:Textarea name="notes" placeholder="{{ copy.textarea_placeholder|default('Notes') }}"></twig:Textarea>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-select" data-catalog-role="select">
+    <h2>Select</h2>
+    <twig:Select name="choice">
+        <option value="a">{{ copy.select_a|default('Option A') }}</option>
+        <option value="b">{{ copy.select_b|default('Option B') }}</option>
+    </twig:Select>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-field" data-catalog-role="field">
+    <h2>Field</h2>
+    <twig:Field orientation="vertical">
+        <twig:Field:Label for="demo-field-input">{{ copy.field_label|default('Username') }}</twig:Field:Label>
+        <twig:Input id="demo-field-input" name="username" />
+        <twig:Field:Description>{{ copy.field_description|default('Your public display name.') }}</twig:Field:Description>
+    </twig:Field>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-checkbox" data-catalog-role="checkbox">
+    <h2>Checkbox</h2>
+    <twig:Checkbox name="accept" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-radio-group" data-catalog-role="radio-group">
+    <h2>Radio Group</h2>
+    <twig:RadioGroup name="plan">
+        <twig:RadioGroup:Item value="free">{{ copy.radio_free|default('Free') }}</twig:RadioGroup:Item>
+        <twig:RadioGroup:Item value="pro">{{ copy.radio_pro|default('Pro') }}</twig:RadioGroup:Item>
+    </twig:RadioGroup>
+</section>

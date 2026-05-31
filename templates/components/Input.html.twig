@@ -1,0 +1,8 @@
+<input
+    data-ui-role="input"
+    data-ui-fragment="blocks.input"
+    type="{{ type }}"
+    {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
+    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    {{ attributes }}
+/>

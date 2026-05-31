@@ -1,0 +1,10 @@
+<{{ as }}
+    data-ui-role="button"
+    data-ui-fragment="blocks.button"
+    data-ui-variant="{{ variant }}"
+    data-ui-size="{{ size }}"
+    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</{{ as }}>

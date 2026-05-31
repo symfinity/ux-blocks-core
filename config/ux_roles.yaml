@@ -1,0 +1,101 @@
+ux_role_registry: "1.1"
+prefix: blocks
+roles:
+  - role: button
+    twig_component: Button
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Button
+    fragment_id: blocks.button
+    fragment_pattern: "blocks.button.{n}"
+    stage: A
+    status: v0
+  - role: separator
+    twig_component: Separator
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Separator
+    fragment_id: blocks.separator
+    fragment_pattern: "blocks.separator.{n}"
+    stage: A
+    status: v0
+  - role: typography
+    twig_component: Typography
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Typography
+    fragment_id: blocks.typography
+    fragment_pattern: "blocks.typography.{n}"
+    stage: A
+    status: v0
+  - role: card
+    twig_component: Card
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Card
+    fragment_id: blocks.card
+    fragment_pattern: "blocks.card.{n}"
+    stage: A
+    status: v0
+  - role: empty
+    twig_component: Empty
+    php_class: Symfinity\UxBlocksCore\Twig\Components\EmptyState
+    fragment_id: blocks.empty
+    fragment_pattern: "blocks.empty.{n}"
+    stage: A
+    status: v0
+  - role: table
+    twig_component: Table
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Table
+    fragment_id: blocks.table
+    fragment_pattern: "blocks.table.{n}"
+    stage: A
+    status: v0
+  - role: alert
+    twig_component: Alert
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Alert
+    fragment_id: blocks.alert
+    fragment_pattern: "blocks.alert.{n}"
+    stage: A
+    status: v0
+  - role: label
+    twig_component: Label
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Label
+    fragment_id: blocks.label
+    fragment_pattern: "blocks.label.{n}"
+    stage: A
+    status: v0
+  - role: input
+    twig_component: Input
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Input
+    fragment_id: blocks.input
+    fragment_pattern: "blocks.input.{n}"
+    stage: A
+    status: v0
+  - role: textarea
+    twig_component: Textarea
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Textarea
+    fragment_id: blocks.textarea
+    fragment_pattern: "blocks.textarea.{n}"
+    stage: A
+    status: v0
+  - role: select
+    twig_component: Select
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Select
+    fragment_id: blocks.select
+    fragment_pattern: "blocks.select.{n}"
+    stage: A
+    status: v0
+  - role: field
+    twig_component: Field
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Field
+    fragment_id: blocks.field
+    fragment_pattern: "blocks.field.{n}"
+    stage: A
+    status: v0
+  - role: checkbox
+    twig_component: Checkbox
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Checkbox
+    fragment_id: blocks.checkbox
+    fragment_pattern: "blocks.checkbox.{n}"
+    stage: A
+    status: v0
+  - role: radio-group
+    twig_component: RadioGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\RadioGroup
+    fragment_id: blocks.radio-group
+    fragment_pattern: "blocks.radio-group.{n}"
+    stage: A
+    status: v0

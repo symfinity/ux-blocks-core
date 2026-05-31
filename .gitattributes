@@ -1,0 +1,4 @@
+/tests export-ignore
+/phpunit.xml.dist export-ignore
+/docs/porting.md export-ignore
+/.gitignore export-ignore

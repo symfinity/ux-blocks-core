@@ -18,6 +18,16 @@ final class UxBlocksCoreTestKernel extends Kernel
 {
     use MicroKernelTrait;
 
+    public function getProjectDir(): string
+    {
+        return \dirname(__DIR__, 2);
+    }
+
+    public function getCacheDir(): string
+    {
+        return $this->getProjectDir() . '/var/cache/' . $this->environment;
+    }
+
     public function registerBundles(): array
     {
         return [

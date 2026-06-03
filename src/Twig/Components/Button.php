@@ -16,4 +16,6 @@ final class Button
     public string $as = 'button';
 
     public bool $disabled = false;
+
+    public bool $block = false;
 }

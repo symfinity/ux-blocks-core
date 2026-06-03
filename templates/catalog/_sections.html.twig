@@ -4,20 +4,81 @@
     {name: 'Alpha', value: '1'},
     {name: 'Beta', value: '2'},
 ]) %}
+{% set button_variants = ['default', 'secondary', 'tertiary', 'destructive', 'success', 'info', 'warning', 'outline', 'ghost', 'link'] %}
+{% set button_sizes = ['sm', 'default', 'lg'] %}
+{% set alert_variants = ['info', 'success', 'warning', 'destructive'] %}
+{% set variant_labels = {
+    default: 'Primary',
+    secondary: 'Secondary',
+    tertiary: 'Tertiary',
+    destructive: 'Danger',
+    success: 'Success',
+    outline: 'Outline',
+    ghost: 'Ghost',
+    link: 'Link',
+    info: 'Info',
+    warning: 'Warning',
+} %}
 
 <section class="ux-blocks-catalog-section" id="role-button" data-catalog-role="button">
     <h2>Button</h2>
-    <twig:Button variant="default">{{ copy.button_default|default('Default') }}</twig:Button>
-    <twig:Button variant="secondary">{{ copy.button_secondary|default('Secondary') }}</twig:Button>
-    <twig:Button variant="destructive">{{ copy.button_destructive|default('Destructive') }}</twig:Button>
-    <twig:Button variant="outline">{{ copy.button_outline|default('Outline') }}</twig:Button>
-    <twig:Button variant="ghost">{{ copy.button_ghost|default('Ghost') }}</twig:Button>
-    <twig:Button variant="link">{{ copy.button_link|default('Link') }}</twig:Button>
+
+    <h3>Variants</h3>
+    <div data-ui-role="grid" data-ui-columns="4">
+        {% for variant in button_variants %}
+            <twig:Button variant="{{ variant }}">{{ variant_labels[variant] }}</twig:Button>
+        {% endfor %}
+    </div>
+
+    <h3>Sizes (primary)</h3>
+    <div data-ui-role="grid" data-ui-columns="3">
+        {% for size in button_sizes %}
+            <twig:Button size="{{ size }}">{{ size|title }}</twig:Button>
+        {% endfor %}
+    </div>
+
+    <h3>Variants × sizes</h3>
+    <div data-ui-role="grid" data-ui-columns="3">
+        {% for variant in button_variants %}
+            {% for size in button_sizes %}
+                <twig:Button variant="{{ variant }}" size="{{ size }}">{{ variant_labels[variant] }} / {{ size }}</twig:Button>
+            {% endfor %}
+        {% endfor %}
+    </div>
+
+    <h3>Disabled</h3>
+    <div data-ui-role="grid" data-ui-columns="4">
+        {% for variant in button_variants %}
+            <twig:Button variant="{{ variant }}" disabled>{{ variant_labels[variant] }}</twig:Button>
+        {% endfor %}
+    </div>
+
+    <h3>As link</h3>
+    <div data-ui-role="grid" data-ui-columns="4">
+        {% for variant in button_variants %}
+            <twig:Button as="a" href="#role-button" variant="{{ variant }}">{{ variant_labels[variant] }}</twig:Button>
+        {% endfor %}
+    </div>
+
+    <h3>Block (full width)</h3>
+    <p>Pass <code>block</code> on the Twig component — emits <code>data-ui-layout="block"</code> (Bootstrap-style block button, Symfinity-owned attribute).</p>
+    <div data-ui-role="stack" data-ui-gap="sm">
+        {% for variant in button_variants %}
+            <twig:Button variant="{{ variant }}" block>{{ variant_labels[variant] }} — block</twig:Button>
+        {% endfor %}
+    </div>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-separator" data-catalog-role="separator">
     <h2>Separator</h2>
+    <p>Horizontal</p>
     <twig:Separator />
+    <p>Vertical</p>
+    <div style="display:flex;align-items:stretch;min-height:3rem;">
+        <span>Left</span>
+        <twig:Separator orientation="vertical" />
+        <span>Right</span>
+    </div>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-typography" data-catalog-role="typography">
@@ -73,18 +134,21 @@
 
 <section class="ux-blocks-catalog-section" id="role-alert" data-catalog-role="alert">
     <h2>Alert</h2>
-    <twig:Alert variant="info">
-        <twig:Alert:Title>{{ copy.alert_title|default('Information') }}</twig:Alert:Title>
-        <twig:Alert:Description>{{ copy.alert_description|default('Something happened.') }}</twig:Alert:Description>
-        <twig:Alert:Action>
-            <twig:Button variant="outline">{{ copy.alert_action|default('Action') }}</twig:Button>
-        </twig:Alert:Action>
-    </twig:Alert>
-    {% if copy.alert_destructive is defined %}
-        <twig:Alert variant="destructive">
-            <twig:Alert:Description>{{ copy.alert_destructive }}</twig:Alert:Description>
+    {% for variant in alert_variants %}
+        <twig:Alert variant="{{ variant }}">
+            <twig:Alert:Title>{{ variant_labels[variant]|default(variant|title) }}</twig:Alert:Title>
+            <twig:Alert:Description>
+                {% if copy['alert_' ~ variant] is defined %}
+                    {{ copy['alert_' ~ variant] }}
+                {% else %}
+                    {{ variant|title }} alert (--ui-color-{{ variant == 'destructive' ? 'danger' : variant }}).
+                {% endif %}
+            </twig:Alert:Description>
+            <twig:Alert:Action>
+                <twig:Button variant="outline" size="sm">{{ copy.alert_action|default('Action') }}</twig:Button>
+            </twig:Alert:Action>
         </twig:Alert>
-    {% endif %}
+    {% endfor %}
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-label" data-catalog-role="label">
@@ -94,34 +158,69 @@
 
 <section class="ux-blocks-catalog-section" id="role-input" data-catalog-role="input">
     <h2>Input</h2>
+    <h3>Default</h3>
     <twig:Input id="demo-input" name="email" placeholder="{{ copy.input_placeholder|default('you@example.com') }}" />
+    <h3>Disabled</h3>
+    <twig:Input id="demo-input-disabled" name="email_disabled" disabled value="Disabled" />
+    <h3>Invalid</h3>
+    <twig:Input id="demo-input-invalid" name="email_invalid" invalid value="invalid@example.com" />
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-textarea" data-catalog-role="textarea">
     <h2>Textarea</h2>
+    <h3>Default</h3>
     <twig:Textarea name="notes" placeholder="{{ copy.textarea_placeholder|default('Notes') }}"></twig:Textarea>
+    <h3>Disabled</h3>
+    <twig:Textarea name="notes_disabled" disabled>Disabled content</twig:Textarea>
+    <h3>Invalid</h3>
+    <twig:Textarea name="notes_invalid" invalid>Invalid content</twig:Textarea>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-select" data-catalog-role="select">
     <h2>Select</h2>
+    <h3>Default</h3>
     <twig:Select name="choice">
         <option value="a">{{ copy.select_a|default('Option A') }}</option>
         <option value="b">{{ copy.select_b|default('Option B') }}</option>
+    </twig:Select>
+    <h3>Disabled</h3>
+    <twig:Select name="choice_disabled" disabled>
+        <option value="a">{{ copy.select_a|default('Option A') }}</option>
     </twig:Select>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-field" data-catalog-role="field">
     <h2>Field</h2>
+    <h3>Vertical</h3>
     <twig:Field orientation="vertical">
         <twig:Field:Label for="demo-field-input">{{ copy.field_label|default('Username') }}</twig:Field:Label>
         <twig:Input id="demo-field-input" name="username" />
         <twig:Field:Description>{{ copy.field_description|default('Your public display name.') }}</twig:Field:Description>
     </twig:Field>
+    <h3>Horizontal</h3>
+    <twig:Field orientation="horizontal">
+        <twig:Field:Label for="demo-field-input-h">{{ copy.field_label|default('Username') }}</twig:Field:Label>
+        <twig:Input id="demo-field-input-h" name="username_h" />
+        <twig:Field:Description>{{ copy.field_description|default('Your public display name.') }}</twig:Field:Description>
+    </twig:Field>
+    <h3>With error</h3>
+    <twig:Field orientation="vertical">
+        <twig:Field:Label for="demo-field-error">Email</twig:Field:Label>
+        <twig:Input id="demo-field-error" name="email_error" invalid />
+        <twig:Field:Error>{{ copy.field_error|default('This field is required.') }}</twig:Field:Error>
+    </twig:Field>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-checkbox" data-catalog-role="checkbox">
     <h2>Checkbox</h2>
-    <twig:Checkbox name="accept" />
+    <div data-ui-role="grid" data-ui-columns="3">
+        <twig:Label for="demo-check-default">Default</twig:Label>
+        <twig:Checkbox id="demo-check-default" name="accept" />
+        <twig:Label for="demo-check-checked">Checked</twig:Label>
+        <twig:Checkbox id="demo-check-checked" name="accept_checked" checked />
+        <twig:Label for="demo-check-disabled">Disabled</twig:Label>
+        <twig:Checkbox id="demo-check-disabled" name="accept_disabled" disabled />
+    </div>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-radio-group" data-catalog-role="radio-group">
@@ -130,4 +229,280 @@
         <twig:RadioGroup:Item value="free">{{ copy.radio_free|default('Free') }}</twig:RadioGroup:Item>
         <twig:RadioGroup:Item value="pro">{{ copy.radio_pro|default('Pro') }}</twig:RadioGroup:Item>
     </twig:RadioGroup>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-grid" data-catalog-role="grid">
+    <h2>Grid</h2>
+    <twig:Grid columns="3">
+        <twig:Button variant="primary">A</twig:Button>
+        <twig:Button variant="secondary">B</twig:Button>
+        <twig:Button variant="outline">C</twig:Button>
+    </twig:Grid>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-stack" data-catalog-role="stack">
+    <h2>Stack</h2>
+    <twig:Stack gap="md">
+        <twig:Button variant="primary">First</twig:Button>
+        <twig:Button variant="secondary">Second</twig:Button>
+    </twig:Stack>
+    <h3>Horizontal</h3>
+    <twig:Stack direction="horizontal" gap="sm">
+        <twig:Button variant="outline">Left</twig:Button>
+        <twig:Button variant="outline">Right</twig:Button>
+    </twig:Stack>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-scroll-area" data-catalog-role="scroll-area">
+    <h2>Scroll area</h2>
+    <twig:ScrollArea style="max-height:8rem;">
+        {% for i in 1..12 %}
+            <p>Scrollable line {{ i }}</p>
+        {% endfor %}
+    </twig:ScrollArea>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-aspect-ratio" data-catalog-role="aspect-ratio">
+    <h2>Aspect ratio</h2>
+    <twig:AspectRatio ratio="16/9">
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--ui-color-surface-elevated, #eee);height:100%;">16:9</div>
+    </twig:AspectRatio>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-divider" data-catalog-role="divider">
+    <h2>Divider</h2>
+    <p>Above</p>
+    <twig:Divider />
+    <p>Below</p>
+    <div style="display:flex;align-items:center;min-height:3rem;">
+        <span>Left</span>
+        <twig:Divider variant="vertical" />
+        <span>Right</span>
+    </div>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-navbar" data-catalog-role="navbar">
+    <h2>Navbar</h2>
+    <twig:Navbar>
+        <twig:Link href="#role-navbar">Home</twig:Link>
+        <twig:Link href="#role-breadcrumb">Docs</twig:Link>
+    </twig:Navbar>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-breadcrumb" data-catalog-role="breadcrumb">
+    <h2>Breadcrumb</h2>
+    <twig:Breadcrumb>
+        <twig:Link href="#role-navbar">Home</twig:Link>
+        <twig:Link href="#role-breadcrumb">Catalog</twig:Link>
+    </twig:Breadcrumb>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-pagination" data-catalog-role="pagination">
+    <h2>Pagination</h2>
+    <twig:Pagination>
+        <twig:Link href="?page=1">1</twig:Link>
+        <twig:Link href="?page=2">2</twig:Link>
+        <twig:Link href="?page=3">3</twig:Link>
+    </twig:Pagination>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-steps" data-catalog-role="steps">
+    <h2>Steps</h2>
+    <twig:Steps>
+        <li>Account</li>
+        <li>Profile</li>
+        <li>Done</li>
+    </twig:Steps>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-link" data-catalog-role="link">
+    <h2>Link</h2>
+    <twig:Link href="#role-link">Default link</twig:Link>
+    <twig:Link href="#role-link" variant="muted">Muted link</twig:Link>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-dialog" data-catalog-role="dialog">
+    <h2>Dialog</h2>
+    <p>Native <code>&lt;dialog&gt;</code> — closed by default in catalog.</p>
+    <twig:Dialog>
+        <p>Dialog body</p>
+        <twig:Button variant="outline">Close</twig:Button>
+    </twig:Dialog>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-popover" data-catalog-role="popover">
+    <h2>Popover</h2>
+    <button type="button" popovertarget="catalog-demo-popover">Open popover</button>
+    <twig:Popover id="catalog-demo-popover">
+        <p>Popover content</p>
+    </twig:Popover>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-tooltip" data-catalog-role="tooltip">
+    <h2>Tooltip</h2>
+    <twig:Tooltip label="Keyboard shortcut: Ctrl+S">
+        <twig:Button variant="outline">Hover hint</twig:Button>
+    </twig:Tooltip>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-switch" data-catalog-role="switch">
+    <h2>Switch</h2>
+    <twig:Label for="catalog-switch">Notifications</twig:Label>
+    <twig:Switch id="catalog-switch" name="notifications" checked />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-input-group" data-catalog-role="input-group">
+    <h2>Input group</h2>
+    <twig:InputGroup>
+        <span>@</span>
+        <twig:Input name="handle" placeholder="username" />
+    </twig:InputGroup>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-file-input" data-catalog-role="file-input">
+    <h2>File input</h2>
+    <twig:FileInput name="upload" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-fieldset" data-catalog-role="fieldset">
+    <h2>Fieldset</h2>
+    <twig:Fieldset>
+        <legend>Contact</legend>
+        <twig:Field orientation="vertical">
+            <twig:Field:Label for="catalog-fieldset-email">Email</twig:Field:Label>
+            <twig:Input id="catalog-fieldset-email" name="email" />
+        </twig:Field>
+    </twig:Fieldset>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-skeleton" data-catalog-role="skeleton">
+    <h2>Skeleton</h2>
+    <twig:Skeleton style="width:12rem;height:1rem;" />
+    <twig:Skeleton style="width:8rem;height:1rem;margin-top:0.5rem;" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-progress" data-catalog-role="progress">
+    <h2>Progress</h2>
+    <twig:Progress value="60" max="100" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-spinner" data-catalog-role="spinner">
+    <h2>Spinner</h2>
+    <twig:Spinner aria-label="Loading" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-badge" data-catalog-role="badge">
+    <h2>Badge</h2>
+    <twig:Badge>New</twig:Badge>
+    <twig:Badge variant="secondary">Beta</twig:Badge>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-avatar" data-catalog-role="avatar">
+    <h2>Avatar</h2>
+    <twig:Avatar>SF</twig:Avatar>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-kbd" data-catalog-role="kbd">
+    <h2>Kbd</h2>
+    <twig:Kbd>Ctrl</twig:Kbd> + <twig:Kbd>K</twig:Kbd>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-description-list" data-catalog-role="description-list">
+    <h2>Description list</h2>
+    <twig:DescriptionList>
+        <dt>Status</dt>
+        <dd>Active</dd>
+        <dt>Role</dt>
+        <dd>Admin</dd>
+    </twig:DescriptionList>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-list" data-catalog-role="list">
+    <h2>List</h2>
+    <twig:List>
+        <li>First item</li>
+        <li>Second item</li>
+    </twig:List>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-stat" data-catalog-role="stat">
+    <h2>Stat</h2>
+    <twig:Stat>
+        <span>Revenue</span>
+        <strong>$12,345</strong>
+    </twig:Stat>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-timeline" data-catalog-role="timeline">
+    <h2>Timeline</h2>
+    <twig:Timeline>
+        <div>Created account</div>
+        <div>First login</div>
+    </twig:Timeline>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-carousel" data-catalog-role="carousel">
+    <h2>Carousel</h2>
+    <twig:Carousel>
+        <div>Slide 1</div>
+        <div>Slide 2</div>
+        <div>Slide 3</div>
+    </twig:Carousel>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-button-group" data-catalog-role="button-group">
+    <h2>Button group</h2>
+    <twig:ButtonGroup>
+        <twig:Button variant="outline">Left</twig:Button>
+        <twig:Button variant="outline">Center</twig:Button>
+        <twig:Button variant="outline">Right</twig:Button>
+    </twig:ButtonGroup>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-accordion" data-catalog-role="accordion">
+    <h2>Accordion</h2>
+    <twig:Accordion>
+        <details open>
+            <summary>Section one</summary>
+            <p>Accordion panel content.</p>
+        </details>
+    </twig:Accordion>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-page-heading" data-catalog-role="page-heading">
+    <h2>Page heading</h2>
+    <twig:PageHeading>Dashboard</twig:PageHeading>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-section-heading" data-catalog-role="section-heading">
+    <h2>Section heading</h2>
+    <twig:SectionHeading>Recent activity</twig:SectionHeading>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-auth-layout" data-catalog-role="auth-layout">
+    <h2>Auth layout</h2>
+    <twig:AuthLayout>
+        <twig:PageHeading>Sign in</twig:PageHeading>
+        <twig:Field orientation="vertical">
+            <twig:Field:Label for="catalog-auth-email">Email</twig:Field:Label>
+            <twig:Input id="catalog-auth-email" name="email" type="email" />
+        </twig:Field>
+        <twig:Button block>Continue</twig:Button>
+    </twig:AuthLayout>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-dashboard-shell" data-catalog-role="dashboard-shell">
+    <h2>Dashboard shell</h2>
+    <twig:DashboardShell>
+        <twig:Navbar>
+            <twig:Link href="#role-dashboard-shell">App</twig:Link>
+        </twig:Navbar>
+        <main>
+            <twig:PageHeading>Dashboard</twig:PageHeading>
+            <twig:Grid columns="2">
+                <twig:Stat><span>Users</span><strong>128</strong></twig:Stat>
+                <twig:Stat><span>Sessions</span><strong>42</strong></twig:Stat>
+            </twig:Grid>
+        </main>
+    </twig:DashboardShell>
 </section>

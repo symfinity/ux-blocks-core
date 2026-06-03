@@ -17,7 +17,7 @@ final class RegistryFragmentIdTest extends TestCase
         $path = \dirname(__DIR__, 2) . '/config/ux_roles.yaml';
         $registry = Yaml::parseFile($path);
 
-        self::assertSame('blocks', $registry['prefix']);
+        self::assertSame('blocks', $registry['registry_prefix']);
 
         foreach ($registry['roles'] as $row) {
             if (($row['status'] ?? '') !== 'v0') {

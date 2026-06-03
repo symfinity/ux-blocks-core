@@ -2,6 +2,7 @@
     data-ui-role="separator"
     data-ui-fragment="blocks.separator"
     data-ui-orientation="{{ orientation }}"
+    {% if orientation == 'vertical' %}data-ui-variant="vertical"{% endif %}
     role="{{ decorative ? 'none' : 'separator' }}"
     aria-orientation="{{ orientation }}"
     {{ attributes }}

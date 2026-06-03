@@ -1,0 +1,8 @@
+<span
+    data-ui-role="tooltip"
+    data-ui-fragment="blocks.tooltip"
+    {% if label %}title="{{ label }}" aria-label="{{ label }}"{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</span>

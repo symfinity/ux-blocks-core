@@ -1,5 +1,5 @@
-ux_role_registry: "1.1"
-prefix: blocks
+ux_role_registry: "1.2"
+registry_prefix: blocks
 roles:
   - role: button
     twig_component: Button
@@ -99,3 +99,241 @@ roles:
     fragment_pattern: "blocks.radio-group.{n}"
     stage: A
     status: v0
+  - role: grid
+    twig_component: Grid
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Grid
+    fragment_id: blocks.grid
+    fragment_pattern: "blocks.grid.{n}"
+    stage: A
+    status: v1
+  - role: stack
+    twig_component: Stack
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Stack
+    fragment_id: blocks.stack
+    fragment_pattern: "blocks.stack.{n}"
+    stage: A
+    status: v1
+  - role: skeleton
+    twig_component: Skeleton
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Skeleton
+    fragment_id: blocks.skeleton
+    fragment_pattern: "blocks.skeleton.{n}"
+    stage: A
+    status: v1
+  - role: dialog
+    twig_component: Dialog
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Dialog
+    fragment_id: blocks.dialog
+    fragment_pattern: "blocks.dialog.{n}"
+    stage: A
+    status: v1
+  - role: navbar
+    twig_component: Navbar
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Navbar
+    fragment_id: blocks.navbar
+    fragment_pattern: "blocks.navbar.{n}"
+    stage: A
+    status: v1
+  - role: badge
+    twig_component: Badge
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Badge
+    fragment_id: blocks.badge
+    fragment_pattern: "blocks.badge.{n}"
+    stage: A
+    status: v1
+  - role: avatar
+    twig_component: Avatar
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Avatar
+    fragment_id: blocks.avatar
+    fragment_pattern: "blocks.avatar.{n}"
+    stage: A
+    status: v1
+  - role: breadcrumb
+    twig_component: Breadcrumb
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Breadcrumb
+    fragment_id: blocks.breadcrumb
+    fragment_pattern: "blocks.breadcrumb.{n}"
+    stage: A
+    status: v1
+  - role: pagination
+    twig_component: Pagination
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Pagination
+    fragment_id: blocks.pagination
+    fragment_pattern: "blocks.pagination.{n}"
+    stage: A
+    status: v1
+  - role: progress
+    twig_component: Progress
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Progress
+    fragment_id: blocks.progress
+    fragment_pattern: "blocks.progress.{n}"
+    stage: A
+    status: v1
+  - role: spinner
+    twig_component: Spinner
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Spinner
+    fragment_id: blocks.spinner
+    fragment_pattern: "blocks.spinner.{n}"
+    stage: A
+    status: v1
+  - role: button-group
+    twig_component: ButtonGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\ButtonGroup
+    fragment_id: blocks.button-group
+    fragment_pattern: "blocks.button-group.{n}"
+    stage: A
+    status: v1
+  - role: accordion
+    twig_component: Accordion
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Accordion
+    fragment_id: blocks.accordion
+    fragment_pattern: "blocks.accordion.{n}"
+    stage: A
+    status: v1
+  - role: switch
+    twig_component: Switch
+    php_class: Symfinity\UxBlocksCore\Twig\Components\SwitchControl
+    fragment_id: blocks.switch
+    fragment_pattern: "blocks.switch.{n}"
+    stage: A
+    status: v1
+  - role: input-group
+    twig_component: InputGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\InputGroup
+    fragment_id: blocks.input-group
+    fragment_pattern: "blocks.input-group.{n}"
+    stage: A
+    status: v1
+  - role: file-input
+    twig_component: FileInput
+    php_class: Symfinity\UxBlocksCore\Twig\Components\FileInput
+    fragment_id: blocks.file-input
+    fragment_pattern: "blocks.file-input.{n}"
+    stage: A
+    status: v1
+  - role: description-list
+    twig_component: DescriptionList
+    php_class: Symfinity\UxBlocksCore\Twig\Components\DescriptionList
+    fragment_id: blocks.description-list
+    fragment_pattern: "blocks.description-list.{n}"
+    stage: A
+    status: v1
+  - role: scroll-area
+    twig_component: ScrollArea
+    php_class: Symfinity\UxBlocksCore\Twig\Components\ScrollArea
+    fragment_id: blocks.scroll-area
+    fragment_pattern: "blocks.scroll-area.{n}"
+    stage: A
+    status: v1
+  - role: page-heading
+    twig_component: PageHeading
+    php_class: Symfinity\UxBlocksCore\Twig\Components\PageHeading
+    fragment_id: blocks.page-heading
+    fragment_pattern: "blocks.page-heading.{n}"
+    stage: A
+    status: v1
+  - role: section-heading
+    twig_component: SectionHeading
+    php_class: Symfinity\UxBlocksCore\Twig\Components\SectionHeading
+    fragment_id: blocks.section-heading
+    fragment_pattern: "blocks.section-heading.{n}"
+    stage: A
+    status: v1
+  - role: popover
+    twig_component: Popover
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Popover
+    fragment_id: blocks.popover
+    fragment_pattern: "blocks.popover.{n}"
+    stage: A
+    status: v1
+  - role: tooltip
+    twig_component: Tooltip
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Tooltip
+    fragment_id: blocks.tooltip
+    fragment_pattern: "blocks.tooltip.{n}"
+    stage: A
+    status: v1
+  - role: auth-layout
+    twig_component: AuthLayout
+    php_class: Symfinity\UxBlocksCore\Twig\Components\AuthLayout
+    fragment_id: blocks.auth-layout
+    fragment_pattern: "blocks.auth-layout.{n}"
+    stage: A
+    status: v1
+  - role: dashboard-shell
+    twig_component: DashboardShell
+    php_class: Symfinity\UxBlocksCore\Twig\Components\DashboardShell
+    fragment_id: blocks.dashboard-shell
+    fragment_pattern: "blocks.dashboard-shell.{n}"
+    stage: A
+    status: v1
+  - role: kbd
+    twig_component: Kbd
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Kbd
+    fragment_id: blocks.kbd
+    fragment_pattern: "blocks.kbd.{n}"
+    stage: A
+    status: v1
+  - role: carousel
+    twig_component: Carousel
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Carousel
+    fragment_id: blocks.carousel
+    fragment_pattern: "blocks.carousel.{n}"
+    stage: A
+    status: v1
+  - role: aspect-ratio
+    twig_component: AspectRatio
+    php_class: Symfinity\UxBlocksCore\Twig\Components\AspectRatio
+    fragment_id: blocks.aspect-ratio
+    fragment_pattern: "blocks.aspect-ratio.{n}"
+    stage: A
+    status: v1
+  - role: divider
+    twig_component: Divider
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Divider
+    fragment_id: blocks.divider
+    fragment_pattern: "blocks.divider.{n}"
+    stage: A
+    status: v1
+  - role: list
+    twig_component: List
+    php_class: Symfinity\UxBlocksCore\Twig\Components\ListBox
+    fragment_id: blocks.list
+    fragment_pattern: "blocks.list.{n}"
+    stage: A
+    status: v1
+  - role: stat
+    twig_component: Stat
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Stat
+    fragment_id: blocks.stat
+    fragment_pattern: "blocks.stat.{n}"
+    stage: A
+    status: v1
+  - role: timeline
+    twig_component: Timeline
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Timeline
+    fragment_id: blocks.timeline
+    fragment_pattern: "blocks.timeline.{n}"
+    stage: A
+    status: v1
+  - role: steps
+    twig_component: Steps
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Steps
+    fragment_id: blocks.steps
+    fragment_pattern: "blocks.steps.{n}"
+    stage: A
+    status: v1
+  - role: link
+    twig_component: Link
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Link
+    fragment_id: blocks.link
+    fragment_pattern: "blocks.link.{n}"
+    stage: A
+    status: v1
+  - role: fieldset
+    twig_component: Fieldset
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Fieldset
+    fragment_id: blocks.fieldset
+    fragment_pattern: "blocks.fieldset.{n}"
+    stage: A
+    status: v1

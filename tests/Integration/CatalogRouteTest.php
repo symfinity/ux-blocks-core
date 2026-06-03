@@ -39,4 +39,36 @@ final class CatalogRouteTest extends WebTestCase
             self::assertStringContainsString(sprintf('data-ui-fragment="blocks.%s"', $role), $content);
         }
     }
+
+    #[Test]
+    public function catalogContainsAllV1Roles(): void
+    {
+        $client = static::createClient();
+        $client->request('GET', '/ux-blocks-core/catalog');
+        $content = $client->getResponse()->getContent();
+
+        self::assertIsString($content);
+
+        foreach ($this->v1Roles() as $role) {
+            self::assertStringContainsString(sprintf('data-catalog-role="%s"', $role), $content);
+            self::assertStringContainsString(sprintf('data-ui-role="%s"', $role), $content);
+            self::assertStringContainsString(sprintf('data-ui-fragment="blocks.%s"', $role), $content);
+        }
+    }
+
+    /** @return list<string> */
+    private function v1Roles(): array
+    {
+        $path = \dirname(__DIR__, 2) . '/config/ux_roles.yaml';
+        $registry = \Symfony\Component\Yaml\Yaml::parseFile($path);
+        $roles = [];
+
+        foreach ($registry['roles'] as $row) {
+            if (($row['status'] ?? '') === 'v1') {
+                $roles[] = $row['role'];
+            }
+        }
+
+        return $roles;
+    }
 }

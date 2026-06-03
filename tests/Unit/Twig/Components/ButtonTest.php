@@ -18,4 +18,13 @@ final class ButtonTest extends ComponentTestCase
         $this->assertRootAttributes($html, 'button', 'blocks.button');
         self::assertStringContainsString('data-ui-variant="secondary"', $html);
     }
+
+    #[Test]
+    public function itRendersBlockLayoutAttribute(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Button', ['block' => true]);
+
+        self::assertStringContainsString('data-ui-layout="block"', $html);
+    }
 }

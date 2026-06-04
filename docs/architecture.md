@@ -1,8 +1,5 @@
 # Architecture — symfinity/ux-blocks-core
 
-**Feature:** [symfinity 003 — ux-component-catalog](../../../../specs/symfinity/symfinity/3-ux-component-catalog/spec.md)  
-**Stage:** A (Chameleon integration stage A per [symfony-ux-compatibility](../../../../specs/symfinity/symfinity/2-ui-kernel/contracts/symfony-ux-compatibility.md))
-
 ## Role in the stack
 
 | Layer | Responsibility |
@@ -11,9 +8,7 @@
 | `symfinity/ui-kernel` | `[data-ui-role]` CSS via `CssGenerator`; theme tokens; showcase |
 | REF | [symfony/ux-toolkit](https://github.com/symfony/ux-toolkit) `kits/shadcn/` — read-only port source |
 
-Canonical role vocabulary: [role-registry contract](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/role-registry.md).
-
-Machine-readable export: `config/ux_roles.yaml` (`ux_role_registry: "1.1"`, prefix `blocks`).
+Canonical role vocabulary: package README component table and `config/ux_roles.yaml` (`ux_role_registry: "1.1"`, prefix `blocks`).
 
 ## Package layout
 

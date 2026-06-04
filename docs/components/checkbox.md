@@ -1,6 +1,4 @@
 # checkbox
 
 **Role:** `checkbox`  
-**Fragment id:** `blocks.checkbox`  
-
-See [role-registry](../../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/role-registry.md).
+**Fragment id:** `blocks.checkbox`

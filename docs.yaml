@@ -1,0 +1,46 @@
+composer_name: symfinity/ux-blocks-core
+package_major: "1.x"
+handbook_family: ux-blocks
+
+sidebar:
+  - architecture
+  - components
+  - configuration
+  - installation
+  - quickstart
+  - reference
+  - troubleshooting
+  - upgrade
+  - usage
+
+slices:
+  - symfony: "7.4"
+    sources:
+      - architecture.md
+      - components.md
+      - components/alert.md
+      - components/button.md
+      - components/card.md
+      - components/checkbox.md
+      - components/dialog.md
+      - components/empty.md
+      - components/field.md
+      - components/input.md
+      - components/label.md
+      - components/popover.md
+      - components/radio-group.md
+      - components/select.md
+      - components/separator.md
+      - components/table.md
+      - components/textarea.md
+      - components/tooltip.md
+      - components/typography.md
+      - configuration.md
+      - index.md
+      - installation.md
+      - porting.md
+      - quickstart.md
+      - reference.md
+      - troubleshooting.md
+      - upgrade.md
+      - usage.md

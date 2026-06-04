@@ -1,6 +1,6 @@
 # UX Blocks core — v1 port map
 
-REF sources are **read-only** — [port-semantics-ref](https://github.com/symfinity/symfinity/blob/main/specs/symfinity/symfinity/3-ux-component-catalog/contracts/port-semantics-ref.md). **MUST NOT** `require symfony/ux-toolkit`.
+REF sources are **read-only** — port-semantics-ref. **MUST NOT** `require symfony/ux-toolkit`.
 
 Toolkit paths are relative to `symfony/ux-toolkit` `kits/shadcn/{slug}/` unless noted. DaisyUI / Catalyst / App UI are **markup and composition** references only.
 
@@ -54,4 +54,4 @@ Toolkit paths are relative to `symfony/ux-toolkit` `kits/shadcn/{slug}/` unless 
 
 **Alias:** prose `modal` → registry role `dialog` (`blocks.dialog`).
 
-**v0 roles** (unchanged): see package README and [role-registry](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/role-registry.md) § v0 table — toolkit `kits/shadcn/{slug}/` per role.
+**v0 roles** (unchanged): see package README component table — toolkit `kits/shadcn/{slug}/` per role.

@@ -13,8 +13,6 @@ final class V1LayoutComponentsTest extends ComponentTestCase
     public static function layoutComponentProvider(): array
     {
         return [
-            'grid' => ['Grid', 'grid', 'blocks.grid', ['columns' => 6]],
-            'stack' => ['Stack', 'stack', 'blocks.stack', ['direction' => 'horizontal', 'gap' => 'sm']],
             'scroll-area' => ['ScrollArea', 'scroll-area', 'blocks.scroll-area'],
             'aspect-ratio' => ['AspectRatio', 'aspect-ratio', 'blocks.aspect-ratio', ['ratio' => '4/3']],
             'divider' => ['Divider', 'divider', 'blocks.divider'],

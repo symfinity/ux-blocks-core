@@ -9,6 +9,6 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('Badge', template: '@UxBlocksCore/components/Badge.html.twig')]
 final class Badge
 {
-    public string $variant = 'default';
+    public string $variant = '';
 
 }

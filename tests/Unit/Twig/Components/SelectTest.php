@@ -17,4 +17,22 @@ final class SelectTest extends ComponentTestCase
 
         $this->assertRootAttributes($html, 'select', 'blocks.select');
     }
+
+    #[Test]
+    public function invalidPropSetsAriaInvalid(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Select', ['invalid' => true]);
+
+        self::assertStringContainsString('aria-invalid="true"', $html);
+    }
+
+    #[Test]
+    public function labelPropAssociatesVisibleLabel(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Select', ['label' => 'Country']);
+
+        self::assertStringContainsString('Country', $html);
+    }
 }

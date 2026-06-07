@@ -6,6 +6,21 @@
                 "main": "controllers/ux_blocks_core/scheme_switch_controller.js",
                 "fetch": "eager",
                 "enabled": true
+            },
+            "collapsible": {
+                "main": "controllers/ux_blocks_core/collapsible_controller.js",
+                "fetch": "lazy",
+                "enabled": true
+            },
+            "tooltip": {
+                "main": "controllers/ux_blocks_core/tooltip_controller.js",
+                "fetch": "lazy",
+                "enabled": true
+            },
+            "popover": {
+                "main": "controllers/ux_blocks_core/popover_controller.js",
+                "fetch": "lazy",
+                "enabled": true
             }
         }
     }

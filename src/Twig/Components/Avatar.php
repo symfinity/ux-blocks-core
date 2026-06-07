@@ -9,7 +9,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('Avatar', template: '@UxBlocksCore/components/Avatar.html.twig')]
 final class Avatar
 {
-    public string $variant = 'default';
+    public string $variant = '';
 
     public string $size = 'default';
 }

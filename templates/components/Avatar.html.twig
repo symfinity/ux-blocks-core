@@ -1,7 +1,7 @@
 <span
     data-ui-role="avatar"
     data-ui-fragment="blocks.avatar"
-    data-ui-variant="{{ variant }}"
+    {% if variant is not empty and variant != 'default' %}data-ui-variant="{{ variant }}"{% endif %}
     data-ui-size="{{ size }}"
     {{ attributes }}
 >

@@ -1,0 +1,40 @@
+schema: showcase-examples/1.0
+role: image
+twig_name: Image
+requires_stimulus: false
+sections:
+  - id: responsive
+    title: Responsive images
+    layout: stack
+    items:
+      - variant: fluid
+        label: Responsive (fluid)
+        description: max-width 100%; scales with parent width.
+        props:
+          src: 'https://picsum.photos/seed/chameleon-fluid/960/540'
+          alt: 'Responsive example'
+          variant: fluid
+          loading: lazy
+  - id: thumbnails
+    title: Thumbnails
+    layout: stack
+    items:
+      - variant: thumbnail
+        label: Thumbnail
+        description: Modest max-width (12.5rem); plain image, no frame chrome.
+        props:
+          src: 'https://picsum.photos/seed/chameleon-thumb/200/200'
+          alt: 'Thumbnail example'
+          variant: thumbnail
+          loading: lazy
+  - id: rounded
+    title: Rounded
+    layout: stack
+    items:
+      - variant: rounded
+        label: Rounded
+        props:
+          src: 'https://picsum.photos/seed/chameleon-rounded/320/240'
+          alt: 'Rounded example'
+          variant: rounded
+          loading: lazy

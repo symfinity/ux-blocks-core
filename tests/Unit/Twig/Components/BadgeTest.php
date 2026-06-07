@@ -17,4 +17,14 @@ final class BadgeTest extends ComponentTestCase
         $this->assertRootAttributes($html, 'badge', 'blocks.badge');
         self::assertStringContainsString('data-ui-variant="success"', $html);
     }
+
+    #[Test]
+    public function baseBadgeOmitsVariantAttribute(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Badge', ['variant' => '', 'content' => 'Badge']);
+
+        $this->assertRootAttributes($html, 'badge', 'blocks.badge');
+        self::assertStringNotContainsString('data-ui-variant=', $html);
+    }
 }

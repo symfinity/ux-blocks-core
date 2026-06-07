@@ -1,6 +1,11 @@
 <span
     data-ui-role="spinner"
     data-ui-fragment="blocks.spinner"
+    data-ui-size="{{ size }}"
+    data-ui-density="{{ density }}"
+    role="status"
+    {% if label %}aria-label="{{ label }}"{% endif %}
+    {% if not visible %}hidden{% endif %}
     {{ attributes }}
 >
     {% block content %}{% endblock %}

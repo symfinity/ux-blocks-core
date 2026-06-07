@@ -84,3 +84,15 @@ Local package dir (after `composer install` in `packages/ux-blocks-core/`):
 ```bash
 composer test
 ```
+
+## Planning (R2)
+
+**SYMFINITY-47** — ux-blocks-core R2: registry 48 → 50 (`collapsible`, `image`); spinner variants; overlay a11y pass.
+
+| Contract | Path |
+|----------|------|
+| Core R2 registry | [core-r2-role-registry](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/core-r2-role-registry.md) |
+| Collapsible | [collapsible-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/collapsible-role.md) |
+| Image | [image-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/image-role.md) |
+| Spinner variants | [spinner-variants](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/spinner-variants.md) |
+| Overlay a11y | [overlay-a11y-pass](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/overlay-a11y-pass.md) |

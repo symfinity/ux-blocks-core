@@ -12,4 +12,6 @@ final class Select
     public bool $invalid = false;
 
     public bool $disabled = false;
+
+    public ?string $label = null;
 }

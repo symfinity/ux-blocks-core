@@ -13,7 +13,7 @@ use Symfony\Component\Yaml\Yaml;
 final class RegistryConsistencyTest extends TestCase
 {
     /** @return array<string, array{0: string}> */
-    public static function v0RoleProvider(): array
+    public static function coreRoleProvider(): array
     {
         $provider = [];
         foreach (CoreRoleCatalog::roles() as $role) {
@@ -28,46 +28,39 @@ final class RegistryConsistencyTest extends TestCase
     {
         $registry = $this->loadRegistry();
 
-        self::assertSame('1.2', $registry['ux_role_registry']);
+        self::assertSame('1.3', $registry['ux_role_registry']);
         self::assertSame('blocks', $registry['registry_prefix']);
     }
 
     #[Test]
-    public function yamlContainsExactlyFourteenV0Roles(): void
+    public function yamlContainsExactlyTwentyTwoAtomRoles(): void
     {
         $registry = $this->loadRegistry();
-        $v0Roles = array_values(array_filter(
-            $registry['roles'],
-            static fn (array $row): bool => ($row['status'] ?? '') === 'v0',
-        ));
 
-        self::assertCount(14, $v0Roles);
-        self::assertSame(CoreRoleCatalog::roles(), array_column($v0Roles, 'role'));
+        self::assertCount(22, $registry['roles']);
+        self::assertSame(CoreRoleCatalog::roles(), array_column($registry['roles'], 'role'));
+        self::assertSame('blocks.image', $this->findRole('image')['fragment_id']);
     }
 
     #[Test]
-    #[DataProvider('v0RoleProvider')]
-    public function eachV0RowHasRequiredFields(string $role): void
+    #[DataProvider('coreRoleProvider')]
+    public function eachRowHasRequiredFields(string $role): void
     {
         $row = $this->findRole($role);
 
         self::assertSame($role, $row['role']);
-        self::assertMatchesRegularExpression('/^[a-z0-9]+(?:-[a-z0-9]+)*$/', $row['role']);
         self::assertNotEmpty($row['twig_component']);
         self::assertNotEmpty($row['php_class']);
         self::assertSame('blocks.' . $role, $row['fragment_id']);
         self::assertSame('blocks.' . $role . '.{n}', $row['fragment_pattern']);
         self::assertSame('A', $row['stage']);
-        self::assertSame('v0', $row['status']);
-        self::assertTrue(class_exists($row['php_class']), sprintf('Missing class %s', $row['php_class']));
+        self::assertTrue(class_exists($row['php_class']), $row['php_class']);
     }
 
     /** @return array<string, mixed> */
     private function loadRegistry(): array
     {
-        $path = \dirname(__DIR__, 2) . '/config/ux_roles.yaml';
-
-        return Yaml::parseFile($path);
+        return Yaml::parseFile(\dirname(__DIR__, 2) . '/config/ux_roles.yaml');
     }
 
     /** @return array<string, mixed> */

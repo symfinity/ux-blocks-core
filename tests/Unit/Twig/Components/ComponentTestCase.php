@@ -26,6 +26,15 @@ abstract class ComponentTestCase extends KernelTestCase
         return (string) $this->renderTwigComponent($name, $data);
     }
 
+    protected function renderTwig(string $template): string
+    {
+        if (static::$booted === false) {
+            self::bootKernel();
+        }
+
+        return (string) self::getContainer()->get('twig')->render($template);
+    }
+
     protected function assertRootAttributes(string $html, string $role, string $fragment): void
     {
         self::assertStringContainsString(sprintf('data-ui-role="%s"', $role), $html);

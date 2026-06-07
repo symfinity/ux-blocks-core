@@ -18,4 +18,14 @@ final class AvatarTest extends ComponentTestCase
         self::assertStringContainsString('data-ui-variant="primary"', $html);
         self::assertStringContainsString('data-ui-size="lg"', $html);
     }
+
+    #[Test]
+    public function baseAvatarOmitsVariantAttribute(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Avatar', ['variant' => '', 'size' => 'default']);
+
+        $this->assertRootAttributes($html, 'avatar', 'blocks.avatar');
+        self::assertStringNotContainsString('data-ui-variant=', $html);
+    }
 }

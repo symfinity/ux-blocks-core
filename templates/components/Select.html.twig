@@ -1,3 +1,7 @@
+{% if label %}
+<label>
+    <span>{{ label }}</span>
+{% endif %}
 <select
     data-ui-role="select"
     data-ui-fragment="blocks.select"
@@ -7,3 +11,6 @@
 >
     {% block content %}{% endblock %}
 </select>
+{% if label %}
+</label>
+{% endif %}

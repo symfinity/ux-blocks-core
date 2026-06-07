@@ -1,0 +1,13 @@
+schema: showcase-examples/1.0
+role: label
+twig_name: Label
+requires_stimulus: false
+sections:
+  - id: demo
+    title: Demo
+    layout: stack
+    items:
+      - variant: default
+        label: Label
+        props: {}
+        render_partial: showcase/_compounds/by_twig.html.twig

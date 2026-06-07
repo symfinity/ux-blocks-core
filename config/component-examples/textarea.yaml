@@ -1,0 +1,13 @@
+schema: showcase-examples/1.0
+role: textarea
+twig_name: Textarea
+requires_stimulus: false
+sections:
+  - id: states
+    title: States
+    layout: stack
+    items:
+      - variant: default
+        label: Textarea
+        props: {}
+        render_partial: showcase/_compounds/form_controls.html.twig

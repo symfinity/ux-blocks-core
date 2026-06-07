@@ -1,0 +1,29 @@
+schema: showcase-examples/1.0
+role: alert
+twig_name: Alert
+requires_stimulus: false
+sections:
+  - id: variants
+    title: Variants
+    layout: stack
+    items:
+      - variant: info
+        label: Information
+        props: { variant: info }
+        slot_text: 'Information — dismissible alert with kernel semantic colors.'
+        render_partial: showcase/_compounds/alert.html.twig
+      - variant: success
+        label: Success
+        props: { variant: success }
+        slot_text: 'Success — dismissible alert with kernel semantic colors.'
+        render_partial: showcase/_compounds/alert.html.twig
+      - variant: warning
+        label: Warning
+        props: { variant: warning }
+        slot_text: 'Warning — dismissible alert with kernel semantic colors.'
+        render_partial: showcase/_compounds/alert.html.twig
+      - variant: destructive
+        label: Error
+        props: { variant: destructive }
+        slot_text: 'Error — dismissible alert with kernel semantic colors.'
+        render_partial: showcase/_compounds/alert.html.twig

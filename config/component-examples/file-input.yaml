@@ -1,0 +1,13 @@
+schema: showcase-examples/1.0
+role: file-input
+twig_name: FileInput
+requires_stimulus: false
+sections:
+  - id: states
+    title: States
+    layout: stack
+    items:
+      - variant: default
+        label: File Input
+        props: {}
+        render_partial: showcase/_compounds/form_controls.html.twig

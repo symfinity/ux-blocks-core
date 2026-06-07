@@ -2,6 +2,9 @@
     "name": "symfinity/ux-blocks-core",
     "description": "Symfinity UX Blocks Core — fourteen v0 Symfony UX Twig components with registry-aligned markup",
     "license": "MIT",
+    "keywords": [
+        "symfony-ux"
+    ],
     "type": "symfony-bundle",
     "require": {
         "php": ">=8.2",
@@ -42,6 +45,9 @@
     },
     "scripts": {
         "test": "phpunit"
+    },
+    "suggest": {
+        "symfinity/ui-kernel": "SchemeSwitch enhanced mode (PATCH /_ui/theme/scheme) and Chameleon theme cookies"
     },
     "minimum-stability": "dev",
     "prefer-stable": true,

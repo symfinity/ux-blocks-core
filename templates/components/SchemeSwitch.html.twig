@@ -1,0 +1,33 @@
+{% set option_labels = {
+    auto: 'System',
+    light: 'Light',
+    dark: 'Dark',
+} %}
+
+<label class="ui-scheme-switch-field" data-ui-role="field" data-ui-fragment="blocks.scheme-switch">
+    <span class="ui-scheme-switch-label" data-ui-role="label">Color scheme</span>
+    <select
+        class="ui-scheme-switch"
+        data-ui-role="select"
+        name="scheme"
+        {% if enhanced %}
+            {{ attributes.defaults(
+                stimulus_controller('@symfinity/ux-blocks-core/scheme-switch', {
+                    scheme: scheme,
+                    endpoint: schemeEndpoint,
+                })|stimulus_action('@symfinity/ux-blocks-core/scheme-switch', 'update', 'change')
+            ) }}
+        {% else %}
+            {{ attributes }}
+            onchange="(function (el) { var option = el.selectedOptions[0]; if (option && option.dataset.url) { window.location.href = option.dataset.url; } })(this)"
+        {% endif %}
+    >
+        {% for link in links %}
+            <option
+                value="{{ link.scheme }}"
+                data-url="{{ link.url }}"
+                {% if link.active %}selected{% endif %}
+            >{{ option_labels[link.scheme]|default(link.scheme) }}</option>
+        {% endfor %}
+    </select>
+</label>

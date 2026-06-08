@@ -3,11 +3,19 @@ role: checkbox
 twig_name: Checkbox
 requires_stimulus: false
 sections:
-  - id: states
-    title: States
+  - id: colors
+    title: Semantic colours
     layout: stack
     items:
-      - variant: default
-        label: Checkbox
-        props: {}
-        render_partial: showcase/_compounds/form_controls.html.twig
+      - variant: primary-off
+        label: Primary (unchecked)
+        props: { variant: default, checked: false }
+      - variant: primary-on
+        label: Primary (checked)
+        props: { variant: default, checked: true }
+      - variant: success-on
+        label: Success (checked)
+        props: { variant: success, checked: true }
+      - variant: destructive-on
+        label: Destructive (checked)
+        props: { variant: destructive, checked: true }

@@ -9,7 +9,9 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('Button', template: '@UxBlocksCore/components/Button.html.twig')]
 final class Button
 {
-    public string $variant = 'default';
+    public string $variant = 'primary';
+
+    public string $appearance = 'solid';
 
     public string $size = 'default';
 

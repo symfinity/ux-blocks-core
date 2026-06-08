@@ -3,11 +3,19 @@ role: switch
 twig_name: Switch
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Demo
+  - id: colors
+    title: Semantic colours
     layout: stack
     items:
-      - variant: default
-        label: Switch
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: primary-off
+        label: Primary (off)
+        props: { variant: default, checked: false }
+      - variant: primary-on
+        label: Primary (on)
+        props: { variant: default, checked: true }
+      - variant: success-on
+        label: Success (on)
+        props: { variant: success, checked: true }
+      - variant: destructive-on
+        label: Destructive (on)
+        props: { variant: destructive, checked: true }

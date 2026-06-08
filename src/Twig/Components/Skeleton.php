@@ -9,4 +9,5 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('Skeleton', template: '@UxBlocksCore/components/Skeleton.html.twig')]
 final class Skeleton
 {
+    public string $variant = 'rect';
 }

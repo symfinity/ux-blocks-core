@@ -19,12 +19,12 @@ final class BadgeTest extends ComponentTestCase
     }
 
     #[Test]
-    public function baseBadgeOmitsVariantAttribute(): void
+    public function defaultBadgeUsesPrimaryVariant(): void
     {
         self::bootKernel();
-        $html = $this->renderComponent('Badge', ['variant' => '', 'content' => 'Badge']);
+        $html = $this->renderComponent('Badge', ['content' => 'Badge']);
 
         $this->assertRootAttributes($html, 'badge', 'blocks.badge');
-        self::assertStringNotContainsString('data-ui-variant=', $html);
+        self::assertStringContainsString('data-ui-variant="primary"', $html);
     }
 }

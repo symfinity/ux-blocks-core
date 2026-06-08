@@ -5,11 +5,16 @@
 } %}
 
 <label class="ui-scheme-switch-field" data-ui-role="field" data-ui-fragment="blocks.scheme-switch">
-    <span class="ui-scheme-switch-label" data-ui-role="label">Color scheme</span>
+    {% if label %}
+        <span class="ui-scheme-switch-label" data-ui-role="label">{{ label }}</span>
+    {% endif %}
     <select
         class="ui-scheme-switch"
         data-ui-role="select"
+        data-ui-size="{{ size }}"
         name="scheme"
+        {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
+        {% if disabled %}disabled data-ui-state="disabled"{% endif %}
         {% if enhanced %}
             {{ attributes.defaults(
                 stimulus_controller('@symfinity/ux-blocks-core/scheme-switch', {

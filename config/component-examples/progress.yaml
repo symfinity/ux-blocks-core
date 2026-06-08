@@ -3,11 +3,25 @@ role: progress
 twig_name: Progress
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Variants
+  - id: colors
+    title: Semantic colours
     layout: stack
     items:
-      - variant: default
-        label: Progress
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: primary
+        label: Primary
+        props: { variant: default, value: 40, max: 100 }
+      - variant: secondary
+        label: Secondary
+        props: { variant: secondary, value: 55, max: 100 }
+      - variant: success
+        label: Success
+        props: { variant: success, value: 80, max: 100 }
+      - variant: info
+        label: Info
+        props: { variant: info, value: 50, max: 100 }
+      - variant: warning
+        label: Warning
+        props: { variant: warning, value: 65, max: 100 }
+      - variant: destructive
+        label: Destructive
+        props: { variant: destructive, value: 30, max: 100 }

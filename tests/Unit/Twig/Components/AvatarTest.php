@@ -20,12 +20,12 @@ final class AvatarTest extends ComponentTestCase
     }
 
     #[Test]
-    public function baseAvatarOmitsVariantAttribute(): void
+    public function defaultAvatarUsesPrimaryVariant(): void
     {
         self::bootKernel();
-        $html = $this->renderComponent('Avatar', ['variant' => '', 'size' => 'default']);
+        $html = $this->renderComponent('Avatar', ['size' => 'default']);
 
         $this->assertRootAttributes($html, 'avatar', 'blocks.avatar');
-        self::assertStringNotContainsString('data-ui-variant=', $html);
+        self::assertStringContainsString('data-ui-variant="primary"', $html);
     }
 }

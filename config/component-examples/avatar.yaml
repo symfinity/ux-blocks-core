@@ -7,9 +7,6 @@ sections:
     title: Semantic variants
     layout: stack
     items:
-      - variant: base
-        label: Base (no variant)
-        props: { variant: '', size: default }
       - variant: primary
         label: Primary
         props: { variant: primary, size: default }
@@ -19,9 +16,9 @@ sections:
       - variant: tertiary
         label: Tertiary
         props: { variant: tertiary, size: default }
-      - variant: destructive
-        label: Destructive
-        props: { variant: destructive, size: default }
+      - variant: danger
+        label: Danger
+        props: { variant: danger, size: default }
       - variant: success
         label: Success
         props: { variant: success, size: default }
@@ -31,6 +28,9 @@ sections:
       - variant: warning
         label: Warning
         props: { variant: warning, size: default }
+      - variant: ghost
+        label: Ghost
+        props: { variant: ghost, size: default }
   - id: sizes
     title: Sizes
     layout: stack

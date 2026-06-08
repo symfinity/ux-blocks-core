@@ -7,21 +7,18 @@ sections:
     title: Semantic variants
     layout: stack
     items:
-      - variant: base
-        label: Base (no variant)
-        props: { variant: '' }
       - variant: primary
         label: Primary
         props: { variant: primary }
       - variant: secondary
         label: Secondary
         props: { variant: secondary }
-      - variant: outline
-        label: Outline
-        props: { variant: outline }
-      - variant: destructive
-        label: Destructive
-        props: { variant: destructive }
+      - variant: tertiary
+        label: Tertiary
+        props: { variant: tertiary }
+      - variant: danger
+        label: Danger
+        props: { variant: danger }
       - variant: success
         label: Success
         props: { variant: success }

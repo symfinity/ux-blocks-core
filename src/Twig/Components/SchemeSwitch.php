@@ -9,6 +9,14 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('SchemeSwitch', template: '@UxBlocksCore/components/SchemeSwitch.html.twig')]
 final class SchemeSwitch
 {
+    public ?string $label = null;
+
+    public string $size = 'default';
+
+    public bool $invalid = false;
+
+    public bool $disabled = false;
+
     public string $scheme = 'auto';
 
     public bool $enhanced = true;

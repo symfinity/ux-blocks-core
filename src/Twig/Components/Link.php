@@ -11,6 +11,7 @@ final class Link
 {
     public string $href = '#';
 
-    public string $variant = 'default';
+    public string $variant = 'primary';
 
+    public string $appearance = 'link';
 }

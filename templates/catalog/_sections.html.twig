@@ -92,8 +92,8 @@
 <section class="ux-blocks-catalog-section" id="role-empty" data-catalog-role="empty">
     <h2>Empty</h2>
     <twig:Empty>
-        <twig:Empty:Media>{{ copy.empty_media|default('Media') }}</twig:Empty:Media>
         <twig:Empty:Header>
+            <twig:Empty:Media>{{ copy.empty_media|default('Media') }}</twig:Empty:Media>
             <twig:Empty:Title>{{ copy.empty_title|default('No results') }}</twig:Empty:Title>
             <twig:Empty:Description>{{ copy.empty_description|default('Try adjusting your filters.') }}</twig:Empty:Description>
         </twig:Empty:Header>
@@ -148,6 +148,22 @@
         <twig:Label for="demo-check-disabled">Disabled</twig:Label>
         <twig:Checkbox id="demo-check-disabled" name="accept_disabled" disabled />
     </div>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-radio-group" data-catalog-role="radio-group">
+    <h2>Radio group</h2>
+    <h3>Stacked</h3>
+    <twig:RadioGroup name="demo-plan">
+        <twig:RadioGroup:Item name="demo-plan" value="monthly" checked>Monthly billing</twig:RadioGroup:Item>
+        <twig:RadioGroup:Item name="demo-plan" value="annual">Annual billing</twig:RadioGroup:Item>
+        <twig:RadioGroup:Item name="demo-plan" value="disabled" disabled>Disabled option</twig:RadioGroup:Item>
+    </twig:RadioGroup>
+    <h3>Inline</h3>
+    <twig:RadioGroup name="demo-size" orientation="horizontal">
+        <twig:RadioGroup:Item name="demo-size" value="sm">Small</twig:RadioGroup:Item>
+        <twig:RadioGroup:Item name="demo-size" value="md" checked>Medium</twig:RadioGroup:Item>
+        <twig:RadioGroup:Item name="demo-size" value="lg">Large</twig:RadioGroup:Item>
+    </twig:RadioGroup>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-scroll-area" data-catalog-role="scroll-area">

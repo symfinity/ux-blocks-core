@@ -27,4 +27,31 @@ final class ButtonTest extends ComponentTestCase
 
         self::assertStringContainsString('data-ui-layout="block"', $html);
     }
+
+    #[Test]
+    public function itRendersAnchorWithHrefWhenAsLink(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Button', [
+            'as' => 'a',
+            'href' => '/catalog',
+        ]);
+
+        self::assertMatchesRegularExpression('/<a[\s>]/', $html);
+        self::assertStringContainsString('href="/catalog"', $html);
+        self::assertDoesNotMatchRegularExpression('/<button[\s>]/', $html);
+    }
+
+    #[Test]
+    public function itOmitsHrefOnNativeButton(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Button', [
+            'as' => 'button',
+            'href' => '/ignored',
+        ]);
+
+        self::assertMatchesRegularExpression('/<button[\s>]/', $html);
+        self::assertStringNotContainsString('href=', $html);
+    }
 }

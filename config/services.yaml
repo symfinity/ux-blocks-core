@@ -9,5 +9,9 @@ services:
       - '../src/SymfinityUxBlocksCoreBundle.php'
       - '../src/DependencyInjection/'
 
+  Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider:
+    arguments:
+      $packageDir: '%ux_blocks_core.package_dir%'
+
   Symfinity\UxBlocksCore\Controller\CatalogController:
     tags: ['controller.service_arguments']

@@ -1,4 +1,4 @@
-ux_role_registry: "1.3"
+ux_role_registry: "1.4"
 registry_prefix: blocks
 roles:
   - role: typography
@@ -46,6 +46,16 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Checkbox
     fragment_id: blocks.checkbox
     fragment_pattern: "blocks.checkbox.{n}"
+    interaction: nat
+    stage: A
+    status: v0
+  - role: radio-group
+    twig_component: RadioGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\RadioGroup
+    fragment_id: blocks.radio-group
+    fragment_pattern: "blocks.radio-group.{n}"
+    nested_components:
+      - RadioGroup:Item
     interaction: nat
     stage: A
     status: v0
@@ -169,6 +179,12 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\EmptyState
     fragment_id: blocks.empty
     fragment_pattern: "blocks.empty.{n}"
+    nested_components:
+      - Empty:Header
+      - Empty:Media
+      - Empty:Title
+      - Empty:Description
+      - Empty:Content
     interaction: nat
     stage: A
     status: v0
@@ -177,6 +193,14 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Image
     fragment_id: blocks.image
     fragment_pattern: "blocks.image.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: figure
+    twig_component: Figure
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Figure
+    fragment_id: blocks.figure
+    fragment_pattern: "blocks.figure.{n}"
     interaction: nat
     stage: A
     status: v1

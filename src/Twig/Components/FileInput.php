@@ -9,4 +9,7 @@ use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 #[AsTwigComponent('FileInput', template: '@UxBlocksCore/components/FileInput.html.twig')]
 final class FileInput
 {
+    public bool $invalid = false;
+
+    public bool $disabled = false;
 }

@@ -1,17 +1,27 @@
 {% if label %}
-<label>
-    <span>{{ label }}</span>
-{% endif %}
-<select
-    data-ui-role="select"
-    data-ui-fragment="blocks.select"
-    data-ui-size="{{ size }}"
-    {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
-    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
-    {{ attributes }}
+<label
+    data-ui-role="label"
+    data-ui-fragment="blocks.label"
 >
-    {% block content %}{% endblock %}
-</select>
+    {{ label }}
+{% endif %}
+<div data-ui-part="select-control">
+    <select
+        data-ui-role="select"
+        data-ui-fragment="blocks.select"
+        data-ui-size="{{ size }}"
+        {% if placeholder %}required{% endif %}
+        {% if invalid %}aria-invalid="true"{% endif %}
+        {% if disabled %}disabled data-ui-state="disabled"{% elseif invalid %}data-ui-state="invalid"{% endif %}
+        {{ attributes }}
+    >
+        {% if placeholder %}
+        <option value="" selected disabled hidden>{{ placeholder }}</option>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </select>
+    <span data-ui-part="select-chevron" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8l4 4 4-4"/></svg></span>
+</div>
 {% if label %}
 </label>
 {% endif %}

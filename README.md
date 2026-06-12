@@ -85,13 +85,16 @@ Local package dir (after `composer install` in `packages/ux-blocks-core/`):
 composer test
 ```
 
-## Planning (R2)
+## Planning (R2 / R3)
 
 **SYMFINITY-47** — ux-blocks-core R2: registry 48 → 50 (`collapsible`, `image`); spinner variants; overlay a11y pass.
+
+**SYMFINITY-62** — ux-blocks-core R3: `figure` composition container (`media` + `caption` slots); atom catalog 22 → 23; registry `1.4`.
 
 | Contract | Path |
 |----------|------|
 | Core R2 registry | [core-r2-role-registry](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/core-r2-role-registry.md) |
+| Core R3 figure | [figure-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/figure-role.md) |
 | Collapsible | [collapsible-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/collapsible-role.md) |
 | Image | [image-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/image-role.md) |
 | Spinner variants | [spinner-variants](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/spinner-variants.md) |

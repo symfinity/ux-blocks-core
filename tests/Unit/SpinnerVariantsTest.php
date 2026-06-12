@@ -18,6 +18,7 @@ final class SpinnerVariantsTest extends ComponentTestCase
 
         self::assertStringContainsString('data-ui-role="spinner"', $html);
         self::assertStringContainsString('data-ui-fragment="blocks.spinner"', $html);
+        self::assertStringContainsString('data-ui-variant="primary"', $html);
         self::assertStringContainsString('data-ui-size="md"', $html);
         self::assertStringContainsString('data-ui-density="inline"', $html);
         self::assertStringContainsString('role="status"', $html);
@@ -46,5 +47,27 @@ final class SpinnerVariantsTest extends ComponentTestCase
 
         self::assertStringContainsString(sprintf('data-ui-size="%s"', $size), $html);
         self::assertStringContainsString(sprintf('data-ui-density="%s"', $density), $html);
+    }
+
+    #[Test]
+    public function semanticVariantIsExposedOnMarkup(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Spinner', [
+            'variant' => 'danger',
+        ]);
+
+        self::assertStringContainsString('data-ui-variant="danger"', $html);
+    }
+
+    #[Test]
+    public function hiddenAttributeAppliedWhenNotVisible(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Spinner', [
+            'visible' => false,
+        ]);
+
+        self::assertStringContainsString('hidden', $html);
     }
 }

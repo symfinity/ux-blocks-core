@@ -34,4 +34,14 @@ final class V1RemainingComponentsTest extends ComponentTestCase
 
         $this->assertRootAttributes($html, $role, $fragment);
     }
+
+    #[Test]
+    public function switchRendersDisabledState(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Switch', ['checked' => true, 'disabled' => true]);
+
+        self::assertStringContainsString('data-ui-state="disabled"', $html);
+        self::assertStringContainsString('disabled', $html);
+    }
 }

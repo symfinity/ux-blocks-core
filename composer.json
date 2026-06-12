@@ -8,6 +8,7 @@
     "type": "symfony-bundle",
     "require": {
         "php": ">=8.2",
+        "symfinity/ui-kernel": "@dev",
         "symfinity/ux-blocks": "@dev",
         "symfony/framework-bundle": "^7.4||^8.0",
         "symfony/twig-bundle": "^7.4||^8.0",
@@ -22,6 +23,11 @@
         "symfony/yaml": "^7.4||^8.0"
     },
     "repositories": [
+        {
+            "type": "path",
+            "url": "../ui-kernel",
+            "options": { "symlink": true }
+        },
         {
             "type": "path",
             "url": "../ux-blocks",

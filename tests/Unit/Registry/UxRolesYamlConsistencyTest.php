@@ -16,9 +16,9 @@ final class UxRolesYamlConsistencyTest extends TestCase
     {
         $registry = Yaml::parseFile(\dirname(__DIR__, 3) . '/config/ux_roles.yaml');
 
-        self::assertSame('1.3', $registry['ux_role_registry']);
+        self::assertSame('1.4', $registry['ux_role_registry']);
         self::assertSame('blocks', $registry['registry_prefix']);
-        self::assertCount(22, $registry['roles']);
+        self::assertCount(24, $registry['roles']);
         self::assertSame(CoreRoleCatalog::roles(), array_column($registry['roles'], 'role'));
     }
 }

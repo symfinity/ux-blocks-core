@@ -4,29 +4,29 @@
     dark: 'Dark',
 } %}
 
-<label class="ui-scheme-switch-field" data-ui-role="field" data-ui-fragment="blocks.scheme-switch">
-    {% if label %}
-        <span class="ui-scheme-switch-label" data-ui-role="label">{{ label }}</span>
-    {% endif %}
-    <select
-        class="ui-scheme-switch"
-        data-ui-role="select"
-        data-ui-size="{{ size }}"
-        name="scheme"
-        {% if invalid %}aria-invalid="true" data-ui-state="invalid"{% endif %}
-        {% if disabled %}disabled data-ui-state="disabled"{% endif %}
-        {% if enhanced %}
-            {{ attributes.defaults(
-                stimulus_controller('@symfinity/ux-blocks-core/scheme-switch', {
-                    scheme: scheme,
-                    endpoint: schemeEndpoint,
-                })|stimulus_action('@symfinity/ux-blocks-core/scheme-switch', 'update', 'change')
-            ) }}
-        {% else %}
-            {{ attributes }}
-            onchange="(function (el) { var option = el.selectedOptions[0]; if (option && option.dataset.url) { window.location.href = option.dataset.url; } })(this)"
-        {% endif %}
-    >
+{% if enhanced %}
+    {% set selectAttributes = attributes.defaults(
+        stimulus_controller('@symfinity/ux-blocks-core/scheme-switch', {
+            scheme: scheme,
+            endpoint: schemeEndpoint,
+        })|stimulus_action('@symfinity/ux-blocks-core/scheme-switch', 'update', 'change')
+    ).defaults({ name: 'scheme' }) %}
+{% else %}
+    {% set selectAttributes = attributes.defaults({
+        name: 'scheme',
+        onchange: "(function (el) { var option = el.selectedOptions[0]; if (option && option.dataset.url) { window.location.href = option.dataset.url; } })(this)",
+    }) %}
+{% endif %}
+
+{% embed '@UxBlocksCore/components/Select.html.twig' with {
+    label: label,
+    size: size,
+    invalid: invalid,
+    disabled: disabled,
+    placeholder: null,
+    attributes: selectAttributes,
+} %}
+    {% block content %}
         {% for link in links %}
             <option
                 value="{{ link.scheme }}"
@@ -34,5 +34,5 @@
                 {% if link.active %}selected{% endif %}
             >{{ option_labels[link.scheme]|default(link.scheme) }}</option>
         {% endfor %}
-    </select>
-</label>
+    {% endblock %}
+{% endembed %}

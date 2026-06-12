@@ -38,3 +38,15 @@ sections:
           alt: 'Rounded example'
           variant: rounded
           loading: lazy
+  - id: circle
+    title: Circle
+    layout: stack
+    items:
+      - variant: circle
+        label: Circle
+        description: Square aspect ratio with 50% radius — true circular crop.
+        props:
+          src: 'https://picsum.photos/seed/chameleon-circle/320/320'
+          alt: 'Circle example'
+          variant: circle
+          loading: lazy

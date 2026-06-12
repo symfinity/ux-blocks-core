@@ -1,0 +1,16 @@
+{% set caption_content -%}
+    {%- block caption %}{%- endblock %}
+{%- endset %}
+<figure
+    data-ui-role="figure"
+    data-ui-fragment="blocks.figure"
+    {% if align != 'none' %}data-ui-align="{{ align }}"{% endif %}
+    {{ attributes }}
+>
+    {% block media %}{% endblock %}
+    {% if caption_content|trim is not empty %}
+        <figcaption data-ui-role="figure-caption">
+            {{ caption_content|raw }}
+        </figcaption>
+    {% endif %}
+</figure>

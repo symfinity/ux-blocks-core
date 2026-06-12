@@ -1,6 +1,9 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
+    /** @type {((event: Event) => void) | null} */
+    #onToggle = null;
+
     static values = {
         type: { type: String, default: 'single' },
         groupName: String,

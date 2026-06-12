@@ -19,6 +19,12 @@ final class AspectRatioTest extends TestCase
 
         $component->ratio = '16:9';
         self::assertSame('16 / 9', $component->ratioCss());
+
+        $component->ratio = '21/9';
+        self::assertSame('21 / 9', $component->ratioCss());
+
+        $component->ratio = '9/16';
+        self::assertSame('9 / 16', $component->ratioCss());
     }
 
     #[Test]

@@ -13,4 +13,6 @@ final class Badge
     use ExposesSemanticVariant;
 
     public string $variant = 'primary';
+
+    public string $size = 'default';
 }

@@ -11,6 +11,8 @@ final class Select
 {
     public ?string $label = null;
 
+    public ?string $placeholder = null;
+
     public string $size = 'default';
 
     public bool $invalid = false;

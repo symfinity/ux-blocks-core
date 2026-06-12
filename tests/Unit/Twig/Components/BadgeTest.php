@@ -26,5 +26,16 @@ final class BadgeTest extends ComponentTestCase
 
         $this->assertRootAttributes($html, 'badge', 'blocks.badge');
         self::assertStringContainsString('data-ui-variant="primary"', $html);
+        self::assertStringContainsString('data-ui-size="default"', $html);
+    }
+
+    #[Test]
+    public function itRendersSizeAttribute(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Badge', ['variant' => 'info', 'size' => 'lg', 'content' => 'LG']);
+
+        $this->assertRootAttributes($html, 'badge', 'blocks.badge');
+        self::assertStringContainsString('data-ui-size="lg"', $html);
     }
 }

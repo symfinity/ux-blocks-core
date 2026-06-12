@@ -19,4 +19,13 @@ final class InputTest extends ComponentTestCase
         self::assertStringContainsString('aria-invalid="true"', $html);
         self::assertStringContainsString('disabled', $html);
     }
+
+    #[Test]
+    public function itRendersPlaceholderWhenSet(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Input', ['placeholder' => 'you@example.com']);
+
+        self::assertStringContainsString('placeholder="you@example.com"', $html);
+    }
 }

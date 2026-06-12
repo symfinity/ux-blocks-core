@@ -6,7 +6,7 @@ namespace Symfinity\UxBlocksCore\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('Empty:Description', template: '@UxBlocksCore/components/_shared/p_slot.html.twig')]
+#[AsTwigComponent('Empty:Description', template: '@UxBlocksCore/components/EmptyDescription.html.twig')]
 final class EmptyDescription
 {
 }

@@ -739,6 +739,20 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     },
  *     controllers_json?: scalar|Param|null, // Deprecated: The "twig_component.controllers_json" config option is deprecated, and will be removed in 3.0. // Default: null
  * }
+ * @psalm-type SymfinityUiKernelConfig = array{
+ *     default_theme?: scalar|Param|null, // Default: "default"
+ *     default_variant?: scalar|Param|null, // Default: "default"
+ *     schema_version?: scalar|Param|null, // Default: "1.0"
+ *     user_tokens?: list<scalar|Param|null>,
+ *     contract?: array<mixed>,
+ *     generator?: array<mixed>,
+ *     system_profile?: array{
+ *         id?: scalar|Param|null, // Default: "chameleon-default"
+ *         columns?: int|Param, // Default: 12
+ *         breakpoints?: list<int|Param>,
+ *         container_max_widths?: list<int|Param>,
+ *     },
+ * }
  * @psalm-type ConfigType = array{
  *     imports?: ImportsConfig,
  *     parameters?: ParametersConfig,
@@ -747,6 +761,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     twig?: TwigConfig,
  *     stimulus?: StimulusConfig,
  *     twig_component?: TwigComponentConfig,
+ *     symfinity_ui_kernel?: SymfinityUiKernelConfig,
  *     "when@dev"?: array{
  *         imports?: ImportsConfig,
  *         parameters?: ParametersConfig,

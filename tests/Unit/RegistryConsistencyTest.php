@@ -28,18 +28,20 @@ final class RegistryConsistencyTest extends TestCase
     {
         $registry = $this->loadRegistry();
 
-        self::assertSame('1.3', $registry['ux_role_registry']);
+        self::assertSame('1.4', $registry['ux_role_registry']);
         self::assertSame('blocks', $registry['registry_prefix']);
     }
 
     #[Test]
-    public function yamlContainsExactlyTwentyTwoAtomRoles(): void
+    public function yamlContainsExactlyTwentyFourAtomRolesIncludingRadioGroupAndFigureR3(): void
     {
         $registry = $this->loadRegistry();
 
-        self::assertCount(22, $registry['roles']);
+        self::assertCount(24, $registry['roles']);
         self::assertSame(CoreRoleCatalog::roles(), array_column($registry['roles'], 'role'));
         self::assertSame('blocks.image', $this->findRole('image')['fragment_id']);
+        self::assertSame('blocks.figure', $this->findRole('figure')['fragment_id']);
+        self::assertSame('Figure', $this->findRole('figure')['twig_component']);
     }
 
     #[Test]

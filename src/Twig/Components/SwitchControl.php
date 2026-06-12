@@ -15,4 +15,6 @@ final class SwitchControl
     public string $variant = 'primary';
 
     public bool $checked = false;
+
+    public bool $disabled = false;
 }

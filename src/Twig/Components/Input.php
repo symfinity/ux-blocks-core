@@ -11,6 +11,10 @@ final class Input
 {
     public string $type = 'text';
 
+    public ?string $value = null;
+
+    public ?string $placeholder = null;
+
     public bool $invalid = false;
 
     public bool $disabled = false;

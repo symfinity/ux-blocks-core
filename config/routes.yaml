@@ -2,3 +2,8 @@ ux_blocks_core_catalog:
   path: /ux-blocks-core/catalog
   controller: Symfinity\UxBlocksCore\Controller\CatalogController::catalog
   methods: [GET]
+
+ui_kernel_theme_scheme:
+  path: /_ui/theme/scheme
+  controller: Symfinity\UxBlocksCore\Http\ThemeSchemeController::update
+  methods: [PATCH]

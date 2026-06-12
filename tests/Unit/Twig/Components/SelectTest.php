@@ -16,6 +16,8 @@ final class SelectTest extends ComponentTestCase
         $html = $this->renderComponent('Select');
 
         $this->assertRootAttributes($html, 'select', 'blocks.select');
+        self::assertStringContainsString('data-ui-part="select-control"', $html);
+        self::assertStringContainsString('data-ui-part="select-chevron"', $html);
     }
 
     #[Test]
@@ -28,11 +30,23 @@ final class SelectTest extends ComponentTestCase
     }
 
     #[Test]
+    public function placeholderRendersEmptyOptionAndRequired(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Select', ['placeholder' => 'Choose a country']);
+
+        self::assertStringContainsString('required', $html);
+        self::assertStringContainsString('<option value="" selected disabled hidden>Choose a country</option>', $html);
+    }
+
+    #[Test]
     public function labelPropAssociatesVisibleLabel(): void
     {
         self::bootKernel();
         $html = $this->renderComponent('Select', ['label' => 'Country']);
 
         self::assertStringContainsString('Country', $html);
+        self::assertStringContainsString('data-ui-role="label"', $html);
+        self::assertStringContainsString('data-ui-fragment="blocks.label"', $html);
     }
 }

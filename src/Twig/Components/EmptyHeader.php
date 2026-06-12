@@ -6,7 +6,7 @@ namespace Symfinity\UxBlocksCore\Twig\Components;
 
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 
-#[AsTwigComponent('Empty:Header', template: '@UxBlocksCore/components/_shared/div_slot.html.twig')]
+#[AsTwigComponent('Empty:Header', template: '@UxBlocksCore/components/EmptyHeader.html.twig')]
 final class EmptyHeader
 {
 }

@@ -17,6 +17,8 @@ final class Button
 
     public string $as = 'button';
 
+    public string $href = '#';
+
     public bool $disabled = false;
 
     public bool $block = false;

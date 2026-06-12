@@ -4,6 +4,7 @@
     data-ui-variant="{{ variant }}"
     data-ui-appearance="{{ appearance }}"
     data-ui-size="{{ size }}"
+    {% if 'a' == as %}href="{{ href }}"{% endif %}
     {% if block %}data-ui-layout="block"{% endif %}
     {% if disabled %}disabled data-ui-state="disabled"{% endif %}
     {{ attributes }}

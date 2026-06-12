@@ -15,5 +15,16 @@ final class EmptyTest extends ComponentTestCase
         $html = $this->renderComponent('Empty');
 
         $this->assertRootAttributes($html, 'empty', 'blocks.empty');
+        self::assertStringNotContainsString('data-ui-media=', $html);
+        self::assertStringNotContainsString('data-action-url=', $html);
+    }
+
+    #[Test]
+    public function contentFragmentRendersRegistryAttributes(): void
+    {
+        self::bootKernel();
+        $html = $this->renderComponent('Empty:Content');
+
+        $this->assertRootAttributes($html, 'empty-content', 'blocks.empty.content');
     }
 }

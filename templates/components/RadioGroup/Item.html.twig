@@ -1,0 +1,15 @@
+<label
+    data-ui-role="radio-group-item"
+    {{ attributes }}
+>
+    <input
+        data-ui-role="radio"
+        data-ui-fragment="blocks.radio-group.item"
+        type="radio"
+        name="{{ name }}"
+        value="{{ value }}"
+        {% if checked %}checked{% endif %}
+        {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    />
+    {% block content %}{% endblock %}
+</label>

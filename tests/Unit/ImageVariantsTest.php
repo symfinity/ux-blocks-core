@@ -33,6 +33,7 @@ final class ImageVariantsTest extends ComponentTestCase
         return [
             'thumbnail' => ['thumbnail'],
             'rounded' => ['rounded'],
+            'circle' => ['circle'],
         ];
     }
 

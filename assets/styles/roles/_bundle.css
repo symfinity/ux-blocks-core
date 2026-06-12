@@ -872,15 +872,6 @@ display: inline-block;
   border-radius: var(--ui-radius-sm);
   background: var(--ui-color-surface-elevated);
 }
-@media (max-width: 767px) {
-[data-ui-role="dashboard-shell"] {
-    grid-template-columns: 1fr;
-  }
-  [data-ui-role="dashboard-shell"] [data-ui-slot="sidebar"] {
-    border-inline-end: 0;
-    border-block-end: 1px solid var(--ui-color-border);
-  }
-}
 @media (prefers-reduced-motion: reduce) {
 [data-ui-role="spinner"] {
     animation: none;

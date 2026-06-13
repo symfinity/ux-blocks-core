@@ -22,8 +22,7 @@
         "twig-components",
         "ux-blocks",
         "design-system",
-        "ui-kernel",
-        "chameleon"
+        "ui-kernel"
     ],
     "require": {
         "php": ">=8.2",

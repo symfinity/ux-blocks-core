@@ -48,8 +48,8 @@ jobs:
             symfony/http-kernel:^${{ matrix.symfony }} \
             symfony/twig-bundle:^${{ matrix.symfony }} \
             symfony/yaml:^${{ matrix.symfony }} \
-            symfony/stimulus-bundle:^2.0|^3.0 \
-            symfony/ux-twig-component:^2.0|^3.0
+            'symfony/stimulus-bundle:^2.0|^3.0' \
+            'symfony/ux-twig-component:^2.0|^3.0'
 
       - name: Install dependencies
         run: composer update --prefer-dist --no-interaction --no-progress

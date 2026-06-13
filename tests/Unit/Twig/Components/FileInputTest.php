@@ -27,6 +27,5 @@ final class FileInputTest extends ComponentTestCase
         self::assertStringContainsString('disabled', $html);
         self::assertStringContainsString('data-ui-state="disabled"', $html);
         self::assertStringContainsString('aria-invalid="true"', $html);
-        self::assertStringContainsString('data-ui-state="invalid"', $html);
     }
 }

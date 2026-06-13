@@ -747,7 +747,7 @@ use Symfony\Component\Config\Loader\ParamConfigurator as Param;
  *     contract?: array<mixed>,
  *     generator?: array<mixed>,
  *     system_profile?: array{
- *         id?: scalar|Param|null, // Default: "chameleon-default"
+ *         id?: scalar|Param|null, // Default: "ui-kernel-default"
  *         columns?: int|Param, // Default: 12
  *         breakpoints?: list<int|Param>,
  *         container_max_widths?: list<int|Param>,

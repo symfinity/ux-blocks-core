@@ -32,7 +32,7 @@ abstract class ComponentTestCase extends KernelTestCase
             self::bootKernel();
         }
 
-        return (string) self::getContainer()->get('twig')->render($template);
+        return (string) self::getContainer()->get('twig')->createTemplate($template)->render([]);
     }
 
     protected function assertRootAttributes(string $html, string $role, string $fragment): void

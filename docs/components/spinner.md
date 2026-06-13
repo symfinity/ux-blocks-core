@@ -23,5 +23,3 @@ DOM hooks: `data-ui-size`, `data-ui-density` on root. Omitting props preserves p
 | sm | inline | Button row / compact controls |
 | lg | block | Card-level loading |
 | sm | block | Compact centered loader |
-
-Normative contract: [047 spinner-variants](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/spinner-variants.md).

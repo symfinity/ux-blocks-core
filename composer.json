@@ -1,23 +1,44 @@
 {
     "name": "symfinity/ux-blocks-core",
-    "description": "Symfinity UX Blocks Core — fourteen v0 Symfony UX Twig components with registry-aligned markup",
-    "license": "MIT",
-    "keywords": [
-        "symfony-ux"
-    ],
+    "description": "Symfinity UX Blocks Core — atomic Symfony UX Twig components with registry-aligned markup and role CSS",
     "type": "symfony-bundle",
+    "license": "MIT",
+    "homepage": "https://github.com/symfinity/ux-blocks-core",
+    "support": {
+        "issues": "https://github.com/symfinity/ux-blocks-core/issues",
+        "source": "https://github.com/symfinity/ux-blocks-core"
+    },
+    "authors": [
+        {
+            "name": "Symfinity",
+            "email": "dev@symfinity.net",
+            "homepage": "https://symfinity.net/"
+        }
+    ],
+    "keywords": [
+        "symfony",
+        "symfony-bundle",
+        "symfony-ux",
+        "twig-components",
+        "ux-blocks",
+        "design-system",
+        "ui-kernel",
+        "chameleon"
+    ],
     "require": {
         "php": ">=8.2",
-        "symfinity/ui-kernel": "@dev",
-        "symfinity/ux-blocks": "@dev",
+        "symfinity/ui-kernel": "^0.1",
+        "symfinity/ux-blocks": "^0.1",
         "symfony/framework-bundle": "^7.4||^8.0",
         "symfony/twig-bundle": "^7.4||^8.0",
         "symfony/stimulus-bundle": "^2.0|^3.0",
         "symfony/ux-twig-component": "^2.0|^3.0"
     },
     "require-dev": {
+        "phpstan/phpstan": "^2.1",
+        "phpstan/phpstan-symfony": "^2.0",
         "phpunit/phpunit": "^10.5 || ^11.0",
-        "symfinity/ui-action": "@dev",
+        "symfinity/ui-action": "^0.1",
         "symfony/browser-kit": "^7.4||^8.0",
         "symfony/css-selector": "^7.4||^8.0",
         "symfony/yaml": "^7.4||^8.0"
@@ -49,18 +70,25 @@
             "Symfinity\\UxBlocksCore\\Tests\\": "tests/"
         }
     },
+    "config": {
+        "sort-packages": true
+    },
     "scripts": {
-        "test": "phpunit"
+        "test": "phpunit",
+        "phpstan": "phpstan analyse --memory-limit=512M"
     },
     "suggest": {
-        "symfinity/ui-kernel": "SchemeSwitch enhanced mode (PATCH /_ui/theme/scheme) and Chameleon theme cookies"
+        "symfinity/ui-kernel": "SchemeSwitch enhanced mode (PATCH /_ui/theme/scheme) and Chameleon theme cookies",
+        "symfony/ux-icons": "Icon set for roles that use ux:icon (optional per app)"
     },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "version": "1.0.0-dev",
     "extra": {
         "branch-alias": {
-            "dev-main": "1.x-dev"
+            "dev-main": "0.1.x-dev"
+        },
+        "symfony": {
+            "require": "^7.4||^8.0"
         }
-    }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }

@@ -6,8 +6,6 @@
 
 Responsive content images with Bootstrap-aligned presentation variants.
 
-Normative contract: [047 image-role](../../../../specs/symfinity/symfinity/3-ux-component-catalog/contracts/image-role.md).
-
 | Variant | Use |
 |---------|-----|
 | `fluid` (default) | Responsive — scales with parent width |

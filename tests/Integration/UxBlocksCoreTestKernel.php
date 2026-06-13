@@ -43,6 +43,7 @@ final class UxBlocksCoreTestKernel extends Kernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
+        $routes->import($this->getProjectDir() . '/config/routes.yaml');
     }
 
     protected function configureContainer(ContainerConfigurator $container): void

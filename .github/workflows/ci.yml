@@ -44,10 +44,13 @@ jobs:
             symfony/config:^${{ matrix.symfony }} \
             symfony/dependency-injection:^${{ matrix.symfony }} \
             symfony/framework-bundle:^${{ matrix.symfony }} \
+            symfony/asset-mapper:^${{ matrix.symfony }} \
             symfony/http-foundation:^${{ matrix.symfony }} \
             symfony/http-kernel:^${{ matrix.symfony }} \
             symfony/twig-bundle:^${{ matrix.symfony }} \
             symfony/yaml:^${{ matrix.symfony }} \
+            symfony/form:^${{ matrix.symfony }} \
+            symfony/validator:^${{ matrix.symfony }} \
             'symfony/stimulus-bundle:^2.0|^3.0' \
             'symfony/ux-twig-component:^2.0|^3.0'
 

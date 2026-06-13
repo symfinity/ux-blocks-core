@@ -6,3 +6,5 @@ parameters:
     paths:
         - src
     reportUnmatchedIgnoredErrors: false
+    bootstrapFiles:
+        - phpstan-bootstrap.php

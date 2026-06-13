@@ -3,10 +3,10 @@
 ## Prerequisites
 
 1. Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project's `composer.json` (see [recipes README](https://github.com/symfinity/recipes/blob/main/README.md)).
-2. Install **ui-kernel** (theme CSS) and **ux-blocks** (registry schema) — required peers for this package.
+2. Install **ui-kernel** (theme CSS). **ux-blocks** (registry SDK) is pulled from [Packagist](https://packagist.org/packages/symfinity/ux-blocks) when you require this package.
 
 ```bash
-composer require symfinity/ui-kernel symfinity/ux-blocks
+composer require symfinity/ui-kernel
 ```
 
 ## Composer
@@ -22,7 +22,7 @@ The `0.1` recipe applies:
 - Registers `SymfinityUxBlocksCoreBundle` for **all** environments
 - No app config file is copied — the bundle auto-configures AssetMapper, Twig paths, and UX Twig components
 
-Composer also resolves `symfinity/ui-kernel` and `symfinity/ux-blocks` when they are not already present.
+Composer resolves `symfinity/ux-blocks` from Packagist and `symfinity/ui-kernel` when not already present.
 
 ## Manual installation
 

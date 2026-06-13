@@ -4,7 +4,7 @@ Use UX Blocks Core components in a Symfony app with ui-kernel theme CSS.
 
 ## Prerequisites
 
-[Installation](installation.md) completed — `symfinity/ui-kernel`, `symfinity/ux-blocks`, and `symfinity/ux-blocks-core` installed.
+[Installation](installation.md) completed — `symfinity/ui-kernel` and `symfinity/ux-blocks-core` installed (`symfinity/ux-blocks` from Packagist).
 
 ## 1. Include ui-kernel CSS
 

@@ -72,10 +72,10 @@ Handbook pages: [docs/components.md](docs/components.md) and [docs/components/](
 
 Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project's `composer.json` (see [recipes README](https://github.com/symfinity/recipes/blob/main/README.md)) — recipes are not in Symfony's official recipe repository yet.
 
-Install **ui-kernel** and **ux-blocks** (or let Composer resolve them as dependencies of this package):
+Install **ui-kernel** (theme CSS). **ux-blocks** (registry SDK) resolves from [Packagist](https://packagist.org/packages/symfinity/ux-blocks) as a dependency of this package.
 
 ```bash
-composer require symfinity/ui-kernel symfinity/ux-blocks
+composer require symfinity/ui-kernel
 ```
 
 ## Installation
@@ -117,7 +117,7 @@ See [Quick start](docs/quickstart.md) for the full walkthrough.
 
 - PHP 8.2 or higher
 - Symfony 7.4 or 8.x
-- `symfinity/ui-kernel` ^0.1 and `symfinity/ux-blocks` ^0.1
+- `symfinity/ui-kernel` ^0.1 and `symfinity/ux-blocks` ^0.1 ([Packagist](https://packagist.org/packages/symfinity/ux-blocks))
 
 ## Support
 

@@ -51,11 +51,6 @@
         },
         {
             "type": "path",
-            "url": "../ux-blocks",
-            "options": { "symlink": true }
-        },
-        {
-            "type": "path",
             "url": "../ui-action",
             "options": { "symlink": true }
         }

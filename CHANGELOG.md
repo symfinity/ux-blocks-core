@@ -22,5 +22,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Notes
 
 - Core tier is **native-first** (`nat`) — default stories need no package Stimulus controllers; `Button` also supports declarative `act` via ui-action
-- Requires `symfinity/ui-kernel` (theme tokens + shared form-control CSS) and `symfinity/ux-blocks` (registry schema)
+- Requires `symfinity/ui-kernel` (theme tokens + shared form-control CSS) and `symfinity/ux-blocks` ^0.1 on [Packagist](https://packagist.org/packages/symfinity/ux-blocks) (registry schema)
 - Split mirror CI: PHP 8.2–8.5 × Symfony 7.4 / 8.0 / 8.1 (see `.github/workflows/ci.yml`)

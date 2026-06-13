@@ -63,6 +63,14 @@ final class UxBlocksCoreTestKernel extends Kernel
             'validation' => ['enabled' => true],
         ]);
 
+        // UX Twig Component 3.x (Symfony 8+) requires explicit defaults in MicroKernel tests.
+        $container->extension('twig_component', [
+            'anonymous_template_directory' => 'components',
+            'defaults' => [
+                'Symfinity\\UxBlocksCore\\Twig\\Components\\' => 'components',
+            ],
+        ]);
+
         $container->extension('twig', [
             'form_themes' => [],
         ]);

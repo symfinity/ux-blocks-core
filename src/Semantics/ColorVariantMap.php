@@ -4,19 +4,20 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore\Semantics;
 
-use Symfinity\UiKernel\Token\SemanticVariant;
+use Symfinity\UiKernel\Token\ColourPropsNormalizer;
+use Symfinity\UiKernel\Token\SemanticColourVocabulary;
 
 /**
- * Maps semantic colour variants to canonical {@code --ui-color-*} token keys (018, 060).
+ * Maps semantic colour variants to canonical {@code --ui-color-*} token keys (018, 060, 077).
  */
 final class ColorVariantMap
 {
     /** @var list<string> */
-    public const SEMANTIC_VARIANTS = SemanticVariant::ALL;
+    public const SEMANTIC_VARIANTS = SemanticColourVocabulary::PLATFORM_MINIMUM;
 
     public static function semanticTokenKey(string $variant): string
     {
-        return SemanticVariant::tokenKey($variant);
+        return ColourPropsNormalizer::tokenKey($variant);
     }
 
     /**
@@ -25,7 +26,7 @@ final class ColorVariantMap
     public static function cssVariantSelectors(): array
     {
         $selectors = [];
-        foreach (SemanticVariant::ALL as $variant) {
+        foreach (self::SEMANTIC_VARIANTS as $variant) {
             $selectors[$variant] = [$variant];
         }
 

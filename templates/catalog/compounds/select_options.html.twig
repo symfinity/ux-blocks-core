@@ -1,0 +1,12 @@
+{% set disabled = item.props.disabled|default(false) %}
+{% if disabled %}
+<twig:Select id="{{ item.props.id|default('catalog-select') }}" name="{{ item.props.name|default('choice') }}" disabled>
+    <option value="a">Option A</option>
+    <option value="b">Option B</option>
+</twig:Select>
+{% else %}
+<twig:Select id="{{ item.props.id|default('catalog-select') }}" name="{{ item.props.name|default('choice') }}">
+    <option value="a">Option A</option>
+    <option value="b">Option B</option>
+</twig:Select>
+{% endif %}

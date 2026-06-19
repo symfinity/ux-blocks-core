@@ -1,0 +1,8 @@
+{% set columns = item.props.columns|default(2) %}
+{% set density = item.props.density|default('comfortable') %}
+<twig:Grid columns="{{ columns }}" density="{{ density }}">
+    <twig:Grid:Cell>A</twig:Grid:Cell>
+    <twig:Grid:Cell>B</twig:Grid:Cell>
+    <twig:Grid:Cell>C</twig:Grid:Cell>
+    <twig:Grid:Cell>D</twig:Grid:Cell>
+</twig:Grid>

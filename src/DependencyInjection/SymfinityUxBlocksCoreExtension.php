@@ -41,7 +41,19 @@ final class SymfinityUxBlocksCoreExtension extends Extension implements PrependE
 
     public function load(array $configs, ContainerBuilder $container): void
     {
-        $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__, 2) . '/config'));
+        $configuration = new Configuration();
+        $config = $this->processConfiguration($configuration, $configs);
+
+        $packageDir = \dirname(__DIR__, 2);
+        $container->setParameter('ux_blocks_core.package_dir', $packageDir);
+        $container->setParameter('ux_blocks_core.fragment_ids', (bool) $config['fragment_ids']);
+
+        $loader = new YamlFileLoader($container, new FileLocator($packageDir . '/config'));
         $loader->load('services.yaml');
+    }
+
+    public function getAlias(): string
+    {
+        return 'symfinity_ux_blocks_core';
     }
 }

@@ -1,0 +1,37 @@
+/* 100 A1 — native progress tint via accent token */
+[data-ui-role="progress"] {
+  accent-color: var(--ui-color-accent);
+  color-scheme: light dark;
+}
+
+[data-ui-role="progress"][data-ui-variant="primary"] {
+  accent-color: var(--ui-color-primary);
+}
+
+[data-ui-role="progress"][data-ui-variant="secondary"] {
+  accent-color: var(--ui-color-secondary);
+}
+
+[data-ui-role="progress"][data-ui-variant="tertiary"] {
+  accent-color: var(--ui-color-tertiary);
+}
+
+[data-ui-role="progress"][data-ui-variant="success"] {
+  accent-color: var(--ui-color-success);
+}
+
+[data-ui-role="progress"][data-ui-variant="danger"] {
+  accent-color: var(--ui-color-danger);
+}
+
+[data-ui-role="progress"][data-ui-variant="info"] {
+  accent-color: var(--ui-color-info);
+}
+
+[data-ui-role="progress"][data-ui-variant="warning"] {
+  accent-color: var(--ui-color-warning);
+}
+
+[data-ui-role="progress"][data-ui-variant="ghost"] {
+  accent-color: var(--ui-color-text-muted);
+}

@@ -21,13 +21,12 @@ The bundle imports `config/routes.yaml`:
 | Route name | Path | Purpose |
 |------------|------|---------|
 | `ux_blocks_core_catalog` | `/ux-blocks-core/catalog` | Dev role preview gallery |
-| `ui_kernel_theme_scheme` | `/_ui/theme/scheme` (PATCH) | Theme scheme toggle for `SchemeSwitch` when ui-kernel is present |
 
 Restrict or disable these routes in production if they are not needed — treat the catalog as internal tooling.
 
-## SchemeSwitch and ui-kernel
+## Color scheme switching
 
-The `SchemeSwitch` role can PATCH `/_ui/theme/scheme` when **symfinity/ui-kernel** is installed and theme cookies are enabled. See ui-kernel handbook for theme configuration.
+Foundation tier (`ux-blocks-core`) stays HTML/CSS-only. For an interactive light/dark toggle with PATCH support, use **`SchemeSwitch`** from **`symfinity/ux-blocks-interactive`** and import `config/routes/theme-scheme.yaml` when **symfinity/ui-kernel** is installed. Non-interactive apps can use ui-kernel redirect links, boot script, or layout chrome instead — see ui-kernel [theme-preference](https://github.com/symfinity/ui-kernel/blob/main/docs/theme-preference.md).
 
 ## Stimulus and icons
 

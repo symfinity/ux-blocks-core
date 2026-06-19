@@ -1,0 +1,12 @@
+{% import '@UxBlocksCore/components/_component_style.html.twig' as componentStyle %}
+<div
+    data-ui-direction="{{ direction }}"
+    data-ui-gap="{{ gap }}"
+    data-ui-density="{{ density }}"
+    style="{{ componentStyle.rootStyle(attributes, '--ui-density: ' ~ density ~ ';') }}"
+    {{ attributes.without('style') }}
+>
+    <div data-ui-part="stack-layout">
+        {% block content %}{% endblock %}
+    </div>
+</div>

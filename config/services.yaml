@@ -15,3 +15,24 @@ services:
 
   Symfinity\UxBlocksCore\Controller\CatalogController:
     tags: ['controller.service_arguments']
+
+  Symfinity\UxBlocksCore\Showcase\ComponentExampleManifestLoader:
+    arguments:
+      $examplesDir: '%ux_blocks_core.package_dir%/config/component-examples'
+
+  Symfinity\UxBlocksCore\Showcase\ComponentExampleViewFactory: ~
+
+  Symfinity\UxBlocksCore\Showcase\CatalogComponentRenderer: ~
+
+  Symfinity\UxBlocksCore\Registry\UxRoleRegistry:
+    arguments:
+      $yamlPath: '%ux_blocks_core.package_dir%/config/ux_roles.yaml'
+
+  Symfinity\UxBlocksCore\Twig\FragmentInstanceCounter: ~
+
+  Symfinity\UxBlocksCore\Twig\RoleAttributeBridgeListener:
+    arguments:
+      $fragmentIdsEnabled: '%ux_blocks_core.fragment_ids%'
+
+  Symfinity\UxBlocksCore\Breadcrumb\BreadcrumbTrailResolverInterface:
+    alias: Symfinity\UxBlocksCore\Breadcrumb\PathSegmentBreadcrumbTrailResolver

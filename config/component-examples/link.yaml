@@ -3,11 +3,123 @@ role: link
 twig_name: Link
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Variants
+  - id: appearance-link
+    title: Link appearance
+    layout: row
+    items:
+      - variant: primary
+        label: Primary
+        props: { variant: primary, appearance: link }
+        slot_text: Primary link
+      - variant: secondary
+        label: Secondary
+        props: { variant: secondary, appearance: link }
+        slot_text: Secondary link
+      - variant: tertiary
+        label: Tertiary
+        props: { variant: tertiary, appearance: link }
+        slot_text: Tertiary link
+      - variant: success
+        label: Success
+        props: { variant: success, appearance: link }
+        slot_text: Success link
+      - variant: danger
+        label: Danger
+        props: { variant: danger, appearance: link }
+        slot_text: Danger link
+      - variant: info
+        label: Info
+        props: { variant: info, appearance: link }
+        slot_text: Info link
+      - variant: warning
+        label: Warning
+        props: { variant: warning, appearance: link }
+        slot_text: Warning link
+      - variant: ghost
+        label: Ghost
+        props: { variant: ghost, appearance: link }
+        slot_text: Ghost link
+  - id: appearance-solid
+    title: Solid appearance
+    layout: row
+    items:
+      - variant: primary
+        label: Primary
+        props: { variant: primary, appearance: solid }
+        slot_text: Primary
+      - variant: secondary
+        label: Secondary
+        props: { variant: secondary, appearance: solid }
+        slot_text: Secondary
+      - variant: tertiary
+        label: Tertiary
+        props: { variant: tertiary, appearance: solid }
+        slot_text: Tertiary
+      - variant: success
+        label: Success
+        props: { variant: success, appearance: solid }
+        slot_text: Success
+      - variant: danger
+        label: Danger
+        props: { variant: danger, appearance: solid }
+        slot_text: Danger
+      - variant: info
+        label: Info
+        props: { variant: info, appearance: solid }
+        slot_text: Info
+      - variant: warning
+        label: Warning
+        props: { variant: warning, appearance: solid }
+        slot_text: Warning
+      - variant: ghost
+        label: Ghost
+        props: { variant: ghost, appearance: solid }
+        slot_text: Ghost
+  - id: appearance-outline
+    title: Outline appearance
+    layout: row
+    items:
+      - variant: primary
+        label: Primary
+        props: { variant: primary, appearance: outline }
+        slot_text: Primary
+      - variant: secondary
+        label: Secondary
+        props: { variant: secondary, appearance: outline }
+        slot_text: Secondary
+      - variant: tertiary
+        label: Tertiary
+        props: { variant: tertiary, appearance: outline }
+        slot_text: Tertiary
+      - variant: success
+        label: Success
+        props: { variant: success, appearance: outline }
+        slot_text: Success
+      - variant: danger
+        label: Danger
+        props: { variant: danger, appearance: outline }
+        slot_text: Danger
+      - variant: info
+        label: Info
+        props: { variant: info, appearance: outline }
+        slot_text: Info
+      - variant: warning
+        label: Warning
+        props: { variant: warning, appearance: outline }
+        slot_text: Warning
+      - variant: ghost
+        label: Ghost
+        props: { variant: ghost, appearance: outline }
+        slot_text: Ghost
+  - id: icons
+    title: Icon slots
     layout: stack
     items:
-      - variant: default
-        label: Link
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: external
+        label: External link
+        props: { href: 'https://example.com', external: true }
+        slot_text: Documentation
+      - variant: icon-start
+        label: Internal with icon
+        props: { icon: 'lucide:home' }
+        slot_text: Home

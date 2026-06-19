@@ -1,0 +1,50 @@
+<section class="ux-catalog-section" id="role-{{ manifest.role }}-{{ section.id }}">
+    <h3>{{ section.title }}</h3>
+
+    {% if section.layout == 'size-rows' and section.groups is not empty %}
+        <table class="ux-catalog-size-table">
+            <thead>
+                <tr>
+                    <th scope="col">size</th>
+                    {% for item in section.groups[0].items %}
+                        <th scope="col">{{ item.label }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in section.groups %}
+                    <tr>
+                        <th scope="row">{{ group.label|default(group.size) }}</th>
+                        {% for item in group.items %}
+                            <td>
+                                {% include '@UxBlocksCore/catalog/_item.html.twig' with {
+                                    item: item,
+                                    manifest: manifest,
+                                    show_label: false,
+                                } only %}
+                            </td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% elseif section.layout == 'row' %}
+        <div class="ux-catalog-row">
+            {% for item in section.items %}
+                {% include '@UxBlocksCore/catalog/_item.html.twig' with {
+                    item: item,
+                    manifest: manifest,
+                } only %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="ux-catalog-stack">
+            {% for item in section.items %}
+                {% include '@UxBlocksCore/catalog/_item.html.twig' with {
+                    item: item,
+                    manifest: manifest,
+                } only %}
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

@@ -14,7 +14,6 @@ final class StimulusControllersTest extends TestCase
     public static function coreControllerProvider(): array
     {
         return [
-            'scheme-switch' => ['scheme_switch'],
             'collapsible' => ['collapsible'],
             'tooltip' => ['tooltip'],
             'popover' => ['popover'],

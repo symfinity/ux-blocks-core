@@ -1,10 +1,21 @@
 <a
-    data-ui-role="link"
-    data-ui-fragment="blocks.link"
     href="{{ href }}"
     data-ui-variant="{{ variant }}"
     data-ui-appearance="{{ appearance }}"
+    {% if external %}data-ui-external="true"{% endif %}
     {{ attributes }}
 >
+    {% if link_icon_position == 'start' %}
+        {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+            iconName: resolved_link_icon,
+            iconDecorative: iconDecorative,
+        } only %}
+    {% endif %}
     {% block content %}{% endblock %}
+    {% if link_icon_position == 'end' %}
+        {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+            iconName: resolved_link_icon,
+            iconDecorative: iconDecorative,
+        } only %}
+    {% endif %}
 </a>

@@ -1,0 +1,11 @@
+{% import '@UxBlocksCore/components/_component_style.html.twig' as componentStyle %}
+<div
+    data-ui-density="{{ density }}"
+    style="{{ componentStyle.rootStyle(attributes, '--ui-density: ' ~ density ~ ';') }}"
+    {% if columns %}data-ui-columns="{{ columns }}"{% endif %}
+    {{ attributes.without('style') }}
+>
+    <div data-ui-part="grid-layout">
+        {% block content %}{% endblock %}
+    </div>
+</div>

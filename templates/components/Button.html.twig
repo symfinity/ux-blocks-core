@@ -1,13 +1,31 @@
 <{{ as }}
-    data-ui-role="button"
-    data-ui-fragment="blocks.button"
     data-ui-variant="{{ variant }}"
     data-ui-appearance="{{ appearance }}"
     data-ui-size="{{ size }}"
+    {% if iconPosition == 'only' %}data-ui-layout="icon-only"{% endif %}
     {% if 'a' == as %}href="{{ href }}"{% endif %}
-    {% if block %}data-ui-layout="block"{% endif %}
-    {% if disabled %}disabled data-ui-state="disabled"{% endif %}
+    {% if block and iconPosition != 'only' %}data-ui-layout="block"{% endif %}
+    {% if loading %}disabled data-ui-state="loading" aria-busy="true"{% elseif disabled %}disabled data-ui-state="disabled"{% endif %}
     {{ attributes }}
 >
-    {% block content %}{% endblock %}
+    {% if iconPosition == 'only' %}
+        {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+            iconName: icon,
+            iconDecorative: iconDecorative,
+        } only %}
+    {% else %}
+        {% if iconPosition == 'start' and icon %}
+            {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+                iconName: icon,
+                iconDecorative: iconDecorative,
+            } only %}
+        {% endif %}
+        <span data-ui-part="label">{% block content %}{% endblock %}</span>
+        {% if iconPosition == 'end' and icon %}
+            {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+                iconName: icon,
+                iconDecorative: iconDecorative,
+            } only %}
+        {% endif %}
+    {% endif %}
 </{{ as }}>

@@ -17,7 +17,7 @@ final class ColorVariantMapTest extends TestCase
     {
         self::assertSame('--ui-color-primary', ColorVariantMap::semanticTokenKey('primary'));
         self::assertSame('--ui-color-danger', ColorVariantMap::semanticTokenKey('danger'));
-        self::assertSame('--ui-color-info', ColorVariantMap::semanticTokenKey('info'));
+        self::assertSame('--ui-color-danger', ColorVariantMap::semanticTokenKey('error'));
     }
 
     #[Test]

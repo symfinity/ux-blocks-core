@@ -3,11 +3,31 @@ role: kbd
 twig_name: Kbd
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Variants
-    layout: stack
+  - id: keys
+    title: Key samples
+    layout: row
     items:
-      - variant: default
-        label: Kbd
+      - variant: ctrl
+        label: Ctrl
         props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+        slot_text: Ctrl
+      - variant: shift
+        label: Shift
+        props: {}
+        slot_text: Shift
+      - variant: alt
+        label: Alt
+        props: {}
+        slot_text: Alt
+      - variant: k
+        label: K
+        props: {}
+        slot_text: K
+      - variant: enter
+        label: Enter
+        props: {}
+        slot_text: Enter
+      - variant: esc
+        label: Esc
+        props: {}
+        slot_text: Esc

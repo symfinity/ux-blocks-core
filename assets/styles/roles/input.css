@@ -1,0 +1,45 @@
+[data-ui-role="input"][data-ui-variant="danger"],
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+border-color: var(--ui-color-danger);
+}
+
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+color: var(--ui-color-danger);
+  -webkit-text-fill-color: var(--ui-color-danger);
+}
+
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"])::placeholder,
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"])::placeholder,
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled)::placeholder {
+color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  -webkit-text-fill-color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  opacity: 1;
+}
+
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+background-color: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface));
+}
+
+[data-ui-role="input"][data-ui-variant="success"]:not(:disabled):not([data-ui-state="disabled"]) {
+border-color: var(--ui-color-success);
+  background-color: color-mix(in srgb, var(--ui-color-success) 12%, var(--ui-color-surface));
+  color: var(--ui-color-success);
+  -webkit-text-fill-color: var(--ui-color-success);
+}
+
+[data-ui-role="input"][data-ui-variant="success"]:not(:disabled):not([data-ui-state="disabled"])::placeholder {
+color: color-mix(in srgb, var(--ui-color-success) 72%, var(--ui-color-text-muted));
+  -webkit-text-fill-color: color-mix(in srgb, var(--ui-color-success) 72%, var(--ui-color-text-muted));
+  opacity: 1;
+}
+
+[data-ui-role="input"]:focus-visible {
+outline: 0;
+  border-color: color-mix(in srgb, var(--ui-color-focus) 40%, var(--ui-color-border));
+  box-shadow: 0 0 var(--ui-focus-ring-blur) var(--ui-focus-ring-width) color-mix(in srgb, var(--ui-color-focus) calc(var(--ui-focus-ring-opacity) * 100%), transparent);
+}

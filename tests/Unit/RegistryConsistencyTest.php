@@ -33,14 +33,15 @@ final class RegistryConsistencyTest extends TestCase
     }
 
     #[Test]
-    public function yamlContainsExactlyTwentyFourAtomRolesIncludingRadioGroupAndFigureR3(): void
+    public function yamlContainsExactlyThirtyFiveAtomRolesAfterFoundationMigration(): void
     {
         $registry = $this->loadRegistry();
 
-        self::assertCount(24, $registry['roles']);
+        self::assertCount(35, $registry['roles']);
         self::assertSame(CoreRoleCatalog::roles(), array_column($registry['roles'], 'role'));
         self::assertSame('blocks.image', $this->findRole('image')['fragment_id']);
         self::assertSame('blocks.figure', $this->findRole('figure')['fragment_id']);
+        self::assertSame('blocks.grid', $this->findRole('grid')['fragment_id']);
         self::assertSame('Figure', $this->findRole('figure')['twig_component']);
     }
 

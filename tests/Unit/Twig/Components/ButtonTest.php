@@ -54,4 +54,18 @@ final class ButtonTest extends ComponentTestCase
         self::assertMatchesRegularExpression('/<button[\s>]/', $html);
         self::assertStringNotContainsString('href=', $html);
     }
+
+    #[Test]
+    public function itNormalizesLegacyColourAliasesInMarkup(): void
+    {
+        self::bootKernel();
+
+        $destructive = $this->renderComponent('Button', ['variant' => 'destructive']);
+        self::assertStringContainsString('data-ui-variant="danger"', $destructive);
+        self::assertStringNotContainsString('data-ui-variant="destructive"', $destructive);
+
+        $default = $this->renderComponent('Button', ['variant' => 'default']);
+        self::assertStringContainsString('data-ui-variant="primary"', $default);
+        self::assertStringNotContainsString('data-ui-variant="default"', $default);
+    }
 }

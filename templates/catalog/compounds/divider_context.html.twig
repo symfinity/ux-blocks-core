@@ -1,0 +1,12 @@
+{% set orientation = item.props.orientation|default('horizontal') %}
+{% if orientation == 'vertical' %}
+<div style="display:flex;align-items:stretch;gap:1rem;min-height:4rem;">
+    <span>Left</span>
+    <twig:Divider variant="vertical" />
+    <span>Right</span>
+</div>
+{% else %}
+<p>Above</p>
+<twig:Divider variant="horizontal" />
+<p>Below</p>
+{% endif %}

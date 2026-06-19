@@ -1,0 +1,78 @@
+/* 065 — token toggle chrome (migrated from _bundle.css; MUST NOT reset appearance:auto) */
+[data-ui-role="checkbox"] {
+  --ui-toggle-track: color-mix(in srgb, var(--ui-color-text-muted) 28%, var(--ui-color-surface-elevated));
+  --ui-toggle-thumb: var(--ui-color-surface);
+  --ui-toggle-border: var(--ui-color-border);
+  --ui-toggle-accent: var(--ui-color-primary);
+  color-scheme: light dark;
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+  border: 1px solid var(--ui-toggle-border);
+  border-radius: var(--ui-radius-sm);
+  background-color: var(--ui-toggle-track);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  cursor: pointer;
+  vertical-align: middle;
+  transition:
+    background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+[data-ui-role="checkbox"]:checked {
+  background-color: var(--ui-toggle-accent);
+  border-color: var(--ui-toggle-accent);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='m6 10 3 3 6-6'/%3e%3c/svg%3e");
+}
+
+[data-ui-role="checkbox"]:disabled,
+[data-ui-role="checkbox"][data-ui-state="disabled"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+[data-ui-role="checkbox"]:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 var(--ui-focus-ring-blur) var(--ui-focus-ring-width)
+    color-mix(in srgb, var(--ui-color-focus) calc(var(--ui-focus-ring-opacity) * 100%), transparent);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="primary"] {
+  --ui-toggle-accent: var(--ui-color-primary);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="secondary"] {
+  --ui-toggle-accent: var(--ui-color-secondary);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="tertiary"] {
+  --ui-toggle-accent: var(--ui-color-tertiary);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="success"] {
+  --ui-toggle-accent: var(--ui-color-success);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="danger"] {
+  --ui-toggle-accent: var(--ui-color-danger);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="info"] {
+  --ui-toggle-accent: var(--ui-color-info);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="warning"] {
+  --ui-toggle-accent: var(--ui-color-warning);
+}
+
+[data-ui-role="checkbox"][data-ui-variant="ghost"] {
+  --ui-toggle-accent: var(--ui-color-text-muted);
+}

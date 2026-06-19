@@ -1,0 +1,37 @@
+schema: showcase-examples/1.0
+role: grid
+twig_name: Grid
+requires_stimulus: false
+sections:
+  - id: columns
+    title: Column counts
+    layout: stack
+    items:
+      - variant: cols-1
+        label: 1 column
+        props: { columns: 1 }
+        render_partial: showcase/_compounds/grid_demo.html.twig
+      - variant: cols-2
+        label: 2 columns
+        props: { columns: 2 }
+        render_partial: showcase/_compounds/grid_demo.html.twig
+      - variant: cols-3
+        label: 3 columns
+        props: { columns: 3 }
+        render_partial: showcase/_compounds/grid_demo.html.twig
+      - variant: cols-4
+        label: 4 columns
+        props: { columns: 4 }
+        render_partial: showcase/_compounds/grid_demo.html.twig
+  - id: density
+    title: Density
+    layout: stack
+    items:
+      - variant: comfortable
+        label: Comfortable
+        props: { columns: 2, density: comfortable }
+        render_partial: showcase/_compounds/grid_demo.html.twig
+      - variant: compact
+        label: Compact
+        props: { columns: 2, density: compact }
+        render_partial: showcase/_compounds/grid_demo.html.twig

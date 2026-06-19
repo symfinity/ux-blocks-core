@@ -2,11 +2,6 @@
     "name": "@symfinity/ux-blocks-core",
     "symfony": {
         "controllers": {
-            "scheme-switch": {
-                "main": "controllers/ux_blocks_core/scheme_switch_controller.js",
-                "fetch": "eager",
-                "enabled": true
-            },
             "collapsible": {
                 "main": "controllers/ux_blocks_core/collapsible_controller.js",
                 "fetch": "lazy",

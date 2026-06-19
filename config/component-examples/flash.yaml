@@ -1,0 +1,37 @@
+schema: showcase-examples/1.0
+role: flash
+twig_name: Flash
+requires_stimulus: false
+sections:
+  - id: variants
+    title: Semantic variants
+    layout: stack
+    items:
+      - variant: success
+        label: Success
+        props: { variant: success }
+        slot_text: Changes saved successfully
+      - variant: info
+        label: Info
+        props: { variant: info }
+        slot_text: New version available
+      - variant: warning
+        label: Warning
+        props: { variant: warning }
+        slot_text: Disk space is running low
+      - variant: error
+        label: Error
+        props: { variant: error }
+        slot_text: Payment could not be processed
+  - id: placement
+    title: Viewport placement
+    layout: row
+    items:
+      - variant: top
+        label: Top edge
+        props: { variant: info, placement: top }
+        slot_text: Fixed to top of viewport
+      - variant: bottom
+        label: Bottom edge
+        props: { variant: info, placement: bottom }
+        slot_text: Fixed to bottom of viewport

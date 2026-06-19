@@ -1,9 +1,13 @@
 <span
-    data-ui-role="badge"
-    data-ui-fragment="blocks.badge"
     data-ui-variant="{{ variant }}"
     data-ui-size="{{ size }}"
     {{ attributes }}
 >
+    {% if resolved_badge_icon %}
+        {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+            iconName: resolved_badge_icon,
+            iconDecorative: iconDecorative,
+        } only %}
+    {% endif %}
     {% block content %}{% endblock %}
 </span>

@@ -1,0 +1,24 @@
+/* 104 — shared typography R2 helpers (imported once from blocks-core.css) */
+
+@media print {
+  [data-ui-role="page-heading"] [data-ui-part="title"],
+  [data-ui-role="section-heading"] [data-ui-part="title"],
+  [data-ui-role="stat"] [data-ui-part="value"],
+  [data-ui-role="stat"] [data-ui-part="label"],
+  [data-ui-role="stat-value"],
+  [data-ui-role="stat-label"] {
+    text-wrap: wrap;
+  }
+
+  @supports (text-box: trim-both) {
+    [data-ui-role="page-heading"] [data-ui-part="title"],
+    [data-ui-role="section-heading"] [data-ui-part="title"],
+    [data-ui-role="stat"] [data-ui-part="value"],
+    [data-ui-role="stat"] [data-ui-part="label"],
+    [data-ui-role="stat-value"],
+    [data-ui-role="stat-label"],
+    [data-ui-role="typography"][data-ui-variant="lead"] {
+      text-box: normal;
+    }
+  }
+}

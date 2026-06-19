@@ -8,6 +8,13 @@ sections:
     layout: stack
     items:
       - variant: default
-        label: Textarea
-        props: {}
-        render_partial: showcase/_compounds/form_controls.html.twig
+        label: Default
+        props: { placeholder: Notes }
+      - variant: disabled
+        label: Disabled
+        props: { disabled: true }
+        slot_text: Disabled content
+      - variant: invalid
+        label: Invalid
+        props: { invalid: true }
+        slot_text: Invalid content

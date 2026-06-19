@@ -9,13 +9,28 @@ sections:
     items:
       - variant: primary-off
         label: Primary (off)
-        props: { variant: default, checked: false }
+        props: { variant: primary, checked: false }
       - variant: primary-on
         label: Primary (on)
-        props: { variant: default, checked: true }
+        props: { variant: primary, checked: true }
+      - variant: secondary-on
+        label: Secondary (on)
+        props: { variant: secondary, checked: true }
+      - variant: tertiary-on
+        label: Tertiary (on)
+        props: { variant: tertiary, checked: true }
+      - variant: danger-on
+        label: Danger (on)
+        props: { variant: danger, checked: true }
       - variant: success-on
         label: Success (on)
         props: { variant: success, checked: true }
-      - variant: destructive-on
-        label: Destructive (on)
-        props: { variant: destructive, checked: true }
+      - variant: info-on
+        label: Info (on)
+        props: { variant: info, checked: true }
+      - variant: warning-on
+        label: Warning (on)
+        props: { variant: warning, checked: true }
+      - variant: ghost-on
+        label: Ghost (on)
+        props: { variant: ghost, checked: true }

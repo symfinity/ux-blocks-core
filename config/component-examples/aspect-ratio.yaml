@@ -3,11 +3,23 @@ role: aspect-ratio
 twig_name: AspectRatio
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Demo
+  - id: ratios
+    title: Common ratios
     layout: stack
     items:
-      - variant: default
-        label: Aspect Ratio
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: ratio-16-9
+        label: 16:9
+        props: { ratio: '16/9' }
+        render_partial: showcase/_compounds/aspect_ratio_demo.html.twig
+      - variant: ratio-4-3
+        label: 4:3
+        props: { ratio: '4/3' }
+        render_partial: showcase/_compounds/aspect_ratio_demo.html.twig
+      - variant: ratio-1-1
+        label: 1:1
+        props: { ratio: '1/1' }
+        render_partial: showcase/_compounds/aspect_ratio_demo.html.twig
+      - variant: ratio-21-9
+        label: 21:9
+        props: { ratio: '21/9' }
+        render_partial: showcase/_compounds/aspect_ratio_demo.html.twig

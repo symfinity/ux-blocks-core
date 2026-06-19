@@ -3,11 +3,19 @@ role: skeleton
 twig_name: Skeleton
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Variants
+  - id: widths
+    title: Width samples
     layout: stack
     items:
-      - variant: default
-        label: Skeleton
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: full
+        label: Full width bar
+        props: { style: 'width:100%;height:1rem;' }
+      - variant: medium
+        label: Medium bar
+        props: { style: 'width:12rem;height:1rem;' }
+      - variant: short
+        label: Short bar
+        props: { style: 'width:8rem;height:1rem;' }
+      - variant: tall
+        label: Tall block
+        props: { style: 'width:10rem;height:4rem;' }

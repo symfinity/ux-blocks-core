@@ -1,6 +1,4 @@
 <textarea
-    data-ui-role="textarea"
-    data-ui-fragment="blocks.textarea"
     {% if placeholder %}placeholder="{{ placeholder }}"{% endif %}
     {% if invalid %}aria-invalid="true"{% endif %}
     {% if disabled %}disabled data-ui-state="disabled"{% elseif invalid %}data-ui-state="invalid"{% endif %}

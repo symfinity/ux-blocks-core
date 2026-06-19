@@ -1,0 +1,13 @@
+schema: showcase-examples/1.0
+role: input-group
+twig_name: InputGroup
+requires_stimulus: false
+sections:
+  - id: demo
+    title: Input with button
+    layout: stack
+    items:
+      - variant: default
+        label: Search group
+        props: {}
+        render_partial: showcase/_compounds/input_group_demo.html.twig

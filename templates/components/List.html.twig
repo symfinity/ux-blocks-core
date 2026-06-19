@@ -1,7 +1,9 @@
-<ul
-    data-ui-role="list"
-    data-ui-fragment="blocks.list"
+<div
+    {% if variant != 'default' %}data-ui-variant="{{ variant }}"{% endif %}
+    data-ui-gap="{{ gap }}"
     {{ attributes }}
 >
-    {% block content %}{% endblock %}
-</ul>
+    <ul data-ui-part="list-layout">
+        {% block content %}{% endblock %}
+    </ul>
+</div>

@@ -3,11 +3,19 @@ role: label
 twig_name: Label
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Demo
+  - id: samples
+    title: Label samples
     layout: stack
     items:
-      - variant: default
-        label: Label
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: email
+        label: Email field
+        props: { for: catalog-label-email }
+        slot_text: Email address
+      - variant: password
+        label: Password field
+        props: { for: catalog-label-password }
+        slot_text: Password
+      - variant: notes
+        label: Notes field
+        props: { for: catalog-label-notes }
+        slot_text: Additional notes

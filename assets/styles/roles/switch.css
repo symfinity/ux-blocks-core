@@ -1,0 +1,80 @@
+/* 065 — token toggle chrome (migrated from _bundle.css; MUST NOT reset appearance:auto) */
+[data-ui-role="switch"] {
+  --ui-toggle-track: color-mix(in srgb, var(--ui-color-text-muted) 28%, var(--ui-color-surface-elevated));
+  --ui-toggle-thumb: var(--ui-color-surface);
+  --ui-toggle-border: var(--ui-color-border);
+  --ui-toggle-accent: var(--ui-color-primary);
+  --switch-thumb-size: 1rem;
+  color-scheme: light dark;
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 2.5rem;
+  height: 1.25rem;
+  margin: 0;
+  border: 1px solid var(--ui-toggle-border);
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-toggle-track);
+  background-image: radial-gradient(circle closest-side, var(--ui-toggle-thumb) 96%, transparent 100%);
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: var(--switch-thumb-size) var(--switch-thumb-size);
+  cursor: pointer;
+  vertical-align: middle;
+  transition:
+    background-color 0.15s ease-in-out,
+    background-position 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+
+[data-ui-role="switch"]:checked {
+  background-color: var(--ui-toggle-accent);
+  border-color: var(--ui-toggle-accent);
+  background-position: right center;
+}
+
+[data-ui-role="switch"]:disabled,
+[data-ui-role="switch"][data-ui-state="disabled"] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+[data-ui-role="switch"]:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 var(--ui-focus-ring-blur) var(--ui-focus-ring-width)
+    color-mix(in srgb, var(--ui-color-focus) calc(var(--ui-focus-ring-opacity) * 100%), transparent);
+}
+
+[data-ui-role="switch"][data-ui-variant="primary"] {
+  --ui-toggle-accent: var(--ui-color-primary);
+}
+
+[data-ui-role="switch"][data-ui-variant="secondary"] {
+  --ui-toggle-accent: var(--ui-color-secondary);
+}
+
+[data-ui-role="switch"][data-ui-variant="tertiary"] {
+  --ui-toggle-accent: var(--ui-color-tertiary);
+}
+
+[data-ui-role="switch"][data-ui-variant="success"] {
+  --ui-toggle-accent: var(--ui-color-success);
+}
+
+[data-ui-role="switch"][data-ui-variant="danger"] {
+  --ui-toggle-accent: var(--ui-color-danger);
+}
+
+[data-ui-role="switch"][data-ui-variant="info"] {
+  --ui-toggle-accent: var(--ui-color-info);
+}
+
+[data-ui-role="switch"][data-ui-variant="warning"] {
+  --ui-toggle-accent: var(--ui-color-warning);
+}
+
+[data-ui-role="switch"][data-ui-variant="ghost"] {
+  --ui-toggle-accent: var(--ui-color-text-muted);
+}

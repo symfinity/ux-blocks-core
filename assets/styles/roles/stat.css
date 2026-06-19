@@ -1,0 +1,45 @@
+/* 100 A4 — fluid stat value line; 104 — trim + balance on stat metrics */
+
+[data-ui-role="stat-value"],
+[data-ui-role="stat"] [data-ui-part="value"] {
+  font-size: clamp(var(--ui-font-size-2xl), 4cqi + 0.5rem, var(--ui-font-size-5xl));
+  font-weight: var(--ui-font-weight-semibold);
+  color: var(--ui-color-text);
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+@supports (text-box: trim-both) {
+  [data-ui-role="stat-value"],
+  [data-ui-role="stat"] [data-ui-part="value"] {
+    text-box: trim-both cap alphabetic;
+  }
+}
+
+[data-ui-role="stat-label"],
+[data-ui-role="stat"] [data-ui-part="label"] {
+  text-wrap: balance;
+}
+
+@supports (text-box: trim-both) {
+  [data-ui-role="stat-label"],
+  [data-ui-role="stat"] [data-ui-part="label"] {
+    text-box: trim-both ex alphabetic;
+  }
+}
+
+[data-ui-role="stat"][data-ui-density="compact"] [data-ui-part="value"],
+[data-ui-role="stat"][data-ui-density="compact"] [data-ui-part="label"],
+[data-ui-role="stat"][data-ui-density="compact"] [data-ui-role="stat-value"],
+[data-ui-role="stat"][data-ui-density="compact"] [data-ui-role="stat-label"] {
+  text-wrap: wrap;
+}
+
+@supports (text-box: trim-both) {
+  [data-ui-role="stat"][data-ui-density="compact"] [data-ui-part="value"],
+  [data-ui-role="stat"][data-ui-density="compact"] [data-ui-part="label"],
+  [data-ui-role="stat"][data-ui-density="compact"] [data-ui-role="stat-value"],
+  [data-ui-role="stat"][data-ui-density="compact"] [data-ui-role="stat-label"] {
+    text-box: normal;
+  }
+}

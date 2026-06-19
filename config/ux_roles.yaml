@@ -17,6 +17,8 @@ roles:
     interaction: nat, act
     stage: A
     status: v0
+    icon_slot:
+      position: start | end | only
   - role: label
     twig_component: Label
     php_class: Symfinity\UxBlocksCore\Twig\Components\Label
@@ -33,6 +35,8 @@ roles:
     interaction: nat
     stage: A
     status: v0
+    icon_slot:
+      position: start | end
   - role: textarea
     twig_component: Textarea
     php_class: Symfinity\UxBlocksCore\Twig\Components\Textarea
@@ -123,6 +127,8 @@ roles:
     interaction: nat
     stage: A
     status: v1
+    icon_slot:
+      position: locked-start
   - role: avatar
     twig_component: Avatar
     php_class: Symfinity\UxBlocksCore\Twig\Components\Avatar
@@ -147,6 +153,9 @@ roles:
     interaction: nat
     stage: A
     status: v1
+    icon_slot:
+      position: start | locked-end
+      default_external: lucide:external-link
   - role: progress
     twig_component: Progress
     php_class: Symfinity\UxBlocksCore\Twig\Components\Progress
@@ -174,20 +183,6 @@ roles:
     interaction: nat
     stage: A
     status: v1
-  - role: empty
-    twig_component: Empty
-    php_class: Symfinity\UxBlocksCore\Twig\Components\EmptyState
-    fragment_id: blocks.empty
-    fragment_pattern: "blocks.empty.{n}"
-    nested_components:
-      - Empty:Header
-      - Empty:Media
-      - Empty:Title
-      - Empty:Description
-      - Empty:Content
-    interaction: nat
-    stage: A
-    status: v0
   - role: image
     twig_component: Image
     php_class: Symfinity\UxBlocksCore\Twig\Components\Image
@@ -204,3 +199,149 @@ roles:
     interaction: nat
     stage: A
     status: v1
+  - role: flash
+    twig_component: Flash
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Flash
+    fragment_id: blocks.flash
+    fragment_pattern: "blocks.flash.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+    icon_slot:
+      position: locked-start
+      default_by_variant:
+        success: lucide:circle-check
+        error: lucide:circle-x
+        destructive: lucide:circle-x
+        warning: lucide:triangle-alert
+        info: lucide:info
+  - role: flash-stack
+    twig_component: FlashStack
+    php_class: Symfinity\UxBlocksCore\Twig\Components\FlashStack
+    fragment_id: blocks.flash-stack
+    fragment_pattern: "blocks.flash-stack.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: page-heading
+    twig_component: PageHeading
+    php_class: Symfinity\UxBlocksCore\Twig\Components\PageHeading
+    fragment_id: blocks.page-heading
+    fragment_pattern: "blocks.page-heading.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+    icon_slot:
+      position: locked-start
+  - role: section-heading
+    twig_component: SectionHeading
+    php_class: Symfinity\UxBlocksCore\Twig\Components\SectionHeading
+    fragment_id: blocks.section-heading
+    fragment_pattern: "blocks.section-heading.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+    icon_slot:
+      position: locked-start
+  - role: grid
+    twig_component: Grid
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Grid
+    fragment_id: blocks.grid
+    fragment_pattern: "blocks.grid.{n}"
+    nested_components:
+      - Grid:Cell
+    interaction: nat
+    stage: A
+    status: v1
+  - role: stack
+    twig_component: Stack
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Stack
+    fragment_id: blocks.stack
+    fragment_pattern: "blocks.stack.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: list
+    twig_component: List
+    php_class: Symfinity\UxBlocksCore\Twig\Components\ListBox
+    fragment_id: blocks.list
+    fragment_pattern: "blocks.list.{n}"
+    nested_components:
+      - List:Item
+      - List:Item:Title
+      - List:Item:Description
+    interaction: nat
+    stage: A
+    status: v1
+  - role: breadcrumb
+    twig_component: Breadcrumb
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Breadcrumb
+    fragment_id: blocks.breadcrumb
+    fragment_pattern: "blocks.breadcrumb.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: pagination
+    twig_component: Pagination
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Pagination
+    fragment_id: blocks.pagination
+    fragment_pattern: "blocks.pagination.{n}"
+    interaction: nat, act
+    stage: A
+    status: v1
+  - role: fieldset
+    twig_component: Fieldset
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Fieldset
+    fragment_id: blocks.fieldset
+    fragment_pattern: "blocks.fieldset.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: input-group
+    twig_component: InputGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\InputGroup
+    fragment_id: blocks.input-group
+    fragment_pattern: "blocks.input-group.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+  - role: button-group
+    twig_component: ButtonGroup
+    php_class: Symfinity\UxBlocksCore\Twig\Components\ButtonGroup
+    fragment_id: blocks.button-group
+    fragment_pattern: "blocks.button-group.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+
+deprecated_fragment_aliases:
+  - from: blocks.ext.page-heading
+    to: blocks.page-heading
+    sunset: next-minor
+  - from: blocks.ext.section-heading
+    to: blocks.section-heading
+    sunset: next-minor
+  - from: blocks.ext.grid
+    to: blocks.grid
+    sunset: next-minor
+  - from: blocks.ext.stack
+    to: blocks.stack
+    sunset: next-minor
+  - from: blocks.ext.list
+    to: blocks.list
+    sunset: next-minor
+  - from: blocks.ext.breadcrumb
+    to: blocks.breadcrumb
+    sunset: next-minor
+  - from: blocks.ext.pagination
+    to: blocks.pagination
+    sunset: next-minor
+  - from: blocks.ext.fieldset
+    to: blocks.fieldset
+    sunset: next-minor
+  - from: blocks.ext.input-group
+    to: blocks.input-group
+    sunset: next-minor
+  - from: blocks.ext.button-group
+    to: blocks.button-group
+    sunset: next-minor

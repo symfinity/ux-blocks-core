@@ -25,7 +25,7 @@ When using this bundle:
 
 1. Keep Symfony, `symfinity/ui-kernel`, and other dependencies updated
 2. Treat catalog routes (`/ux-blocks-core/catalog`) as dev or internal tooling — do not expose without authentication in production
-3. When using `SchemeSwitch` with the optional theme PATCH endpoint, apply the same CSRF and session policies as the rest of your app
+3. When using `SchemeSwitch` from **ux-blocks-interactive** with the optional theme PATCH endpoint, apply the same CSRF and session policies as the rest of your app
 
 ## Security contact
 

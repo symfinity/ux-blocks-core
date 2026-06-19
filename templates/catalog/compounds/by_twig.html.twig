@@ -1,0 +1,78 @@
+{# Role demo snippets for manifests that delegate to by_twig (legacy showcase path). #}
+{% if role == 'grid' %}
+    <twig:Grid columns="2">
+        <twig:Grid:Cell>Cell A</twig:Grid:Cell>
+        <twig:Grid:Cell>Cell B</twig:Grid:Cell>
+    </twig:Grid>
+{% elseif role == 'stack' %}
+    <twig:Stack gap="sm">
+        <twig:Badge>One</twig:Badge>
+        <twig:Badge variant="secondary">Two</twig:Badge>
+    </twig:Stack>
+{% elseif role == 'list' %}
+    <twig:List>
+        <twig:List:Item>
+            <twig:List:Item:Title>First item</twig:List:Item:Title>
+            <twig:List:Item:Description>Supporting detail for the first row.</twig:List:Item:Description>
+        </twig:List:Item>
+        <twig:List:Item>
+            <twig:List:Item:Title>Second item</twig:List:Item:Title>
+            <twig:List:Item:Description>Supporting detail for the second row.</twig:List:Item:Description>
+        </twig:List:Item>
+    </twig:List>
+{% elseif role == 'typography' %}
+    <twig:Typography>
+        <twig:Typography:H1>Heading One</twig:Typography:H1>
+        <twig:Typography:P>Paragraph text.</twig:Typography:P>
+    </twig:Typography>
+{% elseif role == 'separator' %}
+    <twig:Separator />
+{% elseif role == 'divider' %}
+    <p>Above</p>
+    <twig:Divider />
+    <p>Below</p>
+{% elseif role == 'scroll-area' %}
+    <twig:ScrollArea style="max-height:8rem;">
+        {% for i in 1..8 %}
+            <p>Scrollable line {{ i }}</p>
+        {% endfor %}
+    </twig:ScrollArea>
+{% elseif role == 'aspect-ratio' %}
+    <twig:AspectRatio ratio="16/9">
+        <div style="display:flex;align-items:center;justify-content:center;background:var(--ui-color-surface-elevated, #eee);height:100%;">16:9</div>
+    </twig:AspectRatio>
+{% elseif role == 'skeleton' %}
+    <twig:Skeleton style="width:12rem;height:1rem;" />
+{% elseif role == 'spinner' %}
+    <twig:Spinner size="md" density="inline" aria-label="Loading" />
+{% elseif role == 'kbd' %}
+    <twig:Kbd>Ctrl</twig:Kbd> + <twig:Kbd>K</twig:Kbd>
+{% elseif role == 'label' %}
+    <twig:Label for="catalog-demo-input">Email</twig:Label>
+{% elseif role == 'fieldset' %}
+    <twig:Fieldset legend="Contact">
+        <twig:Input id="catalog-fieldset-input" name="catalog-field" placeholder="Name" />
+    </twig:Fieldset>
+{% elseif role == 'input-group' %}
+    <twig:InputGroup>
+        <twig:Input id="catalog-group-input" name="catalog-group" placeholder="Search" />
+        <twig:Button variant="default">Go</twig:Button>
+    </twig:InputGroup>
+{% elseif role == 'button-group' %}
+    <twig:ButtonGroup>
+        <twig:Button variant="default">Left</twig:Button>
+        <twig:Button variant="default">Middle</twig:Button>
+        <twig:Button variant="default">Right</twig:Button>
+    </twig:ButtonGroup>
+{% elseif role == 'pagination' %}
+    <twig:Pagination page="2" pages="5" />
+{% elseif role == 'link' %}
+    <twig:Link href="#role-link">Default link</twig:Link>
+{% else %}
+    {% include '@UxBlocksCore/catalog/_render_component.html.twig' with {
+        twig_name: twig_name,
+        props: item.props|default({}),
+        has_slot: item.has_slot|default(false),
+        slot_text: item.slot_text|default(twig_name),
+    } only %}
+{% endif %}

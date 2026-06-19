@@ -44,10 +44,17 @@ final class UxBlocksCoreTestKernel extends Kernel
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
         $routes->import($this->getProjectDir() . '/config/routes.yaml');
+        $routes->import($this->getProjectDir() . '/tests/Integration/Controller/', 'attribute');
     }
 
     protected function configureContainer(ContainerConfigurator $container): void
     {
+        $fragmentIds = filter_var($_SERVER['UX_BLOCKS_TEST_FRAGMENT_IDS'] ?? 'true', FILTER_VALIDATE_BOOL);
+
+        $container->extension('symfinity_ux_blocks_core', [
+            'fragment_ids' => $fragmentIds,
+        ]);
+
         $container->extension('symfinity_ui_kernel', [
             'schema_version' => '1.0',
             'default_theme' => 'default',
@@ -61,9 +68,11 @@ final class UxBlocksCoreTestKernel extends Kernel
             'php_errors' => ['log' => false],
             'form' => ['enabled' => true],
             'validation' => ['enabled' => true],
+            'session' => [
+                'storage_factory_id' => 'session.storage.factory.mock_file',
+            ],
         ]);
 
-        // UX Twig Component 3.x (Symfony 8+) requires explicit defaults in MicroKernel tests.
         $container->extension('twig_component', [
             'anonymous_template_directory' => 'components',
             'defaults' => [
@@ -73,11 +82,18 @@ final class UxBlocksCoreTestKernel extends Kernel
 
         $container->extension('twig', [
             'form_themes' => [],
+            'paths' => [
+                '%kernel.project_dir%/tests/templates' => null,
+            ],
         ]);
 
         $container->services()
             ->set('twig.extension.form', StubFormTwigExtension::class)
             ->tag('twig.extension')
+            ->public()
+            ->load('Symfinity\\UxBlocksCore\\Tests\\Integration\\Controller\\', '%kernel.project_dir%/tests/Integration/Controller/')
+            ->autowire()
+            ->autoconfigure()
             ->public();
     }
 }

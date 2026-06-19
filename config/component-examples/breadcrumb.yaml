@@ -1,0 +1,21 @@
+schema: showcase-examples/1.0
+role: breadcrumb
+twig_name: Breadcrumb
+requires_stimulus: false
+sections:
+  - id: dividers
+    title: Dividers
+    layout: stack
+    items:
+      - variant: slash
+        label: Slash (default)
+        props: { divider: '/' }
+      - variant: chevron
+        label: Chevron
+        props: { divider: chevron }
+      - variant: gt
+        label: Greater-than
+        props: { divider: gt }
+      - variant: none
+        label: No divider
+        props: { divider: none }

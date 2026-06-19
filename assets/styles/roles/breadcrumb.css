@@ -1,0 +1,22 @@
+/* 100 A3 — breadcrumb shell + active item via :has() */
+[data-ui-role="breadcrumb"] {
+  font-family: var(--ui-font-family-sans);
+  font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+}
+
+[data-ui-role="breadcrumb"] ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ui-space-xs);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+[data-ui-role="breadcrumb"] li:has([aria-current="page"]),
+[data-ui-role="breadcrumb"] li[aria-current="page"] {
+  font-weight: var(--ui-font-weight-semibold);
+  color: var(--ui-color-text);
+}

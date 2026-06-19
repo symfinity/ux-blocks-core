@@ -91,7 +91,7 @@ symfinity_ui_kernel:
 ## Next steps
 
 - [Components](components.md) — full role inventory and fragment prefix
-- [Configuration](configuration.md) — catalog route and SchemeSwitch
+- [Configuration](configuration.md) — catalog route
 - Per-role pages under [docs/components/](components/)
 
 ## See also

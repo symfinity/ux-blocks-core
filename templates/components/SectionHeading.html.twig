@@ -1,0 +1,31 @@
+{% set description_content -%}
+    {%- block description %}{%- endblock %}
+{%- endset %}
+{% set actions_content -%}
+    {%- block actions %}{%- endblock %}
+{%- endset %}
+<div
+    {{ attributes }}
+>
+    <div data-ui-part="row">
+        {% if resolved_heading_icon %}
+            {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+                iconName: resolved_heading_icon,
+                iconDecorative: iconDecorative,
+            } only %}
+        {% endif %}
+        <div data-ui-part="title-stack">
+            <{{ heading_tag }} data-ui-part="title">
+                {%- block title -%}
+                    {%- block content -%}{%- endblock -%}
+                {%- endblock -%}
+            </{{ heading_tag }}>
+            {% if description_content|trim is not empty %}
+                <p data-ui-part="description">{{ description_content|raw }}</p>
+            {% endif %}
+        </div>
+        {% if actions_content|trim is not empty %}
+            <div data-ui-part="actions">{{ actions_content|raw }}</div>
+        {% endif %}
+    </div>
+</div>

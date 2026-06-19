@@ -3,11 +3,54 @@ role: spinner
 twig_name: Spinner
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Variants
-    layout: stack
+  - id: sizes
+    title: Sizes (primary, inline)
+    layout: row
     items:
-      - variant: default
-        label: Spinner
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: sm
+        label: Small
+        props: { size: sm, variant: primary, label: Loading }
+      - variant: md
+        label: Medium
+        props: { size: md, variant: primary, label: Loading }
+      - variant: lg
+        label: Large
+        props: { size: lg, variant: primary, label: Loading }
+  - id: semantic
+    title: Semantic variants (medium)
+    layout: row
+    items:
+      - variant: primary
+        label: Primary
+        props: { variant: primary, size: md, label: Primary }
+      - variant: secondary
+        label: Secondary
+        props: { variant: secondary, size: md, label: Secondary }
+      - variant: tertiary
+        label: Tertiary
+        props: { variant: tertiary, size: md, label: Tertiary }
+      - variant: success
+        label: Success
+        props: { variant: success, size: md, label: Success }
+      - variant: danger
+        label: Danger
+        props: { variant: danger, size: md, label: Danger }
+      - variant: info
+        label: Info
+        props: { variant: info, size: md, label: Info }
+      - variant: warning
+        label: Warning
+        props: { variant: warning, size: md, label: Warning }
+      - variant: ghost
+        label: Ghost
+        props: { variant: ghost, size: md, label: Ghost }
+  - id: density
+    title: Density
+    layout: row
+    items:
+      - variant: inline
+        label: Inline
+        props: { density: inline, size: md, variant: primary, label: Inline spinner }
+      - variant: block
+        label: Block
+        props: { density: block, size: md, variant: primary, label: Block spinner }

@@ -8,6 +8,10 @@ sections:
     layout: stack
     items:
       - variant: default
-        label: Select
-        props: {}
-        render_partial: showcase/_compounds/form_controls.html.twig
+        label: Default
+        props: { id: catalog-select-default, name: choice }
+        render_partial: showcase/_compounds/select_options.html.twig
+      - variant: disabled
+        label: Disabled
+        props: { id: catalog-select-disabled, name: choice_disabled, disabled: true }
+        render_partial: showcase/_compounds/select_options.html.twig

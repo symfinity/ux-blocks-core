@@ -1,0 +1,8 @@
+{% set gap = item.props.gap|default('md') %}
+{% set direction = item.props.direction|default('vertical') %}
+{% set density = item.props.density|default('comfortable') %}
+<twig:Stack gap="{{ gap }}" direction="{{ direction }}" density="{{ density }}">
+    <twig:Badge>One</twig:Badge>
+    <twig:Badge variant="secondary">Two</twig:Badge>
+    <twig:Badge variant="tertiary">Three</twig:Badge>
+</twig:Stack>

@@ -1,14 +1,10 @@
 {% if label %}
 <label
-    data-ui-role="label"
-    data-ui-fragment="blocks.label"
 >
     {{ label }}
 {% endif %}
 <div data-ui-part="select-control">
     <select
-        data-ui-role="select"
-        data-ui-fragment="blocks.select"
         data-ui-size="{{ size }}"
         {% if placeholder %}required{% endif %}
         {% if invalid %}aria-invalid="true"{% endif %}

@@ -26,24 +26,45 @@
     ],
     "require": {
         "php": ">=8.2",
-        "symfinity/ui-kernel": "^0.1",
         "symfinity/ui-action": "^0.1",
+        "symfinity/ui-kernel": "^0.1",
         "symfinity/ux-blocks": "^0.1",
-        "symfony/framework-bundle": "^7.4||^8.0",
         "symfony/asset-mapper": "^7.4||^8.0",
-        "symfony/twig-bundle": "^7.4||^8.0",
+        "symfony/browser-kit": "^7.4||^8.0",
+        "symfony/config": "^7.4||^8.0",
+        "symfony/css-selector": "^7.4||^8.0",
+        "symfony/dependency-injection": "^7.4||^8.0",
+        "symfony/form": "^7.4||^8.0",
+        "symfony/framework-bundle": "^7.4||^8.0",
+        "symfony/http-foundation": "^7.4||^8.0",
+        "symfony/http-kernel": "^7.4||^8.0",
         "symfony/stimulus-bundle": "^2.0|^3.0",
+        "symfony/twig-bundle": "^7.4||^8.0",
         "symfony/ux-twig-component": "^2.0|^3.0",
+        "symfony/validator": "^7.4||^8.0",
         "symfony/yaml": "^7.4||^8.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../ui-kernel",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "../ui-action",
+            "options": { "symlink": true }
+        },
+        {
+            "type": "path",
+            "url": "../ux-blocks",
+            "options": { "symlink": true }
+        }
+    ],
     "require-dev": {
         "phpstan/phpstan": "^2.1",
         "phpstan/phpstan-symfony": "^2.0",
-        "phpunit/phpunit": "^10.5 || ^11.0",
-        "symfony/browser-kit": "^7.4||^8.0",
-        "symfony/css-selector": "^7.4||^8.0",
-        "symfony/form": "^7.4||^8.0",
-        "symfony/validator": "^7.4||^8.0"
+        "phpunit/phpunit": "^10.5 || ^11.0"
     },
     "autoload": {
         "psr-4": {
@@ -63,7 +84,7 @@
         "phpstan": "phpstan analyse --memory-limit=512M"
     },
     "suggest": {
-        "symfinity/ui-kernel": "SchemeSwitch enhanced mode (PATCH /_ui/theme/scheme) and Chameleon theme cookies",
+        "symfinity/ui-kernel": "Chameleon theme cookies and theme shell integration",
         "symfony/ux-icons": "Icon set for roles that use ux:icon (optional per app)"
     },
     "extra": {

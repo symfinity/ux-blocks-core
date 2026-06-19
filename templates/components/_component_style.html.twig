@@ -1,0 +1,7 @@
+{% macro rootStyle(attributes, baseStyle) -%}
+    {%- set merged = baseStyle -%}
+    {%- if attributes.has('style') -%}
+        {%- set merged = merged ~ ' ' ~ attributes.render('style') -%}
+    {%- endif -%}
+    {{- merged -}}
+{%- endmacro %}

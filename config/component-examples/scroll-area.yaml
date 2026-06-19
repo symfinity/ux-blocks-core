@@ -4,10 +4,10 @@ twig_name: ScrollArea
 requires_stimulus: false
 sections:
   - id: demo
-    title: Demo
+    title: Scrollable region
     layout: stack
     items:
       - variant: default
         label: Scroll Area
         props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+        render_partial: showcase/_compounds/scroll_area_demo.html.twig

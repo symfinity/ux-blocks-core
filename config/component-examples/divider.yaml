@@ -3,11 +3,15 @@ role: divider
 twig_name: Divider
 requires_stimulus: false
 sections:
-  - id: demo
-    title: Demo
+  - id: orientation
+    title: Orientation
     layout: stack
     items:
-      - variant: default
-        label: Divider
-        props: {}
-        render_partial: showcase/_compounds/by_twig.html.twig
+      - variant: horizontal
+        label: Horizontal
+        props: { orientation: horizontal }
+        render_partial: showcase/_compounds/divider_context.html.twig
+      - variant: vertical
+        label: Vertical
+        props: { orientation: vertical }
+        render_partial: showcase/_compounds/divider_context.html.twig

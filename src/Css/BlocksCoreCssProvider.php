@@ -22,11 +22,34 @@ final class BlocksCoreCssProvider
 
     public function stylesheet(): string
     {
-        $bundle = $this->packageDir . '/assets/styles/roles/_bundle.css';
-        if (!is_readable($bundle)) {
+        $entry = $this->packageDir . '/assets/styles/blocks-core.css';
+        if (!is_readable($entry)) {
+            return $this->readRoleFile('roles/_bundle.css');
+        }
+
+        $content = (string) file_get_contents($entry);
+        if (!preg_match_all("/@import\\s+url\\('([^']+)'\\)\\s*;/", $content, $matches)) {
+            return $this->readRoleFile('roles/_bundle.css');
+        }
+
+        $css = '';
+        foreach ($matches[1] as $importPath) {
+            $css .= $this->readRoleFile($importPath);
+            if ('' !== $css && !str_ends_with($css, "\n")) {
+                $css .= "\n";
+            }
+        }
+
+        return $css;
+    }
+
+    private function readRoleFile(string $relativeToStylesDir): string
+    {
+        $path = $this->packageDir . '/assets/styles/' . $relativeToStylesDir;
+        if (!is_readable($path)) {
             return '';
         }
 
-        return (string) file_get_contents($bundle);
+        return (string) file_get_contents($path);
     }
 }

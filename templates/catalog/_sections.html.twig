@@ -25,46 +25,46 @@
 
     <h3>Variants</h3>
     <div data-ui-role="grid" data-ui-columns="4">
-        {% for variant in button_variants %}
-            <twig:Button variant="{{ variant }}">{{ variant_labels[variant] }}</twig:Button>
+        {% for btnVariant in button_variants %}
+            <twig:Button variant="{{ btnVariant }}">{{ variant_labels[btnVariant] }}</twig:Button>
         {% endfor %}
     </div>
 
     <h3>Sizes (primary)</h3>
     <div data-ui-role="grid" data-ui-columns="3">
         {% for size in button_sizes %}
-            <twig:Button size="{{ size }}">{{ size|title }}</twig:Button>
+            <twig:Button variant="default" size="{{ size }}">{{ size|title }}</twig:Button>
         {% endfor %}
     </div>
 
     <h3>Variants × sizes</h3>
     <div data-ui-role="grid" data-ui-columns="3">
-        {% for variant in button_variants %}
+        {% for btnVariant in button_variants %}
             {% for size in button_sizes %}
-                <twig:Button variant="{{ variant }}" size="{{ size }}">{{ variant_labels[variant] }} / {{ size }}</twig:Button>
+                <twig:Button variant="{{ btnVariant }}" size="{{ size }}">{{ variant_labels[btnVariant] }} / {{ size }}</twig:Button>
             {% endfor %}
         {% endfor %}
     </div>
 
     <h3>Disabled</h3>
     <div data-ui-role="grid" data-ui-columns="4">
-        {% for variant in button_variants %}
-            <twig:Button variant="{{ variant }}" disabled>{{ variant_labels[variant] }}</twig:Button>
+        {% for btnVariant in button_variants %}
+            <twig:Button variant="{{ btnVariant }}" disabled>{{ variant_labels[btnVariant] }}</twig:Button>
         {% endfor %}
     </div>
 
     <h3>As link</h3>
     <div data-ui-role="grid" data-ui-columns="4">
-        {% for variant in button_variants %}
-            <twig:Button as="a" href="#role-button" variant="{{ variant }}">{{ variant_labels[variant] }}</twig:Button>
+        {% for btnVariant in button_variants %}
+            <twig:Button as="a" href="#role-button" variant="{{ btnVariant }}">{{ variant_labels[btnVariant] }}</twig:Button>
         {% endfor %}
     </div>
 
     <h3>Block (full width)</h3>
     <p>Pass <code>block</code> on the Twig component — emits <code>data-ui-layout="block"</code> (Bootstrap-style block button, Symfinity-owned attribute).</p>
     <div data-ui-role="stack" data-ui-gap="sm">
-        {% for variant in button_variants %}
-            <twig:Button variant="{{ variant }}" block>{{ variant_labels[variant] }} — block</twig:Button>
+        {% for btnVariant in button_variants %}
+            <twig:Button variant="{{ btnVariant }}" block>{{ variant_labels[btnVariant] }} — block</twig:Button>
         {% endfor %}
     </div>
 </section>
@@ -87,17 +87,6 @@
         <twig:Typography:H1>{{ copy.typography_h1|default('Heading One') }}</twig:Typography:H1>
         <twig:Typography:P>{{ copy.typography_p|default('Paragraph text.') }}</twig:Typography:P>
     </twig:Typography>
-</section>
-
-<section class="ux-blocks-catalog-section" id="role-empty" data-catalog-role="empty">
-    <h2>Empty</h2>
-    <twig:Empty>
-        <twig:Empty:Header>
-            <twig:Empty:Media>{{ copy.empty_media|default('Media') }}</twig:Empty:Media>
-            <twig:Empty:Title>{{ copy.empty_title|default('No results') }}</twig:Empty:Title>
-            <twig:Empty:Description>{{ copy.empty_description|default('Try adjusting your filters.') }}</twig:Empty:Description>
-        </twig:Empty:Header>
-    </twig:Empty>
 </section>
 
 <section class="ux-blocks-catalog-section" id="role-label" data-catalog-role="label">
@@ -249,6 +238,16 @@
     <twig:Image src="/images/placeholder.svg" alt="Catalog placeholder" />
 </section>
 
+<section class="ux-blocks-catalog-section" id="role-flash" data-catalog-role="flash">
+    <h2>Flash</h2>
+    <twig:FlashStack placement="top">
+        <twig:Flash variant="success">Saved successfully</twig:Flash>
+        <twig:Flash variant="info">Session notice</twig:Flash>
+        <twig:Flash variant="error">Something failed</twig:Flash>
+    </twig:FlashStack>
+    <div id="role-flash-stack" data-catalog-role="flash-stack" data-ui-role="flash-stack" data-ui-fragment="blocks.flash-stack" hidden></div>
+</section>
+
 <section class="ux-blocks-catalog-section" id="role-figure" data-catalog-role="figure">
     <h2>Figure</h2>
     <twig:Figure>
@@ -259,5 +258,77 @@
             <twig:Typography>Catalog caption</twig:Typography>
         </twig:block>
     </twig:Figure>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-grid" data-catalog-role="grid">
+    <h2>Grid</h2>
+    <twig:Grid columns="2">
+        <twig:Grid:Cell>Cell A</twig:Grid:Cell>
+        <twig:Grid:Cell>Cell B</twig:Grid:Cell>
+    </twig:Grid>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-stack" data-catalog-role="stack">
+    <h2>Stack</h2>
+    <twig:Stack gap="sm">
+        <twig:Badge>One</twig:Badge>
+        <twig:Badge variant="secondary">Two</twig:Badge>
+    </twig:Stack>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-list" data-catalog-role="list">
+    <h2>List</h2>
+    <twig:List>
+        <twig:List:Item>
+            <twig:List:Item:Title>First item</twig:List:Item:Title>
+        </twig:List:Item>
+        <twig:List:Item>
+            <twig:List:Item:Title>Second item</twig:List:Item:Title>
+        </twig:List:Item>
+    </twig:List>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-breadcrumb" data-catalog-role="breadcrumb">
+    <h2>Breadcrumb</h2>
+    <twig:Breadcrumb :items="[{label: 'Home', url: '/'}, {label: 'Catalog', current: true}]" :auto="false" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-pagination" data-catalog-role="pagination">
+    <h2>Pagination</h2>
+    <twig:Pagination page="2" pages="5" />
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-fieldset" data-catalog-role="fieldset">
+    <h2>Fieldset</h2>
+    <twig:Fieldset legend="Contact">
+        <twig:Input name="catalog-field" placeholder="Name" />
+    </twig:Fieldset>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-input-group" data-catalog-role="input-group">
+    <h2>Input group</h2>
+    <twig:InputGroup>
+        <twig:Input name="catalog-group" placeholder="Search" />
+        <twig:Button variant="primary">Go</twig:Button>
+    </twig:InputGroup>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-button-group" data-catalog-role="button-group">
+    <h2>Button group</h2>
+    <twig:ButtonGroup>
+        <twig:Button variant="primary">Left</twig:Button>
+        <twig:Button variant="primary">Middle</twig:Button>
+        <twig:Button variant="primary">Right</twig:Button>
+    </twig:ButtonGroup>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-page-heading" data-catalog-role="page-heading">
+    <h2>Page heading</h2>
+    <twig:PageHeading>Catalog page heading</twig:PageHeading>
+</section>
+
+<section class="ux-blocks-catalog-section" id="role-section-heading" data-catalog-role="section-heading">
+    <h2>Section heading</h2>
+    <twig:SectionHeading>Catalog section heading</twig:SectionHeading>
 </section>
 

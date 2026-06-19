@@ -1,0 +1,13 @@
+schema: showcase-examples/1.0
+role: button-group
+twig_name: ButtonGroup
+requires_stimulus: false
+sections:
+  - id: demo
+    title: Segmented buttons
+    layout: stack
+    items:
+      - variant: default
+        label: Button Group
+        props: {}
+        render_partial: showcase/_compounds/button_group_demo.html.twig

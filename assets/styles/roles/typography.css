@@ -1,3 +1,12 @@
+[data-ui-role="typography"],
+[data-ui-role="typography"][data-ui-variant="p"] {
+  font-family: var(--ui-font-family-sans);
+  font-size: var(--ui-font-size-md);
+  line-height: 1.5;
+  color: var(--ui-color-text);
+  margin: 0 0 var(--ui-space-sm);
+}
+
 [data-ui-role="typography"][data-ui-variant="h1"] {
   font-family: var(--ui-font-family-sans);
   font-size: clamp(var(--ui-font-size-xl), 2vw + 1rem, var(--ui-font-size-3xl));

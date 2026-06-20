@@ -7,8 +7,6 @@
 >
     {% block media %}{% endblock %}
     {% if caption_content|trim is not empty %}
-        <figcaption data-ui-role="figure-caption">
-            {{ caption_content|raw }}
-        </figcaption>
+        {% include '@UxBlocksCore/components/Figure/_caption.html.twig' %}
     {% endif %}
 </figure>

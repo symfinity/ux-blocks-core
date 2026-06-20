@@ -177,6 +177,69 @@ background-color: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-
 [data-ui-role="file-input"][data-ui-state="invalid"]:not(:disabled) {
 background: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface-elevated));
 }
+[data-ui-role="input"][data-ui-variant="danger"],
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+  border-color: var(--ui-color-danger);
+}
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+  color: var(--ui-color-danger);
+  -webkit-text-fill-color: var(--ui-color-danger);
+}
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"])::placeholder,
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"])::placeholder,
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled)::placeholder {
+  color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  -webkit-text-fill-color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  opacity: 1;
+}
+[data-ui-role="input"][data-ui-variant="danger"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="input"][data-ui-state="invalid"]:not(:disabled) {
+  background-color: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface));
+}
+[data-ui-role="input"][data-ui-variant="success"]:not(:disabled):not([data-ui-state="disabled"]) {
+  border-color: var(--ui-color-success);
+  background-color: color-mix(in srgb, var(--ui-color-success) 12%, var(--ui-color-surface));
+  color: var(--ui-color-success);
+  -webkit-text-fill-color: var(--ui-color-success);
+}
+[data-ui-role="input"][data-ui-variant="success"]:not(:disabled):not([data-ui-state="disabled"])::placeholder {
+  color: color-mix(in srgb, var(--ui-color-success) 72%, var(--ui-color-text-muted));
+  -webkit-text-fill-color: color-mix(in srgb, var(--ui-color-success) 72%, var(--ui-color-text-muted));
+  opacity: 1;
+}
+[data-ui-role="input"]:focus-visible {
+  outline: 0;
+  border-color: color-mix(in srgb, var(--ui-color-focus) 40%, var(--ui-color-border));
+  box-shadow: 0 0 var(--ui-focus-ring-blur) var(--ui-focus-ring-width) color-mix(in srgb, var(--ui-color-focus) calc(var(--ui-focus-ring-opacity) * 100%), transparent);
+}
+[data-ui-role="textarea"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="textarea"][data-ui-state="invalid"]:not(:disabled) {
+  border-color: var(--ui-color-danger);
+}
+[data-ui-role="textarea"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="textarea"][data-ui-state="invalid"]:not(:disabled) {
+  color: var(--ui-color-danger);
+  -webkit-text-fill-color: var(--ui-color-danger);
+}
+[data-ui-role="textarea"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"])::placeholder,
+[data-ui-role="textarea"][data-ui-state="invalid"]:not(:disabled)::placeholder {
+  color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  -webkit-text-fill-color: color-mix(in srgb, var(--ui-color-danger) 72%, var(--ui-color-text-muted));
+  opacity: 1;
+}
+[data-ui-role="textarea"][aria-invalid="true"]:not(:disabled):not([data-ui-state="disabled"]),
+[data-ui-role="textarea"][data-ui-state="invalid"]:not(:disabled) {
+  background-color: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface));
+}
+[data-ui-role="textarea"]:focus-visible {
+  outline: 0;
+  border-color: color-mix(in srgb, var(--ui-color-focus) 40%, var(--ui-color-border));
+  box-shadow: 0 0 var(--ui-focus-ring-blur) var(--ui-focus-ring-width) color-mix(in srgb, var(--ui-color-focus) calc(var(--ui-focus-ring-opacity) * 100%), transparent);
+}
 [data-ui-role="separator"] {
 background: var(--ui-color-border);
   border: 0;
@@ -191,22 +254,6 @@ width: 1px;
 [data-ui-role="separator"]:not([data-ui-variant="vertical"]) {
 height: 1px;
   width: 100%;
-}
-[data-ui-role="typography"],
-[data-ui-role="typography"][data-ui-variant="p"] {
-font-family: var(--ui-font-family-sans);
-  font-size: var(--ui-font-size-md);
-  line-height: 1.5;
-  color: var(--ui-color-text);
-  margin: 0 0 var(--ui-space-sm);
-}
-[data-ui-role="typography"][data-ui-variant="h1"] {
-font-family: var(--ui-font-family-sans);
-  font-size: var(--ui-font-size-lg);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--ui-color-text);
-  margin: 0 0 var(--ui-space-md);
 }
 [data-ui-role="empty"] {
 display: flex;
@@ -560,28 +607,6 @@ display: block;
 @keyframes ui-spin {
 to { transform: rotate(360deg); }
 }
-[data-ui-role="progress"] {
-width: 100%;
-  height: 0.5rem;
-  appearance: none;
-  border: none;
-  border-radius: var(--ui-radius-full);
-  background: var(--ui-color-surface-elevated);
-  overflow: hidden;
-  accent-color: var(--ui-color-primary);
-}
-[data-ui-role="progress"]::-webkit-progress-bar {
-background: var(--ui-color-surface-elevated);
-  border-radius: var(--ui-radius-full);
-}
-[data-ui-role="progress"]::-webkit-progress-value {
-border-radius: var(--ui-radius-full);
-  background-color: var(--ui-color-primary);
-}
-[data-ui-role="progress"]::-moz-progress-bar {
-border-radius: var(--ui-radius-full);
-  background-color: var(--ui-color-primary);
-}
 [data-ui-role="file-input"] {
 font-family: var(--ui-font-family-sans);
   font-size: var(--ui-font-size-sm);
@@ -636,78 +661,6 @@ content-visibility: auto;
 [data-ui-role="nav"]:has([aria-current="page"]) [aria-current="page"] {
 font-weight: var(--ui-font-weight-semibold);
   color: var(--ui-color-primary);
-}
-[data-ui-role="progress"][data-ui-variant="primary"] {
-accent-color: var(--ui-color-primary);
-}
-[data-ui-role="progress"][data-ui-variant="secondary"] {
-accent-color: var(--ui-color-secondary);
-}
-[data-ui-role="progress"][data-ui-variant="tertiary"] {
-accent-color: var(--ui-color-tertiary);
-}
-[data-ui-role="progress"][data-ui-variant="success"] {
-accent-color: var(--ui-color-success);
-}
-[data-ui-role="progress"][data-ui-variant="danger"] {
-accent-color: var(--ui-color-danger);
-}
-[data-ui-role="progress"][data-ui-variant="info"] {
-accent-color: var(--ui-color-info);
-}
-[data-ui-role="progress"][data-ui-variant="warning"] {
-accent-color: var(--ui-color-warning);
-}
-[data-ui-role="progress"][data-ui-variant="ghost"] {
-accent-color: var(--ui-color-text-muted);
-}
-[data-ui-role="progress"][data-ui-variant="primary"]::-webkit-progress-value {
-background-color: var(--ui-color-primary);
-}
-[data-ui-role="progress"][data-ui-variant="primary"]::-moz-progress-bar {
-background-color: var(--ui-color-primary);
-}
-[data-ui-role="progress"][data-ui-variant="secondary"]::-webkit-progress-value {
-background-color: var(--ui-color-secondary);
-}
-[data-ui-role="progress"][data-ui-variant="secondary"]::-moz-progress-bar {
-background-color: var(--ui-color-secondary);
-}
-[data-ui-role="progress"][data-ui-variant="tertiary"]::-webkit-progress-value {
-background-color: var(--ui-color-tertiary);
-}
-[data-ui-role="progress"][data-ui-variant="tertiary"]::-moz-progress-bar {
-background-color: var(--ui-color-tertiary);
-}
-[data-ui-role="progress"][data-ui-variant="success"]::-webkit-progress-value {
-background-color: var(--ui-color-success);
-}
-[data-ui-role="progress"][data-ui-variant="success"]::-moz-progress-bar {
-background-color: var(--ui-color-success);
-}
-[data-ui-role="progress"][data-ui-variant="danger"]::-webkit-progress-value {
-background-color: var(--ui-color-danger);
-}
-[data-ui-role="progress"][data-ui-variant="danger"]::-moz-progress-bar {
-background-color: var(--ui-color-danger);
-}
-[data-ui-role="progress"][data-ui-variant="info"]::-webkit-progress-value {
-background-color: var(--ui-color-info);
-}
-[data-ui-role="progress"][data-ui-variant="info"]::-moz-progress-bar {
-background-color: var(--ui-color-info);
-}
-[data-ui-role="progress"][data-ui-variant="warning"]::-webkit-progress-value {
-background-color: var(--ui-color-warning);
-}
-[data-ui-role="progress"][data-ui-variant="warning"]::-moz-progress-bar {
-background-color: var(--ui-color-warning);
-}
-[data-ui-role="progress"][data-ui-variant="ghost"]::-webkit-progress-value {
-background-color: var(--ui-color-text-muted);
-}
-[data-ui-role="progress"][data-ui-variant="ghost"]::-moz-progress-bar {
-background-color: var(--ui-color-text-muted);
 }
 [data-ui-role="spinner"][data-ui-variant="primary"] {
 border-block-start-color: var(--ui-color-primary);

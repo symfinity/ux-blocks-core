@@ -26,7 +26,9 @@ final class UxBlocksCoreTestKernel extends Kernel
 
     public function getCacheDir(): string
     {
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
+        $fragmentFlag = $_SERVER['UX_BLOCKS_TEST_FRAGMENT_IDS'] ?? 'false';
+
+        return $this->getProjectDir() . '/var/cache/' . $this->environment . '_frag_' . $fragmentFlag;
     }
 
     public function registerBundles(): array
@@ -43,13 +45,12 @@ final class UxBlocksCoreTestKernel extends Kernel
 
     protected function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import($this->getProjectDir() . '/config/routes.yaml');
         $routes->import($this->getProjectDir() . '/tests/Integration/Controller/', 'attribute');
     }
 
     protected function configureContainer(ContainerConfigurator $container): void
     {
-        $fragmentIds = filter_var($_SERVER['UX_BLOCKS_TEST_FRAGMENT_IDS'] ?? 'true', FILTER_VALIDATE_BOOL);
+        $fragmentIds = filter_var($_SERVER['UX_BLOCKS_TEST_FRAGMENT_IDS'] ?? 'false', FILTER_VALIDATE_BOOL);
 
         $container->extension('symfinity_ux_blocks_core', [
             'fragment_ids' => $fragmentIds,

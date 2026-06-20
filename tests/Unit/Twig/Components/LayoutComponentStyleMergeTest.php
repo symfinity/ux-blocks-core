@@ -25,10 +25,7 @@ final class LayoutComponentStyleMergeTest extends ComponentTestCase
     {
         self::bootKernel();
 
-        $html = $this->renderTwig(sprintf(
-            '{%% component "%1$s" with { style: "margin-block-end: 1rem;" } %%}<span>item</span>{%% endcomponent %%}',
-            $component,
-        ));
+        $html = $this->renderComponent($component, ['style' => 'margin-block-end: 1rem;'], '<span>item</span>');
 
         self::assertSame(1, preg_match_all('/\sstyle="/', $html), $html);
         self::assertStringContainsString('data-ui-role="' . $role . '"', $html);

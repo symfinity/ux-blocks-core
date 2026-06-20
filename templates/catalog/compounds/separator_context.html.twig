@@ -1,6 +1,0 @@
-{% set orientation = item.props.orientation|default('horizontal') %}
-<div style="display:flex;align-items:center;gap:1rem;{% if orientation == 'vertical' %}flex-direction:column;min-height:6rem;{% endif %}">
-    <span>Before</span>
-    <twig:Separator orientation="{{ orientation }}" />
-    <span>After</span>
-</div>

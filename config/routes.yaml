@@ -1,4 +1,0 @@
-ux_blocks_core_catalog:
-  path: /ux-blocks-core/catalog
-  controller: Symfinity\UxBlocksCore\Controller\CatalogController::catalog
-  methods: [GET]

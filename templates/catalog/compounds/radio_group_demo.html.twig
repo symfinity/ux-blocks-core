@@ -1,6 +1,0 @@
-{% set orientation = item.props.orientation|default('vertical') %}
-{% set name = item.props.name|default('catalog-plan-' ~ orientation) %}
-<twig:RadioGroup name="{{ name }}" orientation="{{ orientation }}">
-    <twig:RadioGroup:Item name="{{ name }}" value="monthly" checked>Monthly billing</twig:RadioGroup:Item>
-    <twig:RadioGroup:Item name="{{ name }}" value="annual">Annual billing</twig:RadioGroup:Item>
-</twig:RadioGroup>

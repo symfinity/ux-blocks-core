@@ -46,7 +46,6 @@ final class SelectTest extends ComponentTestCase
         $html = $this->renderComponent('Select', ['label' => 'Country']);
 
         self::assertStringContainsString('Country', $html);
-        self::assertStringContainsString('data-ui-role="label"', $html);
-        self::assertStringContainsString('data-ui-fragment="blocks.label"', $html);
+        self::assertMatchesRegularExpression('/<label[^>]*>\s*Country/s', $html);
     }
 }

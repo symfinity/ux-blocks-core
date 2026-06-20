@@ -16,7 +16,7 @@ final class RoleAttributeBridgeListener
     public function __construct(
         private readonly UxRoleRegistry $registry,
         private readonly bool $fragmentIdsEnabled,
-        private readonly FragmentInstanceCounter $fragmentCounter,
+        private readonly ?FragmentInstanceCounter $fragmentCounter = null,
     ) {
     }
 
@@ -52,7 +52,7 @@ final class RoleAttributeBridgeListener
             }
         }
 
-        $index = $this->fragmentCounter->next($record->fragmentId);
+        $index = $this->fragmentCounter?->next($record->fragmentId) ?? 1;
         if ($index > 1) {
             return $record->fragmentId . '.' . $index;
         }

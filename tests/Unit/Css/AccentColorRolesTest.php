@@ -22,7 +22,7 @@ final class AccentColorRolesTest extends TestCase
     {
         $css = self::roleCss('checkbox');
 
-        self::assertStringContainsString('accent-color: var(--ui-color-accent)', $css);
+        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
     }
 
     #[Test]
@@ -30,7 +30,7 @@ final class AccentColorRolesTest extends TestCase
     {
         $css = self::roleCss('radio');
 
-        self::assertStringContainsString('accent-color: var(--ui-color-accent)', $css);
+        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
     }
 
     #[Test]
@@ -38,7 +38,7 @@ final class AccentColorRolesTest extends TestCase
     {
         $css = self::roleCss('switch');
 
-        self::assertStringContainsString('accent-color: var(--ui-color-accent)', $css);
+        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
     }
 
     #[Test]

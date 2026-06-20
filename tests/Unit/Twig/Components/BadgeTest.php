@@ -26,7 +26,7 @@ final class BadgeTest extends ComponentTestCase
 
         $this->assertRootAttributes($html, 'badge', 'blocks.badge');
         self::assertStringContainsString('data-ui-variant="primary"', $html);
-        self::assertStringContainsString('data-ui-size="default"', $html);
+        self::assertStringContainsString('data-ui-size="md"', $html);
     }
 
     #[Test]

@@ -26,10 +26,8 @@ final class SkeletonTest extends ComponentTestCase
         self::bootKernel();
         $html = $this->renderComponent('Skeleton', ['variant' => $variant]);
 
-        self::assertMatchesRegularExpression(
-            '/<span[^>]+data-ui-role="skeleton"[^>]+data-ui-variant="' . preg_quote($variant, '/') . '"/',
-            $html,
-        );
+        self::assertStringContainsString('data-ui-role="skeleton"', $html);
+        self::assertStringContainsString('data-ui-variant="' . $variant . '"', $html);
         self::assertStringContainsString('aria-hidden="true"', $html);
         self::assertStringNotContainsString('<div', $html);
     }

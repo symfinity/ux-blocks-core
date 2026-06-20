@@ -29,7 +29,9 @@ final class BreadcrumbAutoTrailTest extends KernelTestCase
 
         $html = (string) $this->renderTwigComponent('Breadcrumb');
 
-        self::assertStringContainsString('data-ui-fragment="blocks.breadcrumb"', $html);
+        // 107 Stage B opt-in: default config (fragment_ids: false) emits role, not fragment.
+        self::assertStringContainsString('data-ui-role="breadcrumb"', $html);
+        self::assertStringNotContainsString('data-ui-fragment="blocks.breadcrumb"', $html);
         self::assertStringContainsString('href="/"', $html);
         self::assertStringContainsString('href="/products"', $html);
         self::assertStringContainsString('Products', $html);

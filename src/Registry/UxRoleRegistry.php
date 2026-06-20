@@ -33,4 +33,12 @@ final class UxRoleRegistry
     {
         return array_map(static fn (UxRoleRecord $role) => $role->twigComponent, $this->catalog->roles);
     }
+
+    /**
+     * @return list<UxRoleRecord>
+     */
+    public function roles(): array
+    {
+        return $this->catalog->roles;
+    }
 }

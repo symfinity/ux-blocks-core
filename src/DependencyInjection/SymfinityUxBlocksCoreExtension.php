@@ -50,6 +50,12 @@ final class SymfinityUxBlocksCoreExtension extends Extension implements PrependE
 
         $loader = new YamlFileLoader($container, new FileLocator($packageDir . '/config'));
         $loader->load('services.yaml');
+
+        if ($config['fragment_ids']) {
+            $container->register(\Symfinity\UxBlocksCore\Twig\FragmentInstanceCounter::class)
+                ->setAutowired(true)
+                ->setAutoconfigured(true);
+        }
     }
 
     public function getAlias(): string

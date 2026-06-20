@@ -35,3 +35,92 @@
 [data-ui-role="progress"][data-ui-variant="ghost"] {
   accent-color: var(--ui-color-text-muted);
 }
+
+[data-ui-role="progress"] {
+  width: 100%;
+  height: 0.5rem;
+  appearance: none;
+  border: none;
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-surface-elevated);
+  overflow: hidden;
+}
+
+[data-ui-role="progress"]::-webkit-progress-bar {
+  background: var(--ui-color-surface-elevated);
+  border-radius: var(--ui-radius-full);
+}
+
+[data-ui-role="progress"]::-webkit-progress-value {
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-primary);
+}
+
+[data-ui-role="progress"]::-moz-progress-bar {
+  border-radius: var(--ui-radius-full);
+  background-color: var(--ui-color-primary);
+}
+
+[data-ui-role="progress"][data-ui-variant="primary"]::-webkit-progress-value {
+  background-color: var(--ui-color-primary);
+}
+
+[data-ui-role="progress"][data-ui-variant="primary"]::-moz-progress-bar {
+  background-color: var(--ui-color-primary);
+}
+
+[data-ui-role="progress"][data-ui-variant="secondary"]::-webkit-progress-value {
+  background-color: var(--ui-color-secondary);
+}
+
+[data-ui-role="progress"][data-ui-variant="secondary"]::-moz-progress-bar {
+  background-color: var(--ui-color-secondary);
+}
+
+[data-ui-role="progress"][data-ui-variant="tertiary"]::-webkit-progress-value {
+  background-color: var(--ui-color-tertiary);
+}
+
+[data-ui-role="progress"][data-ui-variant="tertiary"]::-moz-progress-bar {
+  background-color: var(--ui-color-tertiary);
+}
+
+[data-ui-role="progress"][data-ui-variant="success"]::-webkit-progress-value {
+  background-color: var(--ui-color-success);
+}
+
+[data-ui-role="progress"][data-ui-variant="success"]::-moz-progress-bar {
+  background-color: var(--ui-color-success);
+}
+
+[data-ui-role="progress"][data-ui-variant="danger"]::-webkit-progress-value {
+  background-color: var(--ui-color-danger);
+}
+
+[data-ui-role="progress"][data-ui-variant="danger"]::-moz-progress-bar {
+  background-color: var(--ui-color-danger);
+}
+
+[data-ui-role="progress"][data-ui-variant="info"]::-webkit-progress-value {
+  background-color: var(--ui-color-info);
+}
+
+[data-ui-role="progress"][data-ui-variant="info"]::-moz-progress-bar {
+  background-color: var(--ui-color-info);
+}
+
+[data-ui-role="progress"][data-ui-variant="warning"]::-webkit-progress-value {
+  background-color: var(--ui-color-warning);
+}
+
+[data-ui-role="progress"][data-ui-variant="warning"]::-moz-progress-bar {
+  background-color: var(--ui-color-warning);
+}
+
+[data-ui-role="progress"][data-ui-variant="ghost"]::-webkit-progress-value {
+  background-color: var(--ui-color-text-muted);
+}
+
+[data-ui-role="progress"][data-ui-variant="ghost"]::-moz-progress-bar {
+  background-color: var(--ui-color-text-muted);
+}

@@ -30,7 +30,7 @@ final class SymfinityUxBlocksCoreBundle extends Bundle
 
     public function configureRoutes(RoutingConfigurator $routes): void
     {
-        $routes->import($this->getPath() . '/config/routes.yaml');
+        // Stage A: no catalog routes — showroom lives in symfinity/ux-blocks-kiosk (107).
     }
 
     public function configureTwig(TwigConfigurator $configurator): void

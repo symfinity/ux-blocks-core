@@ -2,7 +2,7 @@
 
 # UX Blocks Core
 
-### Atomic Symfinity UX Twig components with registry-aligned markup and role CSS
+### Atomic UX Twig components with registry-aligned markup and role CSS
 
 [![PHP Version](https://img.shields.io/badge/PHP-8.2+-777BB4?style=flat&logo=php&logoColor=white)](composer.json)
 [![Symfony](https://img.shields.io/badge/Symfony-7.4+-343434?style=flat&logo=symfony&logoColor=white)](composer.json)
@@ -99,7 +99,7 @@ composer require symfinity/ui-kernel
 composer require symfinity/ux-blocks-core
 ```
 
-The Flex recipe registers the bundle for all environments. See [Installation](docs/installation.md).
+The Flex recipe registers the bundle for all environments. See [Installation](docs/installation.md) and the [UX Blocks install profiles](https://github.com/symfinity/ux-blocks#install-profiles) for headless vs Chameleon vs full-app choices.
 
 ## Quick Start
 

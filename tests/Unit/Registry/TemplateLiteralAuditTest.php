@@ -15,7 +15,6 @@ final class TemplateLiteralAuditTest extends TestCase
         'templates/components/RadioGroup/',
         'templates/components/List/',
         'templates/components/Grid/',
-        'templates/catalog/',
     ];
 
     #[Test]

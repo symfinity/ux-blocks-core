@@ -6,8 +6,6 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Semantics;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
-use Symfinity\UiKernel\Token\ThemeErrorCatalog;
-use Symfinity\UiKernel\Token\UiKernelThemeException;
 use Symfinity\UxBlocksCore\Semantics\ColorVariantMap;
 
 final class ColorVariantMapTest extends TestCase
@@ -21,13 +19,11 @@ final class ColorVariantMapTest extends TestCase
     }
 
     #[Test]
-    public function unknownVariantThrowsStableErrorCode(): void
+    public function unknownVariantThrowsInvalidArgumentException(): void
     {
-        try {
-            ColorVariantMap::semanticTokenKey('neon');
-            self::fail('Expected UiKernelThemeException');
-        } catch (UiKernelThemeException $e) {
-            self::assertSame(ThemeErrorCatalog::UNKNOWN_TOKEN_KEY, $e->errorCode);
-        }
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Unknown semantic colour variant "neon".');
+
+        ColorVariantMap::semanticTokenKey('neon');
     }
 }

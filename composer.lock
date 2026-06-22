@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac450ff06f32ba3afe0b9d07d663ec7e",
+    "content-hash": "fe180886c24f6522abd6e38eba8d570e",
     "packages": [
         {
             "name": "composer/semver",
@@ -287,24 +287,26 @@
         },
         {
             "name": "symfinity/ux-blocks",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfinity/ux-blocks.git",
-                "reference": "3f48108a3964231451e0d8600ff2e080a085a12a"
+                "reference": "570c15112e655a86af2c1747bb0dcba595f12ff1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfinity/ux-blocks/zipball/3f48108a3964231451e0d8600ff2e080a085a12a",
-                "reference": "3f48108a3964231451e0d8600ff2e080a085a12a",
+                "url": "https://api.github.com/repos/symfinity/ux-blocks/zipball/570c15112e655a86af2c1747bb0dcba595f12ff1",
+                "reference": "570c15112e655a86af2c1747bb0dcba595f12ff1",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.2",
                 "symfony/config": "^7.4||^8.0",
+                "symfony/console": "^7.4||^8.0",
                 "symfony/dependency-injection": "^7.4||^8.0",
                 "symfony/framework-bundle": "^7.4||^8.0",
                 "symfony/http-kernel": "^7.4||^8.0",
+                "symfony/process": "^7.4||^8.0",
                 "symfony/yaml": "^7.4||^8.0"
             },
             "require-dev": {
@@ -342,7 +344,7 @@
                     "homepage": "https://symfinity.net/"
                 }
             ],
-            "description": "UX Blocks base SDK — registry schema and Symfinity UI markup helpers for Symfony UX Twig components",
+            "description": "Registry schema and shared test helpers for the Symfinity UX Blocks component family",
             "homepage": "https://github.com/symfinity/ux-blocks",
             "keywords": [
                 "design-system",
@@ -356,7 +358,7 @@
                 "issues": "https://github.com/symfinity/ux-blocks/issues",
                 "source": "https://github.com/symfinity/ux-blocks"
             },
-            "time": "2026-06-13T23:16:54+00:00"
+            "time": "2026-06-22T23:03:11+00:00"
         },
         {
             "name": "symfony/asset-mapper",
@@ -705,6 +707,104 @@
                 }
             ],
             "time": "2026-05-03T14:20:49+00:00"
+        },
+        {
+            "name": "symfony/console",
+            "version": "v7.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/console.git",
+                "reference": "85095d2573eaefaf35e40b9513a9bf09f72cd217"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/console/zipball/85095d2573eaefaf35e40b9513a9bf09f72cd217",
+                "reference": "85095d2573eaefaf35e40b9513a9bf09f72cd217",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2",
+                "symfony/deprecation-contracts": "^2.5|^3",
+                "symfony/polyfill-mbstring": "~1.0",
+                "symfony/service-contracts": "^2.5|^3",
+                "symfony/string": "^7.2|^8.0"
+            },
+            "conflict": {
+                "symfony/dependency-injection": "<6.4",
+                "symfony/dotenv": "<6.4",
+                "symfony/event-dispatcher": "<6.4",
+                "symfony/lock": "<6.4",
+                "symfony/process": "<6.4"
+            },
+            "provide": {
+                "psr/log-implementation": "1.0|2.0|3.0"
+            },
+            "require-dev": {
+                "psr/log": "^1|^2|^3",
+                "symfony/config": "^6.4|^7.0|^8.0",
+                "symfony/dependency-injection": "^6.4|^7.0|^8.0",
+                "symfony/event-dispatcher": "^6.4|^7.0|^8.0",
+                "symfony/http-foundation": "^6.4|^7.0|^8.0",
+                "symfony/http-kernel": "^6.4|^7.0|^8.0",
+                "symfony/lock": "^6.4|^7.0|^8.0",
+                "symfony/messenger": "^6.4|^7.0|^8.0",
+                "symfony/process": "^6.4|^7.0|^8.0",
+                "symfony/stopwatch": "^6.4|^7.0|^8.0",
+                "symfony/var-dumper": "^6.4|^7.0|^8.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Console\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Eases the creation of beautiful and testable command line interfaces",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "cli",
+                "command-line",
+                "console",
+                "terminal"
+            ],
+            "support": {
+                "source": "https://github.com/symfony/console/tree/v7.4.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-05-24T08:56:14+00:00"
         },
         {
             "name": "symfony/dependency-injection",
@@ -2282,6 +2382,71 @@
                 }
             ],
             "time": "2026-05-26T02:25:22+00:00"
+        },
+        {
+            "name": "symfony/process",
+            "version": "v7.4.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/process.git",
+                "reference": "f5804be144caceb570f6747519999636b664f24c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/process/zipball/f5804be144caceb570f6747519999636b664f24c",
+                "reference": "f5804be144caceb570f6747519999636b664f24c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Process\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Executes commands in sub-processes",
+            "homepage": "https://symfony.com",
+            "support": {
+                "source": "https://github.com/symfony/process/tree/v7.4.13"
+            },
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/nicolas-grekas",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2026-05-23T16:05:06+00:00"
         },
         {
             "name": "symfony/property-access",
@@ -5510,6 +5675,66 @@
                 }
             ],
             "time": "2024-10-20T05:08:20+00:00"
+        },
+        {
+            "name": "symfinity/ui-action",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfinity/ui-action.git",
+                "reference": "94f7a8f450b25103d8f4a2126cbf71439c178365"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfinity/ui-action/zipball/94f7a8f450b25103d8f4a2126cbf71439c178365",
+                "reference": "94f7a8f450b25103d8f4a2126cbf71439c178365",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.2"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.1",
+                "phpunit/phpunit": "^10.5 || ^11.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "0.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfinity\\UiAction\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Symfinity",
+                    "email": "dev@symfinity.net",
+                    "homepage": "https://symfinity.net/"
+                }
+            ],
+            "description": "Symfinity UI Action — native HTTP action semantics validation (navigate, submit, delete, download)",
+            "homepage": "https://github.com/symfinity/ui-action",
+            "keywords": [
+                "Forms",
+                "accessibility",
+                "html",
+                "http",
+                "symfinity",
+                "ux",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/symfinity/ui-action/issues",
+                "source": "https://github.com/symfinity/ui-action"
+            },
+            "time": "2026-06-13T23:06:19+00:00"
         },
         {
             "name": "symfony/browser-kit",

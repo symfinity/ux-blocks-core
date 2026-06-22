@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore\Tests\Integration;
 
-use Symfinity\UiKernel\UiKernelBundle;
 use Symfinity\UxBlocksCore\SymfinityUxBlocksCoreBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
@@ -38,7 +37,6 @@ final class UxBlocksCoreTestKernel extends Kernel
             new TwigBundle(),
             new StimulusBundle(),
             new TwigComponentBundle(),
-            new UiKernelBundle(),
             new SymfinityUxBlocksCoreBundle(),
         ];
     }
@@ -54,12 +52,6 @@ final class UxBlocksCoreTestKernel extends Kernel
 
         $container->extension('symfinity_ux_blocks_core', [
             'fragment_ids' => $fragmentIds,
-        ]);
-
-        $container->extension('symfinity_ui_kernel', [
-            'schema_version' => '1.0',
-            'default_theme' => 'default',
-            'default_variant' => 'default',
         ]);
 
         $container->extension('framework', [

@@ -38,6 +38,11 @@ final class ColourPropsNormalizer
     /** @var list<string> */
     private const APPEARANCE_VARIANT_ALIASES = ['outline', 'link'];
 
+    public static function tokenKey(string $variant): string
+    {
+        return '--ui-color-' . $variant;
+    }
+
     public function normalize(string $value): string
     {
         $candidate = self::LEGACY_ALIASES[$value] ?? $value;

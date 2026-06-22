@@ -16,7 +16,7 @@ Pass `accept`, `multiple`, `name`, and `id` through Twig `attributes` (or HTML a
 
 ## Composition (recommended)
 
-shadcn / ux-toolkit model file upload as **Input `type="file"` inside Field + Label**. Chameleon keeps a dedicated `file-input` role; pair it with **`Label`** (or `Field` with scalar `label`) in real forms:
+shadcn / ux-toolkit model file upload as **Input `type="file"` inside Field + Label**. Symfinity keeps a dedicated `file-input` role; pair it with **`Label`** (or `Field` with scalar `label`) in real forms:
 
 ```twig
 <twig:Label for="picture">Picture</twig:Label>
@@ -29,4 +29,4 @@ Optional help copy: add `Field:Description` under a `Field` wrapper when you ado
 
 ## REF note
 
-ux-toolkit shadcn kit has no separate file-input recipe — see `input/examples/File.html.twig` (`<twig:Input type="file" />`). Registry role `file-input` is intentional for Chameleon catalog and kernel CSS.
+ux-toolkit shadcn kit has no separate file-input recipe — see `input/examples/File.html.twig` (`<twig:Input type="file" />`). Registry role `file-input` is intentional for blocks catalog and kernel CSS.

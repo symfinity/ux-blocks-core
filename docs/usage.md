@@ -11,7 +11,7 @@ Twig tag name matches the registry **Twig** column (`Button`, `Input`, …):
 <twig:Input id="email" name="email" type="email" />
 ```
 
-Each root element exposes `data-ui-role`, `data-ui-fragment` (`blocks.*`), and Chameleon variant hooks. See [Components](components.md) for the full index.
+Each root element exposes `data-ui-role`, `data-ui-fragment` (`blocks.*`), and UI Kernel variant hooks. See [Components](components.md) for the full index.
 
 ## Theme CSS requirement
 

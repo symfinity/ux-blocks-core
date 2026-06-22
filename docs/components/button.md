@@ -4,7 +4,7 @@
 **Fragment id:** `blocks.button`  
 **Twig:** `<twig:Button>`
 
-Primary action control — native `<button>` or link-styled anchor when `as="a"`. Supports Chameleon colour × appearance × size matrix and optional declarative **ui-action** (`act`).
+Primary action control — native `<button>` or link-styled anchor when `as="a"`. Supports semantic colour × appearance × size matrix and optional declarative **ui-action** (`act`).
 
 ## Overview
 

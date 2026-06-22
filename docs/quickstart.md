@@ -54,7 +54,7 @@ Use UX Twig component tags (Twig name = registry **Twig** column):
 </main>
 ```
 
-Each root element exposes `data-ui-role`, `data-ui-fragment`, and Chameleon variant hooks — see [Components](components.md).
+Each root element exposes `data-ui-role`, `data-ui-fragment`, and UI Kernel variant hooks — see [Components](components.md).
 
 ## 3. Optional dev catalog
 

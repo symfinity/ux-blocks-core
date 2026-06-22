@@ -23,9 +23,7 @@ We aim to acknowledge within 48 hours and provide a detailed response within 7 d
 
 When using this bundle:
 
-1. Keep Symfony, `symfinity/ui-kernel`, and other dependencies updated
-2. Treat catalog routes (`/ux-blocks-core/catalog`) as dev or internal tooling — do not expose without authentication in production
-3. When using `SchemeSwitch` from **ux-blocks-interactive** with the optional theme PATCH endpoint, apply the same CSRF and session policies as the rest of your app
+1. Keep Symfony, optional `symfinity/ui-kernel`, and other dependencies updated
 
 ## Security contact
 

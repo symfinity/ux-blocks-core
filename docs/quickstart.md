@@ -56,10 +56,6 @@ Use UX Twig component tags (Twig name = registry **Twig** column):
 
 Each root element exposes `data-ui-role`, `data-ui-fragment`, and UI Kernel variant hooks — see [Components](components.md).
 
-## 3. Optional dev catalog
-
-When routing is enabled, open `/ux-blocks-core/catalog` to preview registered roles (requires `APP_ENV=dev` or equivalent access control in your app).
-
 ## Complete minimal example
 
 ```yaml
@@ -91,7 +87,7 @@ symfinity_ui_kernel:
 ## Next steps
 
 - [Components](components.md) — full role inventory and fragment prefix
-- [Configuration](configuration.md) — catalog route
+- [Configuration](configuration.md) — bundle auto-wiring
 - Per-role pages under [docs/components/](components/)
 
 ## See also

@@ -14,13 +14,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Registry `config/ux_roles.yaml` at revision **1.4** — typography, actions, layout, navigation, feedback, and media tiers
 - Symfony Flex recipe `0.1` — bundle registered for all environments
 - Auto-wiring: AssetMapper path for `assets/`, Twig component namespace, Twig template path
-- Optional dev catalog route `/ux-blocks-core/catalog` for role previews
-- **Native-first (`nat`)** styling — default stories need no package Stimulus controllers; `Button` and `Pagination` also support declarative `act` via ui-action
+- **Native-first (`nat`)** styling — default stories need no package Stimulus controllers; `Button` and `Pagination` also support declarative `act` when `symfinity/ui-action` is installed
 - **Flash** and **FlashStack** for session feedback with dismiss collapse and icon slots
 - **PageHeading** and **SectionHeading** with optional icon and actions region
 - **Figure**, **Image**, and **Spinner** media and loading primitives
 - Icon slots on **Button**, **Badge**, **Link**, **Flash**, and heading roles; decorative icon watermark on **Flash**
-- Variant and appearance CSS for **Button**, **Badge**, and **Link** aligned with ui-kernel semantic colour vocabulary
+- Variant and appearance CSS for **Button**, **Badge**, and **Link** aligned with platform semantic colour vocabulary
 - Typography polish — balance and pretty text-wrap on headings; `@supports`-gated trim on display typography
 - Solid **Button** elevation — `var(--ui-shadow-sm|md)` with hover lift gated by `prefers-reduced-motion`
 - Sass-authored role CSS compiled to `assets/styles/` for AssetMapper delivery
@@ -29,6 +28,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Notes
 
-- Core tier is headless — form field roles (`Label`, `Input`, …) ship in `symfinity/ux-blocks-form`; interactive overlays in `symfinity/ux-blocks-extended`
-- Requires `symfinity/ui-kernel` (theme tokens + shared form-control CSS) and `symfinity/ux-blocks` ^0.1 on [Packagist](https://packagist.org/packages/symfinity/ux-blocks) (registry schema)
-- Split mirror CI: PHP 8.2–8.5 × Symfony 7.4 / 8.0 / 8.1 (see `.github/workflows/ci.yml`)
+- This package ships **components and role CSS only** — no HTTP routes or bundled preview gallery
+- Form field roles (`Label`, `Input`, …) ship in [`symfinity/ux-blocks-form`](https://github.com/symfinity/ux-blocks-form); overlay components in [`symfinity/ux-blocks-extended`](https://github.com/symfinity/ux-blocks-extended)
+- Requires `symfinity/ux-blocks` ^0.1 on [Packagist](https://packagist.org/packages/symfinity/ux-blocks); optional themed apps add `symfinity/ui-kernel` (see SDK `suggest`)

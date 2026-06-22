@@ -79,10 +79,10 @@ Handbook: [docs/components.md](docs/components.md) and [docs/components/](docs/c
 
 Add the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoint to your project's `composer.json` (see [recipes README](https://github.com/symfinity/recipes/blob/main/README.md)) — recipes are not in Symfony's official recipe repository yet.
 
-Install **ui-kernel** (theme CSS). **ux-blocks** (registry SDK) resolves from [Packagist](https://packagist.org/packages/symfinity/ux-blocks) as a dependency of this package.
+**ux-blocks** (registry SDK) resolves from [Packagist](https://packagist.org/packages/symfinity/ux-blocks) as a dependency of this package. For **themed** apps, optionally install **ui-kernel**:
 
 ```bash
-composer require symfinity/ui-kernel
+composer require symfinity/ui-kernel   # optional
 ```
 
 ## Installation
@@ -128,7 +128,7 @@ See [Quick start](docs/quickstart.md) for the full walkthrough. For forms, add [
 
 - **[Quick start](docs/quickstart.md)** — ui-kernel + first components in minutes
 - **[Installation](docs/installation.md)** — Flex, dependencies, verify
-- **[Configuration](docs/configuration.md)** — auto-wiring and catalog route
+- **[Configuration](docs/configuration.md)** — auto-wiring; no bundled routes
 - **[Components](docs/components.md)** — role index and fragment prefix
 - **[Upgrade](docs/upgrade.md)** — first release and future migrations
 

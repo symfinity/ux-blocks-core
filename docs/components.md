@@ -40,7 +40,7 @@ Fragment prefix for this package: **`blocks`** (example: `blocks.button`, `block
 | kbd | Kbd | nat | — |
 | link | Link | nat | — |
 
-The README component table is the semver inventory SSOT; this page adds handbook links where depth pages exist.
+The [README](../README.md) component table is the canonical inventory; this page adds handbook links where depth pages exist.
 
 ## Using components
 
@@ -60,5 +60,5 @@ See [Quick start](quickstart.md) for a minimal template.
 ## Family navigation
 
 - [Installation](installation.md) — Flex and dependencies
-- [Configuration](configuration.md) — routes and auto-wiring
+- [Configuration](configuration.md) — auto-wiring
 - [Upgrade](upgrade.md) — version migrations

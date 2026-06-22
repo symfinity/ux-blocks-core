@@ -10,23 +10,17 @@ UX Blocks Core ships **zero required app YAML**. The bundle prepends AssetMapper
 | Twig templates | Namespace `UxBlocksCore` → `templates/` |
 | UX Twig components | `Symfinity\UxBlocksCore\Twig\Components\` → `components/` templates |
 | Role registry | `config/ux_roles.yaml` (revision **1.4**) — read-only reference inside the package |
-| Services | Autowired controllers and CSS provider — see bundle `config/services.yaml` |
+| Services | Autowired listeners and CSS provider — see bundle `config/services.yaml` |
 
 Applications **do not** copy bundle `config/` into `config/packages/`.
 
-## Optional routes
+## Routes
 
-The bundle imports `config/routes.yaml`:
+This package ships **no HTTP routes** — only Twig components, registry YAML, and AssetMapper assets.
 
-| Route name | Path | Purpose |
-|------------|------|---------|
-| `ux_blocks_core_catalog` | `/ux-blocks-core/catalog` | Dev role preview gallery |
+## Themed apps (optional ui-kernel)
 
-Restrict or disable these routes in production if they are not needed — treat the catalog as internal tooling.
-
-## Color scheme switching
-
-Foundation tier (`ux-blocks-core`) stays HTML/CSS-only. For an interactive light/dark toggle with PATCH support, use **`SchemeSwitch`** from **`symfinity/ux-blocks-interactive`** and import `config/routes/theme-scheme.yaml` when **symfinity/ui-kernel** is installed. Non-interactive apps can use ui-kernel redirect links, boot script, or layout chrome instead — see ui-kernel [theme-preference](https://github.com/symfinity/ui-kernel/blob/main/docs/theme-preference.md).
+Role CSS uses `var(--ui-*)` tokens. When **symfinity/ui-kernel** is installed, include theme CSS in your layout; non-interactive apps can use ui-kernel redirect links, boot script, or layout chrome — see ui-kernel [theme-preference](https://github.com/symfinity/ui-kernel/blob/main/docs/theme-preference.md).
 
 ## Stimulus and icons
 

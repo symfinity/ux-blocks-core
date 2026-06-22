@@ -6,8 +6,7 @@ parameters:
     paths:
         - src
     scanDirectories:
-        - ../ux-blocks/src
-        - ../ui-kernel/src
+        - vendor/symfinity/ux-blocks/src
     reportUnmatchedIgnoredErrors: false
     bootstrapFiles:
         - phpstan-bootstrap.php

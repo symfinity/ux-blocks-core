@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Symfinity\UxBlocksCore\Twig;
 
 use Symfinity\UxBlocksCore\Contract\ForbiddenSemanticVariantEmission;
-use Symfinity\UiKernel\Token\ColourPropsNormalizer;
+use Symfinity\UxBlocksCore\Token\ColourPropsNormalizer;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
 
 /**
@@ -19,7 +19,7 @@ trait NormalizesButtonColourProps
     #[PostMount]
     public function normalizeButtonColourProps(): void
     {
-        $normalizer = ColourPropsNormalizer::withBuiltInTheme();
+        $normalizer = new ColourPropsNormalizer();
         $normalized = $normalizer->normalizeButtonColour($this->variant, $this->appearance);
         $this->variant = $normalized['variant'];
         $this->appearance = $normalized['appearance'];

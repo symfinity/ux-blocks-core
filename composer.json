@@ -26,7 +26,6 @@
     ],
     "require": {
         "php": ">=8.2",
-        "symfinity/ui-kernel": "^0.1",
         "symfinity/ux-blocks": "^0.1",
         "symfony/asset-mapper": "^7.4||^8.0",
         "symfony/config": "^7.4||^8.0",

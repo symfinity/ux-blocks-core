@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Symfinity\UxBlocksCore\Twig;
 
 use Symfinity\UxBlocksCore\Contract\ForbiddenSemanticVariantEmission;
-use Symfinity\UiKernel\Token\ColourPropsNormalizer;
+use Symfinity\UxBlocksCore\Token\ColourPropsNormalizer;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
 
 /**
@@ -18,7 +18,7 @@ trait NormalizesSemanticColourVariant
     #[PostMount]
     public function normalizeSemanticColourVariant(): void
     {
-        $this->variant = ColourPropsNormalizer::withBuiltInTheme()->normalize($this->variant);
+        $this->variant = (new ColourPropsNormalizer())->normalize($this->variant);
         ForbiddenSemanticVariantEmission::assertDomSafe($this->variant, static::class);
     }
 }

@@ -8,6 +8,7 @@
     {%- block breadcrumb %}{%- endblock %}
 {%- endset %}
 <header
+    {{ rhythm_attr|raw }}
     {{ attributes }}
 >
     {% if breadcrumb_content|trim is not empty %}

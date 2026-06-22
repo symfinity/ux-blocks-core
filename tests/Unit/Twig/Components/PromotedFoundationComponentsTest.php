@@ -20,8 +20,6 @@ final class PromotedFoundationComponentsTest extends ComponentTestCase
             'list' => ['List', 'list', 'blocks.list'],
             'breadcrumb' => ['Breadcrumb', 'breadcrumb', 'blocks.breadcrumb', ['auto' => false, 'items' => [new BreadcrumbItem('Home', '/')]]],
             'pagination' => ['Pagination', 'pagination', 'blocks.pagination'],
-            'fieldset' => ['Fieldset', 'fieldset', 'blocks.fieldset'],
-            'input-group' => ['InputGroup', 'input-group', 'blocks.input-group'],
             'button-group' => ['ButtonGroup', 'button-group', 'blocks.button-group'],
         ];
     }

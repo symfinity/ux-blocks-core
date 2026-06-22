@@ -1,0 +1,21 @@
+schema: showcase-examples/1.0
+role: flash
+twig_name: Flash
+requires_stimulus: false
+sections:
+  - id: watermarks
+    title: Icon watermarks
+    items:
+      - variant: top-end
+        label: Top end (default)
+        props:
+          variant: info
+          iconWatermark: lucide:sparkles
+        content: Saved to your profile.
+      - variant: center
+        label: Center
+        props:
+          variant: success
+          iconWatermark: lucide:sparkles
+          watermarkPosition: center
+        content: Payment confirmed.

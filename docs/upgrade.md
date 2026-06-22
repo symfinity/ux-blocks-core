@@ -15,7 +15,7 @@ Ensure the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoi
 ### What you get
 
 - Symfony bundle registered for all environments
-- **24** atomic UX Twig component roles with `blocks.*` fragment ids
+- **25** atomic UX Twig component roles with `blocks.*` fragment ids
 - Registry revision **1.4** in package `config/ux_roles.yaml`
 - AssetMapper + Twig + UX Twig Component auto-configuration
 - Optional dev catalog at `/ux-blocks-core/catalog`
@@ -36,4 +36,4 @@ If you tracked `dev-main` before `v0.1.0`:
 
 ## Future releases
 
-See [CHANGELOG.md](../CHANGELOG.md) for version-to-version notes.
+See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

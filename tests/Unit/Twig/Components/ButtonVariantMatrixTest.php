@@ -12,8 +12,8 @@ final class ButtonVariantMatrixTest extends ComponentTestCase
     /** @return iterable<string, array{string, string, string}> */
     public static function matrixCells(): iterable
     {
-        $variants = ['primary', 'secondary', 'tertiary', 'success', 'danger', 'info', 'warning', 'ghost'];
-        $appearances = ['solid', 'outline', 'link'];
+        $variants = ['primary', 'secondary', 'accent', 'success', 'danger', 'info', 'warning', 'neutral'];
+        $appearances = ['solid', 'soft', 'outline', 'ghost', 'link'];
         $sizes = ['sm', 'md', 'lg'];
 
         foreach ($variants as $variant) {
@@ -43,7 +43,20 @@ final class ButtonVariantMatrixTest extends ComponentTestCase
         self::assertStringContainsString(sprintf('data-ui-size="%s"', $size), $html);
         self::assertStringNotContainsString('data-ui-variant="destructive"', $html);
         self::assertStringNotContainsString('data-ui-variant="default"', $html);
+        self::assertStringNotContainsString('data-ui-variant="ghost"', $html);
+        self::assertStringNotContainsString('data-ui-variant="tertiary"', $html);
         self::assertStringContainsString('data-ui-part="label"', $html);
+    }
+
+    #[Test]
+    public function itMapsLegacyGhostVariantToNeutralAppearanceGhost(): void
+    {
+        self::bootKernel();
+
+        $html = $this->renderComponent('Button', ['variant' => 'ghost'], 'Ghost');
+
+        self::assertStringContainsString('data-ui-variant="neutral"', $html);
+        self::assertStringContainsString('data-ui-appearance="ghost"', $html);
     }
 
     #[Test]

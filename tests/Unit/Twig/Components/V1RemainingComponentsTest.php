@@ -14,8 +14,6 @@ final class V1RemainingComponentsTest extends ComponentTestCase
     {
         return [
             'link' => ['Link', 'link', 'blocks.link', ['href' => '/docs']],
-            'switch' => ['Switch', 'switch', 'blocks.switch', ['checked' => true]],
-            'file-input' => ['FileInput', 'file-input', 'blocks.file-input'],
             'skeleton' => ['Skeleton', 'skeleton', 'blocks.skeleton'],
             'progress' => ['Progress', 'progress', 'blocks.progress', ['value' => 40, 'max' => 100]],
             'spinner' => ['Spinner', 'spinner', 'blocks.spinner', ['size' => 'md', 'density' => 'inline']],
@@ -33,29 +31,5 @@ final class V1RemainingComponentsTest extends ComponentTestCase
         $html = $this->renderComponent($component, $data);
 
         $this->assertRootAttributes($html, $role, $fragment);
-    }
-
-    #[Test]
-    public function switchRendersDisabledState(): void
-    {
-        self::bootKernel();
-        $html = $this->renderComponent('Switch', ['checked' => true, 'disabled' => true]);
-
-        self::assertStringContainsString('data-ui-state="disabled"', $html);
-        self::assertStringContainsString('disabled', $html);
-    }
-
-    #[Test]
-    public function switchNormalizesLegacyColourAliasesInMarkup(): void
-    {
-        self::bootKernel();
-
-        $destructive = $this->renderComponent('Switch', ['variant' => 'destructive', 'checked' => true]);
-        self::assertStringContainsString('data-ui-variant="danger"', $destructive);
-        self::assertStringNotContainsString('data-ui-variant="destructive"', $destructive);
-
-        $default = $this->renderComponent('Switch', ['variant' => 'default', 'checked' => true]);
-        self::assertStringContainsString('data-ui-variant="primary"', $default);
-        self::assertStringNotContainsString('data-ui-variant="default"', $default);
     }
 }

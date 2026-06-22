@@ -35,7 +35,11 @@ final class LinkAppearanceTest extends ComponentTestCase
         ], 'Read more');
 
         $this->assertRootAttributes($html, 'link', 'blocks.link');
-        self::assertStringContainsString(sprintf('data-ui-variant="%s"', $variant), $html);
+        if ('ghost' === $variant) {
+            self::assertStringContainsString('data-ui-variant="neutral"', $html);
+        } else {
+            self::assertStringContainsString(sprintf('data-ui-variant="%s"', $variant), $html);
+        }
         self::assertStringContainsString(sprintf('data-ui-appearance="%s"', $appearance), $html);
         self::assertStringContainsString('href="/docs"', $html);
     }

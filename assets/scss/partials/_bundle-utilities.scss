@@ -1,0 +1,21 @@
+@use '../_shared/lists' as *;
+
+[data-ui-role][hidden] {
+  display: none !important;
+}
+
+[data-ui-defer="cv"] {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 500px;
+}
+
+[data-ui-role="nav"]:has([aria-current="page"]) [aria-current="page"] {
+  font-weight: var(--ui-font-weight-semibold);
+  color: var(--ui-color-primary);
+}
+
+@each $colour in $ui-semantic-colours {
+  [data-ui-role="spinner"][data-ui-variant="#{$colour}"] {
+    border-block-start-color: var(--ui-color-#{$colour});
+  }
+}

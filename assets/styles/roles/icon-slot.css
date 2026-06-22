@@ -1,6 +1,9 @@
-/* Collapse icon gutters when no glyph is rendered (optional ux-icons, icon=null).
-   MUST load after role sheets — their [data-ui-role] … [data-ui-part="icon"] rules are more specific. */
-[data-ui-role] [data-ui-part="icon"]:not(:has(:is(svg, img))) {
+:root {
+  --ux-feedback-icon-slot-size: 2.5rem;
+  --ux-feedback-icon-slot-align-offset: 0.125rem;
+}
+
+[data-ui-role] [data-ui-part=icon]:not(:has(:is(svg, img))) {
   display: none;
   width: 0;
   min-width: 0;

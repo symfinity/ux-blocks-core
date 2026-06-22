@@ -18,30 +18,6 @@ final class AccentColorRolesTest extends TestCase
     }
 
     #[Test]
-    public function checkboxRoleUsesAccentToken(): void
-    {
-        $css = self::roleCss('checkbox');
-
-        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
-    }
-
-    #[Test]
-    public function radioRoleUsesAccentToken(): void
-    {
-        $css = self::roleCss('radio');
-
-        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
-    }
-
-    #[Test]
-    public function switchRoleUsesAccentToken(): void
-    {
-        $css = self::roleCss('switch');
-
-        self::assertStringContainsString('--ui-toggle-accent: var(--ui-color-primary)', $css);
-    }
-
-    #[Test]
     public function progressRoleUsesAccentToken(): void
     {
         $css = self::roleCss('progress');

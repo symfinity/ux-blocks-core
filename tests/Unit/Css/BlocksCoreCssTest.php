@@ -7,6 +7,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Css;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider;
+use Symfinity\UxBlocksCore\Tests\Support\RoleCssAssert;
 
 final class BlocksCoreCssTest extends TestCase
 {
@@ -20,12 +21,12 @@ final class BlocksCoreCssTest extends TestCase
         $path = self::packageDir() . '/assets/styles/roles/_bundle.css';
         self::assertFileExists($path);
 
-        return (string) file_get_contents($path);
+        return RoleCssAssert::normalize((string) file_get_contents($path));
     }
 
     private static function fullCss(): string
     {
-        return (new BlocksCoreCssProvider(self::packageDir()))->stylesheet();
+        return RoleCssAssert::normalize((new BlocksCoreCssProvider(self::packageDir()))->stylesheet());
     }
 
     #[Test]
@@ -34,8 +35,7 @@ final class BlocksCoreCssTest extends TestCase
         $css = self::fullCss();
 
         foreach ([
-            'button', 'label', 'input', 'textarea', 'select', 'checkbox', 'radio-group',
-            'separator',
+            'button', 'separator',
         ] as $role) {
             self::assertStringContainsString('[data-ui-role="' . $role . '"]', $css, $role);
         }
@@ -48,7 +48,7 @@ final class BlocksCoreCssTest extends TestCase
 
         foreach ([
             'scroll-area', 'aspect-ratio', 'divider', 'spinner', 'progress', 'badge', 'avatar',
-            'link', 'switch', 'file-input', 'kbd', 'figure', 'image', 'skeleton',
+            'link', 'kbd', 'figure', 'image', 'skeleton',
             'breadcrumb',
         ] as $role) {
             self::assertStringContainsString('[data-ui-role="' . $role . '"]', $css, $role);
@@ -86,10 +86,13 @@ final class BlocksCoreCssTest extends TestCase
             '/\[data-ui-role="button"\]\[data-ui-variant="primary"\]\[data-ui-appearance="outline"\][^{]*\{[^}]*color:\s*var\(--ui-color-primary\)/s',
             $css,
         );
+        self::assertStringContainsString('html[data-theme$=-dark] [data-ui-role="button"][data-ui-variant="primary"][data-ui-appearance="soft"]', $css);
+        self::assertStringContainsString('color: color-mix(in srgb, var(--ux-soft-tone) 88%, white)', $css);
+        self::assertStringContainsString('background-color: color-mix(in srgb, var(--ux-soft-tone) 32%, var(--ui-color-surface-elevated))', $css);
         self::assertStringContainsString('appearance: none', $css);
         self::assertStringContainsString('[data-ui-role="button"] [data-ui-part="icon"] svg', $css);
         self::assertStringContainsString('[data-ui-role="avatar"][data-ui-variant="primary"]', $css);
-        self::assertStringContainsString('[data-ui-role="badge"][data-ui-variant="ghost"]', $css);
+        self::assertStringContainsString('[data-ui-role="badge"][data-ui-variant="neutral"]', $css);
     }
 
     #[Test]
@@ -117,43 +120,20 @@ final class BlocksCoreCssTest extends TestCase
     {
         $rolesDir = dirname(__DIR__, 3) . '/assets/styles/roles';
 
-        foreach (['checkbox', 'radio', 'switch'] as $role) {
-            $css = (string) file_get_contents($rolesDir . '/' . $role . '.css');
-            self::assertStringContainsString('--ui-toggle-track:', $css, $role);
-            self::assertStringContainsString('appearance: none', $css, $role);
-            self::assertStringNotContainsString('appearance: auto', $css, $role);
-        }
-
         $progressCss = (string) file_get_contents($rolesDir . '/progress.css');
         self::assertStringContainsString('accent-color: var(--ui-color-accent)', $progressCss);
-
-        $bundle = self::bundleCss();
-        self::assertStringContainsString('[data-ui-part="form-check"]', $bundle);
     }
 
     #[Test]
     public function formCheckAndSwitchDisabledRulesExist(): void
     {
-        $css = self::fullCss();
-
-        self::assertStringContainsString('[data-ui-part="form-check"]', $css);
-        self::assertStringContainsString('[data-ui-part="form-check"] [data-ui-role="label"]', $css);
-        self::assertStringContainsString('[data-ui-role="switch"]:disabled', $css);
-        self::assertStringContainsString('[data-ui-role="switch"][data-ui-state="disabled"]', $css);
-        self::assertStringContainsString('[data-ui-role="checkbox"]:focus-visible', $css);
-        self::assertStringContainsString('[data-ui-role="radio-group"]', $css);
+        self::markTestSkipped('Form control CSS moved to symfinity/ux-blocks-form (110).');
     }
 
     #[Test]
     public function switchSplitRoleUsesCustomToggleChrome(): void
     {
-        $path = dirname(__DIR__, 3) . '/assets/styles/roles/switch.css';
-        $css = (string) file_get_contents($path);
-
-        self::assertStringContainsString('--ui-toggle-accent:', $css);
-        self::assertStringContainsString('background-position: right center', $css);
-        self::assertStringContainsString('appearance: none', $css);
-        self::assertStringNotContainsString('appearance: auto', $css);
+        self::markTestSkipped('Switch CSS moved to symfinity/ux-blocks-form (110).');
     }
 
     #[Test]
@@ -168,13 +148,13 @@ final class BlocksCoreCssTest extends TestCase
         self::assertStringContainsString('[data-ui-role="flash-stack"] > [data-ui-role="flash"][data-ui-auto-dismiss]', $css);
         self::assertStringContainsString('@keyframes ux-flash-enter-top', $css);
         self::assertStringContainsString('--ux-flash-tone', $css);
-        self::assertStringContainsString('html:not([data-theme$="-dark"]) [data-ui-role="flash"]', $css);
-        self::assertStringContainsString('color-mix(in srgb, var(--ux-flash-tone) 14%, #ffffff)', $css);
+        self::assertStringContainsString('html:not([data-theme$=-dark]) [data-ui-role="flash"]', $css);
+        self::assertStringContainsString('color-mix(in srgb, var(--ux-flash-tone) 14%, var(--ui-color-surface))', $css);
         self::assertStringContainsString('color-mix(in srgb, var(--ux-flash-tone) 70%, black)', $css);
-        self::assertStringContainsString('html[data-theme$="-dark"] [data-ui-role="flash"]', $css);
+        self::assertStringContainsString('html[data-theme$=-dark] [data-ui-role="flash"]', $css);
         self::assertStringNotContainsString('light-dark(', $css);
         self::assertStringNotContainsString('--ux-flash-accent', $css);
-        self::assertStringContainsString('--ux-flash-shadow-color: rgb(0 0 0 / 0.28)', $css);
+        self::assertStringContainsString('--ux-flash-shadow-color: color-mix(in oklch, black 28%, transparent)', $css);
         self::assertStringContainsString('0 8px 20px var(--ux-flash-shadow-color)', $css);
         self::assertStringContainsString('box-shadow: var(--ux-flash-shadow)', $css);
     }
@@ -252,5 +232,90 @@ final class BlocksCoreCssTest extends TestCase
             '/\[data-ui-role="badge"\]\[data-ui-size="lg"\][^{]*\{[^}]*padding:[^}]*var\(--ui-space-md\)/s',
             $css,
         );
+    }
+
+    #[Test]
+    public function feedbackIconSlotUsesDoubledSizeToken(): void
+    {
+        $css = self::fullCss();
+
+        self::assertStringContainsString('--ux-feedback-icon-slot-size: 2.5rem', $css);
+        self::assertMatchesRegularExpression(
+            '/\[data-ui-role="flash"\][^{]*\[data-ui-part="icon"\]:has\(:is\(svg, img\)\)[^{]*\{[^}]*width:\s*var\(--ux-feedback-icon-slot-size\)/s',
+            $css,
+        );
+        self::assertMatchesRegularExpression(
+            '/\[data-ui-part="flash-body"\][^{]*\{[^}]*align-items:\s*center/s',
+            $css,
+        );
+    }
+
+    #[Test]
+    public function entryImportsHaveNoDuplicatePrimaryRoleSelectors(): void
+    {
+        $entryPath = self::packageDir() . '/assets/styles/blocks-core.css';
+        self::assertFileExists($entryPath);
+
+        $entry = (string) file_get_contents($entryPath);
+        preg_match_all("/@import\\s+url\\('([^']+)'\\)\\s*;/", $entry, $matches);
+        self::assertNotEmpty($matches[1]);
+
+        $seen = [];
+        $stylesDir = self::packageDir() . '/assets/styles/';
+
+        foreach ($matches[1] as $importPath) {
+            if (!str_starts_with($importPath, 'roles/')) {
+                continue;
+            }
+
+            $cssPath = $stylesDir . $importPath;
+            self::assertFileExists($cssPath, $importPath);
+
+            foreach (self::extractOwningRoleSelectors((string) file_get_contents($cssPath)) as $role) {
+                self::assertArrayNotHasKey(
+                    $role,
+                    $seen,
+                    sprintf('Role "%s" appears in both %s and %s', $role, $seen[$role] ?? '?', $importPath),
+                );
+                $seen[$role] = $importPath;
+            }
+        }
+    }
+
+    #[Test]
+    public function generatedRolesAndAuditBundleCarryCompileHeader(): void
+    {
+        $header = '/* generated: blocks-css:compile — do not edit */';
+
+        foreach (['roles/_bundle.css'] as $relative) {
+            $path = self::packageDir() . '/assets/styles/' . $relative;
+            self::assertFileExists($path, $relative);
+            self::assertStringContainsString($header, (string) file_get_contents($path), $relative);
+        }
+    }
+
+    /**
+     * @return list<string>
+     */
+    private static function extractOwningRoleSelectors(string $css): array
+    {
+        $roles = [];
+        $parts = preg_split('/\{(?:[^{}]|\{[^{}]*\})*\}/', $css) ?: [];
+        foreach ($parts as $selectorBlock) {
+            foreach (explode(',', $selectorBlock) as $part) {
+                $part = trim($part);
+                if ('' === $part || str_starts_with($part, '@')) {
+                    continue;
+                }
+
+                if (!preg_match('/^\[data-ui-role="?([^"\]]+)"?\](?:\[[^\]]+\])*\s*$/', $part, $matches)) {
+                    continue;
+                }
+
+                $roles[] = $matches[1];
+            }
+        }
+
+        return array_values(array_unique($roles));
     }
 }

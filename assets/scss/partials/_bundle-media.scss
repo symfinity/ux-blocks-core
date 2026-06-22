@@ -1,0 +1,73 @@
+[data-ui-role="image"] {
+display: block;
+  max-width: 100%;
+  height: auto;
+}
+[data-ui-role="image"][data-ui-variant="fluid"] {
+width: 100%;
+}
+[data-ui-role="image"][data-ui-variant="thumbnail"] {
+width: auto;
+  max-width: 12.5rem;
+  height: auto;
+}
+[data-ui-role="image"][data-ui-variant="rounded"] {
+border-radius: var(--ui-radius-lg);
+  overflow: hidden;
+}
+[data-ui-role="image"][data-ui-variant="circle"] {
+aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 100%;
+}
+[data-ui-role="figure"] {
+display: block;
+  margin-block-end: var(--ui-space-md);
+  font-family: var(--ui-font-family-sans);
+  box-sizing: border-box;
+}
+[data-ui-role="figure"][data-ui-align="start"] {
+float: inline-start;
+  max-width: 50%;
+  margin-inline-end: var(--ui-space-md);
+  margin-block-end: var(--ui-space-md);
+}
+[data-ui-role="figure"][data-ui-align="end"] {
+float: inline-end;
+  max-width: 50%;
+  margin-inline-start: var(--ui-space-md);
+  margin-block-end: var(--ui-space-md);
+}
+[data-ui-role="figure"][data-ui-align="center"] {
+display: table;
+  margin-inline: auto;
+  max-width: 50%;
+  margin-block-end: var(--ui-space-md);
+}
+[data-ui-role="figure"][data-ui-align="start"] > [data-ui-role="image"][data-ui-variant="fluid"],
+[data-ui-role="figure"][data-ui-align="end"] > [data-ui-role="image"][data-ui-variant="fluid"],
+[data-ui-role="figure"][data-ui-align="center"] > [data-ui-role="image"][data-ui-variant="fluid"] {
+width: auto;
+  max-width: 100%;
+}
+[data-ui-role="figure"][data-ui-align="start"] [data-ui-role="figure-caption"] {
+text-align: start;
+}
+[data-ui-role="figure"][data-ui-align="end"] [data-ui-role="figure-caption"] {
+text-align: end;
+}
+[data-ui-role="figure"][data-ui-align="center"] [data-ui-role="figure-caption"] {
+text-align: center;
+}
+[data-ui-role="figure-caption"] {
+font-size: var(--ui-font-size-sm);
+  color: var(--ui-color-text-muted);
+  margin-block-start: var(--ui-space-sm);
+  line-height: 1.5;
+  font-family: var(--ui-font-family-sans);
+}
+[data-ui-role="figure-caption"] [data-ui-role="typography"] {
+margin: 0;
+  display: inline;
+}

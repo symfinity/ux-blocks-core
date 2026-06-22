@@ -1,0 +1,96 @@
+@use 'sass:map';
+@use 'lists' as *;
+
+@mixin each-variant-tone-var($role, $var-name) {
+  @each $colour in $ui-semantic-colours {
+    &[data-ui-variant='#{$colour}'] {
+      #{$var-name}: var(--ui-color-#{$colour});
+    }
+  }
+
+  @each $alias, $canonical in $ui-variant-tone-aliases {
+    &[data-ui-variant='#{$alias}'] {
+      #{$var-name}: var(--ui-color-#{$canonical});
+    }
+  }
+}
+
+@mixin soft-filled-surface($tone-var) {
+  html:not([data-theme$='-dark']) & {
+    color: color-mix(in srgb, var(#{$tone-var}) 72%, black);
+    background-color: color-mix(in srgb, var(#{$tone-var}) 16%, var(--ui-color-surface));
+    border: 1px solid color-mix(in srgb, var(#{$tone-var}) 24%, var(--ui-color-border));
+  }
+
+  html[data-theme$='-dark'] & {
+    color: color-mix(in srgb, var(#{$tone-var}) 88%, white);
+    background-color: color-mix(in srgb, var(#{$tone-var}) 32%, var(--ui-color-surface-elevated));
+    border: 1px solid color-mix(in srgb, var(#{$tone-var}) 40%, var(--ui-color-border));
+  }
+}
+
+@mixin tone-surface-light-dark($tone-var) {
+  html:not([data-theme$='-dark']) & {
+    color: color-mix(in srgb, var(#{$tone-var}) 70%, black);
+    background-color: color-mix(in srgb, var(#{$tone-var}) 14%, var(--ui-color-surface));
+    border: 1px solid var(#{$tone-var});
+  }
+
+  html[data-theme$='-dark'] & {
+    color: color-mix(in srgb, var(#{$tone-var}) 78%, white);
+    background-color: color-mix(in srgb, var(#{$tone-var}) 24%, var(--ui-color-surface-elevated));
+    border: 1px solid var(#{$tone-var});
+  }
+}
+
+@mixin each-placement($role, $property, $map) {
+  @each $placement, $value in $map {
+    &[data-ui-placement='#{$placement}'] {
+      #{$property}: #{$value};
+    }
+  }
+}
+
+@mixin stack-child-order($child-role, $max, $var-name: --ux-flash-stack-order) {
+  @for $i from 1 through $max {
+    > [data-ui-role='#{$child-role}']:nth-child(#{$i}) {
+      #{$var-name}: #{$i - 1};
+    }
+  }
+}
+
+@mixin stack-stagger-delays($child-role) {
+  > [data-ui-role='#{$child-role}'] {
+    pointer-events: auto;
+  }
+
+  > [data-ui-role='#{$child-role}']:not([data-ui-auto-dismiss]) {
+    animation-delay: calc(var(--ux-flash-stack-order, 0) * var(--ux-flash-stack-stagger));
+  }
+
+  > [data-ui-role='#{$child-role}'][data-ui-auto-dismiss] {
+    animation-delay:
+      calc(var(--ux-flash-stack-order, 0) * var(--ux-flash-stack-stagger)),
+      calc(var(--ux-flash-stack-order, 0) * var(--ux-flash-stack-stagger) + var(--ux-flash-duration));
+  }
+
+  > [data-ui-role='#{$child-role}'][data-ui-auto-dismiss]::after {
+    animation-delay: calc(var(--ux-flash-stack-order, 0) * var(--ux-flash-stack-stagger));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > [data-ui-role='#{$child-role}'] {
+      animation-delay: 0ms;
+    }
+  }
+}
+
+@mixin each-density($role, $densities) {
+  @each $density in $densities {
+    @if $density == compact {
+      &[data-ui-density='compact'] {
+        @content;
+      }
+    }
+  }
+}

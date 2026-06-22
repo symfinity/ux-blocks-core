@@ -16,8 +16,6 @@ trait NormalizesControlSize
     #[PostMount]
     public function normalizeControlSize(): void
     {
-        if ('default' === $this->size) {
-            $this->size = 'md';
-        }
+        $this->size = ModifierNormalizer::canonicalSize($this->size);
     }
 }

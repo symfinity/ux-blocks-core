@@ -1,0 +1,190 @@
+/* symfinity/ux-blocks-core — allowlisted roles defer solid fills to glass substrate (109) */
+
+html:not([data-theme$="-dark"]) :is(
+    [data-ui-role="flash"][data-ui-surface="glass"],
+    [data-ui-role="alert"][data-ui-surface="glass"],
+    [data-ui-role="card"][data-ui-surface="glass"],
+    [data-ui-role="modal"][data-ui-surface="glass"],
+    [data-ui-role="popover"][data-ui-surface="glass"],
+    [data-ui-role="menu"][data-ui-surface="glass"],
+    [data-ui-role="navbar"][data-ui-surface="glass"],
+    [data-ui-role="hero"][data-ui-surface="glass"],
+    [data-ui-role="content-section"][data-ui-surface="glass"],
+    [data-ui-role="drawer-content"][data-ui-surface="glass"],
+    [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+  ),
+html[data-theme$="-dark"] :is(
+    [data-ui-role="flash"][data-ui-surface="glass"],
+    [data-ui-role="alert"][data-ui-surface="glass"],
+    [data-ui-role="card"][data-ui-surface="glass"],
+    [data-ui-role="modal"][data-ui-surface="glass"],
+    [data-ui-role="popover"][data-ui-surface="glass"],
+    [data-ui-role="menu"][data-ui-surface="glass"],
+    [data-ui-role="navbar"][data-ui-surface="glass"],
+    [data-ui-role="hero"][data-ui-surface="glass"],
+    [data-ui-role="content-section"][data-ui-surface="glass"],
+    [data-ui-role="drawer-content"][data-ui-surface="glass"],
+    [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+  ) {
+  background: var(--ui-glass-fallback-surface);
+  border-color: var(--ui-glass-border);
+  box-shadow: var(--ui-shadow-lg);
+  color: var(--ui-color-text);
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  html:not([data-theme$="-dark"]) :is(
+      [data-ui-role="flash"][data-ui-surface="glass"],
+      [data-ui-role="alert"][data-ui-surface="glass"],
+      [data-ui-role="card"][data-ui-surface="glass"],
+      [data-ui-role="modal"][data-ui-surface="glass"],
+      [data-ui-role="popover"][data-ui-surface="glass"],
+      [data-ui-role="menu"][data-ui-surface="glass"],
+      [data-ui-role="navbar"][data-ui-surface="glass"],
+      [data-ui-role="hero"][data-ui-surface="glass"],
+      [data-ui-role="content-section"][data-ui-surface="glass"],
+      [data-ui-role="drawer-content"][data-ui-surface="glass"],
+      [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+    ),
+  html[data-theme$="-dark"] :is(
+      [data-ui-role="flash"][data-ui-surface="glass"],
+      [data-ui-role="alert"][data-ui-surface="glass"],
+      [data-ui-role="card"][data-ui-surface="glass"],
+      [data-ui-role="modal"][data-ui-surface="glass"],
+      [data-ui-role="popover"][data-ui-surface="glass"],
+      [data-ui-role="menu"][data-ui-surface="glass"],
+      [data-ui-role="navbar"][data-ui-surface="glass"],
+      [data-ui-role="hero"][data-ui-surface="glass"],
+      [data-ui-role="content-section"][data-ui-surface="glass"],
+      [data-ui-role="drawer-content"][data-ui-surface="glass"],
+      [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+    ) {
+    background: var(--ui-glass-tint);
+    -webkit-backdrop-filter: blur(var(--ui-glass-blur)) saturate(var(--ui-glass-saturate));
+    backdrop-filter: blur(var(--ui-glass-blur)) saturate(var(--ui-glass-saturate));
+  }
+}
+
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  html:not([data-theme$="-dark"]) :is(
+      [data-ui-role="flash"][data-ui-surface="glass"],
+      [data-ui-role="alert"][data-ui-surface="glass"],
+      [data-ui-role="card"][data-ui-surface="glass"],
+      [data-ui-role="modal"][data-ui-surface="glass"],
+      [data-ui-role="popover"][data-ui-surface="glass"],
+      [data-ui-role="menu"][data-ui-surface="glass"],
+      [data-ui-role="navbar"][data-ui-surface="glass"],
+      [data-ui-role="hero"][data-ui-surface="glass"],
+      [data-ui-role="content-section"][data-ui-surface="glass"],
+      [data-ui-role="drawer-content"][data-ui-surface="glass"],
+      [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+    ),
+  html[data-theme$="-dark"] :is(
+      [data-ui-role="flash"][data-ui-surface="glass"],
+      [data-ui-role="alert"][data-ui-surface="glass"],
+      [data-ui-role="card"][data-ui-surface="glass"],
+      [data-ui-role="modal"][data-ui-surface="glass"],
+      [data-ui-role="popover"][data-ui-surface="glass"],
+      [data-ui-role="menu"][data-ui-surface="glass"],
+      [data-ui-role="navbar"][data-ui-surface="glass"],
+      [data-ui-role="hero"][data-ui-surface="glass"],
+      [data-ui-role="content-section"][data-ui-surface="glass"],
+      [data-ui-role="drawer-content"][data-ui-surface="glass"],
+      [data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"]
+    ) {
+    background: var(--ui-glass-fallback-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Data table chrome — glass on toolbar row only (109) */
+[data-ui-role="data-table-chrome-toolbar"][data-ui-surface="glass"] {
+  padding: var(--ui-space-sm) var(--ui-space-md);
+  border-radius: var(--ui-radius-md);
+  border: 1px solid transparent;
+}
+
+/* Flash — semantic tone as leading accent, not opaque fill */
+html:not([data-theme$="-dark"]) [data-ui-role="flash"][data-ui-surface="glass"],
+html[data-theme$="-dark"] [data-ui-role="flash"][data-ui-surface="glass"] {
+  border-inline-start: 3px solid var(--ux-flash-tone);
+}
+
+[data-ui-role="flash"][data-ui-surface="glass"] [data-ui-part="icon"] {
+  color: var(--ux-flash-tone);
+}
+
+/* Alert — semantic variant as leading accent on glass (109) */
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"] {
+  border-inline-start: 3px solid currentColor;
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="success"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="success"] {
+  color: var(--ui-color-success);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="info"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="info"] {
+  color: var(--ui-color-info);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="warning"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="warning"] {
+  color: var(--ui-color-warning);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="danger"],
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="destructive"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="danger"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="destructive"] {
+  color: var(--ui-color-danger);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="primary"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="primary"] {
+  color: var(--ui-color-primary);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="secondary"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="secondary"] {
+  color: var(--ui-color-secondary);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="accent"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="accent"] {
+  color: var(--ui-color-accent);
+}
+
+html:not([data-theme$="-dark"]) [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="neutral"],
+html[data-theme$="-dark"] [data-ui-role="alert"][data-ui-surface="glass"][data-ui-variant="neutral"] {
+  color: var(--ui-color-neutral);
+}
+
+[data-ui-role="alert"][data-ui-surface="glass"] [data-ui-part="icon"] {
+  color: currentColor;
+}
+
+[data-ui-role="alert"][data-ui-surface="glass"] .alert-body > div {
+  color: var(--ui-color-text-muted);
+}
+
+/* Navbar — glass on header; chrome stays transparent so blur reads */
+[data-ui-role="navbar"][data-ui-surface="glass"] > [data-ui-part="navbar-chrome"] {
+  background: transparent;
+  box-shadow: none;
+  border-block-end-color: transparent;
+}
+
+@supports (container-type: scroll-state) {
+  [data-ui-role="navbar"][data-ui-surface="glass"][data-ui-part="navbar-sticky"]
+    > [data-ui-part="navbar-chrome"] {
+    @container scroll-state(stuck: block-start) {
+      background: transparent;
+      box-shadow: none;
+      border-block-end-color: transparent;
+    }
+  }
+}

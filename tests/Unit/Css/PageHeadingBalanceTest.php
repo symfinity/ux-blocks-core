@@ -6,6 +6,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Css;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use Symfinity\UxBlocksCore\Tests\Support\RoleCssAssert;
 
 final class PageHeadingBalanceTest extends TestCase
 {
@@ -14,7 +15,7 @@ final class PageHeadingBalanceTest extends TestCase
         $path = dirname(__DIR__, 3) . '/assets/styles/roles/page-heading.css';
         self::assertFileExists($path);
 
-        return (string) file_get_contents($path);
+        return RoleCssAssert::normalize((string) file_get_contents($path));
     }
 
     #[Test]
@@ -46,7 +47,7 @@ final class PageHeadingBalanceTest extends TestCase
             $css,
         );
         self::assertDoesNotMatchRegularExpression(
-            '/\[data-ui-part="description"\][\s\S]*text-box:/',
+            '/\[data-ui-role="page-heading"\] \[data-ui-part="description"\][^{]*\{[^}]*text-box:/',
             $css,
         );
     }

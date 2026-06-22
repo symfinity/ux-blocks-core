@@ -1,0 +1,63 @@
+# Component example manifest — symfinity/ux-blocks-core / button
+
+role: button
+twig_name: Button
+examples:
+  - id: primary-solid
+    title: Primary solid
+    section: Variants
+    props:
+      variant: primary
+      appearance: solid
+      size: md
+    slot_text: Save changes
+
+  - id: secondary-outline
+    title: Secondary outline
+    section: Variants
+    props:
+      variant: secondary
+      appearance: outline
+      size: md
+    slot_text: Cancel
+
+  - id: danger-soft
+    title: Danger soft
+    section: Variants
+    props:
+      variant: danger
+      appearance: soft
+      size: md
+    slot_text: Delete account
+
+  - id: link-appearance
+    title: Link appearance
+    section: Variants
+    props:
+      variant: primary
+      appearance: link
+      as: a
+      href: /docs
+      size: md
+    slot_text: Read documentation
+
+  - id: loading
+    title: Loading
+    section: States
+    props:
+      variant: primary
+      appearance: solid
+      loading: true
+      size: md
+    slot_text: Saving…
+
+  - id: with-icon
+    title: With icon
+    section: Icons
+    props:
+      variant: primary
+      appearance: solid
+      icon: tabler:plus
+      iconPosition: start
+      size: md
+    slot_text: Add item

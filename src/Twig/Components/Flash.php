@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Symfinity\UxBlocksCore\Twig\Components;
 
 use Symfinity\UxBlocksCore\Twig\ExposesSemanticVariant;
+use Symfinity\UxBlocksCore\Twig\NormalizesSemanticColourVariant;
+use Symfinity\UxBlocksCore\Twig\ResolvesIconWatermark;
+use Symfinity\UxBlocksCore\Twig\ResolvesSurfaceSubstrate;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 
@@ -12,6 +15,9 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 final class Flash
 {
     use ExposesSemanticVariant;
+    use NormalizesSemanticColourVariant;
+    use ResolvesIconWatermark;
+    use ResolvesSurfaceSubstrate;
 
     public string $variant = 'info';
 
@@ -24,10 +30,15 @@ final class Flash
 
     public bool $iconDecorative = true;
 
+    public function mount(): void
+    {
+        $this->mountSurfaceSubstrate();
+    }
+
     #[ExposeInTemplate('flash_aria_role')]
     public function flashAriaRole(): string
     {
-        return \in_array($this->variant, ['error', 'destructive'], true) ? 'alert' : 'status';
+        return \in_array($this->variant, ['danger'], true) ? 'alert' : 'status';
     }
 
     #[ExposeInTemplate('auto_dismiss')]
@@ -53,11 +64,23 @@ final class Flash
 
         return match ($this->variant) {
             'success' => 'lucide:circle-check',
-            'error', 'destructive' => 'lucide:circle-x',
+            'danger' => 'lucide:circle-x',
             'warning' => 'lucide:triangle-alert',
             'info' => 'lucide:info',
             default => null,
         };
+    }
+
+    #[ExposeInTemplate('resolved_icon_watermark')]
+    public function resolvedIconWatermark(): ?string
+    {
+        return $this->resolveIconWatermark();
+    }
+
+    #[ExposeInTemplate('resolved_watermark_position')]
+    public function resolvedWatermarkPosition(): string
+    {
+        return $this->resolveWatermarkPosition('top-end');
     }
 
     private function resolvedDismissAfterSeconds(): ?int
@@ -66,7 +89,7 @@ final class Flash
             return $this->dismissAfter > 0 ? $this->dismissAfter : null;
         }
 
-        if (\in_array($this->variant, ['error', 'destructive'], true)) {
+        if ('danger' === $this->variant) {
             return null;
         }
 

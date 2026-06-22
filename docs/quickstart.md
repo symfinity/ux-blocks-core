@@ -96,6 +96,6 @@ symfinity_ui_kernel:
 
 ## See also
 
-- [CHANGELOG.md](../CHANGELOG.md) — version history
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — how to contribute
+- [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) — version history
+- [Contributing](https://github.com/symfinity/ux-blocks-core/blob/main/CONTRIBUTING.md) — how to contribute
 - [GitHub Issues](https://github.com/symfinity/ux-blocks-core/issues) — bug reports

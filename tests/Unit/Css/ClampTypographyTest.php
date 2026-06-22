@@ -7,6 +7,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Css;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 use Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider;
+use Symfinity\UxBlocksCore\Tests\Support\RoleCssAssert;
 
 final class ClampTypographyTest extends TestCase
 {
@@ -14,7 +15,7 @@ final class ClampTypographyTest extends TestCase
     {
         $packageDir = dirname(__DIR__, 3);
 
-        return (new BlocksCoreCssProvider($packageDir))->stylesheet();
+        return RoleCssAssert::normalize((new BlocksCoreCssProvider($packageDir))->stylesheet());
     }
 
     #[Test]

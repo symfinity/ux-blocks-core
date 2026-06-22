@@ -6,6 +6,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Css;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use Symfinity\UxBlocksCore\Tests\Support\RoleCssAssert;
 
 final class TypographyR2NativeTest extends TestCase
 {
@@ -14,7 +15,7 @@ final class TypographyR2NativeTest extends TestCase
         $path = dirname(__DIR__, 3) . '/assets/styles/roles/typography.css';
         self::assertFileExists($path);
 
-        return (string) file_get_contents($path);
+        return RoleCssAssert::normalize((string) file_get_contents($path));
     }
 
     private static function mixinCss(): string
@@ -22,7 +23,7 @@ final class TypographyR2NativeTest extends TestCase
         $path = dirname(__DIR__, 3) . '/assets/styles/mixins/_typography-r2.css';
         self::assertFileExists($path);
 
-        return (string) file_get_contents($path);
+        return RoleCssAssert::normalize((string) file_get_contents($path));
     }
 
     #[Test]

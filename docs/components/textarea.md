@@ -15,7 +15,7 @@ Native `<textarea>` with optional `content` slot for default value text.
 
 ## Composition (recommended)
 
-Pair with **Label** (or `Field:Label`) in real forms:
+Pair with **Label** (or `Field` with scalar `label`) in real forms:
 
 ```twig
 <twig:Label for="message">Message</twig:Label>

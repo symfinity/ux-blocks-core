@@ -6,6 +6,7 @@ namespace Symfinity\UxBlocksCore\Tests\Unit\Css;
 
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
+use Symfinity\UxBlocksCore\Tests\Support\RoleCssAssert;
 
 final class NavbarScrollStateTest extends TestCase
 {
@@ -14,7 +15,7 @@ final class NavbarScrollStateTest extends TestCase
         $path = dirname(__DIR__, 3) . '/assets/styles/roles/navbar.css';
         self::assertFileExists($path);
 
-        return (string) file_get_contents($path);
+        return RoleCssAssert::normalize((string) file_get_contents($path));
     }
 
     #[Test]
@@ -28,7 +29,7 @@ final class NavbarScrollStateTest extends TestCase
         self::assertStringContainsString('@container scroll-state(stuck: block-start)', $css);
         self::assertStringContainsString('[data-ui-part="navbar-chrome"]', $css);
         self::assertStringContainsString('background: transparent', $css);
-        self::assertStringContainsString('& > [data-ui-part="navbar-chrome"]', $css);
+        self::assertStringContainsString('[data-ui-role="navbar"][data-ui-part="navbar-sticky"] > [data-ui-part="navbar-chrome"]', $css);
         self::assertStringContainsString('border-block-end-color: var(--ui-color-border)', $css);
     }
 

@@ -12,7 +12,7 @@ final class BadgeVariantTest extends ComponentTestCase
     /** @return iterable<string, array{string, string}> */
     public static function badgeCells(): iterable
     {
-        $variants = ['primary', 'secondary', 'tertiary', 'success', 'danger', 'info', 'warning', 'ghost'];
+        $variants = ['primary', 'secondary', 'accent', 'success', 'danger', 'info', 'warning', 'neutral'];
         $sizes = ['sm', 'md', 'lg'];
 
         foreach ($variants as $variant) {

@@ -7,6 +7,7 @@ Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components
 - [Installation](installation.md)
 - [Quick start](quickstart.md)
 - [Configuration](configuration.md)
+- [Usage](usage.md)
 - [Components](components.md)
 - [Upgrade](upgrade.md)
 
@@ -14,7 +15,6 @@ Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components
 
 - [Button](components/button.md)
 - [Checkbox](components/checkbox.md)
-- [Empty](components/empty.md)
 - [File input](components/file-input.md)
 - [Image](components/image.md)
 - [Input](components/input.md)

@@ -1,0 +1,10 @@
+{# Shared decorative icon watermark — ux-icons optional; omit wrapper when icon name is unset. #}
+{% if iconWatermark|default(null) %}
+<span
+    data-ui-part="icon-watermark"
+    data-ui-watermark-position="{{ watermarkPosition|default('top-end') }}"
+    aria-hidden="true"
+>
+    {{ ux_blocks_icon(iconWatermark) }}
+</span>
+{% endif %}

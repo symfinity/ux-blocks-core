@@ -33,7 +33,7 @@ Fragment prefix for this package: **`blocks`** (example: `blocks.button`, `block
 | progress | Progress | nat | — |
 | spinner | Spinner | nat | [Spinner](components/spinner.md) |
 | skeleton | Skeleton | nat | — |
-| empty | Empty | nat | [Empty](components/empty.md) |
+| empty | Empty | nat | — (see `symfinity/ux-blocks-extended`) |
 | avatar | Avatar | nat | — |
 | image | Image | nat | [Image](components/image.md) |
 | figure | Figure | nat | — |
@@ -44,7 +44,7 @@ The README component table is the semver inventory SSOT; this page adds handbook
 
 ## Using components
 
-Twig tag name matches the **Twig** column (`<twig:Button>`, `<twig:Input>`, …). Nested roles (for example `RadioGroup:Item`, `Empty:Title`) are documented on the parent role page.
+Twig tag name matches the **Twig** column (`<twig:Button>`, `<twig:Input>`, …). Nested roles (for example `RadioGroup:Item`, `Collapsible:Trigger`) are documented on the parent role page. Container shells use universal region components (`Header`, `Footer`, `Media`, `Actions`, `Aside`) plus scalar attributes (`title`, `description`, `label`, …).
 
 Install sibling tiers when you need overlays, marketing sections, or shop blocks:
 

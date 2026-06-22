@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore\Twig\Components;
 
-use Symfinity\UxBlocksCore\Twig\NormalizesSemanticColourVariant;
+use Symfinity\UxBlocksCore\Twig\NormalizesButtonColourProps;
 use Symfinity\UxBlocksCore\Twig\ResolvesExplicitIcon;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
@@ -12,7 +12,7 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 #[AsTwigComponent('Link', template: '@UxBlocksCore/components/Link.html.twig')]
 final class Link
 {
-    use NormalizesSemanticColourVariant;
+    use NormalizesButtonColourProps;
     use ResolvesExplicitIcon;
 
     public string $href = '#';

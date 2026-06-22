@@ -18,6 +18,9 @@ final class PageHeading
     /** Ignored — locked start per icon-slots contract. */
     public string $iconPosition = 'end';
 
+    /** Opt-in baseline rhythm scope — `baseline` emits {@code data-ui-rhythm="baseline"}. */
+    public string $rhythm = '';
+
     public function __construct()
     {
         $this->level = 1;
@@ -27,5 +30,11 @@ final class PageHeading
     public function resolvedHeadingIcon(): ?string
     {
         return $this->resolveExplicitIcon();
+    }
+
+    #[ExposeInTemplate('rhythm_attr')]
+    public function rhythmAttr(): string
+    {
+        return 'baseline' === $this->rhythm ? ' data-ui-rhythm="baseline"' : '';
     }
 }

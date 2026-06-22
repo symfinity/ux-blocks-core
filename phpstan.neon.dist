@@ -5,6 +5,9 @@ parameters:
     level: max
     paths:
         - src
+    scanDirectories:
+        - ../ux-blocks/src
+        - ../ui-kernel/src
     reportUnmatchedIgnoredErrors: false
     bootstrapFiles:
         - phpstan-bootstrap.php

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore\Twig\Components;
 
+use Symfinity\UxBlocksCore\Twig\NormalizesButtonColourProps;
 use Symfinity\UxBlocksCore\Twig\NormalizesControlSize;
-use Symfinity\UxBlocksCore\Twig\NormalizesSemanticColourVariant;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\PostMount;
 
 #[AsTwigComponent('Button', template: '@UxBlocksCore/components/Button.html.twig')]
 final class Button
 {
-    use NormalizesSemanticColourVariant;
+    use NormalizesButtonColourProps;
     use NormalizesControlSize;
 
     public string $variant = 'primary';

@@ -1,10 +1,19 @@
 <div
     data-ui-variant="{{ semantic_variant }}"
     data-ui-placement="{{ placement }}"
+    {{ surface_attr|raw }}
     role="{{ flash_aria_role }}"
     {% if auto_dismiss %}data-ui-auto-dismiss style="--ux-flash-duration: {{ flash_duration_css }}"{% endif %}
     {{ attributes }}
 >
+    {% if resolved_icon_watermark %}
+        {% block iconWatermark %}
+            {% include '@UxBlocksCore/components/_shared/p_icon_watermark.html.twig' with {
+                iconWatermark: resolved_icon_watermark,
+                watermarkPosition: resolved_watermark_position,
+            } only %}
+        {% endblock %}
+    {% endif %}
     <div data-ui-part="flash-body">
         {% if resolved_icon %}
             {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {

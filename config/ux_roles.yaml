@@ -14,79 +14,14 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Button
     fragment_id: blocks.button
     fragment_pattern: "blocks.button.{n}"
+    attributes: [variant, size, appearance, disabled, loading]
+    scalar_content: [icon, href]
+    styled_parts: []
     interaction: nat, act
     stage: A
     status: v0
     icon_slot:
       position: start | end | only
-  - role: label
-    twig_component: Label
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Label
-    fragment_id: blocks.label
-    fragment_pattern: "blocks.label.{n}"
-    interaction: nat
-    stage: A
-    status: v0
-  - role: input
-    twig_component: Input
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Input
-    fragment_id: blocks.input
-    fragment_pattern: "blocks.input.{n}"
-    interaction: nat
-    stage: A
-    status: v0
-    icon_slot:
-      position: start | end
-  - role: textarea
-    twig_component: Textarea
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Textarea
-    fragment_id: blocks.textarea
-    fragment_pattern: "blocks.textarea.{n}"
-    interaction: nat
-    stage: A
-    status: v0
-  - role: checkbox
-    twig_component: Checkbox
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Checkbox
-    fragment_id: blocks.checkbox
-    fragment_pattern: "blocks.checkbox.{n}"
-    interaction: nat
-    stage: A
-    status: v0
-  - role: radio-group
-    twig_component: RadioGroup
-    php_class: Symfinity\UxBlocksCore\Twig\Components\RadioGroup
-    fragment_id: blocks.radio-group
-    fragment_pattern: "blocks.radio-group.{n}"
-    nested_components:
-      - RadioGroup:Item
-    interaction: nat
-    stage: A
-    status: v0
-  - role: select
-    twig_component: Select
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Select
-    fragment_id: blocks.select
-    fragment_pattern: "blocks.select.{n}"
-    interaction: nat
-    stage: A
-    status: v0
-  - role: switch
-    twig_component: Switch
-    php_class: Symfinity\UxBlocksCore\Twig\Components\SwitchControl
-    fragment_id: blocks.switch
-    fragment_pattern: "blocks.switch.{n}"
-    interaction: nat
-    stage: A
-    status: v1
-  - role: file-input
-    twig_component: FileInput
-    php_class: Symfinity\UxBlocksCore\Twig\Components\FileInput
-    fragment_id: blocks.file-input
-    fragment_pattern: "blocks.file-input.{n}"
-    interaction: nat
-    stage: A
-    status: v1
   - role: separator
     twig_component: Separator
     php_class: Symfinity\UxBlocksCore\Twig\Components\Separator
@@ -124,6 +59,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Badge
     fragment_id: blocks.badge
     fragment_pattern: "blocks.badge.{n}"
+    attributes: [variant, size, appearance]
+    scalar_content: [icon]
+    styled_parts: []
     interaction: nat
     stage: A
     status: v1
@@ -134,6 +72,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Avatar
     fragment_id: blocks.avatar
     fragment_pattern: "blocks.avatar.{n}"
+    attributes: [size]
+    scalar_content: []
+    styled_parts: []
     interaction: nat
     stage: A
     status: v1
@@ -150,6 +91,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Link
     fragment_id: blocks.link
     fragment_pattern: "blocks.link.{n}"
+    attributes: [variant, appearance]
+    scalar_content: [icon, href]
+    styled_parts: []
     interaction: nat
     stage: A
     status: v1
@@ -161,6 +105,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Progress
     fragment_id: blocks.progress
     fragment_pattern: "blocks.progress.{n}"
+    attributes: [variant, size]
+    scalar_content: []
+    styled_parts: []
     interaction: nat
     stage: A
     status: v1
@@ -204,6 +151,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\Flash
     fragment_id: blocks.flash
     fragment_pattern: "blocks.flash.{n}"
+    attributes: [variant]
+    scalar_content: [icon, title, iconWatermark]
+    styled_parts: []
     interaction: nat
     stage: A
     status: v1
@@ -215,6 +165,9 @@ roles:
         destructive: lucide:circle-x
         warning: lucide:triangle-alert
         info: lucide:info
+    icon_watermark:
+      allowed_positions: [top-start, top-end, bottom-start, bottom-end, center]
+      default_position: top-end
   - role: flash-stack
     twig_component: FlashStack
     php_class: Symfinity\UxBlocksCore\Twig\Components\FlashStack
@@ -228,6 +181,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\PageHeading
     fragment_id: blocks.page-heading
     fragment_pattern: "blocks.page-heading.{n}"
+    attributes: [size]
+    scalar_content: [title, description, icon]
+    styled_parts: [actions]
     interaction: nat
     stage: A
     status: v1
@@ -238,6 +194,9 @@ roles:
     php_class: Symfinity\UxBlocksCore\Twig\Components\SectionHeading
     fragment_id: blocks.section-heading
     fragment_pattern: "blocks.section-heading.{n}"
+    attributes: [size]
+    scalar_content: [title, description, icon]
+    styled_parts: [actions]
     interaction: nat
     stage: A
     status: v1
@@ -289,22 +248,6 @@ roles:
     interaction: nat, act
     stage: A
     status: v1
-  - role: fieldset
-    twig_component: Fieldset
-    php_class: Symfinity\UxBlocksCore\Twig\Components\Fieldset
-    fragment_id: blocks.fieldset
-    fragment_pattern: "blocks.fieldset.{n}"
-    interaction: nat
-    stage: A
-    status: v1
-  - role: input-group
-    twig_component: InputGroup
-    php_class: Symfinity\UxBlocksCore\Twig\Components\InputGroup
-    fragment_id: blocks.input-group
-    fragment_pattern: "blocks.input-group.{n}"
-    interaction: nat
-    stage: A
-    status: v1
   - role: button-group
     twig_component: ButtonGroup
     php_class: Symfinity\UxBlocksCore\Twig\Components\ButtonGroup
@@ -335,12 +278,6 @@ deprecated_fragment_aliases:
     sunset: next-minor
   - from: blocks.ext.pagination
     to: blocks.pagination
-    sunset: next-minor
-  - from: blocks.ext.fieldset
-    to: blocks.fieldset
-    sunset: next-minor
-  - from: blocks.ext.input-group
-    to: blocks.input-group
     sunset: next-minor
   - from: blocks.ext.button-group
     to: blocks.button-group

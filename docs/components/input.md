@@ -18,7 +18,7 @@ Pass `name`, `id`, `autocomplete`, `required`, and other native attributes throu
 
 ## Composition (recommended)
 
-shadcn / ux-toolkit model pairs **Input** with a sibling **Label** (or `Field` / `Field:Label`):
+shadcn / ux-toolkit model pairs **Input** with a sibling **Label** (or `Field` with scalar `label`):
 
 ```twig
 <twig:Label for="email">Email address</twig:Label>

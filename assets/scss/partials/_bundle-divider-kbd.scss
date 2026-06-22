@@ -1,0 +1,23 @@
+[data-ui-role='divider'] {
+  border: 0;
+  border-block-start: 1px solid var(--ui-color-border);
+  margin: var(--ui-space-md) 0;
+
+  &[data-ui-variant='vertical'] {
+    border-block-start: 0;
+    border-inline-start: 1px solid var(--ui-color-border);
+    width: 1px;
+    min-height: 1rem;
+    margin: 0 var(--ui-space-md);
+  }
+}
+
+[data-ui-role='kbd'] {
+  display: inline-block;
+  padding: 0.125rem var(--ui-space-xs);
+  font-family: var(--ui-font-family-mono);
+  font-size: var(--ui-font-size-sm);
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-color-surface-elevated);
+}

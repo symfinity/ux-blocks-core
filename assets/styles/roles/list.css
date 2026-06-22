@@ -1,13 +1,11 @@
-/* 101 B1 — list container queries + base item chrome */
-[data-ui-role="list"] {
+[data-ui-role=list] {
   container-type: inline-size;
   container-name: blocks-list;
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
 }
-
-[data-ui-role="list"] > [data-ui-part="list-layout"] {
+[data-ui-role=list] > [data-ui-part=list-layout] {
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -16,28 +14,22 @@
   min-width: 0;
   box-sizing: border-box;
 }
-
-[data-ui-role="list"][data-ui-gap="xs"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-gap=xs] > [data-ui-part=list-layout] {
   gap: 0;
 }
-
-[data-ui-role="list"][data-ui-gap="sm"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-gap=sm] > [data-ui-part=list-layout] {
   gap: var(--ui-space-xs);
 }
-
-[data-ui-role="list"][data-ui-gap="md"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-gap=md] > [data-ui-part=list-layout] {
   gap: var(--ui-space-sm);
 }
-
-[data-ui-role="list"][data-ui-gap="lg"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-gap=lg] > [data-ui-part=list-layout] {
   gap: var(--ui-space-lg);
 }
-
-[data-ui-role="list"][data-ui-gap="xl"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-gap=xl] > [data-ui-part=list-layout] {
   gap: var(--ui-space-xl);
 }
-
-[data-ui-role="list"] > [data-ui-part="list-layout"] > [data-ui-part="list-item"] {
+[data-ui-role=list] > [data-ui-part=list-layout] > [data-ui-part=list-item] {
   display: flex;
   flex-direction: column;
   gap: var(--ui-space-xs);
@@ -46,49 +38,40 @@
   min-width: 0;
   box-sizing: border-box;
 }
-
-[data-ui-role="list"] > [data-ui-part="list-layout"] > [data-ui-part="list-item"]:last-child {
+[data-ui-role=list] > [data-ui-part=list-layout] > [data-ui-part=list-item]:last-child {
   border-block-end: none;
 }
-
-[data-ui-role="list"] [data-ui-part="list-item-title"] {
+[data-ui-role=list] [data-ui-part=list-item-title] {
   margin: 0;
   font-size: var(--ui-font-size-md);
   font-weight: 600;
   line-height: var(--ui-line-height-normal, 1.5);
   color: var(--ui-color-text);
 }
-
-[data-ui-role="list"] [data-ui-part="list-item-description"],
-[data-ui-role="list"] [data-ui-part="list-item-secondary"] {
+[data-ui-role=list] [data-ui-part=list-item-description],
+[data-ui-role=list] [data-ui-part=list-item-secondary] {
   margin: 0;
   font-size: var(--ui-font-size-sm);
   line-height: var(--ui-line-height-normal, 1.5);
   color: var(--ui-color-fg-muted, var(--ui-color-text-muted));
 }
-
-@container blocks-list (max-width: 22rem) {
-  [data-ui-role="list"] [data-ui-part="list-item"] {
-    padding-block: var(--ui-space-xs);
-  }
-
-  [data-ui-role="list"] [data-ui-part="list-item-description"],
-  [data-ui-role="list"] [data-ui-part="list-item-secondary"] {
-    display: none;
-  }
-}
-
-[data-ui-role="list"][data-ui-variant="columns"] > [data-ui-part="list-layout"] {
+[data-ui-role=list][data-ui-variant=columns] > [data-ui-part=list-layout] {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
-
-[data-ui-role="list"][data-ui-variant="columns"] > [data-ui-part="list-layout"] > [data-ui-part="list-item"] {
+[data-ui-role=list][data-ui-variant=columns] > [data-ui-part=list-layout] > [data-ui-part=list-item] {
   border-block-end: none;
 }
 
 @container blocks-list (max-width: 22rem) {
-  [data-ui-role="list"][data-ui-variant="columns"] > [data-ui-part="list-layout"] {
+  [data-ui-role=list] [data-ui-part=list-item] {
+    padding-block: var(--ui-space-xs);
+  }
+  [data-ui-role=list] [data-ui-part=list-item-description],
+  [data-ui-role=list] [data-ui-part=list-item-secondary] {
+    display: none;
+  }
+  [data-ui-role=list][data-ui-variant=columns] > [data-ui-part=list-layout] {
     grid-template-columns: minmax(0, 1fr);
   }
 }

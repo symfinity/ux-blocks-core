@@ -16,7 +16,7 @@ Pass `accept`, `multiple`, `name`, and `id` through Twig `attributes` (or HTML a
 
 ## Composition (recommended)
 
-shadcn / ux-toolkit model file upload as **Input `type="file"` inside Field + Label**. Chameleon keeps a dedicated `file-input` role; pair it with **`Label`** (or `Field` / `Field:Label`) in real forms:
+shadcn / ux-toolkit model file upload as **Input `type="file"` inside Field + Label**. Chameleon keeps a dedicated `file-input` role; pair it with **`Label`** (or `Field` with scalar `label`) in real forms:
 
 ```twig
 <twig:Label for="picture">Picture</twig:Label>

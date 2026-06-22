@@ -9,15 +9,15 @@ use PHPUnit\Framework\TestCase;
 use Symfinity\UxBlocks\Registry\CompositionLanguageRegistryAuditor;
 use Symfinity\UxBlocks\Registry\LanguageConformance;
 use Symfinity\UxBlocks\Registry\RoleLanguageDefinition;
-use Symfinity\UxBlocks\Test\ConformanceAssertions;
+use Symfinity\UxBlocksCore\Tests\Support\CompositionLanguageAssertions;
 use Symfony\Component\Yaml\Yaml;
 
 /**
- * Asserts the ux-blocks-core registry conforms to the composition language (symfinity 108).
+ * Asserts the ux-blocks-core registry conforms to the composition language.
  */
 final class CompositionLanguageConformanceTest extends TestCase
 {
-    use ConformanceAssertions;
+    use CompositionLanguageAssertions;
 
     /**
      * @return list<array<string, mixed>>

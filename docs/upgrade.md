@@ -27,7 +27,7 @@ Ensure the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoi
 2. Replace any local copies of core role templates with `<twig:*>` components
 3. Clear Symfony cache in each environment
 
-## 0.1.1
+## 0.1.2
 
 Patch release after [v0.1.0](https://github.com/symfinity/ux-blocks-core/releases/tag/v0.1.0). Role CSS refresh only — no Twig or registry API changes.
 

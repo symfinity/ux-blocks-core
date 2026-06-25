@@ -1,0 +1,199 @@
+[data-ui-role='request-status'] {
+  --ui-request-status-bar-width: 6px;
+  background: var(--ui-color-surface-elevated);
+  border-radius: var(--ui-radius-md, 6px);
+  color: var(--ui-color-text);
+  padding: calc(15px + var(--ui-request-status-bar-width)) 15px 15px;
+  position: relative;
+
+  &::before {
+    background: var(--ui-color-border);
+    border-radius: 3px 3px 0 0;
+    content: '';
+    height: var(--ui-request-status-bar-width);
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &[data-ui-variant='success'] {
+    background: color-mix(in srgb, var(--ui-color-success) 12%, var(--ui-color-surface));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-color-success) 22%, var(--ui-color-surface));
+
+    &::before {
+      background: var(--ui-color-success);
+    }
+  }
+
+  &[data-ui-variant='warning'] {
+    background: color-mix(in srgb, var(--ui-color-warning) 12%, var(--ui-color-surface));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-color-warning) 22%, var(--ui-color-surface));
+
+    &::before {
+      background: var(--ui-color-warning);
+    }
+  }
+
+  &[data-ui-variant='danger'] {
+    background: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface));
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-color-danger) 22%, var(--ui-color-surface));
+
+    &::before {
+      background: var(--ui-color-danger);
+    }
+  }
+
+  &[data-ui-density='compact'] {
+    font-size: 13px;
+    margin: 0 0 10px;
+    padding: 13px 15px 10px;
+
+    &[data-ui-part='forward'] {
+      padding: 10px 15px;
+    }
+  }
+
+  & + [data-ui-role='request-status'] {
+    margin-top: 10px;
+  }
+
+  [data-ui-part='title'] {
+    align-items: flex-start;
+    display: flex;
+    font-size: 1.25rem;
+    line-height: 1.25;
+    margin: 0;
+    word-break: break-all;
+
+    a {
+      color: inherit;
+      display: flex;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  [data-ui-part='method'] {
+    border: 1px solid var(--ui-color-text-muted);
+    border-radius: 5px;
+    color: var(--ui-color-text-muted);
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1;
+    margin-right: 6px;
+    padding: 2px 4px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  &:not([data-ui-density='compact']) [data-ui-part='method'] {
+    transform: translateY(2px);
+  }
+
+  &[data-ui-density='compact'] [data-ui-part='method'] {
+    border-width: 1px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 0 2px;
+    padding: 1px 2px;
+  }
+
+  [data-ui-part='icon'] {
+    display: inline-block;
+    height: 21px;
+    vertical-align: middle;
+    width: 21px;
+
+    svg {
+      height: 21px;
+      width: 21px;
+    }
+  }
+
+  &[data-ui-density='compact'] [data-ui-part='icon'] {
+    transform: translateY(2px);
+    vertical-align: bottom;
+
+    svg {
+      color: var(--ui-color-text-muted);
+    }
+  }
+
+  [data-theme$='-dark'] &[data-ui-density='compact'] [data-ui-part='icon'] svg {
+    color: var(--ui-color-border);
+  }
+
+  &[data-ui-density='compact'][data-ui-variant='warning'] [data-ui-part='icon'] svg {
+    color: var(--ui-color-warning);
+  }
+
+  &[data-ui-part='redirect'] [data-ui-part='icon'] svg,
+  &[data-ui-part='forward'] [data-ui-part='icon'] svg {
+    stroke-width: 2;
+  }
+
+  &[data-ui-part='redirect'] [data-ui-part='icon'] svg {
+    transform: rotate(90deg) translateX(3px);
+  }
+
+  [data-ui-part='error-row'] {
+    align-items: center;
+    display: flex;
+    font-size: 13px;
+    gap: 0.35rem;
+    line-height: 1;
+    margin: 0 0 10px;
+  }
+
+  [data-ui-part='error-row'] [data-ui-part='icon'] svg {
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--ui-color-danger) 35%, transparent);
+    color: var(--ui-color-danger);
+    fill: color-mix(in srgb, var(--ui-color-danger) 12%, var(--ui-color-surface));
+    height: 24px;
+    stroke-width: 3px;
+    width: 24px;
+  }
+
+  [data-ui-part='metadata'] {
+    margin: 10px 0 0;
+
+    :is(dt, dd) {
+      display: inline-block;
+      font-size: 13px;
+    }
+
+    dt {
+      color: var(--ui-color-text-muted);
+      font-weight: bold;
+
+      &:not(:empty)::after {
+        content: ':';
+      }
+    }
+
+    :is(dd, dd a) {
+      color: var(--ui-color-text);
+    }
+
+    dd {
+      margin: 0 1.5em 0 0;
+    }
+
+    a[data-ui-part='referer'] {
+      color: var(--ui-color-primary);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    [data-ui-part='referer-icon'] {
+      color: var(--ui-color-primary);
+    }
+  }
+}

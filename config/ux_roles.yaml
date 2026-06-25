@@ -248,6 +248,14 @@ roles:
     interaction: nat, act
     stage: A
     status: v1
+  - role: search-form
+    twig_component: SearchForm
+    php_class: Symfinity\UxBlocksCore\Twig\Components\SearchForm
+    fragment_id: blocks.search-form
+    fragment_pattern: "blocks.search-form.{n}"
+    interaction: nat
+    stage: A
+    status: v1
   - role: button-group
     twig_component: ButtonGroup
     php_class: Symfinity\UxBlocksCore\Twig\Components\ButtonGroup

@@ -62,6 +62,24 @@
 [data-ui-role=list][data-ui-variant=columns] > [data-ui-part=list-layout] > [data-ui-part=list-item] {
   border-block-end: none;
 }
+[data-ui-role=list][data-ui-variant=rail] {
+  border-top: 1px solid var(--ui-color-border);
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  margin: 0;
+  padding: 7px;
+}
+[data-ui-role=list][data-ui-variant=rail] > li {
+  margin-bottom: 0;
+  position: relative;
+}
+[data-ui-role=list][data-ui-variant=rail] > li + li {
+  margin-top: 4px;
+}
+[data-ui-role=list][data-ui-variant=rail] > li a:hover {
+  text-decoration: none;
+}
 
 @container blocks-list (max-width: 22rem) {
   [data-ui-role=list] [data-ui-part=list-item] {

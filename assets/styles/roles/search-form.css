@@ -1,0 +1,37 @@
+[data-ui-role=search-form] {
+  padding: 5px 0;
+}
+[data-ui-role=search-form] [data-ui-part=row] {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+[data-ui-role=search-form] [data-ui-part=row][data-ui-variant=actions] {
+  align-items: flex-end;
+}
+[data-ui-role=search-form] [data-ui-part=field] {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 10px;
+}
+[data-ui-role=search-form] [data-ui-part=field] label {
+  color: var(--ui-color-text-muted);
+  display: block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+[data-ui-role=search-form] [data-ui-part=field][data-ui-field=method] :is(select, [data-ui-role=input]) {
+  width: 11ch;
+}
+[data-ui-role=search-form] [data-ui-part=field][data-ui-field=status] :is(input, [data-ui-role=input]) {
+  width: 8ch;
+}
+[data-ui-role=search-form] [data-ui-part=field][data-ui-field=limit] :is(select, [data-ui-role=input]) {
+  width: auto;
+}
+[data-ui-role=search-form] [data-ui-part=actions] {
+  align-items: flex-end;
+  display: flex;
+  padding-top: 10px;
+}

@@ -57,6 +57,28 @@
       border-block-end: none;
     }
   }
+
+  &[data-ui-variant='rail'] {
+    border-top: 1px solid var(--ui-color-border);
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 7px;
+
+    > li {
+      margin-bottom: 0;
+      position: relative;
+
+      + li {
+        margin-top: 4px;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
 }
 
 @container blocks-list (max-width: 22rem) {

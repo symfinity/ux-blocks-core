@@ -142,3 +142,17 @@
   text-decoration: none;
   border-bottom: 1px solid var(--ui-color-neutral);
 }
+
+:is(a.sf-toggle, button.sf-toggle) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--ui-color-primary);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: none;
+}
+:is(a.sf-toggle, button.sf-toggle):hover {
+  text-decoration: underline;
+}

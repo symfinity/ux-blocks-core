@@ -49,7 +49,8 @@
   font-variant-ligatures: none;
 }
 
-[data-ui-role='table'] tbody :is(th.font-normal, td.font-normal) {
+[data-ui-role='table'] tbody :is(th.font-normal, td.font-normal),
+[data-ui-role='table'] tbody :is(th[data-ui-font='sans'], td[data-ui-font='sans']) {
   font-family: var(--ui-font-family-sans);
   font-size: var(--ui-font-size-md);
 }
@@ -60,4 +61,12 @@
 
 [data-ui-role='table'] :is(thead th.num-col, tbody td.num-col) {
   text-align: center;
+}
+
+[data-ui-role='table'] tbody tr.status-success td {
+  background: color-mix(in srgb, var(--ui-color-success) 10%, var(--ui-color-surface));
+}
+
+[data-ui-role='table'] tbody tr.status-warning td {
+  background: color-mix(in srgb, var(--ui-color-warning) 12%, var(--ui-color-surface));
 }

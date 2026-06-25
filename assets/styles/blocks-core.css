@@ -12,10 +12,14 @@
 @import url('roles/pagination.css');
 @import url('roles/progress.css');
 @import url('roles/breadcrumb.css');
+@import url('roles/card.css');
+@import url('roles/dialog.css');
 @import url('roles/navbar.css');
 @import url('roles/stat.css');
 @import url('roles/table.css');
 @import url('roles/tabs.css');
+@import url('roles/input.css');
+@import url('roles/filter-bar.css');
 @import url('roles/grid.css');
 @import url('roles/stack.css');
 @import url('roles/list.css');

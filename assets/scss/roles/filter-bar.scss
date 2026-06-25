@@ -1,0 +1,220 @@
+// symfinity 122 — profiler log filter bar (details/summary chips)
+
+[data-ui-role='filter-bar'] {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1em;
+
+  .log-filter {
+    flex-shrink: 0;
+    position: relative;
+
+    > summary {
+      align-items: center;
+      background: var(--ui-color-surface-elevated);
+      border: 1px solid var(--ui-color-border);
+      border-radius: var(--ui-radius-sm, 4px);
+      box-shadow: 0 1px 2px color-mix(in srgb, var(--ui-color-text) 6%, transparent);
+      color: var(--ui-color-text);
+      cursor: pointer;
+      display: inline-flex;
+      font-size: var(--ui-font-size-sm);
+      font-weight: 600;
+      gap: 0.35rem;
+      list-style: none;
+      padding: 0.35rem 0.625rem;
+      white-space: nowrap;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      :is(.icon, svg) {
+        display: inline-flex;
+        height: 1.125rem;
+        width: 1.125rem;
+      }
+
+      svg {
+        opacity: 0.75;
+        stroke-width: 2;
+      }
+    }
+
+    .log-filter-summary {
+      align-items: center;
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .filter-name {
+      font-weight: 600;
+    }
+
+    .filter-active-value {
+      color: var(--ui-color-primary);
+      font-weight: 700;
+    }
+
+    :is(.filter-active-badge, .log-filter-option label [data-ui-role='badge']) {
+      margin-left: 0;
+    }
+
+    .log-filter-content {
+      background: var(--ui-color-surface);
+      border: 1px solid var(--ui-color-border);
+      border-radius: var(--ui-radius-md, 6px);
+      box-shadow: 0 10px 15px -3px color-mix(in srgb, var(--ui-color-text) 12%, transparent),
+        0 4px 6px -2px color-mix(in srgb, var(--ui-color-text) 8%, transparent);
+      left: 0;
+      max-width: 24rem;
+      min-width: 12.5rem;
+      padding: 0.9375rem;
+      position: absolute;
+      top: calc(100% + 0.35rem);
+      z-index: 9999;
+    }
+
+    .log-filter-option {
+      align-items: center;
+      display: flex;
+      gap: 0.5rem;
+
+      + .log-filter-option {
+        margin-top: 0.45rem;
+      }
+
+      label {
+        align-items: center;
+        cursor: pointer;
+        display: inline-flex;
+        flex: 1;
+        gap: 0.5rem;
+
+        [data-ui-role='badge'] {
+          margin-left: auto;
+        }
+      }
+    }
+
+    .filter-select-all-or-none {
+      margin-bottom: 0.625rem;
+
+      button + button {
+        margin-left: 0.9375rem;
+      }
+    }
+
+    .btn.btn-link {
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      color: var(--ui-color-primary);
+      cursor: pointer;
+      font: inherit;
+      font-size: var(--ui-font-size-sm);
+      padding: 0;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+[data-ui-role='log-table'],
+[data-ui-role='table'].logs {
+  border-bottom-width: 0;
+  border-collapse: collapse;
+
+  tr + tr td {
+    border-width: 1px 0 0;
+  }
+
+  .log-timestamp {
+    color: var(--ui-color-text-muted);
+    white-space: nowrap;
+  }
+
+  .log-metadata {
+    margin: 0.5rem 0 0;
+
+    > span {
+      display: inline-block;
+
+      + span {
+        margin-left: 0.625rem;
+      }
+    }
+
+    .log-num-occurrences {
+      color: var(--ui-color-text-muted);
+      font-size: var(--ui-font-size-sm);
+    }
+
+    .context {
+      background: var(--ui-color-surface-elevated);
+      border-radius: var(--ui-radius-sm, 4px);
+      padding: 0.3125rem;
+
+      + .context {
+        margin-top: 0.625rem;
+      }
+    }
+  }
+
+  tr:is(.log-status-warning, .log-status-error, .log-status-silenced) > td:first-child {
+    position: relative;
+
+    &::before {
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 4px;
+    }
+  }
+
+  tr.log-status-warning > td:first-child::before {
+    background: var(--ui-color-warning);
+  }
+
+  tr.log-status-error > td:first-child::before {
+    background: var(--ui-color-danger);
+  }
+
+  tr.log-status-silenced > td:first-child::before {
+    background: #a78bfa;
+  }
+}
+
+[data-ui-role='compilation-logs'] {
+  background: var(--ui-color-surface);
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-md, 6px);
+  margin-top: 1.875rem;
+  padding: 0.9375rem;
+
+  summary {
+    cursor: pointer;
+
+    h4 {
+      margin: 0 0 0.3125rem;
+    }
+  }
+}
+
+[data-ui-role='log-empty'] {
+  &[hidden] {
+    display: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}

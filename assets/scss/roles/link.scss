@@ -27,3 +27,19 @@
 
   @include am.each-link-variant-appearance();
 }
+
+// Symfony Web Profiler stock toggle links/buttons (collector panels)
+:is(a.sf-toggle, button.sf-toggle) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--ui-color-primary);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

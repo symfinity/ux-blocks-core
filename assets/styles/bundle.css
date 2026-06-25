@@ -1173,6 +1173,20 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   border-bottom: 1px solid var(--ui-color-neutral);
 }
 
+:is(a.sf-toggle, button.sf-toggle) {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  color: var(--ui-color-primary);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  text-decoration: none;
+}
+:is(a.sf-toggle, button.sf-toggle):hover {
+  text-decoration: underline;
+}
+
 [data-ui-role=list] {
   container-type: inline-size;
   container-name: blocks-list;
@@ -1358,6 +1372,23 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   margin-block-end: var(--ui-space-sm);
   font-size: var(--ui-font-size-sm);
   color: var(--ui-color-fg-muted, var(--ui-color-text-muted));
+}
+
+[data-ui-role=page-heading][data-ui-variant=panel] {
+  margin-block-end: 30px;
+}
+[data-ui-role=page-heading][data-ui-variant=panel] [data-ui-part=title] {
+  font-size: 24px;
+  font-weight: 500;
+  box-shadow: inset 0 -1px 0 var(--ui-color-surface), 0 2px 0 var(--ui-color-border), 0 5px 0 var(--ui-color-surface);
+  padding-bottom: 5px;
+}
+[data-ui-role=page-heading][data-ui-variant=panel] [data-ui-part=title] a {
+  color: inherit;
+  text-decoration: none;
+}
+[data-ui-role=page-heading][data-ui-variant=panel] [data-ui-part=title] a:hover {
+  text-decoration: underline;
 }
 
 [data-ui-role=pagination] {
@@ -1621,6 +1652,78 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   }
 }
 
+[data-ui-role=stat-group] {
+  align-items: stretch;
+  background: var(--ui-color-surface);
+  border-radius: var(--ui-radius-md, 6px);
+  box-shadow: inset 0 0 0 1px var(--ui-color-border), 0 0 0 5px var(--ui-color-surface);
+  display: inline-flex;
+  flex-direction: row;
+  padding: 0.625rem 0;
+}
+
+[data-ui-role=stat-group] > [data-ui-role=stat] {
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  min-height: auto;
+  min-width: 0;
+}
+
+[data-ui-role=stat-group] > [data-ui-role=stat] + [data-ui-role=stat] {
+  border-left: 1px solid var(--ui-color-border);
+}
+
+[data-ui-role=stat] {
+  background: var(--ui-color-surface);
+  border-radius: var(--ui-radius-md, 6px);
+  box-shadow: inset 0 0 0 1px var(--ui-color-border), 0 0 0 5px var(--ui-color-surface);
+  min-width: 5rem;
+  padding: 0.625rem 0.9375rem;
+  text-align: center;
+}
+
+[data-ui-role=stat] [data-ui-part=value] {
+  display: block;
+  font-size: 1.5rem;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-ui-role=stat] [data-ui-part=unit] {
+  color: var(--ui-color-text-muted);
+  font-size: 1.125rem;
+  margin-left: -0.25rem;
+}
+
+[data-ui-role=stat] [data-ui-part=label] {
+  color: var(--ui-color-primary);
+  display: block;
+  font-size: 0.75rem;
+}
+
+[data-ui-role=stat] [data-ui-part=value] svg,
+[data-ui-role=stat] [data-ui-part=icon] svg {
+  height: 2rem;
+  width: 2rem;
+}
+
+[data-ui-role=stat] [data-ui-part=icon].is-inactive svg {
+  filter: grayscale(1);
+  opacity: 0.4;
+}
+
+[data-ui-metrics-grid] {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  margin: 1em 0;
+}
+
+[data-ui-metrics-grid] > :is([data-ui-role=stat], [data-ui-role=stat-group]) {
+  flex: 0 0 auto;
+}
+
 [data-ui-role=typography],
 [data-ui-role=typography][data-ui-variant=p] {
   font-family: var(--ui-font-family-sans);
@@ -1687,6 +1790,59 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   color: var(--ui-color-fg-muted, var(--ui-color-text-muted));
   margin: 0;
   text-wrap: wrap;
+}
+
+[data-ui-role=typography][data-ui-variant=help] {
+  color: var(--ui-color-text-muted);
+  font-family: var(--ui-font-family-sans);
+  font-size: var(--ui-font-size-md);
+  line-height: var(--ui-line-height-normal, 1.5);
+  margin: 0.5em 0;
+}
+
+[data-ui-role=typography][data-ui-density=compact] {
+  font-size: 12px;
+}
+
+[data-ui-wrap=nowrap] {
+  white-space: nowrap;
+}
+
+[data-ui-wrap=break] {
+  -webkit-hyphens: auto;
+  hyphens: auto;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+[data-ui-wrap=pre] {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+[data-ui-width=full] {
+  width: 100%;
+}
+
+[data-ui-role=typography][data-ui-align=end] {
+  text-align: right;
+}
+
+[data-ui-display=block] {
+  display: block;
+}
+
+[data-ui-sr-only] {
+  border: 0 !important;
+  clip: rect(0, 0, 0, 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
 }
 
 [data-ui-role=typography][data-ui-variant=prose] {

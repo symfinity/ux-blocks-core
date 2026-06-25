@@ -57,6 +57,19 @@ final class BlocksCoreCssTest extends TestCase
         self::assertStringContainsString('@keyframes ui-spin', $css);
     }
 
+    public function bundleIncludesShellDelegationRoles(): void
+    {
+        $css = self::fullCss();
+
+        self::assertStringContainsString('[data-ui-role="card"]', $css);
+        self::assertStringContainsString('[data-ui-role="dialog"]', $css);
+        self::assertStringContainsString(
+            'inset 0 0 0 1px var(--ui-color-border), 0 0 0 5px var(--ui-color-surface)',
+            $css,
+        );
+        self::assertStringContainsString('[data-ui-role="dialog"]::backdrop', $css);
+    }
+
     #[Test]
     public function bundleDoesNotOwnExtendedRegistryRootRoles(): void
     {

@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.1] - 2026-06-25
+
+### Changed
+
+- **Role CSS** — refreshed compiled styles for `card`, `dialog`, `input`, `link`, `page-heading`, `table`, `tabs`, `typography`, and `stat` roles aligned with delegated profiler shell chrome
+- **Filter bar** — new `filter-bar` role stylesheet for list/toolbar filter UI (`assets/styles/roles/filter-bar.css`)
+- **Dialog** — expanded modal/sheet surface styles in `assets/styles/roles/dialog.css`
+- **Tabs** — simplified tab strip CSS; fewer literals, clearer active/hover states
+- **`bundle.css`** — regenerated entry bundle for AssetMapper consumers
+
+### Notes
+
+- No Twig component or registry API changes — CSS-only patch
+- Sass sources under `assets/scss/` remain monorepo-only; split mirrors ship committed `assets/styles/**` CSS
+
 ## [0.1.0] - 2026-06-23
 
 ### Added

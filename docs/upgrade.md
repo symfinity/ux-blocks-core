@@ -27,6 +27,19 @@ Ensure the [symfinity/recipes](https://github.com/symfinity/recipes) Flex endpoi
 2. Replace any local copies of core role templates with `<twig:*>` components
 3. Clear Symfony cache in each environment
 
+## 0.1.1
+
+Patch release after [v0.1.0](https://github.com/symfinity/ux-blocks-core/releases/tag/v0.1.0). Role CSS refresh only — no Twig or registry API changes.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+After upgrade:
+
+1. Clear Symfony cache and hard-refresh the browser if AssetMapper serves cached CSS in dev.
+2. Re-check visual baselines for `tabs`, `dialog`, `filter-bar`, and form-adjacent roles if you snapshot CSS output.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

@@ -6,6 +6,7 @@ namespace Symfinity\UxBlocksCore\Twig\Components;
 
 use Symfinity\UxBlocksCore\Twig\ExposesSemanticVariant;
 use Symfinity\UxBlocksCore\Twig\NormalizesSemanticColourVariant;
+use Symfinity\UxBlocksCore\Twig\ResolvesFeedbackVariantIcon;
 use Symfinity\UxBlocksCore\Twig\ResolvesIconWatermark;
 use Symfinity\UxBlocksCore\Twig\ResolvesSurfaceSubstrate;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
@@ -16,19 +17,14 @@ final class Flash
 {
     use ExposesSemanticVariant;
     use NormalizesSemanticColourVariant;
+    use ResolvesFeedbackVariantIcon;
     use ResolvesIconWatermark;
     use ResolvesSurfaceSubstrate;
-
-    public string $variant = 'info';
 
     public string $placement = 'top';
 
     /** Seconds until auto-dismiss; null uses variant default (5s non-error, persist on error). */
     public ?int $dismissAfter = null;
-
-    public ?string $icon = null;
-
-    public bool $iconDecorative = true;
 
     public function mount(): void
     {
@@ -58,17 +54,7 @@ final class Flash
     #[ExposeInTemplate('resolved_icon')]
     public function resolvedIcon(): ?string
     {
-        if (null !== $this->icon) {
-            return '' === $this->icon ? null : $this->icon;
-        }
-
-        return match ($this->variant) {
-            'success' => 'lucide:circle-check',
-            'danger' => 'lucide:circle-x',
-            'warning' => 'lucide:triangle-alert',
-            'info' => 'lucide:info',
-            default => null,
-        };
+        return $this->resolveFeedbackVariantIcon();
     }
 
     #[ExposeInTemplate('resolved_icon_watermark')]

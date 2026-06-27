@@ -1,0 +1,28 @@
+role: avatar
+twig_name: Avatar
+examples:
+  - id: sm
+    title: Small
+    section: Sizes
+    props:
+      size: "sm"
+    slot_text: "AB"
+  - id: md
+    title: Default
+    section: Sizes
+    props:
+      size: "default"
+    slot_text: "CD"
+  - id: lg
+    title: Large
+    section: Sizes
+    props:
+      size: "lg"
+    slot_text: "EF"
+  - id: variant-accent
+    title: Accent
+    section: Variants
+    props:
+      size: "default"
+      variant: "accent"
+    slot_text: "UX"

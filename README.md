@@ -93,6 +93,8 @@ composer require symfinity/ux-blocks-core
 
 The Flex recipe registers the bundle for all environments. See [Installation](docs/installation.md) and the [UX Blocks install profiles](https://github.com/symfinity/ux-blocks#install-profiles) for headless vs themed vs full-app choices.
 
+For the **complete official catalog** (core, form, extended, interactive, live), use [`symfinity/ux-blocks-full`](https://github.com/symfinity/ux-blocks-full) instead of installing tiers individually.
+
 ## Quick Start
 
 ```twig

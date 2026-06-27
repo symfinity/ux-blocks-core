@@ -1,10 +1,10 @@
-# Separator
+# Divider
 
-Visual divider between sections.
+Text or rule divider for inline separation.
 
 ## When to use
 
-Visual divider between sections. Use **Separator** when this pattern fits the screen — variant previews are below.
+Text or rule divider for inline separation. Use **Divider** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Visual divider between sections. Use **Separator** when this pattern fits the sc
 ## Usage
 
 ```twig
-<twig:Separator />
+<twig:Divider />
 ```
 
 
@@ -38,4 +38,4 @@ Visual divider between sections. Use **Separator** when this pattern fits the sc
 
 ## Related
 
-- [Stack](stack.md)
+- [Separator](separator.md)

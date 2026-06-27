@@ -1,10 +1,10 @@
-# Separator
+# Stack
 
-Visual divider between sections.
+Vertical or horizontal stack spacing.
 
 ## When to use
 
-Visual divider between sections. Use **Separator** when this pattern fits the screen — variant previews are below.
+Vertical or horizontal stack spacing. Use **Stack** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Visual divider between sections. Use **Separator** when this pattern fits the sc
 ## Usage
 
 ```twig
-<twig:Separator />
+<twig:Stack gap="md">…</twig:Stack>
 ```
 
 
@@ -38,4 +38,4 @@ Visual divider between sections. Use **Separator** when this pattern fits the sc
 
 ## Related
 
-- [Stack](stack.md)
+- [Grid](grid.md)

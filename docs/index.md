@@ -1,6 +1,6 @@
 # Overview
 
-Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components with `blocks.*` fragment ids.
+Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components (buttons, typography, layout, feedback).
 
 ## Pages
 
@@ -8,20 +8,7 @@ Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components
 - [Quick start](quickstart.md)
 - [Configuration](configuration.md)
 - [Usage](usage.md)
-- [Components](components.md)
+- [Components](components.md) — full handbook index (25 roles)
 - [Upgrade](upgrade.md)
 
-## Component handbook
-
-- [Button](components/button.md)
-- [Checkbox](components/checkbox.md)
-- [File input](components/file-input.md)
-- [Image](components/image.md)
-- [Input](components/input.md)
-- [Label](components/label.md)
-- [Radio group](components/radio-group.md)
-- [Select](components/select.md)
-- [Separator](components/separator.md)
-- [Spinner](components/spinner.md)
-- [Textarea](components/textarea.md)
-- [Typography](components/typography.md)
+Form controls: [symfinity/ux-blocks-form](https://docs.symfinity.dev/ux-blocks-form/components).

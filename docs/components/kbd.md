@@ -1,10 +1,10 @@
-# Typography
+# Kbd
 
-Headings, body copy, and prose blocks.
+Keyboard shortcut hint.
 
 ## When to use
 
-Headings, body copy, and prose blocks. Use **Typography** when this pattern fits the screen — variant previews are below.
+Keyboard shortcut hint. Use **Kbd** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Headings, body copy, and prose blocks. Use **Typography** when this pattern fits
 ## Usage
 
 ```twig
-<twig:Typography as="h1">Page title</twig:Typography>
+<twig:Kbd>⌘ K</twig:Kbd>
 ```
 
 

@@ -1,0 +1,8 @@
+role: breadcrumb
+twig_name: Breadcrumb
+examples:
+  - id: default
+    title: Trail
+    section: Examples
+    props: {}
+    slot_text: ''

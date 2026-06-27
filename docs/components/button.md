@@ -1,73 +1,89 @@
 # Button
 
-**Role:** `button`  
-**Fragment id:** `blocks.button`  
-**Twig:** `<twig:Button>`
+Triggers actions and form submits — styled with semantic colour and appearance variants.
 
-Primary action control — native `<button>` or link-styled anchor when `as="a"`. Supports semantic colour × appearance × size matrix and optional declarative **ui-action** (`act`).
+## When to use
 
-## Overview
+Use **Button** for actions that change state, submit forms, or open dialogs. For navigation inside prose, prefer [Link](link.md). Pair destructive actions with clear labels (`Delete workspace`, not `OK`).
 
-Use **Button** for form submits, dialog confirmations, and navigation actions that should look like buttons. For text-only navigation in prose, prefer the **Link** role (when installed) or a plain anchor.
+## Guidelines
 
-Loading state sets `disabled` and `data-ui-state="loading"` so double-submit is blocked while async work runs.
+**Do**
 
-## Properties
+- Use `variant="primary"` for the single main action on a screen.
+- Set `loading` during async work so users cannot double-submit.
+- Give icon-only buttons an `aria-label`.
+
+**Don't**
+
+- Stack multiple primary buttons in one toolbar.
+- Use `appearance="link"` when a plain [Link](link.md) fits better in body copy.
+- Rely on colour alone — label the action in text.
+
+## Usage
+
+```twig
+<twig:Button variant="primary">Save changes</twig:Button>
+```
+
+Previews below follow Bootstrap-style grouped sections: variants, appearances, sizes, and states.
+
+## Variants
+
+Solid semantic colours render together in one preview strip.
+
+## Outline buttons
+
+Outline appearance for every semantic colour.
+
+## Soft appearance
+
+Soft appearance strip for integrators comparing weight without outline borders.
+
+## Ghost appearance
+
+Ghost buttons for low-emphasis actions on dense surfaces.
+
+## Link appearance
+
+Link-styled buttons for inline actions — prefer [Link](link.md) in prose when navigation is the goal.
+
+## Sizes
+
+Small, medium, and large controls share the same variant defaults.
+
+## Disabled states
+
+Disabled buttons remove activation while preserving layout.
+
+## Loading states
+
+Loading implies disabled and shows a spinner during async work.
+
+## API Reference
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `variant` | string | `primary` | Semantic colour: `primary`, `secondary`, `accent`, `success`, `danger`, `info`, `warning`, `neutral` |
-| `appearance` | string | `solid` | Surface style: `solid`, `soft`, `outline`, `ghost`, `link` |
-| `size` | string | `md` | Control size: `sm`, `md`, `lg` |
-| `as` | string | `button` | `button` or `a` (link mode) |
-| `href` | string | `#` | Used when `as="a"` |
-| `disabled` | bool | `false` | Disables interaction |
-| `loading` | bool | `false` | Loading spinner + disabled |
-| `block` | bool | `false` | Full-width layout |
-| `icon` | string \| null | `null` | UX Icons name when set |
-| `iconPosition` | string | `start` | `start` or `end` |
-| `iconDecorative` | bool | `true` | When false, icon gets `aria-hidden="false"` handling via label text |
+| `variant` | `string` | `primary` | Semantic colour: `primary`, `secondary`, `accent`, `success`, `danger`, `info`, `warning`, `neutral` |
+| `appearance` | `string` | `solid` | Visual weight: `solid`, `soft`, `outline`, `ghost`, `link` |
+| `size` | `string` | `md` | `sm`, `md`, `lg` |
+| `as` | `string` | `button` | `button` or `a` for link-styled navigation |
+| `href` | `string` | `#` | Destination when `as="a"` |
+| `disabled` | `bool` | `false` | Removes activation |
+| `loading` | `bool` | `false` | Shows spinner; implies disabled |
+| `block` | `bool` | `false` | Full-width layout |
+| `icon` | `string?` | — | Icon id (e.g. `tabler:plus`) |
+| `iconPosition` | `string` | `start` | `start` or `end` |
 
-Legacy `variant="ghost"` maps to `variant="neutral"` + `appearance="ghost"`. Legacy `size="default"` maps to `md`.
-
-Pass additional native attributes (`type`, `form`, `aria-*`, …) through the Twig component attribute bag.
-
-## Examples
-
-Handbook live previews read `config/component-examples/button.yaml` when the hybrid page runtime is enabled. Representative Twig:
-
-```twig
-{# Primary solid #}
-<twig:Button variant="primary" appearance="solid">Save changes</twig:Button>
-
-{# Outline secondary #}
-<twig:Button variant="secondary" appearance="outline">Cancel</twig:Button>
-
-{# Link appearance #}
-<twig:Button variant="primary" appearance="link" as="a" href="/docs">Read docs</twig:Button>
-
-{# Loading #}
-<twig:Button variant="primary" :loading="true">Saving…</twig:Button>
-
-{# With icon #}
-<twig:Button variant="primary" icon="tabler:plus">Add item</twig:Button>
-```
-
-## Interaction
-
-| Token | Notes |
-|-------|-------|
-| `nat` | Default — kernel + package CSS |
-| `act` | Optional `data-ui-action` for declarative Turbo / ui-action routing |
+Native attributes (`type`, `form`, `aria-*`, …) pass through on the component tag.
 
 ## Accessibility
 
-- Use visible label text or `aria-label` when the button has no text (icon-only).
-- When `disabled` or `loading`, the control is not focusable for activation.
-- Link mode (`as="a"`) must receive a meaningful `href`; do not use `#` in production without a click handler.
+- Icon-only buttons need visible text or `aria-label`.
+- `loading` and `disabled` remove activation; do not depend on click handlers alone.
+- Link mode needs a meaningful `href`, not `#`, unless you handle navigation in script.
 
-## Related components
+## Related
 
-- [Input](input.md) — often paired in forms
-- [Label](label.md) — associates text with form controls
-- `symfinity/ux-blocks-extended` — **ButtonGroup**, compound layouts
+- [Link](link.md) · [ButtonGroup](https://docs.symfinity.dev/ux-blocks-core/components) (README)
+- [Input](https://docs.symfinity.dev/ux-blocks-form/components/input) — form fields

@@ -1,10 +1,10 @@
-# Typography
+# SectionHeading
 
-Headings, body copy, and prose blocks.
+Section title within a page.
 
 ## When to use
 
-Headings, body copy, and prose blocks. Use **Typography** when this pattern fits the screen — variant previews are below.
+Section title within a page. Use **SectionHeading** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Headings, body copy, and prose blocks. Use **Typography** when this pattern fits
 ## Usage
 
 ```twig
-<twig:Typography as="h1">Page title</twig:Typography>
+<twig:SectionHeading title="Notifications" />
 ```
 
 
@@ -29,7 +29,10 @@ Headings, body copy, and prose blocks. Use **Typography** when this pattern fits
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| — | — | — | See Twig component class and package registry. |
+| `size` | `string` | — | Component attribute |
+| `title` | `string?` | — | Slot or scalar content |
+| `description` | `string?` | — | Slot or scalar content |
+| `icon` | `string?` | — | Slot or scalar content |
 
 ## Accessibility
 
@@ -38,4 +41,4 @@ Headings, body copy, and prose blocks. Use **Typography** when this pattern fits
 
 ## Related
 
-- [Button](button.md)
+- [PageHeading](page-heading.md)

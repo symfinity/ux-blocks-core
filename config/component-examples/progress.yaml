@@ -1,0 +1,22 @@
+role: progress
+twig_name: Progress
+examples:
+  - id: quarter
+    title: 25%
+    section: Values
+    props:
+      value: 25
+    slot_text: ''
+  - id: three-quarter
+    title: 75%
+    section: Values
+    props:
+      value: 75
+    slot_text: ''
+  - id: success
+    title: Success
+    section: Variants
+    props:
+      variant: "success"
+      value: 60
+    slot_text: ''

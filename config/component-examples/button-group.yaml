@@ -1,0 +1,8 @@
+role: button-group
+twig_name: ButtonGroup
+examples:
+  - id: default
+    title: Grouped actions
+    section: Examples
+    props: {}
+    slot_text: ''

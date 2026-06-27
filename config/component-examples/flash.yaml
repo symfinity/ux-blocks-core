@@ -1,21 +1,27 @@
-schema: showcase-examples/1.0
 role: flash
 twig_name: Flash
-requires_stimulus: false
-sections:
-  - id: watermarks
-    title: Icon watermarks
-    items:
-      - variant: top-end
-        label: Top end (default)
-        props:
-          variant: info
-          iconWatermark: lucide:sparkles
-        content: Saved to your profile.
-      - variant: center
-        label: Center
-        props:
-          variant: success
-          iconWatermark: lucide:sparkles
-          watermarkPosition: center
-        content: Payment confirmed.
+examples:
+  - id: info
+    title: Info
+    section: Variants
+    props:
+      variant: "info"
+    slot_text: "New themes are available."
+  - id: success
+    title: Success
+    section: Variants
+    props:
+      variant: "success"
+    slot_text: "Profile saved."
+  - id: warning
+    title: Warning
+    section: Variants
+    props:
+      variant: "warning"
+    slot_text: "Maintenance tonight."
+  - id: danger
+    title: Error
+    section: Variants
+    props:
+      variant: "danger"
+    slot_text: "Could not save changes."

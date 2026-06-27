@@ -1,10 +1,10 @@
-# Image
+# AspectRatio
 
-Responsive content image.
+Locks media to a fixed width/height ratio.
 
 ## When to use
 
-Responsive content image. Use **Image** when this pattern fits the screen — variant previews are below.
+Locks media to a fixed width/height ratio. Use **AspectRatio** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,9 +21,11 @@ Responsive content image. Use **Image** when this pattern fits the screen — va
 ## Usage
 
 ```twig
-<twig:Image src="/photo.jpg" alt="Team photo" />
+<twig:AspectRatio ratio="16/9">…</twig:AspectRatio>
 ```
 
+
+Comparable patterns: [Bootstrap ratio](https://getbootstrap.com/docs/5.3/helpers/ratio/).
 
 ## API Reference
 
@@ -38,4 +40,4 @@ Responsive content image. Use **Image** when this pattern fits the screen — va
 
 ## Related
 
-- [Figure](figure.md)
+- [Image](image.md)

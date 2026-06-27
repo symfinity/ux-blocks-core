@@ -1,0 +1,8 @@
+role: figure
+twig_name: Figure
+examples:
+  - id: default
+    title: With caption
+    section: Examples
+    props: {}
+    slot_text: "Figure caption text."

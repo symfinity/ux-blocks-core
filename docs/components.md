@@ -1,64 +1,44 @@
 # Components
 
-## Interaction profile
+Core atoms and layout primitives. Form controls: [ux-blocks-form](https://packagist.org/packages/symfinity/ux-blocks-form).
 
-| Token | Meaning in core |
-|-------|-----------------|
-| `nat` | Native HTML + ui-kernel / package CSS — default for every role |
-| `act` | Declarative ui-action on `Button` only |
-| `stl` | Not in this package — see `symfinity/ux-blocks-extended` |
-| `live` | Not in this package — lab / app demos only |
+## Handbook index
 
-Fragment prefix for this package: **`blocks`** (example: `blocks.button`, `blocks.input`).
+| Component | Description |
+|-----------|-------------|
+| [AspectRatio](components/aspect-ratio.md) | Locks media to a fixed width/height ratio |
+| [Avatar](components/avatar.md) | User or entity avatar (image or initials) |
+| [Badge](components/badge.md) | Compact status or count label |
+| [Breadcrumb](components/breadcrumb.md) | Navigation breadcrumb trail |
+| [Button](components/button.md) | Primary actions and form submits |
+| [ButtonGroup](components/button-group.md) | Grouped related buttons |
+| [Card](components/card.md) | Grouped content surface (pilot — component lives in ux-blocks-extended) |
+| [Divider](components/divider.md) | Text or rule divider for inline separation |
+| [Field](components/field.md) | Form field wrapper with label and validation (pilot — component lives in ux-blocks-form) |
+| [Figure](components/figure.md) | Image with optional caption |
+| [Flash](components/flash.md) | Single inline flash message |
+| [FlashStack](components/flash-stack.md) | Stack of flash messages |
+| [Grid](components/grid.md) | CSS grid layout shell |
+| [Image](components/image.md) | Responsive content image |
+| [Kbd](components/kbd.md) | Keyboard shortcut hint |
+| [Link](components/link.md) | Inline text navigation |
+| [List](components/list.md) | Styled list container |
+| [PageHeading](components/page-heading.md) | Primary page title block |
+| [Pagination](components/pagination.md) | Paged navigation control |
+| [Progress](components/progress.md) | Completion progress bar |
+| [ScrollArea](components/scroll-area.md) | Scrollable region with styled overflow |
+| [SectionHeading](components/section-heading.md) | Section title within a page |
+| [Separator](components/separator.md) | Visual divider between sections |
+| [Skeleton](components/skeleton.md) | Loading placeholder shape |
+| [Spinner](components/spinner.md) | Loading indicator |
+| [Stack](components/stack.md) | Vertical or horizontal stack spacing |
+| [Typography](components/typography.md) | Headings, body copy, and prose blocks |
 
-## Component index
 
-| Role | Twig | Interaction | Handbook |
-|------|------|-------------|----------|
-| typography | Typography | nat | [Typography](components/typography.md) |
-| button | Button | nat, act | [Button](components/button.md) |
-| label | Label | nat | [Label](components/label.md) |
-| input | Input | nat | [Input](components/input.md) |
-| textarea | Textarea | nat | [Textarea](components/textarea.md) |
-| checkbox | Checkbox | nat | [Checkbox](components/checkbox.md) |
-| radio-group | RadioGroup | nat | [Radio group](components/radio-group.md) |
-| select | Select | nat | [Select](components/select.md) |
-| switch | Switch | nat | — |
-| file-input | FileInput | nat | [File input](components/file-input.md) |
-| separator | Separator | nat | [Separator](components/separator.md) |
-| divider | Divider | nat | — |
-| aspect-ratio | AspectRatio | nat | — |
-| scroll-area | ScrollArea | nat | — |
-| badge | Badge | nat | — |
-| progress | Progress | nat | — |
-| spinner | Spinner | nat | [Spinner](components/spinner.md) |
-| skeleton | Skeleton | nat | — |
-| empty | Empty | nat | — (see `symfinity/ux-blocks-extended`) |
-| avatar | Avatar | nat | — |
-| image | Image | nat | [Image](components/image.md) |
-| figure | Figure | nat | — |
-| kbd | Kbd | nat | — |
-| link | Link | nat | — |
+## Related packages
 
-The [README](../README.md) component table is the canonical inventory; this page adds handbook links where depth pages exist.
+| Package | Adds |
+|---------|------|
+| [ux-blocks-form](https://packagist.org/packages/symfinity/ux-blocks-form) | Input, Field, Select, … |
+| [ux-blocks-extended](https://packagist.org/packages/symfinity/ux-blocks-extended) | Card, Alert, Dialog, … |
 
-## Using components
-
-Twig tag name matches the **Twig** column (`<twig:Button>`, `<twig:Input>`, …). Nested roles (for example `RadioGroup:Item`, `Collapsible:Trigger`) are documented on the parent role page. Container shells use universal region components (`Header`, `Footer`, `Media`, `Actions`, `Aside`) plus scalar attributes (`title`, `description`, `label`, …).
-
-Install sibling tiers when you need overlays, marketing sections, or shop blocks:
-
-| Package | Fragment prefix |
-|---------|-----------------|
-| `symfinity/ux-blocks-core` | `blocks.*` |
-| `symfinity/ux-blocks-extended` | `blocks.ext.*` |
-| `symfinity/ux-blocks-marketing` | `blocks.marketing.*` |
-| `symfinity/ux-blocks-ecommerce` | `blocks.shop.*` |
-
-See [Quick start](quickstart.md) for a minimal template.
-
-## Family navigation
-
-- [Installation](installation.md) — Flex and dependencies
-- [Configuration](configuration.md) — auto-wiring
-- [Upgrade](upgrade.md) — version migrations

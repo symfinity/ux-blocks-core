@@ -1,10 +1,10 @@
-# Image
+# Figure
 
-Responsive content image.
+Image with optional caption.
 
 ## When to use
 
-Responsive content image. Use **Image** when this pattern fits the screen — variant previews are below.
+Image with optional caption. Use **Figure** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Responsive content image. Use **Image** when this pattern fits the screen — va
 ## Usage
 
 ```twig
-<twig:Image src="/photo.jpg" alt="Team photo" />
+<twig:Figure>…</twig:Figure>
 ```
 
 
@@ -38,4 +38,4 @@ Responsive content image. Use **Image** when this pattern fits the screen — va
 
 ## Related
 
-- [Figure](figure.md)
+- [Image](image.md)

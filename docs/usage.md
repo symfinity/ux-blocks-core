@@ -1,34 +1,35 @@
 # Usage
 
-Patterns after [Installation](installation.md) and [Quick start](quickstart.md) for day-to-day UX Blocks Core work.
+Day-to-day patterns for **symfinity/ux-blocks-core**.
+
+## Start here
+
+**[Button](components/button.md)** — variants, appearances, and live previews for the most common interactive control.
+
+Form fields (**Input**, **Field**, **Select**, …) are documented in **[symfinity/ux-blocks-form](https://packagist.org/packages/symfinity/ux-blocks-form)**.
 
 ## Render a component
 
-Twig tag name matches the registry **Twig** column (`Button`, `Input`, …):
+Twig tag names match the component class (`Button`, `Spinner`, …):
 
 ```twig
 <twig:Button variant="primary">Save</twig:Button>
-<twig:Input id="email" name="email" type="email" />
+<twig:Spinner label="Loading" />
 ```
 
-Each root element exposes `data-ui-role`, `data-ui-fragment` (`blocks.*`), and UI Kernel variant hooks. See [Components](components.md) for the full index.
+## Theme CSS
 
-## Theme CSS (optional)
-
-For styled components, add [symfinity/ui-kernel](https://github.com/symfinity/ui-kernel) and include theme CSS on the page:
+Styled output needs UI Kernel theme CSS on the page:
 
 ```twig
 {{ ui_kernel_theme_boot_script() }}
 {{ ui_kernel_css()|raw }}
 ```
 
-Without kernel CSS, atoms still render valid markup; `--ui-*` tokens are unresolved until a theme is present.
-
-## Per-role handbooks
-
-Depth pages live under [docs/components/](components/) — start with [Button](components/button.md) and [Input](components/input.md).
+Without a theme, markup is still valid; visual tokens resolve once CSS loads.
 
 ## See also
 
-- [Quick start](quickstart.md) — minimal layout example
-- [Upgrade](upgrade.md) — semver migrations
+- [Components](components.md) — core handbook index
+- [Quick start](quickstart.md) — minimal layout
+- [Installation](installation.md) — Flex and dependencies

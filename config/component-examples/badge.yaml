@@ -1,0 +1,23 @@
+role: badge
+twig_name: Badge
+examples:
+  - id: success
+    title: Success
+    section: Variants
+    props:
+      variant: success
+    slot_text: Active
+  - id: neutral-sm
+    title: Neutral small
+    section: Variants
+    props:
+      variant: neutral
+      size: sm
+    slot_text: v2.4
+  - id: with-icon
+    title: With icon
+    section: Variants
+    props:
+      variant: accent
+      icon: lucide:sparkles
+    slot_text: New

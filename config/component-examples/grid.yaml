@@ -1,0 +1,8 @@
+role: grid
+twig_name: Grid
+examples:
+  - id: default
+    title: Grid shell
+    section: Examples
+    props: {}
+    slot_text: ''

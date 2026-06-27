@@ -1,3 +1,9 @@
+---
+source_links:
+  - kind: php
+    label: SymfinityUxBlocksCoreBundle.php
+    path: src/SymfinityUxBlocksCoreBundle.php
+---
 # Installation
 
 ## Prerequisites

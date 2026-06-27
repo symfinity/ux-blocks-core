@@ -1,0 +1,20 @@
+role: typography
+twig_name: Typography
+examples:
+  - id: body
+    title: Body
+    section: Variants
+    props: {}
+    slot_text: "The quick brown fox jumps over the lazy dog."
+  - id: lead
+    title: Lead
+    section: Variants
+    props:
+      variant: "lead"
+    slot_text: "Introductory lead paragraph."
+  - id: muted
+    title: Muted
+    section: Variants
+    props:
+      variant: "muted"
+    slot_text: "Secondary supporting text."

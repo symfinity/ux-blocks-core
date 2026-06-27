@@ -1,0 +1,8 @@
+role: kbd
+twig_name: Kbd
+examples:
+  - id: shortcut
+    title: Shortcut
+    section: Examples
+    props: {}
+    slot_text: "⌘ K"

@@ -1,14 +1,14 @@
 # Quick start
 
-Use UX Blocks Core components in a Symfony app with ui-kernel theme CSS.
+Use UX Blocks Core in a Symfony app with UI Kernel theme CSS.
 
 ## Prerequisites
 
-[Installation](installation.md) completed — `symfinity/ui-kernel` and `symfinity/ux-blocks-core` installed (`symfinity/ux-blocks` from Packagist).
+Complete [Installation](installation.md) — `symfinity/ui-kernel` and `symfinity/ux-blocks-core` installed.
 
-## 1. Include ui-kernel CSS
+## 1. Include theme CSS
 
-Components rely on ui-kernel design tokens and shared form-control rules. In your base layout `<head>`:
+In your base layout:
 
 ```twig
 {# templates/base.html.twig #}
@@ -27,7 +27,7 @@ Components rely on ui-kernel design tokens and shared form-control rules. In you
 </html>
 ```
 
-Minimal ui-kernel app config:
+Minimal UI Kernel config:
 
 ```yaml
 # config/packages/symfinity_ui_kernel.yaml
@@ -39,59 +39,25 @@ symfinity_ui_kernel:
 
 ## 2. Render components
 
-Use UX Twig component tags (Twig name = registry **Twig** column):
-
 ```twig
-{# templates/demo.html.twig #}
 <main style="padding: var(--ui-space-lg);">
     <twig:Typography as="h1">Account settings</twig:Typography>
+    <twig:Typography as="p">Update your profile details below.</twig:Typography>
 
-    <twig:Label for="email">Email address</twig:Label>
-    <twig:Input id="email" name="email" type="email" placeholder="you@example.com" />
-
-    <twig:Button variant="default">Save changes</twig:Button>
-    <twig:Button variant="outline">Cancel</twig:Button>
+    <twig:Button variant="primary">Save changes</twig:Button>
+    <twig:Button variant="secondary" appearance="outline">Cancel</twig:Button>
 </main>
 ```
 
-Each root element exposes `data-ui-role`, `data-ui-fragment`, and UI Kernel variant hooks — see [Components](components.md).
-
-## Complete minimal example
-
-```yaml
-# config/packages/symfinity_ui_kernel.yaml
-symfinity_ui_kernel:
-    default_theme: default
-    default_variant: default
-    schema_version: '1.0'
-```
-
-```twig
-{# templates/onboarding.html.twig #}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{ ui_kernel_theme_boot_script() }}
-    {{ ui_kernel_css()|raw }}
-</head>
-<body>
-    <twig:Empty>
-        <twig:block name="title">No projects yet</twig:block>
-        <twig:block name="description">Create your first project to get started.</twig:block>
-        <twig:Button variant="default">Create project</twig:Button>
-    </twig:Empty>
-</body>
-</html>
-```
+For form fields, add [symfinity/ux-blocks-form](https://packagist.org/packages/symfinity/ux-blocks-form) and use `Input`, `Field`, etc.
 
 ## Next steps
 
-- [Components](components.md) — full role inventory and fragment prefix
-- [Configuration](configuration.md) — bundle auto-wiring
-- Per-role pages under [docs/components/](components/)
+- [Components](components.md) — handbook index
+- [Button](components/button.md) — variants and live previews
+- [Configuration](configuration.md) — bundle wiring
 
 ## See also
 
-- [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) — version history
-- [Contributing](https://github.com/symfinity/ux-blocks-core/blob/main/CONTRIBUTING.md) — how to contribute
-- [GitHub Issues](https://github.com/symfinity/ux-blocks-core/issues) — bug reports
+- [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md)
+- [Contributing](https://github.com/symfinity/ux-blocks-core/blob/main/CONTRIBUTING.md)

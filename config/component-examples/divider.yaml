@@ -1,0 +1,8 @@
+role: divider
+twig_name: Divider
+examples:
+  - id: default
+    title: Default
+    section: Examples
+    props: {}
+    slot_text: ''

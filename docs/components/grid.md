@@ -1,10 +1,10 @@
-# Separator
+# Grid
 
-Visual divider between sections.
+CSS grid layout shell.
 
 ## When to use
 
-Visual divider between sections. Use **Separator** when this pattern fits the screen — variant previews are below.
+CSS grid layout shell. Use **Grid** when this pattern fits the screen — variant previews are below.
 
 ## Guidelines
 
@@ -21,7 +21,7 @@ Visual divider between sections. Use **Separator** when this pattern fits the sc
 ## Usage
 
 ```twig
-<twig:Separator />
+<twig:Grid cols="2">…</twig:Grid>
 ```
 
 

@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.3] - 2026-06-27
+
+### Added
+
+- **`ResolvesFeedbackVariantIcon` trait** — shared Twig helper on `Symfinity\UxBlocksCore\Twig` for feedback variants (`success`, `danger`, `warning`, `info`) with default Lucide icon names, explicit `icon` override, and empty-string suppression
+- Downstream tiers (for example `symfinity/ux-blocks-interactive` `Toast:Item`) may `use` this trait instead of duplicating variant→icon mapping
+
+### Changed
+
+- **`Flash` component** — icon resolution delegated to `ResolvesFeedbackVariantIcon`; templates and exposed props unchanged (`variant`, `icon`, `iconDecorative`, `resolved_icon`)
+
+### Notes
+
+- Patch release — no registry or role CSS changes
+- Packages importing `ResolvesFeedbackVariantIcon` must require `symfinity/ux-blocks-core` **^0.1.3**
+
 ## [0.1.2] - 2026-06-25
 
 ### Changed

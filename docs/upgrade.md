@@ -40,6 +40,19 @@ After upgrade:
 1. Clear Symfony cache and hard-refresh the browser if AssetMapper serves cached CSS in dev.
 2. Re-check visual baselines for `tabs`, `dialog`, `filter-bar`, and form-adjacent roles if you snapshot CSS output.
 
+## 0.1.3
+
+Adds `ResolvesFeedbackVariantIcon` for shared feedback-variant icon defaults. Required by `symfinity/ux-blocks-interactive` **^0.1** when using toast icon resolution.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+After upgrade:
+
+1. Clear Symfony cache in each environment.
+2. If you extend core Twig components, you may `use Symfinity\UxBlocksCore\Twig\ResolvesFeedbackVariantIcon` instead of copying variant→icon `match` logic.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

@@ -1,7 +1,7 @@
 @use '../_shared/lists' as *;
 @use '../_shared/tone-surfaces' as ts;
 
-$flash-tone-variants: success, warning, info;
+$flash-tone-variants: success, warning, info, danger;
 
 [data-ui-role='flash'] {
   --ux-flash-duration: 5s;

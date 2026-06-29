@@ -720,6 +720,9 @@ html[data-theme$=-dark] [data-ui-role=flash] {
 [data-ui-role=flash][data-ui-variant=info] {
   --ux-flash-tone: var(--ui-color-info);
 }
+[data-ui-role=flash][data-ui-variant=danger] {
+  --ux-flash-tone: var(--ui-color-danger);
+}
 [data-ui-role=flash][data-ui-variant=error] {
   --ux-flash-tone: var(--ui-color-danger);
 }

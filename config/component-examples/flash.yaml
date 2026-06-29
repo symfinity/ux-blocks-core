@@ -1,27 +1,12 @@
 role: flash
 twig_name: Flash
-examples:
-  - id: info
-    title: Info
+groups:
+  - id: variants
     section: Variants
-    props:
-      variant: "info"
-    slot_text: "New themes are available."
-  - id: success
-    title: Success
-    section: Variants
-    props:
-      variant: "success"
-    slot_text: "Profile saved."
-  - id: warning
-    title: Warning
-    section: Variants
-    props:
-      variant: "warning"
-    slot_text: "Maintenance tonight."
-  - id: danger
-    title: Error
-    section: Variants
-    props:
-      variant: "danger"
-    slot_text: "Could not save changes."
+    title: Variants
+    layout: inline-row
+    items:
+      - { id: info, label: Info, props: { variant: info }, slot_text: "New themes are available." }
+      - { id: success, label: Success, props: { variant: success }, slot_text: "Profile saved." }
+      - { id: warning, label: Warning, props: { variant: warning }, slot_text: "Maintenance tonight." }
+      - { id: danger, label: Error, props: { variant: danger }, slot_text: "Could not save changes." }

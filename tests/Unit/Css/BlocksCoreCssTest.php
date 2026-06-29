@@ -170,6 +170,8 @@ final class BlocksCoreCssTest extends TestCase
         self::assertStringContainsString('--ux-flash-shadow-color: color-mix(in oklch, black 28%, transparent)', $css);
         self::assertStringContainsString('0 8px 20px var(--ux-flash-shadow-color)', $css);
         self::assertStringContainsString('box-shadow: var(--ux-flash-shadow)', $css);
+        self::assertStringContainsString('[data-ui-role="flash"][data-ui-variant="danger"]', $css);
+        self::assertStringContainsString('--ux-flash-tone: var(--ui-color-danger)', $css);
     }
 
     #[Test]

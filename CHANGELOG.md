@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.4] - 2026-06-29
+
+### Fixed
+
+- **Flash `danger` variant** — role CSS maps `[data-ui-variant=danger]` to `--ui-color-danger` (feedback flashes using the canonical danger variant now render with the correct tone)
+
+### Added
+
+- **ROADMAP.md** — public milestone table for the 0.1.x → 1.0.x release line
+
+### Notes
+
+- CSS-only patch — no Twig component or registry API changes
+- Hard-refresh the browser or clear AssetMapper cache in dev after upgrade if flash tones look stale
+
 ## [0.1.3] - 2026-06-27
 
 ### Added

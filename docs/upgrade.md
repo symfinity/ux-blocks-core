@@ -53,6 +53,19 @@ After upgrade:
 1. Clear Symfony cache in each environment.
 2. If you extend core Twig components, you may `use Symfinity\UxBlocksCore\Twig\ResolvesFeedbackVariantIcon` instead of copying variant→icon `match` logic.
 
+## 0.1.4
+
+Flash role CSS fix — `<twig:Flash variant="danger">` now applies `--ui-color-danger` correctly.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+After upgrade:
+
+1. Clear Symfony cache in each environment.
+2. Hard-refresh the browser in dev if AssetMapper serves cached CSS.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

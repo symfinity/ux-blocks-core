@@ -1,8 +1,0 @@
-role: flash-stack
-twig_name: FlashStack
-examples:
-  - id: default
-    title: Stack
-    section: Examples
-    props: {}
-    slot_text: ''

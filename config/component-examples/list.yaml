@@ -1,8 +1,0 @@
-role: list
-twig_name: List
-examples:
-  - id: default
-    title: List shell
-    section: Examples
-    props: {}
-    slot_text: ''

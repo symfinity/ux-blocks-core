@@ -1,8 +1,0 @@
-role: pagination
-twig_name: Pagination
-examples:
-  - id: default
-    title: Pager
-    section: Examples
-    props: {}
-    slot_text: ''

@@ -66,6 +66,16 @@ After upgrade:
 1. Clear Symfony cache in each environment.
 2. Hard-refresh the browser in dev if AssetMapper serves cached CSS.
 
+## 0.1.5
+
+Maintenance release — sponsorship metadata and split-mirror CI reliability. No Twig, registry, or role CSS changes.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+No config or template changes required after upgrade.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

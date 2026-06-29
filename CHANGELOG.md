@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.5] - 2026-06-29
+
+### Changed
+
+- **Split mirror CI** — Composer package cache and `GITHUB_TOKEN` authentication so GitHub Actions reliably resolves `symfinity/*` dependencies across the PHP × Symfony matrix
+
+### Added
+
+- **SUPPORTERS.md** — sponsor acknowledgment page linked from the split mirror README ecosystem
+- Composer **`funding`** metadata and **`.github/FUNDING.yml`** for [GitHub Sponsors](https://github.com/sponsors/serotoninja)
+
+### Notes
+
+- No Twig component, registry, or role CSS changes — documentation and CI maintenance patch
+- Upgrading from **0.1.4** needs no template or config edits
+
 ## [0.1.4] - 2026-06-29
 
 ### Fixed

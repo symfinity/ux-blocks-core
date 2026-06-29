@@ -1,8 +1,0 @@
-role: scroll-area
-twig_name: ScrollArea
-examples:
-  - id: default
-    title: Scrollable region
-    section: Examples
-    props: {}
-    slot_text: "Long content scrolls inside."

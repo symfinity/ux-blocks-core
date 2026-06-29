@@ -1,8 +1,0 @@
-role: stack
-twig_name: Stack
-examples:
-  - id: default
-    title: Stack shell
-    section: Examples
-    props: {}
-    slot_text: ''

@@ -1,6 +1,0 @@
-/// Compile-time baseline rhythm helpers (121 / SCRATCH baseline rhythm).
-/// Shipped CSS uses `round()` + `rlh` — no CSS `@function` in artifacts.
-
-@function baseline-line-height($font-size, $line-ratio: 1.25) {
-  @return round(up, calc(#{$font-size} * #{$line-ratio}), var(--ui-baseline));
-}

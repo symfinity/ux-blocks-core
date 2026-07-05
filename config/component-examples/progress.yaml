@@ -1,22 +1,20 @@
 role: progress
 twig_name: Progress
-examples:
-  - id: quarter
-    title: 25%
+groups:
+  - id: values
     section: Values
-    props:
-      value: 25
-    slot_text: ''
-  - id: three-quarter
-    title: 75%
-    section: Values
-    props:
-      value: 75
-    slot_text: ''
-  - id: success
-    title: Success
+    title: Values
+    layout: stack
+    items:
+      - { id: quarter, label: 25%, props: { value: 25, variant: primary, max: 100 }, slot_text: '' }
+      - { id: half, label: 50%, props: { value: 50, variant: primary, max: 100 }, slot_text: '' }
+      - { id: three-quarter, label: 75%, props: { value: 75, variant: primary, max: 100 }, slot_text: '' }
+  - id: variants
     section: Variants
-    props:
-      variant: "success"
-      value: 60
-    slot_text: ''
+    title: Variants
+    layout: stack
+    items:
+      - { id: success, label: Success, props: { value: 60, variant: success, max: 100 }, slot_text: '' }
+      - { id: warning, label: Warning, props: { value: 45, variant: warning, max: 100 }, slot_text: '' }
+      - { id: danger, label: Danger, props: { value: 30, variant: danger, max: 100 }, slot_text: '' }
+      - { id: info, label: Info, props: { value: 80, variant: info, max: 100 }, slot_text: '' }

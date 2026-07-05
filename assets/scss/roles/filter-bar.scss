@@ -189,7 +189,7 @@
   }
 
   tr.log-status-silenced > td:first-child::before {
-    background: #a78bfa;
+    background: var(--ui-color-accent);
   }
 }
 

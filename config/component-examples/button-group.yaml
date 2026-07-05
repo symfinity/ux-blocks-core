@@ -1,8 +1,25 @@
 role: button-group
 twig_name: ButtonGroup
-examples:
-  - id: default
-    title: Grouped actions
+groups:
+  - id: grouped-actions
     section: Examples
-    props: {}
-    slot_text: ''
+    title: Grouped actions
+    layout: inline-row
+    items:
+      - id: three-up
+        label: Three actions
+        props: {}
+        slot_twig: |
+          <twig:ButtonGroup>
+              <twig:Button variant="primary">{{ lorem_words(1)|capitalize }}</twig:Button>
+              <twig:Button variant="outline">{{ lorem_words(1)|capitalize }}</twig:Button>
+              <twig:Button variant="ghost">{{ lorem_words(1)|capitalize }}</twig:Button>
+          </twig:ButtonGroup>
+      - id: split-primary
+        label: Primary pair
+        props: {}
+        slot_twig: |
+          <twig:ButtonGroup>
+              <twig:Button variant="primary">{{ lorem_words(1)|capitalize }}</twig:Button>
+              <twig:Button variant="primary" appearance="outline">{{ lorem_words(1)|capitalize }}</twig:Button>
+          </twig:ButtonGroup>

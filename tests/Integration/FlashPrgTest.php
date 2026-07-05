@@ -21,8 +21,10 @@ final class FlashPrgTest extends WebTestCase
         $client->request('POST', '/test/flash');
         $client->followRedirect();
 
+        $content = (string) $client->getResponse()->getContent();
         self::assertResponseIsSuccessful();
-        self::assertStringContainsString('data-ui-role="flash"', (string) $client->getResponse()->getContent());
-        self::assertStringContainsString('Saved', (string) $client->getResponse()->getContent());
+        self::assertStringContainsString('data-ui-role="flash"', $content);
+        self::assertStringContainsString('Saved', $content);
+        self::assertStringContainsString('id="ux-blocks-core-css"', $content);
     }
 }

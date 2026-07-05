@@ -1,8 +1,15 @@
 role: scroll-area
 twig_name: ScrollArea
-examples:
-  - id: default
-    title: Scrollable region
+groups:
+  - id: scrollable
     section: Examples
-    props: {}
-    slot_text: "Long content scrolls inside."
+    title: Scrollable region
+    layout: stack
+    items:
+      - id: long-content
+        label: Long content
+        props: {}
+        slot_twig: |
+          <twig:ScrollArea style="max-height: 8rem; overflow: auto;">
+              <p>{{ lorem_paragraphs(3) }}</p>
+          </twig:ScrollArea>

@@ -1,3 +1,4 @@
+@layer blocks.core {
 /* symfinity/ux-blocks-core — role CSS (065 W1) */
 @import url('roles/button.css');
 @import url('roles/button-group.css');
@@ -29,3 +30,4 @@
 @import url('mixins/_typography-r2.css');
 @import url('surface-glass.css');
 @import url('surface-glass-role-deferral.css');
+}

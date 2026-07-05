@@ -8,7 +8,7 @@ Complete [Installation](installation.md) — `symfinity/ui-kernel` and `symfinit
 
 ## 1. Include theme CSS
 
-In your base layout:
+**With UI Kernel (recommended):** theme tokens + generated CSS in `<head>`:
 
 ```twig
 {# templates/base.html.twig #}
@@ -26,6 +26,8 @@ In your base layout:
 </body>
 </html>
 ```
+
+**Without UI Kernel:** ux-blocks-core auto-injects inline role CSS once per request when Twig components render (`id="ux-blocks-core-css"`, …). Optional manual hook: `{{ ux_blocks_ui_assets()|raw }}` in `<head>`.
 
 Minimal UI Kernel config:
 

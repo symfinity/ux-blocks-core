@@ -4,9 +4,9 @@ groups:
   - id: variants
     section: Variants
     title: Variants
-    layout: inline-row
+    layout: stack
     items:
-      - { id: info, label: Info, props: { variant: info }, slot_text: "New themes are available." }
-      - { id: success, label: Success, props: { variant: success }, slot_text: "Profile saved." }
-      - { id: warning, label: Warning, props: { variant: warning }, slot_text: "Maintenance tonight." }
-      - { id: danger, label: Error, props: { variant: danger }, slot_text: "Could not save changes." }
+      - { id: info, label: Info, props: { variant: info }, slot_text: 'New themes are available.' }
+      - { id: success, label: Success, props: { variant: success }, slot_text: 'Profile saved.' }
+      - { id: warning, label: Warning, props: { variant: warning }, slot_text: 'Maintenance tonight.' }
+      - { id: danger, label: Error, props: { variant: danger }, slot_text: 'Could not save changes.' }

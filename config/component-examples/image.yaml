@@ -1,19 +1,11 @@
 role: image
 twig_name: Image
-examples:
-  - id: fluid
-    title: Fluid
+groups:
+  - id: variants
     section: Variants
-    props:
-      src: "https://picsum.photos/800/450"
-      alt: "Landscape"
-      variant: "fluid"
-    slot_text: ''
-  - id: rounded
-    title: Rounded
-    section: Variants
-    props:
-      src: "https://picsum.photos/400/400"
-      alt: "Avatar crop"
-      variant: "rounded"
-    slot_text: ''
+    title: Variants
+    layout: inline-row
+    items:
+      - { id: fluid, label: Fluid, slot_twig: '<twig:Image src="{{ omnia_image(800, 450) }}" alt="{{ lorem_words(4) }}" variant="fluid" />', props: {} }
+      - { id: rounded, label: Rounded, slot_twig: '<twig:Image src="{{ omnia_image(400, 400) }}" alt="{{ lorem_words(3) }}" variant="rounded" />', props: {} }
+      - { id: thumbnail, label: Thumbnail, slot_twig: '<twig:Image src="{{ omnia_image(160, 160) }}" alt="{{ lorem_words(2) }}" variant="thumbnail" />', props: {} }

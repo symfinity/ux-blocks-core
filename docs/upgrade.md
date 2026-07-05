@@ -76,6 +76,23 @@ composer update symfinity/ux-blocks-core
 
 No config or template changes required after upgrade.
 
+## 0.1.6
+
+Adds automatic inline tier CSS when UX Twig components render — no manual layout wiring for clean-app installs without ui-kernel.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+After upgrade:
+
+1. Clear Symfony cache in each environment.
+2. If you already call `ux_blocks_ui_assets()` in layout, behaviour is unchanged (subscriber skips when style ids exist).
+3. If you rely on ui-kernel only, no action required — kernel CSS path is unchanged.
+4. Hard-refresh the browser in dev if AssetMapper serves cached CSS after the `@layer blocks.core` wrap.
+
+Optional: remove redundant manual tier stylesheet calls from layouts now covered by auto-inject.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

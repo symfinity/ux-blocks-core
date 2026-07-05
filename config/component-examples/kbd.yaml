@@ -1,8 +1,11 @@
 role: kbd
 twig_name: Kbd
-examples:
-  - id: shortcut
-    title: Shortcut
+groups:
+  - id: shortcuts
     section: Examples
-    props: {}
-    slot_text: "⌘ K"
+    title: Keyboard hints
+    layout: inline-row
+    items:
+      - { id: command-k, label: Command palette, props: {}, slot_text: '⌘ K' }
+      - { id: escape, label: Escape, props: {}, slot_text: Esc }
+      - { id: arrows, label: Arrow keys, props: {}, slot_text: '↑ ↓' }

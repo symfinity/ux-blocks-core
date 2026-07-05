@@ -30,6 +30,14 @@ final class BlocksCoreCssTest extends TestCase
     }
 
     #[Test]
+    public function stylesheetOutputIsWrappedInBlocksCoreLayer(): void
+    {
+        $css = self::fullCss();
+
+        self::assertStringStartsWith('@layer blocks.core {', $css);
+    }
+
+    #[Test]
     public function bundleIncludesV0PrimitiveRoles(): void
     {
         $css = self::fullCss();

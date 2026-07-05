@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.6] - 2026-07-05
+
+### Added
+
+- **Automatic inline tier CSS** — UX Twig components activate the correct CSS stack from registry fragment ids; an HTTP response subscriber injects `<style id="ux-blocks-{tier}-css">` blocks into `<head>` once per HTML response when `data-ui-role` markup is present and no style markers exist yet
+- **`ux_blocks_ui_assets()` Twig function** — optional manual emit in layout for debugging or explicit head placement (idempotent with the subscriber)
+- **Fragment → tier mapping** — `blocks.core.*` → core; `blocks.form.*` → core + form; `blocks.ext.*` → core + form + extended; `blocks.int.*` / `blocks.live.*` → through interactive; `blocks.marketing.*` and `blocks.shop.*` → marketing / ecommerce stacks when sibling tier packages are installed
+- Handbook [verification.md](docs/verification.md) — P2 integration profile smoke (auto-injected `id="ux-blocks-core-css"`)
+- **Grouped component examples** — handbook example YAMLs use `groups[]` with richer variant and size matrices
+
+### Changed
+
+- **Role CSS cascade** — committed `blocks-core.css` and `BlocksCoreCssProvider::stylesheet()` wrap tier output in `@layer blocks.core` for ui-kernel layer ordering
+- **Filter bar / log table** — silenced-row accent uses `var(--ui-color-accent)` instead of a hardcoded colour literal
+- **Quickstart** — documents the no–ui-kernel auto-inject path and optional manual `ux_blocks_ui_assets()` hook
+
+### Notes
+
+- **ui-kernel remains optional** — themed apps keep loading kernel CSS in layout; clean Twig-only installs get styled components without manual tier wiring
+- Cross-tier CSS loads only when the matching tier package is installed and its fragments render on the page
+- No registry or Twig component prop API changes — upgrading from **0.1.5** needs no template edits
+
 ## [0.1.5] - 2026-06-29
 
 ### Changed

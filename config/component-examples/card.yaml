@@ -4,22 +4,55 @@ groups:
   - id: basic-card
     section: Basic card
     title: Basic card
-    layout: inline-row
+    layout: stack
     items:
       - id: card-title-body
         label: With header
-        props:
-          title: Card title
-          description: Supporting description for the card header.
-        slot_text: Card body content goes here.
+        props: {}
+        slot_twig: |
+          <twig:Card title="{{ lorem_title() }}" description="{{ lorem_sentence() }}">
+              {% block content %}
+                  <p>{{ lorem_sentence() }}</p>
+              {% endblock %}
+          </twig:Card>
   - id: header-footer
     section: Header / footer variants
     title: Header / footer variants
-    layout: inline-row
+    layout: stack
     items:
       - id: card-with-footer
         label: Footer actions
-        props:
-          title: Billing
-          description: Manage payment methods.
-        slot_twig: '<p>Current plan: Pro</p><twig:Button variant="primary" size="sm">Update</twig:Button>'
+        props: {}
+        slot_twig: |
+          <twig:Card title="{{ lorem_title() }}" description="{{ lorem_sentence() }}">
+              {% block content %}
+                  <p>{{ lorem_sentence() }}</p>
+              {% endblock %}
+              {% block footer %}
+                  <twig:Button variant="primary" size="sm">{{ lorem_words(1)|capitalize }}</twig:Button>
+                  <twig:Button variant="outline" size="sm">{{ lorem_words(1)|capitalize }}</twig:Button>
+              {% endblock %}
+          </twig:Card>
+  - id: density-tone
+    section: Density and tone
+    title: Density and tone
+    layout: stack
+    items:
+      - id: compact-muted
+        label: Compact muted
+        props: {}
+        slot_twig: |
+          <twig:Card title="{{ lorem_title() }}" density="compact" tone="muted">
+              {% block content %}
+                  {{ lorem_sentence() }}
+              {% endblock %}
+          </twig:Card>
+      - id: spacious-emphasis
+        label: Spacious emphasis
+        props: {}
+        slot_twig: |
+          <twig:Card title="{{ lorem_title() }}" density="spacious" tone="emphasis">
+              {% block content %}
+                  {{ lorem_sentence() }}
+              {% endblock %}
+          </twig:Card>

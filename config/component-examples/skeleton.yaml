@@ -1,14 +1,20 @@
 role: skeleton
 twig_name: Skeleton
-examples:
-  - id: line
-    title: Text line
+groups:
+  - id: variants
     section: Examples
-    props: {}
-    slot_text: ''
-  - id: block
-    title: Block
-    section: Examples
-    props:
-      variant: "block"
-    slot_text: ''
+    title: Skeleton variants
+    layout: stack
+    items:
+      - id: text-line
+        label: Text line
+        props: { variant: text }
+        slot_text: ''
+      - id: fill
+        label: Fill
+        props: { variant: fill }
+        slot_text: ''
+      - id: circle
+        label: Circle
+        props: { variant: circle }
+        slot_text: ''

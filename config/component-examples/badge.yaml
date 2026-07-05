@@ -1,23 +1,31 @@
 role: badge
 twig_name: Badge
-examples:
-  - id: success
-    title: Success
+groups:
+  - id: solid-variants
     section: Variants
-    props:
-      variant: success
-    slot_text: Active
-  - id: neutral-sm
-    title: Neutral small
-    section: Variants
-    props:
-      variant: neutral
-      size: sm
-    slot_text: v2.4
+    title: Variants
+    layout: inline-row
+    items:
+      - { id: primary, label: Primary, props: { variant: primary, size: md }, slot_text: Primary }
+      - { id: secondary, label: Secondary, props: { variant: secondary, size: md }, slot_text: Secondary }
+      - { id: accent, label: Accent, props: { variant: accent, size: md }, slot_text: Accent }
+      - { id: success, label: Success, props: { variant: success, size: md }, slot_text: Success }
+      - { id: danger, label: Danger, props: { variant: danger, size: md }, slot_text: Danger }
+      - { id: info, label: Info, props: { variant: info, size: md }, slot_text: Info }
+      - { id: warning, label: Warning, props: { variant: warning, size: md }, slot_text: Warning }
+      - { id: neutral, label: Neutral, props: { variant: neutral, size: md }, slot_text: Neutral }
+  - id: sizes
+    section: Sizes
+    title: Sizes
+    layout: inline-row
+    items:
+      - { id: size-sm, label: Small, props: { variant: neutral, size: sm }, slot_text: v0.1.0 }
+      - { id: size-md, label: Medium, props: { variant: neutral, size: md }, slot_text: v0.1.0 }
+      - { id: size-lg, label: Large, props: { variant: neutral, size: lg }, slot_text: v0.1.0 }
   - id: with-icon
+    section: With icon
     title: With icon
-    section: Variants
-    props:
-      variant: accent
-      icon: lucide:sparkles
-    slot_text: New
+    layout: inline-row
+    items:
+      - { id: icon-accent, label: Accent, props: { variant: accent, size: md, icon: lucide:sparkles }, slot_text: New }
+      - { id: icon-success, label: Success, props: { variant: success, size: md, icon: lucide:check }, slot_text: Done }

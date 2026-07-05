@@ -169,7 +169,7 @@
 }
 [data-ui-role=log-table] tr.log-status-silenced > td:first-child::before,
 [data-ui-role=table].logs tr.log-status-silenced > td:first-child::before {
-  background: #a78bfa;
+  background: var(--ui-color-accent);
 }
 
 [data-ui-role=compilation-logs] {

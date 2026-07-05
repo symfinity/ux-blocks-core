@@ -1,14 +1,11 @@
 role: page-heading
 twig_name: PageHeading
-examples:
-  - id: basic
-    title: Title only
+groups:
+  - id: examples
     section: Examples
-    props: {}
-    slot_text: "Account settings"
-  - id: with-icon
-    title: With icon
-    section: Examples
-    props:
-      icon: "lucide:settings"
-    slot_text: "Workspace"
+    title: Page headings
+    layout: stack
+    items:
+      - { id: basic, label: Title only, slot_twig: '<twig:PageHeading>{{ lorem_title() }}</twig:PageHeading>', props: {} }
+      - { id: with-icon, label: With icon, slot_twig: '<twig:PageHeading icon="lucide:settings">{{ lorem_title() }}</twig:PageHeading>', props: {} }
+      - { id: baseline-rhythm, label: Baseline rhythm, slot_twig: '<twig:PageHeading rhythm="baseline">{{ lorem_title() }}</twig:PageHeading>', props: {} }

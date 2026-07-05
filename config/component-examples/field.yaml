@@ -4,32 +4,36 @@ groups:
   - id: default
     section: Default
     title: Default
-    layout: inline-row
+    layout: stack
     items:
       - id: default-vertical
         label: Vertical
-        props:
-          label: Email
-        slot_twig: '<twig:Input type="email" placeholder="you@example.com" />'
+        props: {}
+        slot_twig: |
+          <twig:Field label="{{ lorem_words(1)|capitalize }}">
+              <twig:Input type="email" name="email" placeholder="you@example.com" />
+          </twig:Field>
   - id: disabled
     section: Disabled
     title: Disabled
-    layout: inline-row
+    layout: stack
     items:
       - id: disabled-input
         label: Disabled
-        props:
-          label: Username
-        slot_twig: '<twig:Input :disabled="true" placeholder="Disabled" />'
+        props: {}
+        slot_twig: |
+          <twig:Field label="{{ lorem_words(1)|capitalize }}">
+              <twig:Input name="username" :disabled="true" placeholder="Disabled" />
+          </twig:Field>
   - id: invalid
     section: Invalid / validation
     title: Invalid / validation
-    layout: inline-row
+    layout: stack
     items:
       - id: invalid-field
         label: Invalid
-        props:
-          label: Password
-          error: Password must be at least 8 characters.
-          invalid: true
-        slot_twig: '<twig:Input type="password" :invalid="true" />'
+        props: {}
+        slot_twig: |
+          <twig:Field label="{{ lorem_words(1)|capitalize }}" error="{{ lorem_sentence() }}" :invalid="true">
+              <twig:Input type="password" name="password" :invalid="true" />
+          </twig:Field>

@@ -1,14 +1,10 @@
 role: section-heading
 twig_name: SectionHeading
-examples:
-  - id: basic
-    title: Section title
+groups:
+  - id: examples
     section: Examples
-    props: {}
-    slot_text: "Notifications"
-  - id: with-icon
-    title: With icon
-    section: Examples
-    props:
-      icon: "lucide:bell"
-    slot_text: "Alerts"
+    title: Section headings
+    layout: stack
+    items:
+      - { id: basic, label: Section title, slot_twig: '<twig:SectionHeading>{{ lorem_words(2)|capitalize }}</twig:SectionHeading>', props: {} }
+      - { id: with-icon, label: With icon, slot_twig: '<twig:SectionHeading icon="lucide:bell">{{ lorem_words(2)|capitalize }}</twig:SectionHeading>', props: {} }

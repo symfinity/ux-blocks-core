@@ -1,8 +1,26 @@
 role: divider
 twig_name: Divider
-examples:
-  - id: default
-    title: Default
-    section: Examples
-    props: {}
-    slot_text: ''
+groups:
+  - id: orientation
+    section: Orientation
+    title: Orientation
+    layout: stack
+    items:
+      - id: horizontal
+        label: Horizontal
+        props: { variant: horizontal }
+        slot_twig: |
+          <div style="width: 100%;">
+              <p>{{ lorem_sentence() }}</p>
+              <twig:Divider variant="horizontal" />
+              <p>{{ lorem_sentence() }}</p>
+          </div>
+      - id: vertical
+        label: Vertical
+        props: { variant: vertical }
+        slot_twig: |
+          <div style="display: flex; align-items: stretch; gap: 1rem; min-height: 4rem;">
+              <span>{{ lorem_words(2)|capitalize }}</span>
+              <twig:Divider variant="vertical" />
+              <span>{{ lorem_words(2)|capitalize }}</span>
+          </div>

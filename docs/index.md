@@ -1,3 +1,7 @@
+---
+integration_profile: P2
+---
+
 # Overview
 
 Consumer handbook for **symfinity/ux-blocks-core** — atomic UX Twig components (buttons, typography, layout, feedback).

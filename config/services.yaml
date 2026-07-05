@@ -22,5 +22,21 @@ services:
       $fragmentIdsEnabled: '%ux_blocks_core.fragment_ids%'
       $fragmentCounter: '@?Symfinity\UxBlocksCore\Twig\FragmentInstanceCounter'
 
+  Symfinity\UxBlocksCore\Twig\UxBlocksUiAssetsRenderer:
+    arguments:
+      $tierProviders:
+        core: '@Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider'
+        form: '@?Symfinity\UxBlocksForm\Css\BlocksFormCssProvider'
+        extended: '@?Symfinity\UxBlocksExtended\Css\BlocksExtendedCssProvider'
+        interactive: '@?Symfinity\UxBlocksInteractive\Css\BlocksInteractiveCssProvider'
+        marketing: '@?Symfinity\UxBlocksMarketing\Css\BlocksMarketingCssProvider'
+        ecommerce: '@?Symfinity\UxBlocksEcommerce\Css\BlocksEcommerceCssProvider'
+
+  Symfinity\UxBlocksCore\Twig\UxBlocksUiAssetsExtension:
+    tags: ['twig.extension']
+
+  Symfinity\UxBlocksCore\EventSubscriber\UxBlocksUiAssetsResponseSubscriber:
+    tags: ['kernel.event_subscriber']
+
   Symfinity\UxBlocksCore\Breadcrumb\BreadcrumbTrailResolverInterface:
     alias: Symfinity\UxBlocksCore\Breadcrumb\PathSegmentBreadcrumbTrailResolver

@@ -34,9 +34,10 @@ final class OptionalUxIconExtension extends AbstractExtension
         // ux_icon is a Twig *runtime* function — never invoke getCallable() directly.
         if (class_exists(\Symfony\UX\Icons\Twig\UXIconRuntime::class)) {
             try {
+                /** @var mixed $result UX Icons may return string or Stringable markup. */
                 $result = $env->getRuntime(\Symfony\UX\Icons\Twig\UXIconRuntime::class)->renderIcon($name);
 
-                return \is_string($result) ? $result : (string) $result;
+                return $this->normalizeIconHtml($result);
             } catch (\Twig\Error\RuntimeError) {
                 // UX Icons runtime not registered on this Environment — fall back below.
             }
@@ -45,5 +46,18 @@ final class OptionalUxIconExtension extends AbstractExtension
         return trim($env->createTemplate('{% apply spaceless %}{{ ux_icon(icon) }}{% endapply %}')->render([
             'icon' => $name,
         ]));
+    }
+
+    private function normalizeIconHtml(mixed $result): string
+    {
+        if (\is_string($result)) {
+            return $result;
+        }
+
+        if ($result instanceof \Stringable) {
+            return (string) $result;
+        }
+
+        return '';
     }
 }

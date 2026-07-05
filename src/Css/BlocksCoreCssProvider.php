@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore\Css;
 
-use Symfinity\UiKernel\Css\CascadeLayerOrder;
-use Symfinity\UiKernel\Css\CascadeLayerWrap;
-
 /**
  * Inline role CSS for workshop previews and hosts without AssetMapper link tags.
  * Themed apps SHOULD load {@see assetPath()} via AssetMapper after kernel tokens.
@@ -48,7 +45,7 @@ final class BlocksCoreCssProvider
 
     private function wrapTierCss(string $css): string
     {
-        return CascadeLayerWrap::wrap(CascadeLayerOrder::BLOCKS_CORE, $css);
+        return TierCascadeLayerWrap::wrap(TierCascadeLayerWrap::BLOCKS_CORE, $css);
     }
 
     private function readRoleFile(string $relativeToStylesDir): string

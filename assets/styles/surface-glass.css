@@ -1,0 +1,26 @@
+/* symfinity/ux-blocks-core — cross-cutting glass surface treatment (109) */
+
+/* rung 1 — opaque, legible with ZERO backdrop-filter support */
+[data-ui-surface="glass"] {
+  background: var(--ui-glass-fallback-surface);
+  border: 1px solid var(--ui-glass-border);
+  box-shadow: var(--ui-shadow-lg);
+}
+
+/* rung 2 — real glass only where supported (+ -webkit- for Safari) */
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  [data-ui-surface="glass"] {
+    background: var(--ui-glass-tint);
+    -webkit-backdrop-filter: blur(var(--ui-glass-blur)) saturate(var(--ui-glass-saturate));
+    backdrop-filter: blur(var(--ui-glass-blur)) saturate(var(--ui-glass-saturate));
+  }
+}
+
+/* rung 4 — honor user prefs; MUST be ordered last so it wins */
+@media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
+  [data-ui-surface="glass"] {
+    background: var(--ui-glass-fallback-surface);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}

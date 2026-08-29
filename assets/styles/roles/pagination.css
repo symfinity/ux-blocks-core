@@ -1,0 +1,7 @@
+[data-ui-role=pagination] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ui-space-xs);
+  align-items: center;
+  font-family: var(--ui-font-family-sans);
+}

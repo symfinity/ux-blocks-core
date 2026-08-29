@@ -1,0 +1,35 @@
+role: pagination
+twig_name: Pagination
+groups:
+  - id: default
+    section: Examples
+    title: Pagination
+    layout: stack
+    items:
+      - id: mid-page
+        label: Mid range
+        props: {}
+        slot_twig: |
+          <twig:Pagination>
+              <twig:Button variant="primary" appearance="outline" size="sm">Previous</twig:Button>
+              <twig:Button variant="primary" size="sm">2</twig:Button>
+              <twig:Button variant="primary" appearance="outline" size="sm">Next</twig:Button>
+          </twig:Pagination>
+      - id: first-page
+        label: First page
+        props: {}
+        slot_twig: |
+          <twig:Pagination>
+              <twig:Button variant="primary" size="sm" :disabled="true">Previous</twig:Button>
+              <twig:Button variant="primary" size="sm">1</twig:Button>
+              <twig:Button variant="primary" appearance="outline" size="sm">Next</twig:Button>
+          </twig:Pagination>
+      - id: last-page
+        label: Last page
+        props: {}
+        slot_twig: |
+          <twig:Pagination>
+              <twig:Button variant="primary" appearance="outline" size="sm">Previous</twig:Button>
+              <twig:Button variant="primary" size="sm">8</twig:Button>
+              <twig:Button variant="primary" size="sm" :disabled="true">Next</twig:Button>
+          </twig:Pagination>

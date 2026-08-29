@@ -1,0 +1,12 @@
+{% set caption_content -%}
+    {%- block caption %}{%- endblock %}
+{%- endset %}
+<figure
+    {% if align != 'none' %}data-ui-align="{{ align }}"{% endif %}
+    {{ attributes }}
+>
+    {% block media %}{% endblock %}
+    {% if caption_content|trim is not empty %}
+        {% include '@UxBlocksCore/components/Figure/_caption.html.twig' %}
+    {% endif %}
+</figure>

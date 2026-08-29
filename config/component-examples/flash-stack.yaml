@@ -1,0 +1,17 @@
+role: flash-stack
+twig_name: FlashStack
+groups:
+  - id: stacked-messages
+    section: Examples
+    title: Flash stack
+    layout: stack
+    items:
+      - id: top-stack
+        label: Top placement
+        props: { placement: top }
+        slot_twig: |
+          <twig:FlashStack placement="top">
+              <twig:Flash variant="success">{{ lorem_sentence() }}</twig:Flash>
+              <twig:Flash variant="info">{{ lorem_sentence() }}</twig:Flash>
+              <twig:Flash variant="warning">{{ lorem_sentence() }}</twig:Flash>
+          </twig:FlashStack>

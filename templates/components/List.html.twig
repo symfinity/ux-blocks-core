@@ -1,0 +1,9 @@
+<div
+    {% if variant != 'default' %}data-ui-variant="{{ variant }}"{% endif %}
+    data-ui-gap="{{ gap }}"
+    {{ attributes }}
+>
+    <ul data-ui-part="list-layout">
+        {% block content %}{% endblock %}
+    </ul>
+</div>

@@ -1,0 +1,9 @@
+[data-ui-role='kbd'] {
+  display: inline-block;
+  padding: 0.125rem var(--ui-space-xs);
+  font-family: var(--ui-font-family-mono);
+  font-size: var(--ui-font-size-sm);
+  border: 1px solid var(--ui-color-border);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-color-surface-elevated);
+}

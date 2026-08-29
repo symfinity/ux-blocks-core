@@ -1,0 +1,46 @@
+[data-ui-role] {
+  --ui-opacity-icon-watermark: 0.12;
+  --ui-size-icon-watermark: 6rem;
+  --ui-z-icon-watermark: 0;
+}
+
+[data-ui-part=icon-watermark] {
+  position: absolute;
+  z-index: var(--ui-z-icon-watermark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(var(--ui-size-icon-watermark), 100%);
+  height: min(var(--ui-size-icon-watermark), 100%);
+  max-width: 100%;
+  max-height: 100%;
+  opacity: var(--ui-opacity-icon-watermark);
+  pointer-events: none;
+  color: inherit;
+}
+[data-ui-part=icon-watermark] :is(svg, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+[data-ui-part=icon-watermark][data-ui-watermark-position=top-start] {
+  inset-block-start: var(--ui-space-2, var(--ui-space-sm));
+  inset-inline-start: var(--ui-space-2, var(--ui-space-sm));
+}
+[data-ui-part=icon-watermark][data-ui-watermark-position=top-end] {
+  inset-block-start: var(--ui-space-2, var(--ui-space-sm));
+  inset-inline-end: var(--ui-space-2, var(--ui-space-sm));
+}
+[data-ui-part=icon-watermark][data-ui-watermark-position=bottom-start] {
+  inset-block-end: var(--ui-space-2, var(--ui-space-sm));
+  inset-inline-start: var(--ui-space-2, var(--ui-space-sm));
+}
+[data-ui-part=icon-watermark][data-ui-watermark-position=bottom-end] {
+  inset-block-end: var(--ui-space-2, var(--ui-space-sm));
+  inset-inline-end: var(--ui-space-2, var(--ui-space-sm));
+}
+[data-ui-part=icon-watermark][data-ui-watermark-position=center] {
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  translate: -50% -50%;
+}

@@ -1,0 +1,31 @@
+@use '../_shared/lists' as *;
+@use '../_shared/tone-surfaces' as ts;
+
+[data-ui-role='flash-stack'] {
+  --ux-flash-stack-gap: calc(var(--ui-space-lg) / 2);
+  --ux-flash-stack-stagger: 500ms;
+  position: fixed;
+  inset-inline: 0;
+  z-index: var(--ui-z-index-overlay, 1050);
+  display: flex;
+  flex-direction: column;
+  gap: var(--ux-flash-stack-gap);
+  padding: var(--ui-space-md);
+  pointer-events: none;
+  box-sizing: border-box;
+
+  @each $placement in $ui-placements-y {
+    &[data-ui-placement='#{$placement}'] {
+      @if $placement == top {
+        top: 0;
+        bottom: auto;
+      } @else {
+        top: auto;
+        bottom: 0;
+      }
+    }
+  }
+
+  @include ts.stack-child-order(flash, $ui-stack-max-items);
+  @include ts.stack-stagger-delays(flash);
+}

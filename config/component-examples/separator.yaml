@@ -1,0 +1,26 @@
+role: separator
+twig_name: Separator
+groups:
+  - id: orientation
+    section: Orientation
+    title: Orientation
+    layout: stack
+    items:
+      - id: horizontal
+        label: Horizontal
+        props: { orientation: horizontal }
+        slot_twig: |
+          <div style="width: 100%;">
+              <p>{{ lorem_sentence() }}</p>
+              <twig:Separator orientation="horizontal" />
+              <p>{{ lorem_sentence() }}</p>
+          </div>
+      - id: vertical
+        label: Vertical
+        props: { orientation: vertical }
+        slot_twig: |
+          <div style="display: flex; align-items: stretch; gap: 1rem; min-height: 4rem;">
+              <span>{{ lorem_words(2)|capitalize }}</span>
+              <twig:Separator orientation="vertical" />
+              <span>{{ lorem_words(2)|capitalize }}</span>
+          </div>

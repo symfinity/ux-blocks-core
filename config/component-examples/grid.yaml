@@ -1,0 +1,35 @@
+role: grid
+twig_name: Grid
+groups:
+  - id: two-column
+    section: Two columns
+    title: Two columns
+    layout: stack
+    items:
+      - id: two-up
+        label: Two columns
+        props: { columns: 2 }
+        slot_twig: |
+          <twig:Grid columns="2">
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">A</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">B</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">C</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">D</div></twig:Grid:Cell>
+          </twig:Grid>
+  - id: three-column
+    section: Three columns
+    title: Three columns
+    layout: stack
+    items:
+      - id: three-up
+        label: Three columns
+        props: { columns: 3 }
+        slot_twig: |
+          <twig:Grid columns="3">
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">1</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">2</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">3</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">4</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">5</div></twig:Grid:Cell>
+              <twig:Grid:Cell><div class="handbook-grid-demo-cell">6</div></twig:Grid:Cell>
+          </twig:Grid>

@@ -1,0 +1,8 @@
+{# Shared icon slot — ux-icons optional; omit wrapper when no icon name is configured. #}
+{% if iconName|default(null) %}
+<span data-ui-part="icon"{% if iconDecorative|default(true) %} aria-hidden="true"{% endif %}>
+    {% block icon %}
+        {{ ux_blocks_icon(iconName) }}
+    {% endblock %}
+</span>
+{% endif %}

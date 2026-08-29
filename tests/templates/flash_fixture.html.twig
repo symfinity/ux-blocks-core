@@ -1,0 +1,5 @@
+<twig:FlashStack placement="top">
+    {% for message in app.flashes('success') %}
+        <twig:Flash variant="success">{{ message }}</twig:Flash>
+    {% endfor %}
+</twig:FlashStack>

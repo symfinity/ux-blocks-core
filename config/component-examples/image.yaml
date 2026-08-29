@@ -1,0 +1,11 @@
+role: image
+twig_name: Image
+groups:
+  - id: variants
+    section: Variants
+    title: Variants
+    layout: inline-row
+    items:
+      - { id: fluid, label: Fluid, slot_twig: '<twig:Image src="{{ omnia_image(800, 450) }}" alt="{{ lorem_words(4) }}" variant="fluid" />', props: {} }
+      - { id: rounded, label: Rounded, slot_twig: '<twig:Image src="{{ omnia_image(400, 400) }}" alt="{{ lorem_words(3) }}" variant="rounded" />', props: {} }
+      - { id: thumbnail, label: Thumbnail, slot_twig: '<twig:Image src="{{ omnia_image(160, 160) }}" alt="{{ lorem_words(2) }}" variant="thumbnail" />', props: {} }

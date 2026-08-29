@@ -1,0 +1,13 @@
+<figure
+    data-ui-part="media"
+    {% if variant != 'default' %}data-ui-variant="{{ variant }}"{% endif %}
+    {{ attributes }}
+>
+    {% if resolved_media_icon %}
+        {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+            iconName: resolved_media_icon,
+            iconDecorative: iconDecorative,
+        } only %}
+    {% endif %}
+    {% block content %}{% endblock %}
+</figure>

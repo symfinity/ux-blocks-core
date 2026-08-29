@@ -1,0 +1,26 @@
+role: stack
+twig_name: Stack
+groups:
+  - id: vertical
+    section: Examples
+    title: Stack layouts
+    layout: stack
+    items:
+      - id: vertical-default
+        label: Vertical
+        props: { direction: vertical, gap: md }
+        slot_twig: |
+          <twig:Stack direction="vertical" gap="md">
+              <twig:Typography>{{ lorem_sentence() }}</twig:Typography>
+              <twig:Typography variant="muted">{{ lorem_sentence() }}</twig:Typography>
+              <twig:Button variant="primary">{{ lorem_words(1)|capitalize }}</twig:Button>
+          </twig:Stack>
+      - id: horizontal
+        label: Horizontal
+        props: { direction: horizontal, gap: md }
+        slot_twig: |
+          <twig:Stack direction="horizontal" gap="md">
+              <twig:Badge variant="accent">{{ lorem_words(1)|capitalize }}</twig:Badge>
+              <twig:Badge variant="neutral">{{ lorem_words(1)|capitalize }}</twig:Badge>
+              <twig:Link href="/docs">{{ lorem_words(1)|capitalize }}</twig:Link>
+          </twig:Stack>

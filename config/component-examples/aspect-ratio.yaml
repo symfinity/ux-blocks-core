@@ -1,0 +1,22 @@
+role: aspect-ratio
+twig_name: AspectRatio
+groups:
+  - id: ratios
+    section: Ratios
+    title: Ratios
+    layout: stack
+    items:
+      - id: video
+        label: 16:9
+        props: { ratio: '16/9' }
+        slot_twig: |
+          <twig:AspectRatio ratio="16/9">
+              <twig:Image src="{{ omnia_image(960, 540) }}" alt="{{ lorem_words(3) }}" variant="fluid" />
+          </twig:AspectRatio>
+      - id: square
+        label: 1:1
+        props: { ratio: '1/1' }
+        slot_twig: |
+          <twig:AspectRatio ratio="1/1">
+              <twig:Image src="{{ omnia_image(480, 480) }}" alt="{{ lorem_words(3) }}" variant="fluid" />
+          </twig:AspectRatio>

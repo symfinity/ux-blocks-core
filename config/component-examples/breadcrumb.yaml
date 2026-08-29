@@ -1,0 +1,16 @@
+role: breadcrumb
+twig_name: Breadcrumb
+groups:
+  - id: auto-trail
+    section: Examples
+    title: Breadcrumb trails
+    layout: stack
+    items:
+      - id: auto
+        label: Auto trail
+        props: { auto: true, divider: chevron }
+        slot_text: ''
+      - id: slash
+        label: Slash divider
+        props: { auto: true, divider: / }
+        slot_text: ''

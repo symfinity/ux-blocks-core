@@ -1,0 +1,38 @@
+role: list
+twig_name: List
+groups:
+  - id: default
+    section: Examples
+    title: List layouts
+    layout: stack
+    items:
+      - id: basic
+        label: Basic list
+        props: {}
+        slot_twig: |
+          <twig:List>
+              <twig:List:Item>
+                  <twig:List:Item:Title>{{ lorem_words(2)|capitalize }}</twig:List:Item:Title>
+                  <twig:List:Item:Description>{{ lorem_sentence() }}</twig:List:Item:Description>
+              </twig:List:Item>
+              <twig:List:Item>
+                  <twig:List:Item:Title>{{ lorem_words(2)|capitalize }}</twig:List:Item:Title>
+                  <twig:List:Item:Description>{{ lorem_sentence() }}</twig:List:Item:Description>
+              </twig:List:Item>
+              <twig:List:Item>
+                  <twig:List:Item:Title>{{ lorem_words(2)|capitalize }}</twig:List:Item:Title>
+                  <twig:List:Item:Description>{{ lorem_sentence() }}</twig:List:Item:Description>
+              </twig:List:Item>
+          </twig:List>
+      - id: compact
+        label: Compact gap
+        props: { gap: sm }
+        slot_twig: |
+          <twig:List gap="sm">
+              <twig:List:Item>
+                  <twig:List:Item:Title>{{ lorem_words(2)|capitalize }}</twig:List:Item:Title>
+              </twig:List:Item>
+              <twig:List:Item>
+                  <twig:List:Item:Title>{{ lorem_words(2)|capitalize }}</twig:List:Item:Title>
+              </twig:List:Item>
+          </twig:List>

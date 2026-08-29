@@ -1,0 +1,11 @@
+<span
+    data-ui-variant="{{ semantic_variant }}"
+    data-ui-size="{{ size }}"
+    data-ui-density="{{ density }}"
+    role="status"
+    {% if label %}aria-label="{{ label }}"{% endif %}
+    {% if not visible %}hidden{% endif %}
+    {{ attributes }}
+>
+    {% block content %}{% endblock %}
+</span>

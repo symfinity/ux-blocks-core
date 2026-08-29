@@ -1,0 +1,42 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Symfinity\UxBlocksCore\:
+    resource: '../src/'
+    exclude:
+      - '../src/SymfinityUxBlocksCoreBundle.php'
+      - '../src/DependencyInjection/'
+
+  Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider:
+    arguments:
+      $packageDir: '%ux_blocks_core.package_dir%'
+
+  Symfinity\UxBlocksCore\Registry\UxRoleRegistry:
+    arguments:
+      $yamlPath: '%ux_blocks_core.package_dir%/config/ux_roles.yaml'
+
+  Symfinity\UxBlocksCore\Twig\RoleAttributeBridgeListener:
+    arguments:
+      $fragmentIdsEnabled: '%ux_blocks_core.fragment_ids%'
+      $fragmentCounter: '@?Symfinity\UxBlocksCore\Twig\FragmentInstanceCounter'
+
+  Symfinity\UxBlocksCore\Twig\UxBlocksUiAssetsRenderer:
+    arguments:
+      $tierProviders:
+        core: '@Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider'
+        form: '@?Symfinity\UxBlocksForm\Css\BlocksFormCssProvider'
+        extended: '@?Symfinity\UxBlocksExtended\Css\BlocksExtendedCssProvider'
+        interactive: '@?Symfinity\UxBlocksInteractive\Css\BlocksInteractiveCssProvider'
+        marketing: '@?Symfinity\UxBlocksMarketing\Css\BlocksMarketingCssProvider'
+        ecommerce: '@?Symfinity\UxBlocksEcommerce\Css\BlocksEcommerceCssProvider'
+
+  Symfinity\UxBlocksCore\Twig\UxBlocksUiAssetsExtension:
+    tags: ['twig.extension']
+
+  Symfinity\UxBlocksCore\EventSubscriber\UxBlocksUiAssetsResponseSubscriber:
+    tags: ['kernel.event_subscriber']
+
+  Symfinity\UxBlocksCore\Breadcrumb\BreadcrumbTrailResolverInterface:
+    alias: Symfinity\UxBlocksCore\Breadcrumb\PathSegmentBreadcrumbTrailResolver

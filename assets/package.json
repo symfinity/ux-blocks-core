@@ -1,0 +1,32 @@
+{
+    "name": "@symfinity/ux-blocks-core",
+    "symfony": {
+        "controllers": {
+            "collapsible": {
+                "main": "controllers/ux_blocks_core/collapsible_controller.js",
+                "fetch": "lazy",
+                "enabled": true
+            },
+            "tooltip": {
+                "main": "controllers/ux_blocks_core/tooltip_controller.js",
+                "fetch": "eager",
+                "enabled": true
+            },
+            "popover": {
+                "main": "controllers/ux_blocks_core/popover_controller.js",
+                "fetch": "eager",
+                "enabled": true
+            },
+            "accordion": {
+                "main": "controllers/ux_blocks_core/accordion_controller.js",
+                "fetch": "lazy",
+                "enabled": true
+            },
+            "alert": {
+                "main": "controllers/ux_blocks_core/alert_controller.js",
+                "fetch": "lazy",
+                "enabled": true
+            }
+        }
+    }
+}

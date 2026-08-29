@@ -1,0 +1,25 @@
+@use '../_shared/mixins' as mixins;
+@use '../_shared/appearance-matrix' as am;
+
+[data-ui-role='badge'] {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ui-space-sm);
+  padding: 0.125rem var(--ui-space-sm);
+  font-size: var(--ui-font-size-sm);
+  font-weight: 600;
+  border-radius: var(--ui-radius-full);
+  background: var(--ui-color-surface-elevated);
+  border: 1px solid var(--ui-color-border);
+  color: var(--ui-color-text);
+  font-family: var(--ui-font-family-sans);
+  line-height: 1.25;
+  box-sizing: border-box;
+
+  [data-ui-part='icon'] {
+    @include mixins.icon-slot-inline(1em);
+  }
+
+  @include am.each-badge-variant(badge);
+  @include am.each-badge-size();
+}

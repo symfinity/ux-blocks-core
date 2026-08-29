@@ -1,0 +1,30 @@
+// SSOT Sass lists — semantic-variant-vocabulary v2 (115)
+
+$ui-semantic-colours: primary, secondary, accent, success, danger, info, warning, neutral !default;
+
+$ui-appearances: solid, soft, outline, ghost, link !default;
+
+$ui-control-sizes: sm, md, lg !default;
+
+$ui-variant-tone-aliases: (
+  error: danger,
+  destructive: danger,
+) !default;
+
+$ui-placements-y: top, bottom !default;
+
+$ui-stack-max-items: 10 !default;
+
+$ui-layout-button: icon-only, block !default;
+
+$ui-density: default, compact !default;
+
+$ui-list-gaps: xs, sm, md, lg, xl !default;
+
+$ui-list-gap-values: (
+  xs: 0,
+  sm: var(--ui-space-xs),
+  md: var(--ui-space-sm),
+  lg: var(--ui-space-lg),
+  xl: var(--ui-space-xl),
+) !default;

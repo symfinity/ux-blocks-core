@@ -1,11 +1,17 @@
 {% set caption_content -%}
     {%- block caption %}{%- endblock %}
 {%- endset %}
+{% set quote_content -%}
+    {%- block quote %}{%- endblock %}
+{%- endset %}
 <figure
     {% if align != 'none' %}data-ui-align="{{ align }}"{% endif %}
     {{ attributes }}
 >
     {% block media %}{% endblock %}
+    {% if quote_content|trim is not empty %}
+        {% include '@UxBlocksCore/components/Figure/_quote.html.twig' %}
+    {% endif %}
     {% if caption_content|trim is not empty %}
         {% include '@UxBlocksCore/components/Figure/_caption.html.twig' %}
     {% endif %}

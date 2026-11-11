@@ -71,3 +71,19 @@ font-size: var(--ui-font-size-sm);
 margin: 0;
   display: inline;
 }
+[data-ui-role="figure"][data-ui-align="start"] [data-ui-role="figure-quote"] {
+text-align: start;
+}
+[data-ui-role="figure"][data-ui-align="end"] [data-ui-role="figure-quote"] {
+text-align: end;
+}
+[data-ui-role="figure"][data-ui-align="center"] [data-ui-role="figure-quote"] {
+text-align: center;
+}
+[data-ui-role="figure-quote"] {
+font-family: var(--ui-font-family-sans);
+  margin-block: var(--ui-space-md);
+}
+[data-ui-role="figure-quote"] [data-ui-role="typography"] {
+margin-block: 0;
+}

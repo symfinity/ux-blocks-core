@@ -18,6 +18,21 @@ groups:
                   <twig:Typography>{{ lorem_sentence() }}</twig:Typography>
               </twig:block>
           </twig:Figure>
+      - id: with-quote
+        label: With quote
+        props: {}
+        slot_twig: |
+          <twig:Figure>
+              <twig:block name="media">
+                  <twig:Image src="{{ omnia_image(640, 360) }}" alt="{{ lorem_words(4) }}" />
+              </twig:block>
+              <twig:block name="quote">
+                  <twig:Typography>{{ lorem_sentence() }}</twig:Typography>
+              </twig:block>
+              <twig:block name="caption">
+                  <twig:Typography>{{ lorem_sentence() }}</twig:Typography>
+              </twig:block>
+          </twig:Figure>
       - id: aligned-center
         label: Center aligned
         props: { align: center }

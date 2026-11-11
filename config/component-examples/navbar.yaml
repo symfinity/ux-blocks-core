@@ -1,0 +1,23 @@
+role: navbar
+twig_name: Navbar
+php_class: Symfinity\UxBlocksCore\Twig\Components\Navbar
+fragment_id: blocks.navbar
+groups:
+  - id: examples
+    section: Examples
+    layout: stack
+    items:
+      - id: default
+        label: "Top nav"
+        props:
+          icon: lucide:book-open
+        slot_twig: |
+          <twig:Navbar icon="lucide:book-open">
+              {% block content %}
+                  <nav aria-label="Primary">
+                      <a href="#handbook-navbar" data-ui-role="link">Docs</a>
+                      <a href="#handbook-navbar" data-ui-role="link">Components</a>
+                      <a href="#handbook-navbar" data-ui-role="link">Guides</a>
+                  </nav>
+              {% endblock %}
+          </twig:Navbar>

@@ -1,0 +1,19 @@
+<header
+    data-ui-role="navbar"
+    data-ui-fragment="blocks.navbar"
+    data-ui-part="navbar-sticky"
+    {{ surface_attr|raw }}
+    {{ attributes }}
+>
+    <div data-ui-part="navbar-chrome">
+        <div data-ui-part="navbar-brand">
+            {% if resolved_brand_icon %}
+                {% include '@UxBlocksCore/components/_shared/p_icon_slot.html.twig' with {
+                    iconName: resolved_brand_icon,
+                    iconDecorative: iconDecorative,
+                } only %}
+            {% endif %}
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+</header>

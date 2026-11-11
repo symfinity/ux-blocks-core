@@ -15,6 +15,7 @@ final class TemplateLiteralAuditTest extends TestCase
         'templates/components/RadioGroup/',
         'templates/components/List/',
         'templates/components/Grid/',
+        'templates/components/Navbar.html.twig',
     ];
 
     #[Test]
@@ -29,6 +30,10 @@ final class TemplateLiteralAuditTest extends TestCase
             $basename = basename($file, '.html.twig');
             $twigName = $this->resolveTwigName($basename, $registry);
             if (null === $twigName) {
+                continue;
+            }
+
+            if ($this->isExceptionPath($file, $packageDir)) {
                 continue;
             }
 

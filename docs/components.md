@@ -20,6 +20,7 @@ Core atoms and layout primitives. Form controls: [ux-blocks-form](https://packag
 | [Kbd](components/kbd.md) | Keyboard shortcut hint |
 | [Link](components/link.md) | Inline text navigation |
 | [List](components/list.md) | Styled list container |
+| [Navbar](components/navbar.md) | Top navigation bar |
 | [Pagination](components/pagination.md) | Paged navigation control |
 | [Progress](components/progress.md) | Completion progress bar |
 | [ScrollArea](components/scroll-area.md) | Scrollable region with styled overflow |

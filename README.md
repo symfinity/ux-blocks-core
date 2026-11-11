@@ -67,6 +67,7 @@ Form field roles (`Label`, `Input`, …) ship in [`symfinity/ux-blocks-form`](ht
 | breadcrumb | Breadcrumb | nat | `blocks.breadcrumb` | shipped |
 | pagination | Pagination | nat, act | `blocks.pagination` | shipped |
 | button-group | ButtonGroup | nat | `blocks.button-group` | shipped |
+| navbar | Navbar | nat | `blocks.navbar` | shipped |
 <!-- ux-blocks:registry:end -->
 
 **Highlights:** variant and appearance CSS on **Button**, **Badge**, and **Link**; icon slots on actions, links, flashes, and headings; optional decorative icon watermark on **Flash**; solid **Button** elevation with hover lift (respects `prefers-reduced-motion`).

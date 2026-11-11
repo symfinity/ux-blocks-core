@@ -235,6 +235,17 @@ roles:
     interaction: nat
     stage: A
     status: v1
+  - role: navbar
+    twig_component: Navbar
+    php_class: Symfinity\UxBlocksCore\Twig\Components\Navbar
+    fragment_id: blocks.navbar
+    fragment_pattern: "blocks.navbar.{n}"
+    interaction: nat
+    stage: A
+    status: v1
+    icon_slot:
+      position: locked-start
+      part: navbar-brand
 
 deprecated_fragment_aliases:
   - from: blocks.divider
@@ -266,4 +277,7 @@ deprecated_fragment_aliases:
     sunset: next-minor
   - from: blocks.ext.button-group
     to: blocks.button-group
+    sunset: next-minor
+  - from: blocks.ext.navbar
+    to: blocks.navbar
     sunset: next-minor

@@ -33,11 +33,11 @@ final class RegistryConsistencyTest extends TestCase
     }
 
     #[Test]
-    public function yamlContainsExactlyTwentyFiveAtomRoles(): void
+    public function yamlContainsExactlyTwentyFourAtomRoles(): void
     {
         $registry = $this->loadRegistry();
 
-        self::assertCount(25, $registry['roles']);
+        self::assertCount(24, $registry['roles']);
         self::assertSame(CoreRoleCatalog::roles(), array_column($registry['roles'], 'role'));
         self::assertSame('blocks.image', $this->findRole('image')['fragment_id']);
         self::assertSame('blocks.figure', $this->findRole('figure')['fragment_id']);

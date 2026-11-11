@@ -46,4 +46,4 @@ Items support `href` for links and `current` for the active page.
 
 ## Related
 
-- [Link](link.md) · [Navbar](https://docs.symfinity.dev/ux-blocks-extended/components/navbar)
+- [Link](link.md) · [Navbar](navbar.md)

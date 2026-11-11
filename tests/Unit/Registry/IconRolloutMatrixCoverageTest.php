@@ -17,13 +17,13 @@ final class IconRolloutMatrixCoverageTest extends TestCase
         $expectations = [
             $packageRoot . '/config/ux_roles.yaml' => [
                 'link', 'badge', 'flash', 'button',
-                'section-heading',
+                'section-heading', 'navbar',
             ],
             \dirname($packageRoot) . '/ux-blocks-form/config/ux_roles.yaml' => [
                 'input',
             ],
             \dirname($packageRoot) . '/ux-blocks-extended/config/ux_roles.yaml' => [
-                'stat', 'navbar', 'alert', 'empty',
+                'stat', 'alert', 'empty',
             ],
             \dirname($packageRoot) . '/ux-blocks-interactive/config/ux_roles.yaml' => [
                 'toast', 'dropdown-menu',

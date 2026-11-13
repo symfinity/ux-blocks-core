@@ -1,7 +1,7 @@
 // symfinity 122 — native dialog shell (profiler settings; extended tier adds motion overlay)
 
 [data-ui-role='dialog'] {
-  --ui-shadow-elevated: rgb(0 0 0 / 15%);
+  --ui-shadow-elevated: var(--ui-shadow-lg);
   background: var(--ui-color-surface-elevated);
   border: 0;
   border-radius: var(--ui-radius-md, 6px);
@@ -20,22 +20,22 @@
   &::backdrop {
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
-    background: rgb(0 0 0 / 42%);
+    background: var(--ui-color-overlay);
   }
 
   html[data-theme$='-dark'] &::backdrop,
   &[data-theme$='-dark']::backdrop {
-    background: rgb(0 0 0 / 72%);
+    background: var(--ui-color-overlay);
   }
 
   html[data-theme$='-light'] &::backdrop,
   &[data-theme$='-light']::backdrop {
-    background: rgb(0 0 0 / 42%);
+    background: var(--ui-color-overlay);
   }
 
   :is(html[data-theme$='-dark'], body.theme-dark) &,
   &[data-theme$='-dark'] {
-    --ui-shadow-elevated: rgb(0 0 0 / 55%);
+    --ui-shadow-elevated: var(--ui-shadow-lg);
   }
 
   header,

@@ -1,4 +1,4 @@
-[data-ui-role=flash] {
+[data-ui-role="flash"] {
   --ux-flash-duration: 5s;
   --ux-flash-tone: var(--ui-color-info);
   position: relative;
@@ -17,50 +17,50 @@
   overflow: hidden;
   animation: ux-flash-enter var(--ui-motion-duration-normal, 0.2s) var(--ui-motion-easing-standard, ease) both;
 }
-html:not([data-theme$=-dark]) [data-ui-role=flash] {
+html:not([data-theme$=-dark]) [data-ui-role="flash"] {
   color: color-mix(in srgb, var(--ux-flash-tone) 70%, black);
   background-color: color-mix(in srgb, var(--ux-flash-tone) 14%, var(--ui-color-surface));
   border: 1px solid var(--ux-flash-tone);
 }
-html[data-theme$=-dark] [data-ui-role=flash] {
+html[data-theme$=-dark] [data-ui-role="flash"] {
   color: color-mix(in srgb, var(--ux-flash-tone) 78%, white);
   background-color: color-mix(in srgb, var(--ux-flash-tone) 24%, var(--ui-color-surface-elevated));
   border: 1px solid var(--ux-flash-tone);
 }
-[data-ui-role=flash][data-ui-variant=success] {
+[data-ui-role="flash"][data-ui-variant="success"] {
   --ux-flash-tone: var(--ui-color-success);
 }
-[data-ui-role=flash][data-ui-variant=warning] {
+[data-ui-role="flash"][data-ui-variant="warning"] {
   --ux-flash-tone: var(--ui-color-warning);
 }
-[data-ui-role=flash][data-ui-variant=info] {
+[data-ui-role="flash"][data-ui-variant="info"] {
   --ux-flash-tone: var(--ui-color-info);
 }
-[data-ui-role=flash][data-ui-variant=danger] {
+[data-ui-role="flash"][data-ui-variant="danger"] {
   --ux-flash-tone: var(--ui-color-danger);
 }
-[data-ui-role=flash][data-ui-variant=error] {
+[data-ui-role="flash"][data-ui-variant="error"] {
   --ux-flash-tone: var(--ui-color-danger);
 }
-[data-ui-role=flash][data-ui-variant=destructive] {
+[data-ui-role="flash"][data-ui-variant="destructive"] {
   --ux-flash-tone: var(--ui-color-danger);
 }
-[data-ui-role=flash][data-ui-placement=top] {
+[data-ui-role="flash"][data-ui-placement="top"] {
   animation-name: ux-flash-enter-top;
 }
-[data-ui-role=flash][data-ui-placement=bottom] {
+[data-ui-role="flash"][data-ui-placement="bottom"] {
   animation-name: ux-flash-enter-bottom;
 }
-[data-ui-role=flash][data-ui-auto-dismiss] {
+[data-ui-role="flash"][data-ui-auto-dismiss] {
   animation: ux-flash-enter-top var(--ui-motion-duration-normal, 0.2s) var(--ui-motion-easing-standard, ease) both, ux-flash-exit-top var(--ui-motion-duration-normal, 0.2s) var(--ui-motion-easing-standard, ease) forwards var(--ux-flash-duration);
 }
-[data-ui-role=flash][data-ui-placement=bottom][data-ui-auto-dismiss] {
+[data-ui-role="flash"][data-ui-placement="bottom"][data-ui-auto-dismiss] {
   animation: ux-flash-enter-bottom var(--ui-motion-duration-normal, 0.2s) var(--ui-motion-easing-standard, ease) both, ux-flash-exit-bottom var(--ui-motion-duration-normal, 0.2s) var(--ui-motion-easing-standard, ease) forwards var(--ux-flash-duration);
 }
-[data-ui-role=flash][data-ui-placement=bottom]:not([data-ui-auto-dismiss]) {
+[data-ui-role="flash"][data-ui-placement="bottom"]:not([data-ui-auto-dismiss]) {
   animation-name: ux-flash-enter-bottom;
 }
-[data-ui-role=flash] [data-ui-part=icon]:has(:is(svg, img)) {
+[data-ui-role="flash"] [data-ui-part="icon"]:has(:is(svg, img)) {
   display: inline-flex;
   flex-shrink: 0;
   align-items: center;
@@ -70,16 +70,16 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   color: inherit;
   line-height: 0;
 }
-[data-ui-role=flash] [data-ui-part=icon] :is(svg, img) {
+[data-ui-role="flash"] [data-ui-part="icon"] :is(svg, img) {
   display: block;
   width: 100%;
   height: 100%;
 }
-[data-ui-role=flash] [data-ui-part=content] {
+[data-ui-role="flash"] [data-ui-part="content"] {
   flex: 1 1 auto;
   min-width: 0;
 }
-[data-ui-role=flash][data-ui-auto-dismiss]::after {
+[data-ui-role="flash"][data-ui-auto-dismiss]::after {
   content: "";
   position: absolute;
   inset-inline: 0;
@@ -91,7 +91,7 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   animation: ux-flash-progress var(--ux-flash-duration) linear forwards;
 }
 
-[data-ui-part=flash-body] {
+[data-ui-part="flash-body"] {
   position: relative;
   z-index: 1;
   display: flex;
@@ -184,15 +184,15 @@ html[data-theme$=-dark] [data-ui-role=flash] {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  [data-ui-role=flash] {
+  [data-ui-role="flash"] {
     animation: none;
     opacity: 1;
     transform: none;
   }
-  [data-ui-role=flash][data-ui-auto-dismiss] {
+  [data-ui-role="flash"][data-ui-auto-dismiss] {
     animation: none;
   }
-  [data-ui-role=flash][data-ui-auto-dismiss]::after {
+  [data-ui-role="flash"][data-ui-auto-dismiss]::after {
     animation: none;
     display: none;
   }

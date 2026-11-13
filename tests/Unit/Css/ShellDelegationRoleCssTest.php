@@ -23,7 +23,7 @@ final class ShellDelegationRoleCssTest extends TestCase
     {
         $css = self::roleCss('card');
 
-        self::assertStringContainsString('[data-ui-role=card]', $css);
+        self::assertStringContainsString('[data-ui-role="card"]', $css);
         self::assertStringContainsString(
             'box-shadow: inset 0 0 0 1px var(--ui-color-border), 0 0 0 5px var(--ui-color-surface)',
             $css,
@@ -36,9 +36,9 @@ final class ShellDelegationRoleCssTest extends TestCase
     {
         $css = self::roleCss('dialog');
 
-        self::assertStringContainsString('[data-ui-role=dialog]::backdrop', $css);
+        self::assertStringContainsString('[data-ui-role="dialog"]::backdrop', $css);
         self::assertStringContainsString('backdrop-filter: blur(2px)', $css);
-        self::assertStringContainsString('[data-ui-role=dialog] header', $css);
+        self::assertStringContainsString('[data-ui-role="dialog"] header', $css);
     }
 
     #[Test]
@@ -64,7 +64,7 @@ final class ShellDelegationRoleCssTest extends TestCase
     {
         $css = self::roleCss('section-heading');
 
-        self::assertStringContainsString('[data-ui-role=section-heading][data-ui-variant=panel]', $css);
+        self::assertStringContainsString('[data-ui-role="section-heading"][data-ui-variant="panel"]', $css);
     }
 
     #[Test]
@@ -72,6 +72,6 @@ final class ShellDelegationRoleCssTest extends TestCase
     {
         $css = self::roleCss('tabs');
 
-        self::assertStringContainsString('[data-ui-role=tabs] > .tab > :is(h2, h3).tab-title', $css);
+        self::assertStringContainsString('[data-ui-role="tabs"] > .tab > :is(h2, h3).tab-title', $css);
     }
 }

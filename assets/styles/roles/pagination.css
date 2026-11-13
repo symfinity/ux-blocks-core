@@ -1,4 +1,4 @@
-[data-ui-role=pagination] {
+[data-ui-role="pagination"] {
   display: flex;
   flex-wrap: wrap;
   gap: var(--ui-space-xs);

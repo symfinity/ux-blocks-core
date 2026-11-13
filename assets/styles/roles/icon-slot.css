@@ -3,7 +3,7 @@
   --ux-feedback-icon-slot-align-offset: 0.125rem;
 }
 
-[data-ui-role] [data-ui-part=icon]:not(:has(:is(svg, img))) {
+[data-ui-role] [data-ui-part="icon"]:not(:has(:is(svg, img))) {
   display: none;
   width: 0;
   min-width: 0;

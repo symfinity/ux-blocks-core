@@ -22,7 +22,7 @@ final class TemplateLiteralAuditTest extends TestCase
     public function rootAtomTemplatesDoNotHandAuthorRegistryAttributes(): void
     {
         $packageDir = \dirname(__DIR__, 3);
-        $registry = new UxRoleRegistry($packageDir . '/config/ux_roles.yaml');
+        $registry = new UxRoleRegistry([$packageDir . '/config/ux_roles.yaml']);
         $rootTwigFiles = glob($packageDir . '/templates/components/*.html.twig') ?: [];
 
         $violations = [];

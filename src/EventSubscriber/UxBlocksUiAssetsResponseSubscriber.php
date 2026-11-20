@@ -29,6 +29,11 @@ final class UxBlocksUiAssetsResponseSubscriber implements EventSubscriberInterfa
             return;
         }
 
+        // Live re-renders must keep exactly one root element; the host page already carries the styles.
+        if ($event->getRequest()->attributes->has('_live_component')) {
+            return;
+        }
+
         $response = $event->getResponse();
         if (!str_contains((string) $response->headers->get('Content-Type', ''), 'html')) {
             return;
@@ -43,18 +48,17 @@ final class UxBlocksUiAssetsResponseSubscriber implements EventSubscriberInterfa
             return;
         }
 
+        // Only full documents get styles; fragments (Turbo frames, Live, AJAX) are left alone.
+        if (preg_match('/<head\b[^>]*>/i', $content, $matches, PREG_OFFSET_CAPTURE) !== 1) {
+            return;
+        }
+
         $styles = $this->uiAssetsRenderer->renderInlineStylesOnce();
         if ($styles === '') {
             return;
         }
 
-        if (preg_match('/<head\b[^>]*>/i', $content, $matches, PREG_OFFSET_CAPTURE) === 1) {
-            $insertAt = $matches[0][1] + \strlen($matches[0][0]);
-            $content = substr($content, 0, $insertAt) . $styles . substr($content, $insertAt);
-        } else {
-            $content = $styles . $content;
-        }
-
-        $response->setContent($content);
+        $insertAt = $matches[0][1] + \strlen($matches[0][0]);
+        $response->setContent(substr($content, 0, $insertAt) . $styles . substr($content, $insertAt));
     }
 }

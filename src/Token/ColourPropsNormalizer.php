@@ -41,6 +41,14 @@ final class ColourPropsNormalizer
         return '--ui-color-' . $variant;
     }
 
+    /** True when $value is a vocabulary name, a legacy alias or an appearance alias (no silent fallback). */
+    public function isKnown(string $value): bool
+    {
+        return \array_key_exists($value, self::LEGACY_ALIASES)
+            || \in_array($value, self::APPEARANCE_VARIANT_ALIASES, true)
+            || \in_array($value, self::PLATFORM_MINIMUM, true);
+    }
+
     public function normalize(string $value): string
     {
         $candidate = self::LEGACY_ALIASES[$value] ?? $value;

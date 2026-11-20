@@ -47,6 +47,12 @@ final class SymfinityUxBlocksCoreExtension extends Extension implements PrependE
         $packageDir = \dirname(__DIR__, 2);
         $container->setParameter('ux_blocks_core.package_dir', $packageDir);
         $container->setParameter('ux_blocks_core.fragment_ids', (bool) $config['fragment_ids']);
+        $uiAssets = $config['ui_assets'] ?? null;
+        $alwaysTiers = \is_array($uiAssets) ? ($uiAssets['always_tiers'] ?? []) : [];
+        if (!\is_array($alwaysTiers)) {
+            $alwaysTiers = [];
+        }
+        $container->setParameter('ux_blocks_core.ui_assets.always_tiers', array_values($alwaysTiers));
 
         $loader = new YamlFileLoader($container, new FileLocator($packageDir . '/config'));
         $loader->load('services.yaml');

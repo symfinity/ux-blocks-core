@@ -14,6 +14,25 @@ UX Blocks Core ships **zero required app YAML**. The bundle prepends AssetMapper
 
 Applications **do not** copy bundle `config/` into `config/packages/`.
 
+## Style injection
+
+The bundle adds the inline `<style id="ux-blocks-{tier}-css">` blocks for every tier a page uses. It reads which tiers are used from the role catalogue (`config/ux_roles.yaml`) of **every installed ux-blocks tier**, so a `Card` turns on the extended styles and a `Tabs` turns on the interactive styles.
+
+Styles go into **full pages only**: responses that have a `<head>` element. Fragments (Turbo frames, AJAX snippets) and Live component re-renders are left untouched, because the page that hosts them already has the styles.
+
+### `ui_assets.always_tiers`
+
+A tier that first appears **inside** a Live re-render has no full page to carry its styles. List such tiers once and every full page gets them:
+
+```yaml
+# config/packages/symfinity_ux_blocks_core.yaml
+symfinity_ux_blocks_core:
+  ui_assets:
+    always_tiers: [marketing]   # allowed: core, form, extended, interactive, marketing, ecommerce
+```
+
+The default is `[]`: pages that use only core components stay as light as before.
+
 ## Routes
 
 This package ships **no HTTP routes** — only Twig components, registry YAML, and AssetMapper assets.

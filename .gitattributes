@@ -2,7 +2,6 @@
 # Exclude development and test files from Packagist/Composer downloads
 
 /tests export-ignore
-/docs export-ignore
 /.github export-ignore
 /build export-ignore
 

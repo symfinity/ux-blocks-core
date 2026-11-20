@@ -36,6 +36,28 @@ final class BadgeVariantTest extends ComponentTestCase
         $this->assertRootAttributes($html, 'badge', 'blocks.badge');
         self::assertStringContainsString(sprintf('data-ui-variant="%s"', $variant), $html);
         self::assertStringContainsString(sprintf('data-ui-size="%s"', $size), $html);
-        self::assertStringNotContainsString('data-ui-appearance', $html);
+        self::assertStringContainsString('data-ui-appearance="solid"', $html);
+    }
+
+    #[Test]
+    public function outlineVariantIsAnAppearanceShortcut(): void
+    {
+        self::bootKernel();
+
+        $html = $this->renderComponent('Badge', ['variant' => 'outline'], 'Badge');
+
+        self::assertStringContainsString('data-ui-variant="primary"', $html);
+        self::assertStringContainsString('data-ui-appearance="outline"', $html);
+    }
+
+    #[Test]
+    public function outlineAppearanceKeepsTheColour(): void
+    {
+        self::bootKernel();
+
+        $html = $this->renderComponent('Badge', ['variant' => 'danger', 'appearance' => 'outline'], 'Badge');
+
+        self::assertStringContainsString('data-ui-variant="danger"', $html);
+        self::assertStringContainsString('data-ui-appearance="outline"', $html);
     }
 }

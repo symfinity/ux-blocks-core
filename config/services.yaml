@@ -15,7 +15,8 @@ services:
 
   Symfinity\UxBlocksCore\Registry\UxRoleRegistry:
     arguments:
-      $yamlPath: '%ux_blocks_core.package_dir%/config/ux_roles.yaml'
+      # Replaced by CollectTierRoleCatalogsPass with every installed tier catalogue.
+      $yamlPaths: ['%ux_blocks_core.package_dir%/config/ux_roles.yaml']
 
   Symfinity\UxBlocksCore\Twig\RoleAttributeBridgeListener:
     arguments:
@@ -24,6 +25,7 @@ services:
 
   Symfinity\UxBlocksCore\Twig\UxBlocksUiAssetsRenderer:
     arguments:
+      $alwaysTiers: '%ux_blocks_core.ui_assets.always_tiers%'
       $tierProviders:
         core: '@Symfinity\UxBlocksCore\Css\BlocksCoreCssProvider'
         form: '@?Symfinity\UxBlocksForm\Css\BlocksFormCssProvider'

@@ -22,7 +22,7 @@ final class RoleAttributeBridgeListener
 
     public function onPreRender(PreRenderEvent $event): void
     {
-        $record = $this->registry->findByTwigComponent($event->getMetadata()->getName());
+        $record = $this->registry->findCoreByTwigComponent($event->getMetadata()->getName());
         if (null === $record) {
             return;
         }

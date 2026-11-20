@@ -18,6 +18,17 @@
     box-sizing: border-box;
   }
 
+  // Inline: short items (badges, tags, buttons) side by side at every width.
+  &[data-ui-direction='inline'] > [data-ui-part='stack-layout'] {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+
+    > * {
+      flex: 0 1 auto;
+    }
+  }
+
   @supports not (container-type: style) {
     --ui-density: comfortable;
   }

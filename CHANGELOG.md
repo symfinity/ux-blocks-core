@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.7] - 2026-11-20
+
+### Added
+
+- `<twig:Navbar>` with role `navbar` and fragment `blocks.navbar`. `blocks.ext.navbar` stays as an alias until the next minor
+- Stack accepts `direction="inline"`: a wrapping row at every width. `horizontal` is unchanged. Any other value is treated as `vertical`
+- Badge accepts `appearance` (`solid` or `outline`). `variant="outline"` is primary plus outline
+- Optional `symfinity_ux_blocks_core.ui_assets.always_tiers` lists tiers whose styles every full page receives. The default is an empty list
+- An unknown colour name still falls back to the default and logs one warning when a logger is available. The package now requires `psr/log`
+
+### Changed
+
+- The role registry reads the catalogue of every installed tier, core first. `UxRoleRegistry` takes a list of catalogue paths (`$yamlPaths`) instead of one path string. Role attributes on Twig components still come from the core catalogue only
+- Component docs ship in the Composer archive. The pagination and grid pages show their child markup
+
+### Fixed
+
+- Responses without a `<head>`, including Live re-renders, no longer receive inline tier styles
+- A page that renders a component from an installed tier receives that tier's stylesheet
+- PHPUnit bootstrap registers this package's PSR-4 prefixes from `composer.json` after loading the monorepo or package autoload, and narrows the decoded autoload sections before reading `psr-4`
+
 ## [0.1.6] - 2026-07-05
 
 ### Added

@@ -21,5 +21,6 @@
   }
 
   @include am.each-badge-variant(badge);
+  @include am.each-badge-outline();
   @include am.each-badge-size();
 }

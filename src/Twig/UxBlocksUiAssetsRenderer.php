@@ -20,12 +20,15 @@ final class UxBlocksUiAssetsRenderer
 
     /**
      * @param array<string, object|null> $tierProviders map tier key → provider with stylesheet()
+     * @param list<string>                $alwaysTiers   tiers turned on for every full page
      */
     public function __construct(
         private readonly RequestStack $requestStack,
         private readonly UxBlocksUiAssetsTierResolver $tierResolver,
         private readonly array $tierProviders = [],
+        array $alwaysTiers = [],
     ) {
+        $this->activeTiers = array_values(array_unique($alwaysTiers));
     }
 
     public function activateForFragmentId(string $fragmentId): void

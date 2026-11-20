@@ -6,7 +6,7 @@ namespace Symfinity\UxBlocksCore\Twig\Components;
 
 use Symfinity\UxBlocksCore\Twig\ExposesSemanticVariant;
 use Symfinity\UxBlocksCore\Twig\NormalizesControlSize;
-use Symfinity\UxBlocksCore\Twig\NormalizesSemanticColourVariant;
+use Symfinity\UxBlocksCore\Twig\NormalizesButtonColourProps;
 use Symfinity\UxBlocksCore\Twig\ResolvesExplicitIcon;
 use Symfony\UX\TwigComponent\Attribute\AsTwigComponent;
 use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
@@ -15,11 +15,14 @@ use Symfony\UX\TwigComponent\Attribute\ExposeInTemplate;
 final class Badge
 {
     use ExposesSemanticVariant;
-    use NormalizesSemanticColourVariant;
+    use NormalizesButtonColourProps;
     use NormalizesControlSize;
     use ResolvesExplicitIcon;
 
     public string $variant = 'primary';
+
+    /** `solid` or `outline`; `variant="outline"` is a shortcut for primary + outline. */
+    public string $appearance = 'solid';
 
     public string $size = 'md';
 

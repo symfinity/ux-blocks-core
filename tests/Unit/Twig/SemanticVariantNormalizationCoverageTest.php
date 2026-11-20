@@ -23,7 +23,9 @@ final class SemanticVariantNormalizationCoverageTest extends TestCase
                 if (!str_contains($source, 'ExposesSemanticVariant')) {
                     continue;
                 }
-                if (!str_contains($source, 'NormalizesSemanticColourVariant')) {
+                if (!str_contains($source, 'NormalizesSemanticColourVariant')
+                    && !str_contains($source, 'NormalizesButtonColourProps')
+                ) {
                     $missing[] = str_replace($packagesRoot . '/', '', $file);
                 }
             }

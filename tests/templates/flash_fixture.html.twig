@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><title>Flash fixture</title></head>
+<body>
 <twig:FlashStack placement="top">
     {% for message in app.flashes('success') %}
         <twig:Flash variant="success">{{ message }}</twig:Flash>
     {% endfor %}
 </twig:FlashStack>
+</body>
+</html>

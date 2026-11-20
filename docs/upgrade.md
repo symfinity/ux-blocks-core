@@ -93,6 +93,24 @@ After upgrade:
 
 Optional: remove redundant manual tier stylesheet calls from layouts now covered by auto-inject.
 
+## 0.1.7
+
+`<twig:Navbar>` is a core component (`blocks.navbar`). `blocks.ext.navbar` still resolves until the next minor.
+
+Stack accepts `direction="inline"`. Badge accepts `appearance="outline"`, and `variant="outline"` means primary plus outline.
+
+Inline tier styles are injected into full pages only (a response with `<head>`). Live re-renders and other fragments do not receive them. A tier that first appears inside a Live re-render can be listed in `symfinity_ux_blocks_core.ui_assets.always_tiers` (default `[]`).
+
+`UxRoleRegistry` now takes a list of catalogue paths (`$yamlPaths`) instead of one path string. It reads every installed tier, core first. Role attributes on Twig components still come from the core catalogue only.
+
+The package requires `psr/log`. An unknown colour name still falls back to the default and logs one warning when a logger is available.
+
+```bash
+composer update symfinity/ux-blocks-core
+```
+
+After upgrade, clear the Symfony cache. Templates that constructed `UxRoleRegistry` with a single path string must pass a list.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

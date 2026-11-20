@@ -1,40 +1,62 @@
 # Grid
 
-CSS grid layout shell.
+A CSS grid shell. Cells are the nested `Grid:Cell` component.
 
 ## When to use
 
-CSS grid layout shell. Use **Grid** when this pattern fits the screen — variant previews are below.
+Use **Grid** when items should line up in columns. Use [Stack](stack.md) when items only need to follow one another.
 
 ## Guidelines
 
 **Do**
 
-- Prefer kernel spacing tokens (`gap`, `stack`) over ad-hoc margins.
-- Keep nesting shallow — compose with Stack or Grid.
+- Set `columns` to the count you want at a comfortable width.
+- Put each item in `Grid:Cell`. Use `span` when one item should cover more than one column.
 
 **Don't**
 
-- Wrap every block in multiple layout shells.
-- Fight the theme spacing scale with one-off pixel values.
+- Nest several grids to fake a simple stack.
+- Set a pixel gap on the cells. Use `density` instead.
 
 ## Usage
 
 ```twig
-<twig:Grid cols="2">…</twig:Grid>
+<twig:Grid :columns="2" density="comfortable">
+    <twig:Grid:Cell>First</twig:Grid:Cell>
+    <twig:Grid:Cell>Second</twig:Grid:Cell>
+</twig:Grid>
 ```
 
+A cell can span columns:
+
+```twig
+<twig:Grid :columns="3">
+    {% block content %}
+        <twig:Grid:Cell :span="2">Wide</twig:Grid:Cell>
+        <twig:Grid:Cell>Narrow</twig:Grid:Cell>
+    {% endblock %}
+</twig:Grid>
+```
 
 ## API Reference
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| — | — | — | See Twig component class and package registry. |
+| `columns` | `int` or null | null | Column count, written as `data-ui-columns`. Omit it to leave the count to CSS. |
+| `density` | `string` | `comfortable` | `compact`, `comfortable`, or `spacious`. |
+| content | block | — | The cells. |
+
+`Grid:Cell` props:
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `span` | `int` or null | null | How many columns this cell covers (`data-ui-span`). |
+| content | block | — | The cell body. |
 
 ## Accessibility
 
-- Preserve document heading order inside layout regions.
-- Scroll areas need keyboard access to overflowing content.
+- Keep heading order inside the cells the same as the reading order.
+- Do not put the only page navigation inside a grid cell without a name.
 
 ## Related
 

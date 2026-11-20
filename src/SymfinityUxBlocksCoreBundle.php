@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Symfinity\UxBlocksCore;
 
+use Symfinity\UxBlocksCore\DependencyInjection\Compiler\CollectTierRoleCatalogsPass;
 use Symfony\Bundle\TwigBundle\DependencyInjection\Configurator\TwigConfigurator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
@@ -26,6 +27,7 @@ final class SymfinityUxBlocksCoreBundle extends Bundle
     {
         parent::build($container);
         $container->setParameter('ux_blocks_core.package_dir', $this->getPath());
+        $container->addCompilerPass(new CollectTierRoleCatalogsPass());
     }
 
     public function configureRoutes(RoutingConfigurator $routes): void

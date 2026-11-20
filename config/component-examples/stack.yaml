@@ -24,3 +24,12 @@ groups:
               <twig:Badge variant="neutral">{{ lorem_words(1)|capitalize }}</twig:Badge>
               <twig:Link href="/docs">{{ lorem_words(1)|capitalize }}</twig:Link>
           </twig:Stack>
+      - id: inline
+        label: Inline
+        props: { direction: inline, gap: sm }
+        slot_twig: |
+          <twig:Stack direction="inline" gap="sm">
+              <twig:Badge>{{ lorem_words(1)|capitalize }}</twig:Badge>
+              <twig:Badge variant="neutral">{{ lorem_words(1)|capitalize }}</twig:Badge>
+              <twig:Badge variant="accent">{{ lorem_words(1)|capitalize }}</twig:Badge>
+          </twig:Stack>

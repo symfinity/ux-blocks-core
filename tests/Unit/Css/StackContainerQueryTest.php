@@ -38,4 +38,31 @@ final class StackContainerQueryTest extends TestCase
         self::assertStringContainsString('[data-ui-direction="horizontal"]', $css);
         self::assertStringContainsString('[data-ui-part="stack-layout"]', $css);
     }
+
+    #[Test]
+    public function inlineDirectionWrapsAsARowAtEveryWidth(): void
+    {
+        $css = self::stackCss();
+        $outsideContainerQueries = preg_replace('/@container[^{]*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}/', '', $css) ?? '';
+
+        self::assertMatchesRegularExpression(
+            '/\[data-ui-role="stack"\]\[data-ui-direction="inline"\] > \[data-ui-part="stack-layout"\] \{[^}]*flex-direction: row;[^}]*flex-wrap: wrap;/',
+            $outsideContainerQueries,
+        );
+        self::assertMatchesRegularExpression(
+            '/\[data-ui-role="stack"\]\[data-ui-direction="inline"\] > \[data-ui-part="stack-layout"\] > \* \{[^}]*flex: 0 1 auto;/',
+            $outsideContainerQueries,
+        );
+    }
+
+    #[Test]
+    public function horizontalDirectionStillWaitsForTheBreakpoint(): void
+    {
+        $css = self::stackCss();
+
+        self::assertMatchesRegularExpression(
+            '/@container blocks-stack \(min-width: 48rem\) \{\s*\[data-ui-role="stack"\]\[data-ui-direction="horizontal"\] > \[data-ui-part="stack-layout"\] \{\s*flex-direction: row;\s*flex-wrap: wrap;\s*align-items: flex-start;\s*\}\s*\}/',
+            $css,
+        );
+    }
 }

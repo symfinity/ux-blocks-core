@@ -145,6 +145,14 @@
   }
 }
 
+@mixin each-badge-outline() {
+  @each $colour in $ui-semantic-colours {
+    &[data-ui-variant='#{$colour}'][data-ui-appearance='outline'] {
+      @include appearance-outline($colour);
+    }
+  }
+}
+
 @mixin each-badge-size() {
   &[data-ui-size='sm'] {
     padding: 0.0625rem var(--ui-space-xs);

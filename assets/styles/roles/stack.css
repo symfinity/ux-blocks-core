@@ -28,6 +28,14 @@
   min-width: 0;
   box-sizing: border-box;
 }
+[data-ui-role="stack"][data-ui-direction="inline"] > [data-ui-part="stack-layout"] {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+[data-ui-role="stack"][data-ui-direction="inline"] > [data-ui-part="stack-layout"] > * {
+  flex: 0 1 auto;
+}
 @supports not (container-type: style) {
   [data-ui-role="stack"] {
     --ui-density: comfortable;

@@ -1,43 +1,58 @@
 # Pagination
 
-Paged navigation control.
+A navigation row for moving between pages of a list.
 
 ## When to use
 
-Paged navigation control. Use **Pagination** when this pattern fits the screen — variant previews are below.
+Use **Pagination** when a list is split into pages and the visitor needs previous, next, and numbered links. The component is a `<nav>` with one content block. You supply the links.
 
 ## Guidelines
 
 **Do**
 
-- Mark the current page in breadcrumbs and pagination.
-- Keep link text descriptive out of context.
+- Mark the current page with `aria-current="page"`.
+- Keep the control to a short set of links.
 
 **Don't**
 
-- Duplicate primary nav in breadcrumbs and navbar.
-- Use `#` hrefs for real destinations.
+- Put the page links in the navbar as well.
+- Use `#` as the address of a real page.
 
 ## Usage
 
+Pagination has no public props. Everything inside it is the content block.
+
 ```twig
-<twig:Pagination :page="1" :total="10" />
+<twig:Pagination>
+    <twig:Button variant="primary" appearance="outline" size="sm">Previous</twig:Button>
+    <twig:Button variant="primary" size="sm">2</twig:Button>
+    <twig:Button variant="primary" appearance="outline" size="sm">Next</twig:Button>
+</twig:Pagination>
 ```
 
+The same slot can hold links instead of buttons:
 
-Comparable patterns: [Bootstrap pagination](https://getbootstrap.com/docs/5.3/components/pagination/).
+```twig
+<twig:Pagination>
+    {% block content %}
+        <twig:Link href="/page/1">1</twig:Link>
+        <twig:Link href="/page/2">2</twig:Link>
+    {% endblock %}
+</twig:Pagination>
+```
 
 ## API Reference
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| — | — | — | See Twig component class and package registry. |
+| content | block | — | Previous, current, and next controls. Rendered inside the `<nav>`. |
 
 ## Accessibility
 
-- Current page should be indicated with `aria-current`.
-- Pagination controls need discernible names.
+- The root is a `<nav>`. Give it an accessible name when the page has more than one navigation landmark.
+- The current page needs `aria-current="page"`.
 
 ## Related
 
 - [Button](button.md)
+- [Link](link.md)

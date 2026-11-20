@@ -22,7 +22,11 @@ Surface metadata (`New`, `Beta`, `3 unread`) beside headings or in tables. Not f
 
 ```twig
 <twig:Badge variant="success">Active</twig:Badge>
+<twig:Badge variant="outline">New</twig:Badge>
+<twig:Badge variant="success" appearance="outline">Active</twig:Badge>
 ```
+
+`appearance` is `solid` (the default) or `outline`. `variant="outline"` is shorthand for `variant="primary"` and `appearance="outline"`.
 
 Similar to [Bootstrap badges](https://getbootstrap.com/docs/5.3/components/badge/) and [shadcn Badge](https://ui.shadcn.com/docs/components/badge).
 
@@ -30,7 +34,8 @@ Similar to [Bootstrap badges](https://getbootstrap.com/docs/5.3/components/badge
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `variant` | `string` | `primary` | Semantic colour palette |
+| `variant` | `string` | `primary` | Semantic colour palette. `outline` sets primary plus outline appearance |
+| `appearance` | `string` | `solid` | `solid` or `outline` |
 | `size` | `string` | `md` | `sm`, `md`, `lg` |
 | `icon` | `string?` | — | Icon before label text |
 

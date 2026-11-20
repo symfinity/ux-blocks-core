@@ -14,10 +14,17 @@ final class UxRoleRegistryMultiCatalogTest extends TestCase
     public function itFindsComponentsAcrossEveryTierCatalogue(): void
     {
         $packages = \dirname(__DIR__, 4);
-        $registry = new UxRoleRegistry(array_map(
+        $paths = array_map(
             static fn (string $slug): string => $packages . '/' . $slug . '/config/ux_roles.yaml',
             ['ux-blocks-core', 'ux-blocks-form', 'ux-blocks-extended', 'ux-blocks-interactive', 'ux-blocks-live'],
-        ));
+        );
+        foreach ($paths as $path) {
+            if (!is_file($path)) {
+                self::markTestSkipped('Sibling tier catalogues exist only in the monorepo checkout.');
+            }
+        }
+
+        $registry = new UxRoleRegistry($paths);
 
         self::assertSame('blocks.ext.card', $registry->findByTwigComponent('Card')?->fragmentId);
         self::assertStringStartsWith('blocks.live.', (string) $registry->findByTwigComponent('ComboboxLive')?->fragmentId);
@@ -28,11 +35,32 @@ final class UxRoleRegistryMultiCatalogTest extends TestCase
     #[Test]
     public function itRejectsATwigComponentDeclaredInTwoCatalogues(): void
     {
-        $dir = \dirname(__DIR__, 2) . '/fixtures/ux_roles_duplicate';
+        $dir = sys_get_temp_dir() . '/ux-roles-duplicate-' . bin2hex(random_bytes(4));
+        mkdir($dir);
+        file_put_contents($dir . '/a.yaml', <<<'YAML'
+ux_role_registry: "1.4"
+registry_prefix: blocks.core
+roles:
+  - role: widget
+    twig_component: Widget
+YAML);
+        file_put_contents($dir . '/b.yaml', <<<'YAML'
+ux_role_registry: "1.4"
+registry_prefix: blocks.ext
+roles:
+  - role: widget
+    twig_component: Widget
+YAML);
 
-        $this->expectException(\LogicException::class);
-        $this->expectExceptionMessageMatches('/Widget.*a\.yaml.*b\.yaml/s');
+        try {
+            $this->expectException(\LogicException::class);
+            $this->expectExceptionMessageMatches('/Widget.*a\.yaml.*b\.yaml/s');
 
-        new UxRoleRegistry([$dir . '/a.yaml', $dir . '/b.yaml']);
+            new UxRoleRegistry([$dir . '/a.yaml', $dir . '/b.yaml']);
+        } finally {
+            unlink($dir . '/a.yaml');
+            unlink($dir . '/b.yaml');
+            rmdir($dir);
+        }
     }
 }

@@ -15,25 +15,46 @@ final class CollectTierRoleCatalogsPassTest extends TestCase
     #[Test]
     public function itPassesEveryInstalledTierCatalogueCoreFirst(): void
     {
-        $packages = \dirname(__DIR__, 4);
+        $root = sys_get_temp_dir() . '/ux-blocks-tiers-' . bin2hex(random_bytes(4));
+        $core = $root . '/ux-blocks-core';
+        $extended = $root . '/ux-blocks-extended';
+        $form = $root . '/ux-blocks-form';
+        $kiosk = $root . '/ux-blocks-kiosk';
+        foreach ([$core, $extended, $form, $kiosk] as $packageDir) {
+            mkdir($packageDir . '/config', 0777, true);
+        }
+        $catalogue = "ux_role_registry: \"1.4\"\nregistry_prefix: blocks\nroles: []\n";
+        file_put_contents($core . '/config/ux_roles.yaml', $catalogue);
+        file_put_contents($extended . '/config/ux_roles.yaml', $catalogue);
 
-        $container = new ContainerBuilder();
-        $container->setParameter('ux_blocks_extended.package_dir', $packages . '/ux-blocks-extended');
-        $container->setParameter('foo.package_dir', $packages . '/ux-blocks-form');
-        $container->setParameter('ux_blocks_core.package_dir', $packages . '/ux-blocks-core');
-        $container->setParameter('ux_blocks_kiosk.package_dir', $packages . '/ux-blocks-kiosk');
-        $container->register(UxRoleRegistry::class, UxRoleRegistry::class)
-            ->setArgument('$yamlPaths', ['%ux_blocks_core.package_dir%/config/ux_roles.yaml']);
+        try {
+            $container = new ContainerBuilder();
+            $container->setParameter('ux_blocks_extended.package_dir', $extended);
+            $container->setParameter('foo.package_dir', $form);
+            $container->setParameter('ux_blocks_core.package_dir', $core);
+            $container->setParameter('ux_blocks_kiosk.package_dir', $kiosk);
+            $container->register(UxRoleRegistry::class, UxRoleRegistry::class)
+                ->setArgument('$yamlPaths', ['%ux_blocks_core.package_dir%/config/ux_roles.yaml']);
 
-        (new CollectTierRoleCatalogsPass())->process($container);
+            (new CollectTierRoleCatalogsPass())->process($container);
 
-        self::assertSame(
-            [
-                $packages . '/ux-blocks-core/config/ux_roles.yaml',
-                $packages . '/ux-blocks-extended/config/ux_roles.yaml',
-            ],
-            $container->getDefinition(UxRoleRegistry::class)->getArgument('$yamlPaths'),
-        );
+            self::assertSame(
+                [
+                    $core . '/config/ux_roles.yaml',
+                    $extended . '/config/ux_roles.yaml',
+                ],
+                $container->getDefinition(UxRoleRegistry::class)->getArgument('$yamlPaths'),
+            );
+        } finally {
+            foreach ([$core, $extended] as $packageDir) {
+                unlink($packageDir . '/config/ux_roles.yaml');
+            }
+            foreach ([$core, $extended, $form, $kiosk] as $packageDir) {
+                rmdir($packageDir . '/config');
+                rmdir($packageDir);
+            }
+            rmdir($root);
+        }
     }
 
     #[Test]

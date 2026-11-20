@@ -11,6 +11,7 @@ use Psr\Log\AbstractLogger;
 use Symfinity\UxBlocksCore\Twig\Components\Badge;
 use Symfinity\UxBlocksCore\Twig\Components\Button;
 use Symfinity\UxBlocksCore\Twig\UnknownColourVariantListener;
+use Symfony\UX\TwigComponent\ComponentMetadata;
 use Symfony\UX\TwigComponent\Event\PreMountEvent;
 
 final class UnknownColourVariantListenerTest extends TestCase
@@ -19,7 +20,7 @@ final class UnknownColourVariantListenerTest extends TestCase
     public function unknownVariantLogsOneWarning(): void
     {
         $logger = $this->logger();
-        (new UnknownColourVariantListener($logger))->onPreMount(new PreMountEvent(new Badge(), ['variant' => 'nope']));
+        (new UnknownColourVariantListener($logger))->onPreMount($this->preMount(new Badge(), ['variant' => 'nope']));
 
         self::assertCount(1, $logger->records);
         [$level, $message] = $logger->records[0];
@@ -34,7 +35,7 @@ final class UnknownColourVariantListenerTest extends TestCase
     public function knownValuesAndAliasesLogNothing(string $value): void
     {
         $logger = $this->logger();
-        (new UnknownColourVariantListener($logger))->onPreMount(new PreMountEvent(new Button(), ['variant' => $value]));
+        (new UnknownColourVariantListener($logger))->onPreMount($this->preMount(new Button(), ['variant' => $value]));
 
         self::assertSame([], $logger->records);
     }
@@ -55,7 +56,7 @@ final class UnknownColourVariantListenerTest extends TestCase
     public function componentsWithoutColourVariantsAreIgnored(): void
     {
         $logger = $this->logger();
-        (new UnknownColourVariantListener($logger))->onPreMount(new PreMountEvent(new \stdClass(), ['variant' => 'nope']));
+        (new UnknownColourVariantListener($logger))->onPreMount($this->preMount(new \stdClass(), ['variant' => 'nope']));
 
         self::assertSame([], $logger->records);
     }
@@ -63,9 +64,20 @@ final class UnknownColourVariantListenerTest extends TestCase
     #[Test]
     public function noLoggerMeansNoError(): void
     {
-        (new UnknownColourVariantListener(null))->onPreMount(new PreMountEvent(new Badge(), ['variant' => 'nope']));
+        (new UnknownColourVariantListener(null))->onPreMount($this->preMount(new Badge(), ['variant' => 'nope']));
 
         $this->addToAssertionCount(1);
+    }
+
+    /**
+     * @param array<string, mixed> $data
+     */
+    private function preMount(object $component, array $data): PreMountEvent
+    {
+        return new PreMountEvent($component, $data, new ComponentMetadata([
+            'key' => $component::class,
+            'template' => 'components/component.html.twig',
+        ]));
     }
 
     /**

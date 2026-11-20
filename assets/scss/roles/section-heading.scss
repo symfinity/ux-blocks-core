@@ -4,13 +4,13 @@
 [data-ui-rhythm='baseline'] {
   --ui-baseline: calc(1rlh / 3);
 
-  [data-ui-role='section-heading']:has([data-ui-part='title'] h1) {
+  [data-ui-role='section-heading']:has(h1[data-ui-part='title']) {
     [data-ui-part='title'] {
       line-height: baseline.baseline-line-height(
         clamp(
-          var(--ui-font-size-2xl),
+          var(--ui-font-size-2xl, 1.5rem),
           2.5vw + 1.25rem,
-          var(--ui-font-size-4xl)
+          var(--ui-font-size-4xl, 2.25rem)
         ),
         var(--ui-line-height-tight, 1.25)
       );
@@ -31,6 +31,7 @@
 
   [data-ui-part='row'] {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
     gap: var(--ui-space-md);
@@ -55,7 +56,7 @@
   }
 
   [data-ui-part='title-stack'] {
-    flex: 1 1 auto;
+    flex: 1 1 16rem;
     min-width: 0;
     max-inline-size: var(--ui-measure-heading, 65ch);
   }
@@ -85,9 +86,14 @@
 
   [data-ui-part='actions'] {
     display: flex;
+    flex-wrap: wrap;
     flex-shrink: 0;
     align-items: center;
     gap: var(--ui-space-sm);
+
+    :is(button, [data-ui-role='button']) {
+      flex-shrink: 0;
+    }
   }
 
   [data-ui-part='breadcrumb'] {
@@ -96,7 +102,7 @@
     color: var(--ui-color-fg-muted, var(--ui-color-text-muted));
   }
 
-  &:has([data-ui-part='title'] h1) {
+  &:has(h1[data-ui-part='title']) {
     margin-block-end: var(--ui-space-lg);
 
     [data-ui-part='icon'] {
@@ -107,9 +113,9 @@
 
     [data-ui-part='title'] {
       font-size: clamp(
-        var(--ui-font-size-2xl),
+        var(--ui-font-size-2xl, 1.5rem),
         2.5vw + 1.25rem,
-        var(--ui-font-size-4xl)
+        var(--ui-font-size-4xl, 2.25rem)
       );
       font-weight: 700;
     }

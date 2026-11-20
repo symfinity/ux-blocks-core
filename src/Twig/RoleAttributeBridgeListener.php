@@ -13,6 +13,9 @@ use Symfony\UX\TwigComponent\Event\PreRenderEvent;
 #[AsEventListener(event: PreRenderEvent::class, method: 'onPreRender')]
 final class RoleAttributeBridgeListener
 {
+    /** @var array<string, string> */
+    private array $componentAliases = [];
+
     public function __construct(
         private readonly UxRoleRegistry $registry,
         private readonly bool $fragmentIdsEnabled,
@@ -20,9 +23,15 @@ final class RoleAttributeBridgeListener
     ) {
     }
 
+    public function aliasComponent(string $component, string $as): void
+    {
+        $this->componentAliases[$component] = $as;
+    }
+
     public function onPreRender(PreRenderEvent $event): void
     {
-        $record = $this->registry->findCoreByTwigComponent($event->getMetadata()->getName());
+        $name = $event->getMetadata()->getName();
+        $record = $this->registry->findCoreByTwigComponent($this->componentAliases[$name] ?? $name);
         if (null === $record) {
             return;
         }

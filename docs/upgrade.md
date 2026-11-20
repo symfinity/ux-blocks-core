@@ -111,6 +111,18 @@ composer update symfinity/ux-blocks-core
 
 After upgrade, clear the Symfony cache. Templates that constructed `UxRoleRegistry` with a single path string must pass a list.
 
+## 0.1.8
+
+This package now requires `symfinity/ux-blocks` `^0.1.7`.
+
+A section heading with actions wraps onto the next line when the page is narrow. Level 1 spacing, icon size, and title size follow the heading the template renders. The larger title size still applies when the theme does not define those font tokens.
+
+```bash
+composer update symfinity/ux-blocks-core symfinity/ux-blocks
+```
+
+After upgrade, hard-refresh the browser in dev if AssetMapper serves cached section-heading CSS.
+
 ## Future releases
 
 See [CHANGELOG](https://github.com/symfinity/ux-blocks-core/blob/main/CHANGELOG.md) for version-to-version notes.

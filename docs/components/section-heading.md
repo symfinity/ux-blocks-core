@@ -25,6 +25,7 @@ Section title within a page. Use **SectionHeading** when this pattern fits the s
 <twig:SectionHeading title="Notifications" />
 ```
 
+Actions in the `actions` block wrap onto the next line when the row is narrow. A level 1 title uses the larger size, including when the theme does not define the larger font tokens.
 
 ## API Reference
 

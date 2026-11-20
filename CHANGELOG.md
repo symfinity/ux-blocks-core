@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.8] - 2026-11-20
+
+### Changed
+
+- Requires `symfinity/ux-blocks` `^0.1.7`
+- The Sass build keeps quoted attribute selectors (`extra.symfinity.sass.quote_attributes`)
+
+### Fixed
+
+- A section heading with actions wraps onto the next line when the page is narrow, so the buttons stay inside the screen
+- Level 1 heading spacing, icon size, and title size follow the heading the template actually renders. The title size still applies when the theme does not define the larger font tokens
+
 ## [0.1.7] - 2026-11-20
 
 ### Added

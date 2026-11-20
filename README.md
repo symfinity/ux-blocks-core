@@ -149,7 +149,7 @@ Mixed-script and CJK headlines may hit engine line caps (Chromium ~6 lines, Fire
 
 - PHP 8.2 or higher
 - Symfony 7.4 or 8.x
-- `symfinity/ui-kernel` ^0.1 and `symfinity/ux-blocks` ^0.1 ([Packagist](https://packagist.org/packages/symfinity/ux-blocks))
+- `symfinity/ux-blocks` ^0.1.7 ([Packagist](https://packagist.org/packages/symfinity/ux-blocks)); `symfinity/ui-kernel` is optional for themed apps
 
 ## Support
 
